@@ -364,6 +364,7 @@ footer {
 /* Responsive design */
 @media (max-width: 768px) {
     body {
+        font-size: 14px;
         padding-bottom: calc(60px + env(safe-area-inset-bottom));
     }
 
