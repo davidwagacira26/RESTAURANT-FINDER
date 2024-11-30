@@ -452,49 +452,101 @@ footer {
     }
 
     .restaurants-hero {
-        padding: 2rem 0;
+        padding: 1.5rem 0;
     }
 
     .restaurants-hero h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
     }
 
     .restaurants-hero p {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .search-bar {
         flex-direction: row;
         max-width: 100%;
-        margin: 1rem auto 0;
+        margin: 0.75rem auto 0;
+    }
+
+    .search-bar input {
+        font-size: 0.8rem;
+        padding: 0.4rem;
+    }
+
+    .search-button {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
     }
 
     .restaurants-header {
         flex-direction: column;
         align-items: flex-start;
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .restaurants-header h2 {
+        font-size: 1rem;
+    }
+
+    .sort-container {
+        font-size: 0.7rem;
+    }
+
+    .sort-container select {
+        font-size: 0.7rem;
+        padding: 0.2rem;
     }
 
     .restaurant-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 8px;
+    }
+
+    .restaurant-card {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
     .restaurant-card img {
-        height: 120px;
+        height: 100px;
     }
 
     .card-content {
-        padding: 0.5rem;
+        padding: 0.4rem;
+    }
+
+    .card-content h3 {
+        font-size: 0.8rem;
+        margin-bottom: 0.1rem;
+    }
+
+    .rating {
+        font-size: 0.7rem;
     }
 
     .card-footer {
-        padding: 0.5rem;
-        font-size: 0.8rem;
+        padding: 0.4rem;
+        font-size: 0.7rem;
+    }
+
+    .location {
+        font-size: 0.6rem;
+    }
+
+    .view-details {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.6rem;
     }
 
     .pagination {
-        margin-bottom: 5rem;
+        margin-bottom: 4rem;
+        font-size: 0.8rem;
+    }
+
+    .pagination-button {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
     }
 
     footer {
@@ -505,6 +557,10 @@ footer {
 @media (max-width: 480px) {
     .restaurant-grid {
         grid-template-columns: 1fr;
+    }
+
+    .restaurant-card img {
+        height: 120px;
     }
 }
 
