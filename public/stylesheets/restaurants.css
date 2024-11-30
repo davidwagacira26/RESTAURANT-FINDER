@@ -418,6 +418,7 @@ footer {
 
     header .container {
         justify-content: center;
+        padding: 0 15px;
     }
 
     .desktop-nav {
@@ -460,16 +461,16 @@ footer {
         margin-bottom: 2px;
     }
 
-    .restaurants-hero {
-        padding: 0.75rem 0;
+    .hero {
+        padding: 2rem 0;
     }
 
-    .restaurants-hero h1 {
-        font-size: 1.25rem;
-        margin-bottom: 0.2rem;
+    .hero h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
     }
 
-    .restaurants-hero p {
+    .hero p {
         font-size: 0.8rem;
         margin-bottom: 0.5rem;
     }
@@ -495,26 +496,16 @@ footer {
     .restaurants-header {
         flex-direction: column;
         align-items: flex-start;
-        margin-bottom: 0.5rem;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
     }
 
     .restaurants-header h2 {
-        font-size: 0.9rem;
-    }
-
-    .sort-container {
-        font-size: 0.7rem;
-    }
-
-    .sort-container select {
-        font-size: 0.7rem;
-        padding: 0.2rem;
-    }
-
-    .restaurant-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+        font-size: 1.2rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
     }
 
     .restaurant-card {
@@ -547,20 +538,9 @@ footer {
         font-size: 0.6rem;
     }
 
-    .view-details {
-        padding: 0.2rem 0.4rem;
-        font-size: 0.6rem;
-    }
+   
 
-    .pagination {
-        margin-bottom: 4rem;
-        font-size: 0.7rem;
-    }
-
-    .pagination-button {
-        font-size: 0.7rem;
-        padding: 0.3rem 0.6rem;
-    }
+    
 
     footer {
         display: none;
@@ -576,13 +556,7 @@ footer {
         height: 110px;
     }
 
-    .restaurants-hero h1 {
-        font-size: 1.1rem;
-    }
-
-    .restaurants-hero p {
-        font-size: 0.75rem;
-    }
+  
 
     .search-bar input,
     .search-button {
@@ -602,5 +576,30 @@ footer {
 
     body {
         padding-bottom: calc(50px + max(10px, env(safe-area-inset-bottom)));
+    }
+}
+
+/* Additional adjustments for very small screens */
+@media (max-width: 320px) {
+    body {
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 0.8rem;
+    }
+
+    .search-bar input,
+    .search-button {
+        font-size: 0.8rem;
+        padding: 0.4rem;
+    }
+
+    .restaurant-card img {
+        height: 120px;
     }
 }
