@@ -207,12 +207,35 @@ footer {
 
 /* Responsive design */
 @media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        padding-bottom: calc(60px + env(safe-area-inset-bottom));
+    }
+
     .desktop-nav {
         display: none;
     }
 
+    .logo {
+        font-size: 1.2rem;
+    }
+
     header .container {
         justify-content: center;
+        padding: 0 15px;
+    }
+
+    .about-hero {
+        padding: 2rem 0;
+    }
+
+    .about-hero h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .about-hero p {
+        font-size: 0.9rem;
     }
 
     .mobile-nav {
@@ -242,7 +265,7 @@ footer {
         font-size: 1.5rem;
         margin-bottom: 5px;
     }
-
+    
     .about-creator .container {
         flex-direction: column;
         text-align: center;
