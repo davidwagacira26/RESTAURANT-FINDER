@@ -424,6 +424,14 @@ footer {
         display: none;
     }
 
+    .hero{
+        height: 40vh;
+    }
+
+    .hero h1 {
+        font-size:2rem;
+    }
+
     .mobile-nav {
         display: flex;
         position: fixed;
