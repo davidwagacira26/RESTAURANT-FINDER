@@ -462,14 +462,21 @@ footer {
     }
 
     .sort-container {
+        display: flex;
+        align-items: center;
         font-size: 0.8rem;
-        width: 100%;
+        width: auto;
+    }
+
+    .sort-container label {
+        margin-right: 0.5rem;
+        white-space: nowrap;
     }
 
     .sort-container select {
         padding: 0.3rem;
         font-size: 0.8rem;
-        width: 100%;
+        width: auto;
     }
 
     .restaurant-grid {
