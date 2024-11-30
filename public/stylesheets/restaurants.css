@@ -421,16 +421,12 @@ footer {
         padding: 0 15px;
     }
 
+    .logo {
+        font-size: 1.2rem;
+    }
+
     .desktop-nav {
         display: none;
-    }
-
-    .hero{
-        height: 40vh;
-    }
-
-    .hero h1 {
-        font-size:2rem;
     }
 
     .mobile-nav {
