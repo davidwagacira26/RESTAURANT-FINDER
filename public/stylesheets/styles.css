@@ -453,10 +453,3 @@ footer {
     }
 }
 
-/* iPhone X and newer specific styles */
-@supports (padding: max(0px)) {
-    .mobile-nav {
-        padding-bottom: max(10px, env(safe-area-inset-bottom));
-    }
-
-}
