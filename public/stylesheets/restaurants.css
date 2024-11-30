@@ -452,42 +452,42 @@ footer {
     }
 
     .restaurants-hero {
-        padding: 1.5rem 0;
+        padding: 1rem 0;
     }
 
     .restaurants-hero h1 {
-        font-size: 1.2rem;
-        margin-bottom: 0.3rem;
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
     }
 
     .restaurants-hero p {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     .search-bar {
         flex-direction: row;
         max-width: 100%;
-        margin: 0.75rem auto 0;
+        margin: 0.5rem auto 0;
     }
 
     .search-bar input {
         font-size: 0.8rem;
-        padding: 0.4rem;
+        padding: 0.3rem;
     }
 
     .search-button {
         font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
+        padding: 0.3rem 0.6rem;
     }
 
     .restaurants-header {
         flex-direction: column;
         align-items: flex-start;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
     }
 
     .restaurants-header h2 {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .sort-container {
@@ -509,25 +509,25 @@ footer {
     }
 
     .restaurant-card img {
-        height: 100px;
+        height: 90px;
     }
 
     .card-content {
-        padding: 0.4rem;
+        padding: 0.3rem;
     }
 
     .card-content h3 {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         margin-bottom: 0.1rem;
     }
 
     .rating {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
 
     .card-footer {
-        padding: 0.4rem;
-        font-size: 0.7rem;
+        padding: 0.3rem;
+        font-size: 0.65rem;
     }
 
     .location {
@@ -541,7 +541,7 @@ footer {
 
     .pagination {
         margin-bottom: 4rem;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     .pagination-button {
@@ -560,7 +560,7 @@ footer {
     }
 
     .restaurant-card img {
-        height: 120px;
+        height: 110px;
     }
 }
 
