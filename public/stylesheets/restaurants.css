@@ -416,6 +416,13 @@ footer {
         padding: 0 10px;
     }
 
+    .container .restaurant-info {
+        font-size: 0.95rem;
+        flex-direction: column;
+        flex-wrap: wrap;
+        
+    }
+
     header .container {
         justify-content: center;
         padding: 0 15px;
