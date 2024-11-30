@@ -331,20 +331,23 @@ h2 {
 .btn-primary {
     background-color: white;
     color: #e44d26;
+    border: 2px solid rgb(246, 13, 13)
 }
 
 .btn-primary:hover {
-    background-color: #f4f4f4;
+    background-color: transparent;
+    color: white;
 }
 
 .btn-secondary {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
+    background-color: red;
+    color: rgb(238, 238, 238);
+    border: 2px solid rgb(244, 5, 5);
 }
 
 .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: transparent;
+    color: red;
 }
 
 /* Footer styles */
