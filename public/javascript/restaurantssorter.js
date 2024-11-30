@@ -35,6 +35,42 @@ const restaurants = [
       rating: 4.8, 
       type: "Restaurant", 
       location: "Mombasa Road"
+    },
+    { 
+      name: "Mercado - Mexican Kitchen and Gin Bar", 
+      rating: 4.4, 
+      type: "Restaurant", 
+      location: "One Africa Place"
+    },
+    { 
+      name: "Pili Restaurant", 
+      rating: 4.8, 
+      type: "Family Restaurant", 
+      location: "GTC Mall"
+    },
+    { 
+      name: "Crave Kenya", 
+      rating: 4.8, 
+      type: "Family Restaurant", 
+      location: "GTC Kilimani"
+    },
+    { 
+      name: "The Spring Noshery", 
+      rating: 4.4, 
+      type: "Restaurant", 
+      location: "Westlands"
+    },
+    { 
+      name: "Yunion - Brunch Cafe & Bar", 
+      rating: 4.0, 
+      type: "Restaurant", 
+      location: "GTC Mall"
+    },
+    { 
+      name: "Kahani Modern Indian Kitchen & Bar", 
+      rating: 3.8, 
+      type: "Restaurant", 
+      location: "Limuru Road"
     }
   ];
   
