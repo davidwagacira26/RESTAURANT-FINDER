@@ -43,6 +43,7 @@ header .container {
 }
 
 .logo {
+    font-family: 'Permanent Marker', cursive;
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
@@ -74,6 +75,11 @@ header .container {
 main {
     padding-top: 60px; /* To account for the fixed header */
     flex: 1 0 auto;
+    transition: padding-top 0.3s ease;
+}
+
+main.hero-hidden {
+    padding-top: 120px; /* Increase padding when hero is hidden */
 }
 
 /* Restaurants hero section styles */
@@ -82,6 +88,10 @@ main {
     color: white;
     padding: 4rem 0;
     text-align: center;
+}
+
+.restaurants-hero.hidden {
+    display: none;
 }
 
 .restaurants-hero h1 {
@@ -168,7 +178,7 @@ main {
 
 .restaurant-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
 }
 
@@ -178,6 +188,9 @@ main {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .restaurant-card:hover {
@@ -193,6 +206,9 @@ main {
 
 .card-content {
     padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-content h3 {
@@ -203,7 +219,7 @@ main {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    margin-top: 0.5rem;
+    margin-top: auto;
 }
 
 .star-icon {
@@ -239,6 +255,43 @@ main {
 .view-details:hover {
     background-color: #003d82;
     transform: scale(1.05);
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pagination-button {
+    background-color: #003B95;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.pagination-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#page-info {
+    font-size: 1rem;
+    color: #333;
 }
 
 /* Footer styles */
@@ -299,13 +352,22 @@ footer {
     color: #ddd;
 }
 
+/* No results message */
+.no-results-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #666;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     body {
         padding-bottom: calc(60px + env(safe-area-inset-bottom));
     }
 
-    header .container{
+    header .container {
         justify-content: center;
     }
 
@@ -366,6 +428,15 @@ footer {
         margin-top: 1rem;
     }
 
+    .pagination {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
     footer {
         display: none;
     }
@@ -390,13 +461,4 @@ footer {
     body {
         padding-bottom: calc(60px + max(10px, env(safe-area-inset-bottom)));
     }
-}
-
-/* No results message */
-.no-results-message {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 2rem;
-    font-size: 1.2rem;
-    color: #666;
 }

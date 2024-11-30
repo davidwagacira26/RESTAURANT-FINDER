@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Browse - Nairobi Dining</title>
-    <link rel="stylesheet" href="/public/stylesheets/browse.css">
+    <title>Search Results - Nairobi Dining</title>
+    <link rel="stylesheet" href="/public/stylesheets/searchresults.css">
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -41,63 +41,14 @@
     </nav>
 
     <main>
-        <section class="browse-hero">
+        <section class="search-results">
             <div class="container">
-                <h1>Browse</h1>
-                <p>Uncover Kenya’s rich culinary treasures, ready for you to explore.</p>
-                <div class="search-bar">
-                    <input type="text" placeholder="Search Nairobi Dining">
-                    <button class="search-button">
-                        <i data-lucide="search"></i>
-                        Search
-                    </button>
+                <div class="restaurants-header">
+                    <h1 id="search-results-title">Search Results</h1>
+                    <p id="search-query"></p>
                 </div>
-            </div>
-        </section>
-
-        <section class="categories">
-            <div class="container">
-                <div class="categories-grid">
-                    <a href="#" class="category-card">
-                        <img src="/assets/images/african.jpeg" alt="Fast Food">
-                        <h3>African</h3>
-                    </a>
-                    <a href="#" class="category-card">
-                        <img src="/assets/images/italian.jpeg" alt="Pizza">
-                        <h3>Italian</h3>
-                    </a>
-                    <a href="#" class="category-card">
-                        <img src="/assets/images/intifood6.jpg" alt="African">
-                        <h3>Japanese</h3>
-                    </a>
-                    <a href="#" class="category-card">
-                        <img src="/assets/images/botanicaburger.jpg" alt="Burgers">
-                        <h3>Burgers</h3>
-                    </a>
-                    <a href="#" class="category-card">
-                        <img src="/assets/images/pizza.jpeg" alt="Soup">
-                        <h3>Pizza</h3>
-                    </a>
-                    <a href="#" class="category-card">
-                        <img src="https://picsum.photos/seed/wings/600/400" alt="Wings">
-                        <h3>Wings</h3>
-                    </a>
-                    <a href="#" class="category-card">
-                        <img src="https://picsum.photos/seed/italian/600/400" alt="Italian">
-                        <h3>Italian</h3>
-                    </a>
-                    <a href="#" class="category-card">
-                        <img src="https://picsum.photos/seed/halal/600/400" alt="Halal">
-                        <h3>Halal</h3>
-                    </a>
-                    <a href="#" class="category-card">
-                        <img src="https://picsum.photos/seed/chinese/600/400" alt="Chinese">
-                        <h3>Chinese</h3>
-                    </a>
-                    <a href="#" class="category-card">
-                        <img src="https://picsum.photos/seed/indian/600/400" alt="Indian">
-                        <h3>Indian</h3>
-                    </a>
+                <div class="restaurant-grid" id="restaurant-grid">
+                    <!-- Restaurant cards will be dynamically inserted here -->
                 </div>
             </div>
         </section>
@@ -134,6 +85,7 @@
         </div>
     </footer>
 
+    <script src="/public/javascript/search-results.js"></script>
     <script>
         lucide.createIcons();
     </script>

@@ -1,8 +1,12 @@
-  /* Base styles */
-  * {
+/* Base styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
 }
 
 body {
@@ -12,7 +16,6 @@ body {
     background-color: #f9f9f9;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 .container {
@@ -69,87 +72,79 @@ header .container {
 
 /* Main content styles */
 main {
-    padding-top: 60px;
+    padding-top: 60px; /* To account for the fixed header */
     flex: 1 0 auto;
 }
 
-/* Browse hero section styles */
-.browse-hero {
+.about-hero {
     background-color: #003B95;
     color: white;
-    padding: 2rem 0;
+    padding: 4rem 0;
     text-align: center;
 }
 
-.browse-hero h1 {
+.about-hero h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
-/* Search bar styles */
-.search-bar {
-    display: flex;
-    max-width: 600px;
-    margin: 1rem auto;
+.about-hero p {
+    font-size: 1.2rem;
 }
 
-.search-bar input {
-    flex-grow: 1;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 4px 0 0 4px;
+.about-content {
+    padding: 4rem 0;
 }
 
-.search-button {
-    background-color: #0056b3;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 0 4px 4px 0;
+.about-description, .about-features {
+    margin-bottom: 2rem;
+}
+
+.about-description h2, .about-features h2 {
+    color: #003B95;
+    margin-bottom: 1rem;
+}
+
+.about-features ul {
+    list-style-type: none;
+}
+
+.about-features li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.about-features li::before {
+    content: '•';
+    color: #003B95;
+    position: absolute;
+    left: 0;
+}
+
+.about-creator {
+    background-color: #f0f0f0;
+    padding: 4rem 0;
+}
+
+.about-creator .container {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 2rem;
 }
 
-.search-button:hover {
-    background-color: #003d82;
-}
-
-/* Categories grid styles */
-.categories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    padding: 2rem 0;
-}
-
-.category-card {
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-}
-
-.category-card:hover {
-    transform: translateY(-5px);
-}
-
-.category-card img {
-    width: 100%;
-    height: 120px;
+.creator-image img {
+    width: 250px;
+    height: 250px;
     object-fit: cover;
+    object-position: center 20%;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.category-card h3 {
-    padding: 0.5rem;
-    text-align: center;
-    font-size: 1rem;
+.creator-bio h2 {
+    color: #003B95;
+    margin-bottom: 1rem;
 }
 
 /* Footer styles */
@@ -157,7 +152,7 @@ footer {
     background-color: #1a1a1a;
     color: white;
     padding: 3rem 0;
-    margin-top: auto;
+    flex-shrink: 0;
 }
 
 .footer-content {
@@ -212,16 +207,12 @@ footer {
 
 /* Responsive design */
 @media (max-width: 768px) {
-    body {
-        padding-bottom: calc(60px + env(safe-area-inset-bottom));
-    }
-
-    header .container{
-        justify-content: center;
-    }
-
     .desktop-nav {
         display: none;
+    }
+
+    header .container {
+        justify-content: center;
     }
 
     .mobile-nav {
@@ -252,34 +243,29 @@ footer {
         margin-bottom: 5px;
     }
 
-    .search-bar {
+    .about-creator .container {
         flex-direction: column;
-        max-width: 100%;
+        text-align: center;
     }
 
-    .search-bar input,
-    .search-button {
-        width: 100%;
-        border-radius: 4px;
+    .creator-image img {
+        width: 200px;
+        height: 200px;
     }
 
-    .search-button {
-        margin-top: 1rem;
-    }
-
+    /* Hide footer on mobile devices */
     footer {
         display: none;
     }
-}
 
-/* Desktop styles */
-@media (min-width: 1024px) {
-    .categories-grid {
-        grid-template-columns: repeat(3, 1fr);
+    /* Add padding to the bottom of the main content to prevent overlap with mobile navbar */
+    main {
+        padding-bottom: 70px;
     }
 
-    .category-card img {
-        height: 180px; /* Adjust this value to achieve the desired aspect ratio */
+    /* Ensure the last section has enough padding at the bottom */
+    .about-creator {
+        padding-bottom: 80px;
     }
 }
 
@@ -290,6 +276,16 @@ footer {
     }
 
     body {
-        padding-bottom: calc(60px + max(10px, env(safe-area-inset-bottom)));
+        padding-bottom: max(60px, env(safe-area-inset-bottom));
+    }
+
+    /* Adjust main content padding for devices with safe areas */
+    main {
+        padding-bottom: max(70px, calc(70px + env(safe-area-inset-bottom)));
+    }
+
+    /* Adjust last section padding for devices with safe areas */
+    .about-creator {
+        padding-bottom: max(80px, calc(80px + env(safe-area-inset-bottom)));
     }
 }

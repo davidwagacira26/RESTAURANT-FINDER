@@ -6,9 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const restaurantsHeader = document.querySelector('.restaurants-header h2');
     const sortContainer = document.querySelector('.sort-container');
     const originalHeaderText = restaurantsHeader.textContent;
+    const restaurantsHero = document.getElementById('restaurants-hero');
+    const mainContent = document.querySelector('main');
 
-    function performSearch() {
+    function performSearch(redirect = false) {
         const searchTerm = searchInput.value.toLowerCase().trim();
+        let matchingRestaurants = [];
         let matchCount = 0;
 
         restaurantCards.forEach(card => {
@@ -17,11 +20,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 card.style.display = 'block';
                 card.style.visibility = 'visible';
                 card.style.order = '0';
+                matchingRestaurants.push(card.outerHTML);
                 matchCount++;
             } else {
                 card.style.visibility = 'hidden';
                 card.style.order = '1';
-                // Keep the card in the layout to maintain grid structure
                 card.style.display = 'block';
             }
         });
@@ -33,21 +36,38 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             removeNoResultsMessage();
         }
+
+        hideHeroSection();
+
+        if (redirect && searchTerm) {
+            redirectToSearchResults(searchTerm, matchingRestaurants);
+        }
+    }
+
+    function redirectToSearchResults(searchTerm, matchingRestaurants) {
+        const encodedResults = encodeURIComponent(JSON.stringify(matchingRestaurants));
+        window.location.href = `/public/views/searchresults.html?q=${encodeURIComponent(searchTerm)}&results=${encodedResults}`;
+    }
+
+    function hideHeroSection() {
+        restaurantsHero.style.display = 'none';
+        mainContent.style.paddingTop = '120px';
+    }
+
+    function showHeroSection() {
+        restaurantsHero.style.display = 'block';
+        mainContent.style.paddingTop = '60px';
     }
 
     function updateHeaderText(matchCount, searchTerm) {
         if (searchTerm === '') {
             restaurantsHeader.textContent = originalHeaderText;
             restaurantsHeader.classList.remove('showing-matches');
-            sortContainer.style.display = 'flex'; // Show sort container
+            sortContainer.style.display = 'flex';
         } else {
             restaurantsHeader.classList.add('showing-matches');
-            if (matchCount === 1) {
-                restaurantsHeader.textContent = `Showing match (1)`;
-            } else {
-                restaurantsHeader.textContent = `Showing matches (${matchCount})`;
-            }
-            sortContainer.style.display = 'none'; // Hide sort container
+            restaurantsHeader.textContent = `Showing match${matchCount !== 1 ? 'es' : ''} (${matchCount})`;
+            sortContainer.style.display = 'none';
         }
     }
 
@@ -78,24 +98,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         removeNoResultsMessage();
         updateHeaderText(0, '');
+        showHeroSection();
     }
 
-    searchInput.addEventListener('input', performSearch);
+    function handleSearch() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        if (searchTerm) {
+            const matchingRestaurants = Array.from(restaurantCards)
+                .filter(card => card.style.visibility !== 'hidden')
+                .map(card => card.outerHTML);
+            redirectToSearchResults(searchTerm, matchingRestaurants);
+        }
+    }
 
-    searchButton.addEventListener('click', performSearch);
+    searchButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        handleSearch();
+    });
+
+    searchInput.addEventListener('input', function() {
+        if (this.value === '') {
+            resetSearch();
+        } else {
+            performSearch(false);
+        }
+    });
 
     searchInput.addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
             event.preventDefault();
-            performSearch();
+            handleSearch();
         }
     });
 
-    searchInput.addEventListener('search', function() {
-        if (this.value === '') {
-            resetSearch();
-        }
-    });
-
-    performSearch();
+    resetSearch();
 });
