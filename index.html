@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nairobi Dining - Discover Culinary Gems</title>
+    <title>Nairobi Dining - Explore Nairobi's Finest Restaurants</title>
     <link rel="stylesheet" href="/public/stylesheets/styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <header>
         <div class="container">
-            <a href="/" class="logo">Nairobi Dining</a>
+            <a href="/index.html" class="logo">Nairobi Dining</a>
             <nav class="desktop-nav">
                 <a href="/index.html" class="nav-link">Home</a>
-                <a href="/about.html" class="nav-link">About</a>
-                <a href="/restaurants.html" class="nav-link">Restaurants</a>
-                <a href="/contact.html" class="nav-link">Contact</a>
+                <a href="/public/views/browse.html" class="nav-link">Browse</a>
+                <a href="/public/views/about.html" class="nav-link">About</a>
+                <a href="/public/views/contact.html" class="nav-link">Contact</a>
             </nav>
         </div>
     </header>
@@ -25,28 +25,27 @@
             <i data-lucide="home"></i>
             <span>Home</span>
         </a>
-        <a href="/restaurants.html" class="nav-link">
+        <a href="/public/views/browse.html" class="nav-link">
+            <i data-lucide="utensils"></i>
+            <span>Browse</span>
+        </a>
+        <a href="/public/views/restaurants.html" class="nav-link">
             <i data-lucide="info"></i>
             <span>About</span>
         </a>
-        <a href="/search.html" class="nav-link">
-            <i data-lucide="utensils"></i>
-            <span>Restaurants</span>
-        </a>
-        <a href="/public/" class="nav-link">
-            <i data-lucide="phone"></i>
+        <a href="/public/views/contact.html" class="nav-link">
+            <i data-lucide="mail"></i>
             <span>Contact</span>
         </a>
     </nav>
-
     <main>
-        <section class="hero">
+        <section class="restaurants-hero">
             <div class="container">
-                <h1>Discover Nairobi's Culinary Gems</h1>
-                <p>Explore the best restaurants the city has to offer</p>
+                <h1>Explore Nairobi's Finest Restaurants</h1>
+                <p>Discover a world of culinary delights in the heart of Kenya</p>
                 <div class="search-bar">
-                    <input type="text" placeholder="Search for restaurants or cuisines">
-                    <button class="search-button">
+                    <input type="text" id="search-input" placeholder="Search for restaurants...">
+                    <button id="search-button" class="search-button">
                         <i data-lucide="search"></i>
                         Search
                     </button>
@@ -54,34 +53,22 @@
             </div>
         </section>
 
-        <section class="categories">
+        <section class="restaurants-list">
             <div class="container">
-                <h2>Explore by Category</h2>
-                <div class="category-grid">
-                    <button class="category-button">
-                        <i data-lucide="utensils"></i>
-                        Fine Dining
-                    </button>
-                    <button class="category-button">
-                        <i data-lucide="coffee"></i>
-                        Cafes
-                    </button>
-                    <button class="category-button">
-                        <i data-lucide="pizza"></i>
-                        Fast Food
-                    </button>
-                    <button class="category-button">
-                        <i data-lucide="ice-cream"></i>
-                        Desserts
-                    </button>
+                <div class="restaurants-header">
+                    <h2>All Restaurants</h2>
+                    <div class="sort-container">
+                        <label for="sort-select">Sort by:</label>
+                        <select id="sort-select">
+                            <option value="default">Select</option>
+                            <option value="alphabetical-asc">Alphabetical (A-Z)</option>
+                            <option value="alphabetical-desc">Alphabetical (Z-A)</option>
+                            <option value="rating-asc">Rating (Low to High)</option>
+                            <option value="rating-desc">Rating (High to Low)</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="popular-restaurants">
-            <div class="container">
-                <h2>Popular Restaurants in Nairobi</h2>
-                <div class="restaurant-grid">
+                <div class="restaurant-grid" id="restaurant-grid">
                     <div class="restaurant-card">
                         <img src="/assets/images/Botanica.jpg" alt="Botanica">
                         <div class="card-content">
@@ -205,8 +192,8 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms of Service</a></li>
                     </ul>
@@ -221,11 +208,13 @@
                 </div>
             </div>
             <div class="copyright">
-                © 2023 Nairobi Dining. All rights reserved.
+                © 2024 Nairobi Dining. All rights reserved.
             </div>
         </div>
     </footer>
 
+    <script src="/public/javascript/restaurantssorter.js"></script>
+    <script src="/public/javascript/search.js"></script>
     <script>
         lucide.createIcons();
     </script>

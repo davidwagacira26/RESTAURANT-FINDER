@@ -305,10 +305,6 @@ footer {
         padding-bottom: calc(60px + env(safe-area-inset-bottom));
     }
 
-    header .container{
-        justify-content: center;
-    }
-
     .desktop-nav {
         display: none;
     }

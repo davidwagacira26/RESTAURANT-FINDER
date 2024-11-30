@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Restaurants - Nairobi Dining</title>
+    <link rel="stylesheet" href="/public/stylesheets/allrestaurants.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="/index.html" class="logo">Nairobi Dining</a>
+            <nav class="desktop-nav">
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="/public/views/about.html" class="nav-link">About</a>
+                <a href="/public/views/restaurants.html" class="nav-link">Restaurants</a>
+                <a href="/public/views/contact.html" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="mobile-nav">
+        <a href="/index.html" class="nav-link">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </a>
+        <a href="/public/views/about.html" class="nav-link">
+            <i data-lucide="info"></i>
+            <span>About</span>
+        </a>
+        <a href="/public/views/restaurants.html" class="nav-link">
+            <i data-lucide="utensils"></i>
+            <span>Restaurants</span>
+        </a>
+        <a href="/public/views/contact.html" class="nav-link">
+            <i data-lucide="phone"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+    <main>
+        <section class="restaurants-hero">
+            <div class="container">
+                <h1>Explore Nairobi's Finest Restaurants</h1>
+                <p>Discover a world of culinary delights in the heart of Kenya</p>
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search for restaurants...">
+                    <button id="search-button" class="search-button">
+                        <i data-lucide="search"></i>
+                        Search
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="restaurants-list">
+            <div class="container">
+                <div class="restaurants-header">
+                    <h2>All Restaurants</h2>
+                    <div class="sort-container">
+                        <label for="sort-select">Sort by:</label>
+                        <select id="sort-select">
+                            <option value="default">Select</option>
+                            <option value="alphabetical-asc">Alphabetical (A-Z)</option>
+                            <option value="alphabetical-desc">Alphabetical (Z-A)</option>
+                            <option value="rating-asc">Rating (Low to High)</option>
+                            <option value="rating-desc">Rating (High to Low)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="restaurant-grid" id="restaurant-grid">
+                    <div class="restaurant-card">
+                        <img src="/assets/images/Botanica.jpg" alt="Botanica">
+                        <div class="card-content">
+                            <h3>Botanica - Kitchen and Gin Bar</h3>
+                            <p>Restaurant</p>
+                            <div class="rating">
+                                <i data-lucide="star" class="star-icon"></i>
+                                <span>4.4</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="location">
+                                <i data-lucide="map-pin"></i>
+                                One Africa Place
+                            </div>
+                            <a href="/public/views/botanica.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="/assets/images/bambino.jpg" alt="Bambino">
+                        <div class="card-content">
+                            <h3>Bambino - Kitchen and Bar</h3>
+                            <p>Italian</p>
+                            <div class="rating">
+                                <i data-lucide="star" class="star-icon"></i>
+                                <span>4.2</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="location">
+                                <i data-lucide="map-pin"></i>
+                                Westlands
+                            </div>
+                            <a href="/public/views/bambino.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="/assets/images/INTI3.jpg" alt="INTI">
+                        <div class="card-content">
+                            <h3>INTI - A Nikkei Experience</h3>
+                            <p>Japanese</p>
+                            <div class="rating">
+                                <i data-lucide="star" class="star-icon"></i>
+                                <span>4.5</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="location">
+                                <i data-lucide="map-pin"></i>
+                                One Africa Place
+                            </div>
+                            <a href="/public/views/inti.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="/assets/images/canopy.jpg" alt="Canopy Cafe">
+                        <div class="card-content">
+                            <h3>Canopy Cafe</h3>
+                            <p>Restaurant</p>
+                            <div class="rating">
+                                <i data-lucide="star" class="star-icon"></i>
+                                <span>4.1</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="location">
+                                <i data-lucide="map-pin"></i>
+                                Kilimani
+                            </div>
+                            <a href="/public/views/canopy.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="/assets/images/cafecassia.jpg" alt="Cafe Cassia">
+                        <div class="card-content">
+                            <h3>Cafe Cassia</h3>
+                            <p>Restaurant</p>
+                            <div class="rating">
+                                <i data-lucide="star" class="star-icon"></i>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="location">
+                                <i data-lucide="map-pin"></i>
+                                Karen
+                            </div>
+                            <a href="/public/views/cafecassia.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="/assets/images/artisanblend.jpg" alt="Artisan Blend Cafe">
+                        <div class="card-content">
+                            <h3>Artisan Blend Cafe</h3>
+                            <p>Restaurant</p>
+                            <div class="rating">
+                                <i data-lucide="star" class="star-icon"></i>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="location">
+                                <i data-lucide="map-pin"></i>
+                                Mombasa Road
+                            </div>
+                            <a href="/public/views/artisanblend.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Nairobi Dining</h3>
+                    <p>Discover the best dining experiences in Nairobi.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2024 Nairobi Dining. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="/public/javascript/restaurantssorter.js"></script>
+    <script src="/public/javascript/search.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
