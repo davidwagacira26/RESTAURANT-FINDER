@@ -458,7 +458,4 @@ footer {
         padding-bottom: max(10px, env(safe-area-inset-bottom));
     }
 
-    body {
-        padding-bottom: calc(60px + max(10px, env(safe-area-inset-bottom)));
-    }
 }
