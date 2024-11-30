@@ -447,24 +447,29 @@ footer {
     }
 
     .restaurants-header {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-start;
         gap: 0.5rem;
         margin-bottom: 1rem;
     }
 
     .restaurants-header h2 {
         font-size: 1.2rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
     }
 
     .sort-container {
         font-size: 0.8rem;
+        width: 100%;
     }
 
     .sort-container select {
         padding: 0.3rem;
         font-size: 0.8rem;
+        width: 100%;
     }
 
     .restaurant-grid {
