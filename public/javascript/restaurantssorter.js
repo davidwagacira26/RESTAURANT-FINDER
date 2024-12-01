@@ -1,122 +1,44 @@
-// Restaurant data (normally this would be fetched from a server)
-const restaurants = [
-    { 
-      name: "Botanica - Kitchen and Gin Bar", 
-      rating: 4.4, 
-      type: "Restaurant", 
-      location: "One Africa Place"
-    },
-    { 
-      name: "Bambino - Kitchen and Bar", 
-      rating: 4.2, 
-      type: "Italian", 
-      location: "Westlands"
-    },
-    { 
-      name: "INTI - A Nikkei Experience", 
-      rating: 4.5, 
-      type: "Japanese", 
-      location: "One Africa Place"
-    },
-    { 
-      name: "Canopy Cafe", 
-      rating: 4.1, 
-      type: "Restaurant", 
-      location: "Kilimani"
-    },
-    { 
-      name: "Cafe Cassia", 
-      rating: 4.7, 
-      type: "Restaurant", 
-      location: "Karen"
-    },
-    { 
-      name: "Artisan Blend Cafe", 
-      rating: 4.8, 
-      type: "Restaurant", 
-      location: "Mombasa Road"
-    },
-    { 
-      name: "Mercado - Mexican Kitchen and Gin Bar", 
-      rating: 4.4, 
-      type: "Restaurant", 
-      location: "One Africa Place"
-    },
-    { 
-      name: "Pili Restaurant", 
-      rating: 4.8, 
-      type: "Family Restaurant", 
-      location: "GTC Mall"
-    },
-    { 
-      name: "Crave Kenya", 
-      rating: 4.8, 
-      type: "Family Restaurant", 
-      location: "GTC Kilimani"
-    },
-    { 
-      name: "The Spring Noshery", 
-      rating: 4.4, 
-      type: "Restaurant", 
-      location: "Westlands"
-    },
-    { 
-      name: "Yunion - Brunch Cafe & Bar", 
-      rating: 4.0, 
-      type: "Restaurant", 
-      location: "GTC Mall"
-    },
-    { 
-      name: "Kahani Modern Indian Kitchen & Bar", 
-      rating: 3.8, 
-      type: "Restaurant", 
-      location: "Limuru Road"
-    }
-  ];
-  
-  function sortRestaurants(sortBy) {
-    let sortedRestaurants = [...restaurants];
-  
-    switch (sortBy) {
-      case 'alphabetical-asc':
-        sortedRestaurants.sort((a, b) => a.name.localeCompare(b.name));
-        break;
-      case 'alphabetical-desc':
-        sortedRestaurants.sort((a, b) => b.name.localeCompare(a.name));
-        break;
-      case 'rating-asc':
-        sortedRestaurants.sort((a, b) => a.rating - b.rating);
-        break;
-      case 'rating-desc':
-        sortedRestaurants.sort((a, b) => b.rating - a.rating);
-        break;
-      default:
-        // Default sorting (original order)
-        break;
-    }
-  
-    return sortedRestaurants;
-  }
-  
-  function applySort() {
-    const sortedRestaurants = sortRestaurants(sortSelect.value);
-    const restaurantGrid = document.getElementById('restaurant-grid');
-    const restaurantCards = Array.from(restaurantGrid.children);
-  
-    // Sort the actual DOM elements
-    restaurantCards.sort((a, b) => {
-      const indexA = sortedRestaurants.findIndex(r => r.name === a.querySelector('h3').textContent);
-      const indexB = sortedRestaurants.findIndex(r => r.name === b.querySelector('h3').textContent);
-      return indexA - indexB;
-    });
-  
-    // Re-append the sorted elements
-    restaurantCards.forEach(card => restaurantGrid.appendChild(card));
-  }
-  
-  // Event listener for the sort select
+// restaurantsorter.js
+
+document.addEventListener('DOMContentLoaded', () => {
   const sortSelect = document.getElementById('sort-select');
-  sortSelect.addEventListener('change', applySort);
-  
-  // Initial sort (optional, remove if not needed)
-  document.addEventListener('DOMContentLoaded', applySort);
+  const restaurantGrid = document.getElementById('restaurant-grid');
+
+  // Store the original order of restaurants
+  const restaurants = Array.from(restaurantGrid.children);
+
+  sortSelect.addEventListener('change', () => {
+      const sortValue = sortSelect.value;
+      const currentRestaurants = Array.from(restaurantGrid.children);
+
+      currentRestaurants.sort((a, b) => {
+          const aName = a.querySelector('h3').textContent.toLowerCase();
+          const bName = b.querySelector('h3').textContent.toLowerCase();
+          const aRating = parseFloat(a.querySelector('.rating span').textContent);
+          const bRating = parseFloat(b.querySelector('.rating span').textContent);
+
+          switch (sortValue) {
+              case 'alphabetical-asc':
+                  return aName.localeCompare(bName);
+              case 'alphabetical-desc':
+                  return bName.localeCompare(aName);
+              case 'rating-asc':
+                  return aRating - bRating;
+              case 'rating-desc':
+                  return bRating - aRating;
+              default:
+                  // Reset to original order
+                  return restaurants.indexOf(a) - restaurants.indexOf(b);
+          }
+      });
+
+      // Clear the grid and append sorted restaurants
+      restaurantGrid.innerHTML = '';
+      currentRestaurants.forEach(restaurant => restaurantGrid.appendChild(restaurant));
+
+      // Update pagination after sorting
+      if (window.updatePaginationAfterFilter) {
+          window.updatePaginationAfterFilter();
+      }
+  });
+});
