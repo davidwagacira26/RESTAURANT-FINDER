@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const params = new URLSearchParams(window.location.search);
         return {
             q: params.get('q'),
-            results: JSON.parse(decodeURIComponent(params.get('results') || '[]'))
+            results: JSON.parse(localStorage.getItem('searchResults') || '[]')
         };
     }
 

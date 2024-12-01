@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 card.style.visibility = 'hidden';
                 card.style.order = '1';
-                card.style.display = 'block';
+                card.style.display = 'none';
             }
         });
 
@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function redirectToSearchResults(searchTerm, matchingRestaurants) {
-        const encodedResults = encodeURIComponent(JSON.stringify(matchingRestaurants));
-        window.location.href = `/public/views/searchresults.html?q=${encodeURIComponent(searchTerm)}&results=${encodedResults}`;
+        localStorage.setItem('searchResults', JSON.stringify(matchingRestaurants));
+        window.location.href = `/public/views/searchresults.html?q=${encodeURIComponent(searchTerm)}`;
     }
 
     function hideHeroSection() {
