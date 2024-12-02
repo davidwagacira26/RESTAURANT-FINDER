@@ -2,6 +2,8 @@
 import { restaurants } from './restaurantdata.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded and parsed');
+
     const restaurantGrid = document.getElementById('restaurant-grid');
     const sortSelect = document.getElementById('sort-select');
     const searchInput = document.getElementById('search-input');
@@ -12,10 +14,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const restaurantsSection = document.querySelector('.restaurants-list');
     const restaurantsHeader = document.querySelector('.restaurants-header h2');
     const sortContainer = document.querySelector('.sort-container');
-    const originalHeaderText = restaurantsHeader.textContent;
     const restaurantsHero = document.getElementById('restaurants-hero');
     const mainContent = document.querySelector('main');
     const paginationContainer = document.querySelector('.pagination');
+
+    // Debug logging
+    console.log('restaurantGrid:', restaurantGrid);
+    console.log('sortSelect:', sortSelect);
+    console.log('searchInput:', searchInput);
+    console.log('searchButton:', searchButton);
+    console.log('prevPageBtn:', prevPageBtn);
+    console.log('nextPageBtn:', nextPageBtn);
+    console.log('pageInfo:', pageInfo);
+    console.log('restaurantsSection:', restaurantsSection);
+    console.log('restaurantsHeader:', restaurantsHeader);
+    console.log('sortContainer:', sortContainer);
+    console.log('restaurantsHero:', restaurantsHero);
+    console.log('mainContent:', mainContent);
+    console.log('paginationContainer:', paginationContainer);
+
+    // Check if all required elements are present
+    if (!restaurantGrid || !sortSelect || !searchInput || !searchButton || !prevPageBtn || !nextPageBtn || !pageInfo || !restaurantsSection || !restaurantsHeader || !sortContainer || !restaurantsHero || !mainContent || !paginationContainer) {
+        console.error('One or more required DOM elements are missing. Please check your HTML structure.');
+        return; // Exit the script if any required element is missing
+    }
+
+    const originalHeaderText = restaurantsHeader.textContent;
 
     // Pagination variables
     let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
@@ -268,6 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Initialize the page
     displayRestaurants(restaurants);
 
     window.updatePaginationAfterFilter = updatePaginationAfterFilter;
