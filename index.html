@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="container">
-            <a href="/index.html" class="logo">Nairobi Dining</a>
+            <a href="/index.html" class="logo">Nairobi Feast</a>
             <nav class="desktop-nav">
                 <a href="/index.html" class="nav-link">Home</a>
                 <a href="/public/views/browse.html" class="nav-link">Browse</a>
@@ -137,26 +137,34 @@
                             </div>
                         </form>
                     </div>
-                    <div id="restaurant-of-day" class="restaurant-of-day-container">
-                        <h2 class="recommendation-title"><strong>Restaurant of the Day</strong></h2>
-                        <div class="restaurant-of-day-card">
-                            <img id="restaurant-of-day-image" src="/placeholder.svg?height=200&width=300" alt="Restaurant of the Day">
-                            <div class="restaurant-of-day-content">
-                                <h3 id="restaurant-of-day-name">Today's Featured Restaurant</h3>
-                                <p id="restaurant-of-day-description">Experience the unique flavors of our daily featured restaurant!</p>
-                                <a id="restaurant-of-day-link" href="#" class="view-restaurant-button">View Restaurant</a>
+                    <div id="randomizer" class="randomizer-container">
+                        <h2 class="recommendation-title"><strong>Restaurant Randomizer</strong></h2>
+                        <div class="randomizer-card">
+                            <img id="randomizer-image" src="/placeholder.svg?height=200&width=300" alt="Restaurant of the Day">
+                            <div class="randomizer-content">
+                                <h3 id="randomizer-name">Today's Featured Restaurant</h3>
+                                <p id="randomizer-description">Experience the unique flavors of our daily featured restaurant!</p>
+                                <div class="button-group">
+                                    <a id="randomizer-link" href="#" class="view-restaurant-button">
+                                        <i data-lucide="eye"></i>
+                                        View Restaurant
+                                    </a>
+                                    <button id="randomize-button" class="randomize-button">
+                                        <i data-lucide="dice-3"></i>
+                                        Randomize
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     </main>
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Nairobi Dining</h3>
+                    <h3>Nairobi Feast</h3>
                     <p>Discover the best dining experiences in Nairobi.</p>
                 </div>
                 <div class="footer-section">
@@ -178,7 +186,7 @@
                 </div>
             </div>
             <div class="copyright">
-                © 2024 Nairobi Dining. All rights reserved.
+                © 2024 Nairobi Feast. All rights reserved.
             </div>
         </div>
     </footer>
@@ -186,9 +194,6 @@
     <script type="module" src="/public/javascript/restaurants.js"></script>
     <script src="/public/javascript/recommendations.js"></script>
     <script src="/public/javascript/restaurantoftheday.js"></script>
-    
-    <script>
-        lucide.createIcons();
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
 </body>
 </html>

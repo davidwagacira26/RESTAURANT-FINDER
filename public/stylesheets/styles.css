@@ -152,6 +152,7 @@ main.hero-hidden {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .restaurant-card:hover {
@@ -208,7 +209,7 @@ main.hero-hidden {
     gap: 2rem;
 }
 
-.recommendation-container, .restaurant-of-day-container {
+.recommendation-container, .randomizer-container {
     background-color: white;
     border-radius: 8px;
     padding: 2rem;
@@ -284,32 +285,42 @@ main.hero-hidden {
     display: none;
 }
 
-.restaurant-of-day-card {
+.randomizer-card {
     margin-top: 1rem;
 }
 
-.restaurant-of-day-card img {
+.randomizer-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 4px;
 }
 
-.restaurant-of-day-content {
+.randomizer-content {
     margin-top: 1rem;
 }
 
-.restaurant-of-day-content h3 {
+.randomizer-content h3 {
     margin-bottom: 0.5rem;
     font-size: 1.25rem;
 }
 
-.restaurant-of-day-content p {
+.randomizer-content p {
     color: #666;
     margin-bottom: 1rem;
 }
 
-.view-restaurant-button {
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.view-restaurant-button,
+.randomize-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     background-color: #003B95;
     color: white;
     border: none;
@@ -321,8 +332,17 @@ main.hero-hidden {
     text-decoration: none;
 }
 
-.view-restaurant-button:hover {
+.view-restaurant-button:hover,
+.randomize-button:hover {
     background-color: #0056b3;
+}
+
+.randomize-button {
+    background-color: #003B95;
+}
+
+.randomize-button:hover {
+    background-color: #003d82;
 }
 
 /* Footer styles */
@@ -392,14 +412,24 @@ footer {
     color: #666;
 }
 /* Responsive design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .recommendation-special-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
 @media (max-width: 768px) {
     body {
-        font-size: 14px;
-        padding-bottom: calc(60px + env(safe-area-inset-bottom));
+        font-size: 16px;
+        padding-bottom: calc(80px + env(safe-area-inset-bottom));
     }
 
     .container {
-        padding: 0 10px;
+        padding: 0 15px;
     }
 
     header .container {
@@ -407,8 +437,9 @@ footer {
         padding: 0 15px;
     }
 
+
     .logo {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     .desktop-nav {
@@ -423,7 +454,7 @@ footer {
         right: 0;
         background-color: #003B95;
         justify-content: space-around;
-        padding: 5px 0;
+        padding: 10px 0;
         box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         z-index: 1000;
     }
@@ -435,96 +466,176 @@ footer {
         padding: 5px;
         color: white;
         text-decoration: none;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 
     .mobile-nav .nav-link i {
-        font-size: 1.2rem;
-        margin-bottom: 2px;
+        font-size: 1.4rem;
+        margin-bottom: 4px;
     }
 
+
     .restaurants-hero {
-        padding: 2rem 0;
+        padding: 3rem 0;
     }
 
     .restaurants-hero h1 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
+        font-size: 2rem;
+        margin-bottom: 1rem;
     }
 
     .restaurants-hero p {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .search-bar {
-        flex-direction: row;
+        flex-direction: column;
         max-width: 100%;
-        margin: 1rem auto 0;
+        margin: 1.5rem auto 0;
     }
 
     .search-bar input {
-        flex-grow: 1;
-        border-radius: 4px 0 0 4px;
-        font-size: 0.9rem;
-        padding: 0.5rem;
+        width: 100%;
+        border-radius: 4px;
+        font-size: 1rem;
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
     }
 
     .search-button {
-        width: auto;
-        border-radius: 0 4px 4px 0;
-        font-size: 0.9rem;
-        padding: 0.5rem 1rem;
+        width: 100%;
+        border-radius: 4px;
+        font-size: 1rem;
+        padding: 0.75rem;
     }
 
     .featured {
-        padding: 2rem 0;
+        padding: 3rem 0;
     }
 
     .restaurant-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 15px;
     }
 
-    .restaurant-card {
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    .restaurant-card img {
+        height: 140px;
+    }
+
+    .card-content {
+        padding: 0.75rem;
+    }
+
+    .card-content h3 {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .rating {
+        font-size: 0.9rem;
+    }
+
+    .view-all-button {
+        width: 100%;
+        max-width: 250px;
+        margin: 2rem auto 0;
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+
+    .recommendation-special {
+        padding: 3rem 0 100px;
+    }
+
+    .recommendation-special-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .recommendation-container, .randomizer-container {
+        padding: 1.5rem;
+    }
+
+    .randomizer-container {
+        margin-bottom: 20px;
+    }
+
+    .recommendation-title {
+        font-size: 1.75rem;
+    }
+
+    .recommendation-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        font-size: 1rem;
+    }
+
+    .form-select {
+        padding: 0.75rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .recommendation-button {
+        padding: 0.875rem;
+        font-size: 1rem;
+    }
+
+    .randomizer-card img {
+        height: 180px;
+    }
+
+    .randomizer-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .randomizer-content p {
+        font-size: 1rem;
+    }
+
+    .button-group {
+        margin-bottom: 20px;
+    }
+
+    .view-restaurant-button,
+    .randomize-button {
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+    }
+
+    footer {
+        display: none;
+        padding: 2rem 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .restaurant-card img {
         height: 120px;
     }
 
-    .card-content {
-        padding: 0.5rem;
-    }
-
-    .card-content h3 {
-        font-size: 0.9rem;
-        margin-bottom: 0.2rem;
-    }
-
-    .rating {
-        font-size: 0.8rem;
-    }
-
-    .view-all-button {
-        width: 100%;
-        max-width: 200px;
-        margin: 1.5rem auto 0;
-        padding: 0.6rem;
-        font-size: 0.9rem;
-    }
-
-    .recommendation-special {
-        padding: 2rem 0;
-    }
-
     .recommendation-special-grid {
-        grid-template-columns: 1fr;
         gap: 1.5rem;
-    }
-
-    .recommendation-container, .restaurant-of-day-container {
-        padding: 1.5rem;
     }
 
     .recommendation-title {
@@ -533,89 +644,35 @@ footer {
 
     .recommendation-subtitle {
         font-size: 0.9rem;
-        margin-bottom: 1.5rem;
     }
 
-    .form-label {
-        font-size: 0.9rem;
-    }
-
-    .form-select {
-        padding: 0.6rem;
-        font-size: 0.9rem;
-        margin-bottom: 0.8rem;
-    }
-
+    .form-select,
     .recommendation-button {
-        padding: 0.75rem;
         font-size: 0.9rem;
-    }
-
-    .restaurant-of-day-card img {
-        height: 150px;
-    }
-
-    .restaurant-of-day-content h3 {
-        font-size: 1.1rem;
-    }
-
-    .restaurant-of-day-content p {
-        font-size: 0.9rem;
-    }
-
-    .view-restaurant-button {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-    }
-
-    footer {
-        display: none;
     }
 }
 
-@media (max-width: 480px) {
-    .restaurant-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .restaurant-card img {
-        height: 150px;
-    }
-}
-
-/* iPhone X and newer specific styles */
-@supports (padding: max(0px)) {
-    .mobile-nav {
-        padding-bottom: max(5px, env(safe-area-inset-bottom));
-    }
-
-    body {
-        padding-bottom: calc(50px + max(10px, env(safe-area-inset-bottom)));
-    }
-}
-
-/* Additional adjustments for very small screens */
 @media (max-width: 320px) {
     body {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .restaurants-hero h1 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 
     .restaurants-hero p {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .search-bar input,
     .search-button {
-        font-size: 0.8rem;
-        padding: 0.4rem;
+        font-size: 0.9rem;
+        padding: 0.6rem;
     }
 
     .restaurant-card img {
-        height: 120px;
+        height: 100px;
     }
 
     .recommendation-title {
@@ -629,5 +686,20 @@ footer {
     .form-select,
     .recommendation-button {
         font-size: 0.8rem;
+    }
+}
+
+/* iPhone X and newer specific styles */
+@supports (padding: max(0px)) {
+    .mobile-nav {
+        padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
+
+    body {
+        padding-bottom: calc(80px + max(10px, env(safe-area-inset-bottom)));
+    }
+
+    .recommendation-special {
+        padding-bottom: calc(100px + env(safe-area-inset-bottom));
     }
 }

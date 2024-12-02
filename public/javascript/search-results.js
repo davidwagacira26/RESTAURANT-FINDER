@@ -14,24 +14,28 @@ document.addEventListener('DOMContentLoaded', function() {
     function createRestaurantCard(restaurant) {
         const card = document.createElement('div');
         card.className = 'restaurant-card';
+        card.style.cursor = 'pointer';
         card.innerHTML = `
             <img src="${restaurant.image}" alt="${restaurant.name}">
             <div class="card-content">
                 <h3>${restaurant.name}</h3>
                 <p>${restaurant.type}</p>
                 <div class="rating">
-                    <i data-lucide="star" class="star-icon"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD700" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     <span>${restaurant.rating}</span>
                 </div>
             </div>
             <div class="card-footer">
                 <div class="location">
-                    <i data-lucide="map-pin"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="map-pin-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     ${restaurant.location}
                 </div>
-                <a href="${restaurant.detailsLink}" class="view-details">View Details</a>
+                <span class="view-details">View Details</span>
             </div>
         `;
+        card.addEventListener('click', () => {
+            window.location.href = restaurant.detailsLink;
+        });
         return card;
     }
 
@@ -49,6 +53,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const card = createRestaurantCard(restaurant);
                 restaurantGrid.appendChild(card);
             });
+            
+            // Initialize Lucide icons if needed
+            if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+                lucide.createIcons();
+            }
         } else {
             showNoResultsMessage();
         }

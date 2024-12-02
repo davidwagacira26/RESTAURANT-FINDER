@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     listRestaurantBtn.addEventListener('click', function(e) {
         e.preventDefault();
         
-        const mailtoLink = `mailto:nairobidining@gmail.com?subject=${encodeURIComponent("Interested in Listing My Restaurant")}&body=${encodeURIComponent("I'm interested in having my restaurant listed on Nairobi Dining. Please provide me with more information.")}`;
+        const mailtoLink = `mailto:nairobidining@gmail.com?subject=${encodeURIComponent("Interested in Listing My Restaurant")}&body=${encodeURIComponent("I'm interested in having my restaurant listed on Nairobi Feast. Please provide me with more information.")}`;
 
         window.location.href = mailtoLink;
     });

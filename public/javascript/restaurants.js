@@ -2,8 +2,6 @@
 import { restaurants } from './restaurantdata.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM fully loaded and parsed');
-
     const restaurantGrid = document.getElementById('restaurant-grid');
     const sortSelect = document.getElementById('sort-select');
     const searchInput = document.getElementById('search-input');
@@ -14,37 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const restaurantsSection = document.querySelector('.restaurants-list');
     const restaurantsHeader = document.querySelector('.restaurants-header h2');
     const sortContainer = document.querySelector('.sort-container');
+    const originalHeaderText = restaurantsHeader ? restaurantsHeader.textContent : '';
     const restaurantsHero = document.getElementById('restaurants-hero');
     const mainContent = document.querySelector('main');
     const paginationContainer = document.querySelector('.pagination');
 
-    // Debug logging
-    console.log('restaurantGrid:', restaurantGrid);
-    console.log('sortSelect:', sortSelect);
-    console.log('searchInput:', searchInput);
-    console.log('searchButton:', searchButton);
-    console.log('prevPageBtn:', prevPageBtn);
-    console.log('nextPageBtn:', nextPageBtn);
-    console.log('pageInfo:', pageInfo);
-    console.log('restaurantsSection:', restaurantsSection);
-    console.log('restaurantsHeader:', restaurantsHeader);
-    console.log('sortContainer:', sortContainer);
-    console.log('restaurantsHero:', restaurantsHero);
-    console.log('mainContent:', mainContent);
-    console.log('paginationContainer:', paginationContainer);
-
-    // Check if all required elements are present
-    if (!restaurantGrid || !sortSelect || !searchInput || !searchButton || !prevPageBtn || !nextPageBtn || !pageInfo || !restaurantsSection || !restaurantsHeader || !sortContainer || !restaurantsHero || !mainContent || !paginationContainer) {
-        console.error('One or more required DOM elements are missing. Please check your HTML structure.');
-        return; // Exit the script if any required element is missing
-    }
-
-    const originalHeaderText = restaurantsHeader.textContent;
+    const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
 
     // Pagination variables
-    let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
+    let currentPage = 1;
     const itemsPerPage = 9;
     let totalPages = 1;
+
+    // Store the current sort criteria
+    let currentSortCriteria = 'default';
 
     function createRestaurantCard(restaurant) {
         const card = document.createElement('div');
@@ -56,25 +37,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3>${restaurant.name}</h3>
                 <p>${restaurant.type}</p>
                 <div class="rating">
-                    <i data-lucide="star" class="star-icon"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     <span>${restaurant.rating}</span>
                 </div>
             </div>
             <div class="card-footer">
                 <div class="location">
-                    <i data-lucide="map-pin"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="map-pin-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     ${restaurant.location}
                 </div>
-                <a href="${restaurant.detailsLink}" class="view-details" onclick="event.stopPropagation()">View Details</a>
+                <span class="view-details">View Details</span>
             </div>
         `;
         card.addEventListener('click', () => {
+            sessionStorage.setItem('lastSortCriteria', currentSortCriteria);
+            sessionStorage.setItem('lastPage', currentPage);
             window.location.href = restaurant.detailsLink;
         });
         return card;
     }
 
     function displayRestaurants(restaurantsToDisplay) {
+        if (!restaurantGrid) return;
         restaurantGrid.innerHTML = '';
         restaurantsToDisplay.forEach(restaurant => {
             const card = createRestaurantCard(restaurant);
@@ -82,10 +66,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         updatePagination();
-        lucide.createIcons();
+
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+            lucide.createIcons();
+        }
     }
 
     function updatePagination() {
+        if (!restaurantGrid || !prevPageBtn || !nextPageBtn || !pageInfo) return;
         let restaurantCards = Array.from(restaurantGrid.children);
         restaurantCards = restaurantCards.filter(card => !card.classList.contains('hidden'));
         
@@ -107,18 +96,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.style.display = 'none';
             }
         });
-
-        localStorage.setItem('currentPage', currentPage.toString());
-        console.log(`Displaying restaurants ${startIndex + 1} to ${Math.min(endIndex, restaurantCards.length)} of ${restaurantCards.length}`);
     }
 
     function scrollToRestaurants() {
-        const restaurantsTop = restaurantsSection.getBoundingClientRect().top + window.pageYOffset;
-        window.scrollTo(0, restaurantsTop);
+        if (restaurantsSection) {
+            const restaurantsTop = restaurantsSection.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo(0, restaurantsTop);
+        }
     }
 
-    function sortRestaurants(criteria) {
-        let sortedRestaurants = [...restaurants];
+    function sortRestaurants(criteria, restaurantsArray = restaurants) {
+        let sortedRestaurants = [...restaurantsArray];
         switch (criteria) {
             case 'alphabetical-asc':
                 sortedRestaurants.sort((a, b) => a.name.localeCompare(b.name));
@@ -132,73 +120,75 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'rating-desc':
                 sortedRestaurants.sort((a, b) => b.rating - a.rating);
                 break;
+            case 'cuisines-asc':
+                sortedRestaurants.sort((a, b) => a.type.localeCompare(b.type));
+                break;
+            case 'cuisines-desc':
+                sortedRestaurants.sort((a, b) => b.type.localeCompare(a.type));
+                break;
         }
         return sortedRestaurants;
     }
 
     function performSearch(redirect = false) {
         const searchTerm = searchInput.value.toLowerCase().trim();
-        let matchingRestaurants = [];
-        let matchCount = 0;
+        let matchingRestaurants = restaurants.filter(restaurant => 
+            restaurant.name.toLowerCase().includes(searchTerm) ||
+            restaurant.type.toLowerCase().includes(searchTerm) ||
+            restaurant.location.toLowerCase().includes(searchTerm)
+        );
 
-        restaurants.forEach(restaurant => {
-            const restaurantName = restaurant.name.toLowerCase();
-            if (restaurantName.includes(searchTerm)) {
-                matchingRestaurants.push(restaurant);
-                matchCount++;
-            }
-        });
-
-        if (matchCount === 0) {
-            showNoResultsMessage();
-            paginationContainer.style.display = 'none';
-            restaurantGrid.innerHTML = '';
+        if (isHomePage && !redirect) {
+            // On homepage, only update search button state
+            updateSearchButtonState();
+        } else if (redirect) {
+            localStorage.setItem('searchResults', JSON.stringify(matchingRestaurants));
+            window.location.href = `/public/views/searchresults.html?q=${encodeURIComponent(searchTerm)}`;
         } else {
-            removeNoResultsMessage();
-            displayRestaurants(matchingRestaurants);
-            paginationContainer.style.display = 'flex';
+            if (matchingRestaurants.length === 0) {
+                showNoResultsMessage();
+                if (paginationContainer) paginationContainer.style.display = 'none';
+                if (restaurantGrid) restaurantGrid.innerHTML = '';
+            } else {
+                removeNoResultsMessage();
+                displayRestaurants(matchingRestaurants);
+                if (paginationContainer) paginationContainer.style.display = 'flex';
+            }
+
+            updateHeaderText(matchingRestaurants.length, searchTerm);
+            if (restaurantsHero) hideHeroSection();
         }
-
-        updateHeaderText(matchCount, searchTerm);
-        hideHeroSection();
-
-        if (redirect && searchTerm) {
-            redirectToSearchResults(searchTerm, matchingRestaurants);
-        }
-    }
-
-    function redirectToSearchResults(searchTerm, matchingRestaurants) {
-        localStorage.setItem('searchResults', JSON.stringify(matchingRestaurants));
-        window.location.href = `/public/views/searchresults.html?q=${encodeURIComponent(searchTerm)}`;
     }
 
     function hideHeroSection() {
-        restaurantsHero.style.display = 'none';
-        mainContent.style.paddingTop = '120px';
+        if (restaurantsHero) restaurantsHero.style.display = 'none';
+        if (mainContent) mainContent.style.paddingTop = '120px';
     }
 
     function showHeroSection() {
-        restaurantsHero.style.display = 'block';
-        mainContent.style.paddingTop = '60px';
+        if (restaurantsHero) restaurantsHero.style.display = 'block';
+        if (mainContent) mainContent.style.paddingTop = '60px';
     }
 
     function updateHeaderText(matchCount, searchTerm) {
+        if (!restaurantsHeader) return;
         if (searchTerm === '') {
             restaurantsHeader.textContent = originalHeaderText;
             restaurantsHeader.classList.remove('showing-matches');
-            sortContainer.style.display = 'flex';
+            if (sortContainer) sortContainer.style.display = 'flex';
         } else {
             restaurantsHeader.classList.add('showing-matches');
             restaurantsHeader.textContent = `Showing match${matchCount !== 1 ? 'es' : ''} (${matchCount})`;
-            sortContainer.style.display = 'none';
+            if (sortContainer) sortContainer.style.display = 'none';
         }
     }
 
     function showNoResultsMessage() {
         removeNoResultsMessage();
+        if (!restaurantGrid) return;
         const message = document.createElement('div');
         message.className = 'no-results-message';
-        message.textContent = 'Restaurant not listed yet.';
+        message.textContent = 'No restaurants found matching your search.';
         message.style.gridColumn = '1 / -1';
         message.style.textAlign = 'center';
         message.style.padding = '2rem';
@@ -206,6 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function removeNoResultsMessage() {
+        if (!restaurantGrid) return;
         const existingMessage = restaurantGrid.querySelector('.no-results-message');
         if (existingMessage) {
             existingMessage.remove();
@@ -213,21 +204,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function resetSearch() {
-        searchInput.value = '';
+        if (searchInput) searchInput.value = '';
         displayRestaurants(restaurants);
         removeNoResultsMessage();
         updateHeaderText(0, '');
         showHeroSection();
-        paginationContainer.style.display = 'flex';
+        if (paginationContainer) paginationContainer.style.display = 'flex';
+        updateSearchButtonState();
     }
 
     function handleSearch() {
-        const searchTerm = searchInput.value.toLowerCase().trim();
-        if (searchTerm) {
-            const matchingRestaurants = restaurants.filter(restaurant => 
-                restaurant.name.toLowerCase().includes(searchTerm)
-            );
-            redirectToSearchResults(searchTerm, matchingRestaurants);
+        if (searchInput.value.trim() !== '') {
+            performSearch(true);
         }
     }
 
@@ -236,65 +224,88 @@ document.addEventListener('DOMContentLoaded', () => {
         updatePagination();
     }
 
-    function addRestaurant(restaurantData) {
-        restaurants.push(restaurantData);
-        const newCard = createRestaurantCard(restaurantData);
-        restaurantGrid.appendChild(newCard);
-        updatePagination();
-        currentPage = totalPages;
-        updatePagination();
-        
-        if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
-            lucide.createIcons();
+    function updateSearchButtonState() {
+        if (searchButton) {
+            searchButton.disabled = searchInput.value.trim() === '';
         }
-        console.log(`Added new restaurant: ${restaurantData.name} on page ${totalPages}`);
     }
 
-    sortSelect.addEventListener('change', () => {
-        const sortedRestaurants = sortRestaurants(sortSelect.value);
-        displayRestaurants(sortedRestaurants);
-        updatePaginationAfterFilter();
-    });
+    if (sortSelect) {
+        sortSelect.addEventListener('change', () => {
+            currentSortCriteria = sortSelect.value;
+            const sortedRestaurants = sortRestaurants(currentSortCriteria);
+            displayRestaurants(sortedRestaurants);
+            updatePaginationAfterFilter();
+        });
+    }
 
-    searchButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        handleSearch();
-    });
-
-    searchInput.addEventListener('input', function() {
-        if (this.value === '') {
-            resetSearch();
-        } else {
-            performSearch(false);
-        }
-    });
-
-    searchInput.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
+    if (searchButton) {
+        searchButton.addEventListener('click', (event) => {
             event.preventDefault();
-            handleSearch();
-        }
-    });
+            if (!searchButton.disabled) {
+                handleSearch();
+            }
+        });
+    }
 
-    prevPageBtn.addEventListener('click', () => {
-        if (currentPage > 1) {
-            currentPage--;
-            updatePagination();
-            scrollToRestaurants();
-        }
-    });
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            updateSearchButtonState();
+            if (this.value === '') {
+                resetSearch();
+            } else if (!isHomePage) {
+                performSearch(false);
+            }
+        });
 
-    nextPageBtn.addEventListener('click', () => {
-        if (currentPage < totalPages) {
-            currentPage++;
-            updatePagination();
-            scrollToRestaurants();
-        }
-    });
+        searchInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                if (this.value.trim() !== '') {
+                    handleSearch();
+                }
+            }
+        });
+    }
+
+    if (prevPageBtn) {
+        prevPageBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePagination();
+                scrollToRestaurants();
+            }
+        });
+    }
+
+    if (nextPageBtn) {
+        nextPageBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePagination();
+                scrollToRestaurants();
+            }
+        });
+    }
 
     // Initialize the page
-    displayRestaurants(restaurants);
+    if (!isHomePage) {
+        const lastSortCriteria = sessionStorage.getItem('lastSortCriteria');
+        const lastPage = sessionStorage.getItem('lastPage');
+        if (lastSortCriteria) {
+            currentSortCriteria = lastSortCriteria;
+            sessionStorage.removeItem('lastSortCriteria');
+        }
+        if (lastPage) {
+            currentPage = parseInt(lastPage);
+            sessionStorage.removeItem('lastPage');
+        }
+        if (sortSelect) sortSelect.value = currentSortCriteria;
+        displayRestaurants(sortRestaurants(currentSortCriteria));
+    }
+    updateSearchButtonState();
 
+    // Expose necessary functions to the global scope
     window.updatePaginationAfterFilter = updatePaginationAfterFilter;
-    window.addRestaurant = addRestaurant;
+    window.performSearch = performSearch;
 });
