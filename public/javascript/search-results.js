@@ -11,6 +11,30 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
+    function createRestaurantCard(restaurant) {
+        const card = document.createElement('div');
+        card.className = 'restaurant-card';
+        card.innerHTML = `
+            <img src="${restaurant.image}" alt="${restaurant.name}">
+            <div class="card-content">
+                <h3>${restaurant.name}</h3>
+                <p>${restaurant.type}</p>
+                <div class="rating">
+                    <i data-lucide="star" class="star-icon"></i>
+                    <span>${restaurant.rating}</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="location">
+                    <i data-lucide="map-pin"></i>
+                    ${restaurant.location}
+                </div>
+                <a href="${restaurant.detailsLink}" class="view-details">View Details</a>
+            </div>
+        `;
+        return card;
+    }
+
     function displaySearchResults() {
         const { q, results } = getQueryParams();
         
@@ -20,7 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (results && results.length > 0) {
-            restaurantGrid.innerHTML = results.join('');
+            restaurantGrid.innerHTML = '';
+            results.forEach(restaurant => {
+                const card = createRestaurantCard(restaurant);
+                restaurantGrid.appendChild(card);
+            });
         } else {
             showNoResultsMessage();
         }

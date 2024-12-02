@@ -67,10 +67,6 @@ header .container {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.featured {
-    padding: 4rem 0;
-}
-
 .mobile-nav {
     display: none;
 }
@@ -139,11 +135,51 @@ main.hero-hidden {
     background-color: #003d82;
 }
 
+/* Restaurants list section styles */
+.restaurants-list {
+    padding: 4rem 0;
+}
+
+.restaurants-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.restaurants-header h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.restaurants-header h2.showing-matches {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.sort-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sort-container label {
+    font-weight: bold;
+}
+
+.sort-container select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
 .restaurant-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
 .restaurant-card {
@@ -151,178 +187,111 @@ main.hero-hidden {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .restaurant-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .restaurant-card img {
     width: 100%;
-    height: 150px;
+    height: 200px;
     object-fit: cover;
 }
 
 .card-content {
     padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    margin-bottom: 0.5rem;
 }
 
 .rating {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    margin-top: 0.5rem;
+    margin-top: auto;
 }
 
 .star-icon {
     color: #FFD700;
-    fill:  #FFD700;
+    fill: #FFD700;
 }
 
-.view-all-button {
-    display: block;
-    width: 200px;
-    margin: 2rem auto 0;
-    padding: 0.75rem;
-    background-color: #003B95;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-.view-all-button:hover {
-    background-color: #0056b3;
-}
-
-.recommendation-special {
-    padding: 4rem 0;
-    background-color: #f8f8f8;
-}
-
-.recommendation-special-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-.recommendation-container, .restaurant-of-day-container {
-    background-color: white;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.recommendation-title {
-    color: #333;
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.recommendation-subtitle {
-    color: #666;
-    font-size: 1rem;
-    margin-bottom: 2rem;
-}
-
-.recommendation-form {
+.card-footer {
+    background-color: #f4f4f4;
+    padding: 1rem;
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.form-label {
-    color: #333;
-    font-weight: 500;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+.location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.form-select {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: white;
-    cursor: pointer;
-    margin-bottom: 1rem;
-}
-
-.form-select:focus {
-    outline: none;
-    border-color: #0056b3;
-    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.1);
-}
-
-.recommendation-button {
-    background-color: #003B95;
+.view-details {
+    background-color: #0056b3;
     color: white;
     border: none;
-    padding: 0.875rem;
-    font-size: 1rem;
-    font-weight: 500;
+    padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%;
-    margin-top: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+    text-decoration: none;
 }
 
-.recommendation-button:hover {
-    background-color: #0056b3;
+.view-details:hover {
+    background-color: #003d82;
+    transform: scale(1.05);
 }
 
-.recommendation-result {
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     margin-top: 2rem;
 }
 
-.recommendation-result.hidden {
-    display: none;
-}
-
-.restaurant-of-day-card {
-    margin-top: 1rem;
-}
-
-.restaurant-of-day-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.restaurant-of-day-content {
-    margin-top: 1rem;
-}
-
-.restaurant-of-day-content h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
-}
-
-.restaurant-of-day-content p {
-    color: #666;
-    margin-bottom: 1rem;
-}
-
-.view-restaurant-button {
+.pagination-button {
     background-color: #003B95;
     color: white;
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.5rem 1rem;
     font-size: 1rem;
-    border-radius: 4px;
     cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     transition: background-color 0.3s;
-    text-decoration: none;
 }
 
-.view-restaurant-button:hover {
+.pagination-button:hover:not(:disabled) {
     background-color: #0056b3;
+}
+
+.pagination-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#page-info {
+    font-size: 1rem;
+    color: #333;
 }
 
 /* Footer styles */
@@ -476,8 +445,37 @@ footer {
         padding: 0.5rem 1rem;
     }
 
-    .featured {
-        padding: 2rem 0;
+    .restaurants-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .restaurants-header h2 {
+        font-size: 1.2rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+
+    .sort-container {
+        display: flex;
+        align-items: center;
+        font-size: 0.8rem;
+        width: auto;
+    }
+
+    .sort-container label {
+        margin-right: 0.5rem;
+        white-space: nowrap;
+    }
+
+    .sort-container select {
+        padding: 0.3rem;
+        font-size: 0.8rem;
+        width: auto;
     }
 
     .restaurant-grid {
@@ -506,66 +504,36 @@ footer {
         font-size: 0.8rem;
     }
 
-    .view-all-button {
-        width: 100%;
-        max-width: 200px;
-        margin: 1.5rem auto 0;
-        padding: 0.6rem;
-        font-size: 0.9rem;
+    .card-footer {
+        padding: 0.5rem;
+        font-size: 0.8rem;
     }
 
-    .recommendation-special {
-        padding: 2rem 0;
+    .location {
+        font-size: 0.7rem;
     }
 
-    .recommendation-special-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .view-details {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
     }
 
-    .recommendation-container, .restaurant-of-day-container {
-        padding: 1.5rem;
+    .pagination {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        margin-bottom: 5rem;
     }
 
-    .recommendation-title {
-        font-size: 1.5rem;
+    .pagination-button {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
     }
 
-    .recommendation-subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .form-label {
-        font-size: 0.9rem;
-    }
-
-    .form-select {
-        padding: 0.6rem;
-        font-size: 0.9rem;
-        margin-bottom: 0.8rem;
-    }
-
-    .recommendation-button {
-        padding: 0.75rem;
-        font-size: 0.9rem;
-    }
-
-    .restaurant-of-day-card img {
-        height: 150px;
-    }
-
-    .restaurant-of-day-content h3 {
-        font-size: 1.1rem;
-    }
-
-    .restaurant-of-day-content p {
-        font-size: 0.9rem;
-    }
-
-    .view-restaurant-button {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
+    #page-info {
+        font-size: 0.8rem;
     }
 
     footer {
@@ -616,18 +584,5 @@ footer {
 
     .restaurant-card img {
         height: 120px;
-    }
-
-    .recommendation-title {
-        font-size: 1.3rem;
-    }
-
-    .recommendation-subtitle {
-        font-size: 0.8rem;
-    }
-
-    .form-select,
-    .recommendation-button {
-        font-size: 0.8rem;
     }
 }

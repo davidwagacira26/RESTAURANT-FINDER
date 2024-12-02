@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nairobi Dining - Explore Nairobi's Finest Restaurants</title>
+    <title>Explore Nairobi's Finest Restaurants</title>
     <link rel="stylesheet" href="/public/stylesheets/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -54,524 +54,104 @@
                 </div>
             </div>
         </section>
-
-        <section class="restaurants-list">
+        <section id="featured" class="featured">
             <div class="container">
-                <div class="restaurants-header">
-                    <h2>All Restaurants</h2>
-                    <div class="sort-container">
-                        <label for="sort-select">Sort by:</label>
-                        <select id="sort-select">
-                            <option value="default">Select</option>
-                            <option value="alphabetical-asc">Alphabetical (A-Z)</option>
-                            <option value="alphabetical-desc">Alphabetical (Z-A)</option>
-                            <option value="rating-asc">Rating (Low to High)</option>
-                            <option value="rating-desc">Rating (High to Low)</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="restaurant-grid" id="restaurant-grid">
-                    <div class="restaurant-card" data-original="true">
+                <h2>Featured Restaurants</h2>
+                <div class="restaurant-grid">
+                    <div class="restaurant-card">
                         <img src="/assets/images/Botanica.jpg" alt="Botanica">
                         <div class="card-content">
-                            <h3>Botanica - Kitchen and Gin Bar</h3>
-                            <p>Restaurant</p>
+                            <h3>Botanica</h3>
+                            <p>Kitchen and Gin Bar</p>
                             <div class="rating">
                                 <i data-lucide="star" class="star-icon"></i>
                                 <span>4.4</span>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                One Africa Place
-                            </div>
-                            <a href="/public/views/botanica.html" class="view-details">View Details</a>
-                        </div>
                     </div>
-                    <div class="restaurant-card" data-original="true">
+                    <div class="restaurant-card">
                         <img src="/assets/images/bambino.jpg" alt="Bambino">
                         <div class="card-content">
-                            <h3>Bambino - Kitchen and Bar</h3>
-                            <p>Restaurant</p>
+                            <h3>Bambino</h3>
+                            <p>Kitchen and Bar</p>
                             <div class="rating">
                                 <i data-lucide="star" class="star-icon"></i>
                                 <span>4.2</span>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Westlands
-                            </div>
-                            <a href="/public/views/bambino.html" class="view-details">View Details</a>
-                        </div>
                     </div>
-                    <div class="restaurant-card" data-original="true">
-                        <img src="/assets/images/INTI3.jpg" alt="INTI">
+                    <div class="restaurant-card">
+                        <img src="/assets/images/INTI.jpg" alt="INTI">
                         <div class="card-content">
-                            <h3>INTI - A Nikkei Experience</h3>
-                            <p>Restaurant</p>
+                            <h3>INTI</h3>
+                            <p>A Nikkei Experience</p>
                             <div class="rating">
                                 <i data-lucide="star" class="star-icon"></i>
                                 <span>4.5</span>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                One Africa Place
-                            </div>
-                            <a href="/public/views/inti.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card" data-original="true">
-                        <img src="/assets/images/canopy.jpg" alt="Canopy Cafe">
-                        <div class="card-content">
-                            <h3>Canopy Cafe</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.1</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Kilimani
-                            </div>
-                            <a href="/public/views/canopy.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card" data-original="true">
-                        <img src="/assets/images/cafecassia.jpg" alt="Cafe Cassia">
-                        <div class="card-content">
-                            <h3>Cafe Cassia</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.7</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Karen
-                            </div>
-                            <a href="/public/views/cafecassia.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card" data-original="true">
-                        <img src="/assets/images/artisanblend.jpg" alt="Artisan Blend Cafe">
-                        <div class="card-content">
-                            <h3>Artisan Blend Cafe</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.8</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Mombasa Road
-                            </div>
-                            <a href="/public/views/artisanblend.html" class="view-details">View Details</a>
-                        </div>
                     </div>
                     <div class="restaurant-card">
-                        <img src="/assets/images/mercado.jpg" alt="Mercado Mexican Kitchen and Bar">
+                        <img src="/assets/images/slate.jpg" alt="Slate">
                         <div class="card-content">
-                            <h3>Mercado - Mexican Kitchen and Gin Bar</h3>
-                            <p>Mexican</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.4</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Westlands
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/pili.jpg" alt="Pili Restaurant">
-                        <div class="card-content">
-                            <h3>Pili Restaurant</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.8</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                GTC Mall
-                            </div>
-                            <a href="/public/views/pili.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/crave.jpg" alt="Crave Kenya">
-                        <div class="card-content">
-                            <h3>Crave Kenya</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.8</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Kilimani
-                            </div>
-                            <a href="/public/views/crave.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/springnoshery2.jpg" alt="Crave Kenya">
-                        <div class="card-content">
-                            <h3>The Spring Noshery</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.4</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Westlands
-                            </div>
-                            <a href="/public/views/springnoshery.html" class="view-details">View Details</a>
-                        </div>
-                    </div> <div class="restaurant-card">
-                        <img src="/assets/images/yunion.jpg" alt="Yunion">
-                        <div class="card-content">
-                            <h3>Yunion - Brunch Cafe & Bar</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.0</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                GTC Mall
-                            </div>
-                            <a href="/public/views/yunion.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                        <div class="restaurant-card">
-                        <img src="/assets/images/kahani.jpg" alt="Crave Kenya">
-                        <div class="card-content">
-                            <h3>Kahani Modern Indian Kitchen & Bar</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>3.8</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Limuru Road
-                            </div>
-                            <a href="/public/views/kahani.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/slate.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Slate - Kitchen and Bar</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.4</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Skynet Residence
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/brewbistro.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Brew Bistro Fortis</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.8</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Westlands
-                            </div>
-                            <a href="/public/views/brewbistro.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/270°2.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>270° Rooftop</h3>
-                            <p>Restaurant</p>
+                            <h3>Slate</h3>
+                            <p>Kitchen and Bar</p>
                             <div class="rating">
                                 <i data-lucide="star" class="star-icon"></i>
                                 <span>4.3</span>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Escada
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/harvest.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Harvest Restaurant</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.5</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Limuru Road
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/meko.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Meko Restaurant</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.4</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Peponi Rd
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/jiko.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Jiko Restaurant</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.5</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Village Market
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/talisman.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Talisman Restaurant</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.6</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Ngong Rd
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/inca.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Inca Restaurant</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.4</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Chiromo Rd
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/kareltlounge4.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Karel T-Lounge</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.4</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Limuru Rd
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/ezo2.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Ezo Restaurant</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.4</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                42 Muthithi Rd
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/nsk.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Nairobi Street Kitchen</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.5</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Mpaka Rd
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/fogogaucho.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Fogo Gaucho Restaurant</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.6</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Westlands
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/laterazza.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Le Terrazza Italian</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.7</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Westlands
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/upepo2.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Upepo Restaurant</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.2</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Ojijo Rd
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
-                    </div>
-                    <div class="restaurant-card">
-                        <img src="/assets/images/mawimbi2.jpg" alt="Mercado Mexican Kitchen and Bar">
-                        <div class="card-content">
-                            <h3>Mawimbi Seafood Restaurant</h3>
-                            <p>Restaurant</p>
-                            <div class="rating">
-                                <i data-lucide="star" class="star-icon"></i>
-                                <span>4.6</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="location">
-                                <i data-lucide="map-pin"></i>
-                                Westlands
-                            </div>
-                            <a href="/public/views/mercado.html" class="view-details">View Details</a>
-                        </div>
                     </div>
                 </div>
-                <div class="pagination">
-                    <button class="pagination-button" id="prev-page" disabled>
-                        <i data-lucide="chevron-left"></i>
-                        Previous
-                    </button>
-                    <span id="page-info">Page 1 of 1</span>
-                    <button class="pagination-button" id="next-page">
-                        Next
-                        <i data-lucide="chevron-right"></i>
-                    </button>
+                <a href="/public/views/all-restaurants.html" class="view-all-button">View All Restaurants</a>
+            </div>
+        </section>
+        <section id="recommendation" class="recommendation-special">
+            <div class="container">
+                <div class="recommendation-special-grid">
+                    <div class="recommendation-container">
+                        <h2 class="recommendation-title"><strong>Get a Restaurant Recommendation</strong></h2>
+                        <p class="recommendation-subtitle">Not sure where to eat? Let us suggest a restaurant for you!</p>
+                        <form id="recommendation-form" action="/public/views/recommendations.html" method="get">
+                            <div class="recommendation-form">
+                                <label for="cuisine" class="form-label">Preferred Cuisine:</label>
+                                <select id="cuisine" name="cuisine" class="form-select">
+                                    <option value="">Any</option>
+                                    <option value="italian">Italian</option>
+                                    <option value="japanese">Japanese</option>
+                                    <option value="kenyan">Kenyan</option>
+                                    <option value="indian">Indian</option>
+                                    <option value="mexican">Mexican</option>
+                                    <option value="seafood">Seafood</option>
+                                    <option value="steakhouse">Steakhouse</option>
+                                    <option value="cafe">Cafe</option>
+                                </select>
+                                <label for="price" class="form-label">Price Range:</label>
+                                <select id="price" name="price" class="form-select">
+                                    <option value="">Any</option>
+                                    <option value="budget">Budget</option>
+                                    <option value="mid-range">Mid-range</option>
+                                    <option value="high-end">High-end</option>
+                                </select>
+                                <button type="submit" class="recommendation-button">Get Recommendation</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="restaurant-of-day" class="restaurant-of-day-container">
+                        <h2 class="recommendation-title"><strong>Restaurant of the Day</strong></h2>
+                        <div class="restaurant-of-day-card">
+                            <img id="restaurant-of-day-image" src="/placeholder.svg?height=200&width=300" alt="Restaurant of the Day">
+                            <div class="restaurant-of-day-content">
+                                <h3 id="restaurant-of-day-name">Today's Featured Restaurant</h3>
+                                <p id="restaurant-of-day-description">Experience the unique flavors of our daily featured restaurant!</p>
+                                <a id="restaurant-of-day-link" href="#" class="view-restaurant-button">View Restaurant</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -582,8 +162,8 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="/public/views/about.html">About Us</a></li>
+                        <li><a href="/public/views/contact.html">Contact</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms of Service</a></li>
                     </ul>
@@ -602,11 +182,11 @@
             </div>
         </div>
     </footer>
-
-    <script src="/public/javascript/restaurantssorter.js"></script>
-    <script src="/public/javascript/search.js"></script>
-    <script src="/public/javascript/pagination.js"></script>
-    <script src="/public/javascript/index.js"></script>
+    <script type="module" src="/public/javascript/restaurantdata.js"></script>
+    <script type="module" src="/public/javascript/restaurants.js"></script>
+    <script src="/public/javascript/recommendations.js"></script>
+    <script src="/public/javascript/restaurantoftheday.js"></script>
+    
     <script>
         lucide.createIcons();
     </script>
