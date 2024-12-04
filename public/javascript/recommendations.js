@@ -1,5 +1,7 @@
 // recommendations.js
 
+"use strict";
+
 // Error handling and logging
 window.onerror = function(msg, url, lineNo, columnNo, error) {
     console.error('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo + '\nColumn: ' + columnNo + '\nError object: ' + JSON.stringify(error));
@@ -54,6 +56,12 @@ const restaurants = [
     { name: "Mama Nilishe", cuisine: "African", rating: 4.1, price: "budget", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", link: "/public/views/mama-nilishe" }
 ];
 
+/**
+ * Filters and sorts restaurants based on cuisine and price
+ * @param {string} cuisine - The type of cuisine to filter by
+ * @param {string} price - The price range to filter by
+ * @returns {Array} - Filtered and sorted array of restaurants
+ */
 function getRecommendations(cuisine, price) {
     console.log('getRecommendations called with:', { cuisine, price });
     let filteredRestaurants = restaurants;
@@ -73,8 +81,16 @@ function getRecommendations(cuisine, price) {
     return filteredRestaurants;
 }
 
+/**
+ * Creates HTML for a restaurant card
+ * @param {Object} restaurant - Restaurant data object
+ * @returns {string} - HTML string for the restaurant card
+ */
 function createRestaurantCard(restaurant) {
     console.log('Creating card for restaurant:', restaurant.name);
+    const starIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+    const locationIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
+    
     return `
         <div class="restaurant-card" tabindex="0" role="button" aria-label="View details for ${restaurant.name}">
             <img src="${restaurant.image}" alt="${restaurant.name}" loading="lazy" onerror="this.onerror=null; this.src='/placeholder.svg?height=200&width=300';">
@@ -82,18 +98,27 @@ function createRestaurantCard(restaurant) {
                 <h3>${restaurant.name}</h3>
                 <p>${restaurant.cuisine.charAt(0).toUpperCase() + restaurant.cuisine.slice(1)}</p>
                 <div class="rating">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="star-icon" viewBox="0 0 24 24" fill="#FFD700" width="24" height="24">
-                        <path d="M12 .587l3.668 10.825H24L15.832 16.5l3.668 10.825L12 20.675l-7.5 6.65L8.168 16.5 0 11.412h8.332z"/>
-                    </svg>
+                    ${starIcon}
                     <span>${restaurant.rating.toFixed(1)}</span>
                 </div>
                 <p>Price: ${getPriceRange(restaurant.price)}</p>
+            </div>
+            <div class="card-footer">
+                <div class="location">
+                    ${locationIcon}
+                    ${restaurant.location || ''}
+                </div>
             </div>
             <a href="${restaurant.link}" class="card-link" aria-hidden="true"></a>
         </div>
     `;
 }
 
+/**
+ * Converts price range to a symbol representation
+ * @param {string} range - Price range (budget, mid-range, high-end)
+ * @returns {string} - Symbol representation of the price range
+ */
 function getPriceRange(range) {
     switch (range) {
         case 'budget':
@@ -107,6 +132,10 @@ function getPriceRange(range) {
     }
 }
 
+/**
+ * Extracts cuisine and price parameters from the URL
+ * @returns {Object} - Object containing cuisine and price parameters
+ */
 function getUrlParams() {
     console.log('Getting URL params:', window.location.search);
     const params = new URLSearchParams(window.location.search);
@@ -116,6 +145,9 @@ function getUrlParams() {
     };
 }
 
+/**
+ * Displays restaurant recommendations based on URL parameters
+ */
 function displayRecommendations() {
     console.log('displayRecommendations called');
     const recommendedRestaurants = document.getElementById('recommended-restaurants');
@@ -169,11 +201,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname.includes('/recommendations')) {
         console.log('On recommendations page, displaying recommendations');
         displayRecommendations();
-    }
-
-    // Initialize Lucide icons if available
-    if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
-        lucide.createIcons();
     }
 });
 
