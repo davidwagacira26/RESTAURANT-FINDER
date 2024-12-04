@@ -14,7 +14,7 @@ try {
         // High-end restaurants
         { name: "INTI", cuisine: "Japanese", price: "high-end", rating: 4.5, location:"Westlands", image: "/assets/images/INTI3.jpg", link: "/public/views/inti.html" },
         { name: "Kahani Restaurant", cuisine: "indian", price: "high-end", rating: 4.3, image: "/assets/images/kahani.jpg", link: "/public/views/kahani.html" },
-        { name: "Jiko Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.4, image: "/assets/images/jiko.jpg", link: "/public/views/Jiko-Restaurant" },
+        { name: "Jiko Restaurant", type: "African", price: "high-end", rating: 4.5, location: "Tribe Hotel", image: "/assets/images/jiko.jpg", link: "/public/views/jiko-restaurant.html" },
         { name: "Lucca Restaurant", cuisine: "italian", price: "high-end", rating: 4.6, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Lucca-Restaurant" },
         { name: "Fogo Gaucho", cuisine: "steakhouse", price: "high-end", rating: 4.2, image: "/assets/images/fogogaucho.jpg", link: "/public/views/Fogo-Gaucho" },
         { name: "Harvest Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.1, image: "/assets/images/harvest.jpg", link: "/public/views/Harvest-Restaurant" },
