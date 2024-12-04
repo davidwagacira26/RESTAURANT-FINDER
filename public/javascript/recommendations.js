@@ -1,177 +1,196 @@
-// Restaurant data
-const restaurants = [
-    // High-end restaurants
-    { name: "INTI", cuisine: "japanese", price: "high-end", rating: 4.5, image: "/placeholder.svg?height=200&width=300", link: "/public/views/INTI.html" },
-    { name: "Kahani Restaurant", cuisine: "indian", price: "high-end", rating: 4.3, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Kahani-Restaurant.html" },
-    { name: "Jiko Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.4, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Jiko-Restaurant.html" },
-    { name: "Lucca Restaurant", cuisine: "italian", price: "high-end", rating: 4.6, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Lucca-Restaurant.html" },
-    { name: "Fogo Gaucho", cuisine: "steakhouse", price: "high-end", rating: 4.2, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Fogo-Gaucho.html" },
-    { name: "Harvest Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.1, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Harvest-Restaurant.html" },
-    { name: "Chophouse Nairobi", cuisine: "steakhouse", price: "high-end", rating: 4.4, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Chophouse-Nairobi.html" },
-    { name: "Le Terrazza Italian Restaurant", cuisine: "italian", price: "high-end", rating: 4.3, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Le-Terrazza-Italian-Restaurant.html" },
-    { name: "Tatu Restaurant", cuisine: "steakhouse", price: "high-end", rating: 4.5, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Tatu-Restaurant.html" },
-    { name: "Upepo Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.2, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Upepo-Restaurant.html" },
-    { name: "Mawimbi Seafood", cuisine: "seafood", price: "high-end", rating: 4.6, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Mawimbi-Seafood.html" },
-    { name: "Copper the Urban Grill", cuisine: "steakhouse", price: "high-end", rating: 4.3, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Copper-the-Urban-Grill.html" },
-    { name: "The Larder Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.1, image: "/placeholder.svg?height=200&width=300", link: "/public/views/The-Larder-Restaurant.html" },
-    { name: "Tamborone Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.0, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Tamborone-Restaurant.html" },
-    { name: "Luca Restaurant", cuisine: "italian", price: "high-end", rating: 4.4, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Luca-Restaurant.html" },
-    { name: "Talisman Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.5, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Talisman-Restaurant.html" },
-    { name: "Inca Restaurant", cuisine: "japanese", price: "high-end", rating: 4.2, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Inca-Restaurant.html" },
-    { name: "Graze Steakhouse", cuisine: "steakhouse", price: "high-end", rating: 4.3, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Graze-Steakhouse.html" },
-    { name: "Seven seafood and grill", cuisine: "seafood", price: "high-end", rating: 4.4, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Seven-seafood-and-grill.html" },
-    { name: "Hero Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.1, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Hero-Restaurant.html" },
+// recommendations.js
 
-    // Mid-range restaurants
-    { name: "Botanica - Kitchen and Gin Bar", cuisine: "International", rating: 4.4, price: "mid-range", location: "Nairobi", image: "/assets/images/Botanica.jpg", detailsLink: "/public/views/botanica.html" },
-    { name: "Bambino", cuisine: "Italian", rating: 4.2, price: "mid-range", location: "Nairobi", image: "/assets/images/bambino.jpg", detailsLink: "/public/views/bambino.html" },
-    { name: "INTI", cuisine: "Japanese", rating: 4.5, price: "high-end", location: "Nairobi", image: "/assets/images/INTI3.jpg", detailsLink: "/public/views/inti.html" },
-    { name: "Canopy Cafe", cuisine: "Cafe", rating: 4.0, price: "mid-range", location: "Nairobi", image: "/assets/images/canopy.jpg", detailsLink: "/public/views/canopy-cafe.html" },
-    { name: "Cafe Cassia", cuisine: "Cafe", rating: 4.0, price: "mid-range", location: "Nairobi", image: "/assets/images/cafecassia.jpg", detailsLink: "/public/views/cafecassia.html" },
-    { name: "Artisan Blend", cuisine: "Cafe", rating: 4.2, price: "mid-range", location: "Nairobi", image: "/assets/images/artisanblend.jpg", detailsLink: "/public/views/artisan-blend-cafe.html" },
-    { name: "Mercado - Mexican Kitchen and Gin Bar", cuisine: "Mexican", rating: 4.5, price: "high-end", location: "Nairobi", image: "/assets/images/mercado.jpg", detailsLink: "/public/views/mercado-mexican-kitchen-and-gin-bar.html" },
-    { name: "Pili Restaurant", cuisine: "African", rating: 4.3, price: "mid-range", location: "Nairobi", image: "/assets/images/pili.jpg", detailsLink: "/public/views/pili-restaurant.html" },
-    { name: "Crave Restaurant", cuisine: "International", rating: 3.9, price: "mid-range", location: "Nairobi", image: "/assets/images/crave.jpg", detailsLink: "/public/views/crave-restaurant.html" },
-    { name: "Spring Noshery", cuisine: "International", rating: 4.0, price: "mid-range", location: "Nairobi", image: "/assets/images/springnoshery2.jpg", detailsLink: "/public/views/spring-noshery.html" },
-    { name: "Yunion - Brunch and cafe", cuisine: "Cafe", rating: 4.3, price: "mid-range", location: "Nairobi", image: "/assets/images/yunion.jpg", detailsLink: "/public/views/yunion-brunch-and-cafe.html" },
-    { name: "Kahani Restaurant", cuisine: "Indian", rating: 4.3, price: "high-end", location: "Nairobi", image: "/assets/images/kahani.jpg", detailsLink: "/public/views/kahani-restaurant.html" },
-    { name: "Slate - Kitchen and Bar", cuisine: "International", rating: 4.1, price: "mid-range", location: "Nairobi", image: "/assets/images/slate.jpg", detailsLink: "/public/views/slate-kitchen-and-bar.html" },
-    { name: "Brew Bistro - Fortis", cuisine: "International", rating: 4.2, price: "mid-range", location: "Nairobi", image: "/assets/images/brewbistro.jpg", detailsLink: "/public/views/brew-bistro-fortis.html" },
-    { name: "270° Restaurant", cuisine: "International", rating: 4.2, price: "high-end", location: "Nairobi", image: "/assets/images/270°2.jpg", detailsLink: "/public/views/270-restaurant.html" },
-    { name: "Harvest Restaurant", cuisine: "International", rating: 4.3, price: "mid-range", location: "Nairobi", image: "/assets/images/harvest.jpg", detailsLink: "/public/views/harvest-restaurant.html" },
-    { name: "Meko Restaurant", cuisine: "International", rating: 4.1, price: "mid-range", location: "Nairobi", image: "/assets/images/meko.jpg", detailsLink: "/public/views/meko-restaurant.html" },
-    { name: "Jiko Restaurant", cuisine: "Kenyan", rating: 4.4, price: "high-end", location: "Nairobi", image: "/assets/images/jiko.jpg", detailsLink: "/public/views/jiko-restaurant.html" },
-    { name: "Talisman Restaurant", cuisine: "International", rating: 4.7, price: "high-end", location: "Nairobi", image: "/assets/images/talisman.jpg", detailsLink: "/public/views/talisman-restaurant.html" },
-    { name: "Inca Restaurant", cuisine: "Peruvian", rating: 4.4, price: "high-end", location: "Nairobi", image: "/assets/images/inca.jpg", detailsLink: "/public/views/inca-restaurant.html" },
-    { name: "Karel T-Lounge", cuisine: "Cafe", rating: 4.2, price: "mid-range", location: "Nairobi", image: "/assets/images/kareltlounge4.jpg", detailsLink: "/public/views/karel-t-lounge.html" },
-    { name: "Ezo Restaurant", cuisine: "Japanese", rating: 4.4, price: "high-end", location: "Nairobi", image: "/assets/images/ezo2.jpg", detailsLink: "/public/views/ezo-restaurant.html" },
-    { name: "Nairobi street kitchen", cuisine: "International", rating: 4.1, price: "mid-range", location: "Nairobi", image: "/assets/images/nsk.jpg", detailsLink: "/public/views/nairobi-street-kitchen.html" },
-    { name: "Fogo Gaucho", cuisine: "Steakhouse", rating: 4.2, price: "high-end", location: "Nairobi", image: "/assets/images/fogogaucho.jpg", detailsLink: "/public/views/fogo-gaucho.html" },
-    { name: "Le Terrazza Italian Restaurant", cuisine: "Italian", rating: 4.4, price: "high-end", location: "Nairobi", image: "/assets/images/laterazza.jpg", detailsLink: "/public/views/le-terrazza-italian-restaurant.html" },
-    { name: "Upepo Restaurant", cuisine: "International", rating: 4.3, price: "mid-range", location: "Nairobi", image: "/assets/images/upepo2.jpg", detailsLink: "/public/views/upepo-restaurant.html" },
-    { name: "Mawimbi Seafood", cuisine: "Seafood", rating: 4.5, price: "high-end", location: "Nairobi", image: "/assets/images/mawimbi2.jpg", detailsLink: "/public/views/mawimbi-seafood.html" },
-    { name: "Lucca Restaurant", cuisine: "Italian", rating: 4.6, price: "high-end", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", detailsLink: "/public/views/lucca-restaurant.html" },
-    { name: "Chophouse Nairobi", cuisine: "Steakhouse", rating: 4.5, price: "high-end", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", detailsLink: "/public/views/chophouse-nairobi.html" },
-    { name: "Tatu Restaurant", cuisine: "International", rating: 4.6, price: "high-end", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", detailsLink: "/public/views/tatu-restaurant.html" },
-    { name: "Copper the Urban Grill", cuisine: "Steakhouse", rating: 4.4, price: "high-end", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", detailsLink: "/public/views/copper-the-urban-grill.html" },
-    { name: "The Larder Restaurant", cuisine: "International", rating: 4.2, price: "mid-range", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", detailsLink: "/public/views/the-larder-restaurant.html" },
-    { name: "Tamborone Restaurant", cuisine: "African", rating: 4.3, price: "mid-range", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", detailsLink: "/public/views/tamborone-restaurant.html" },
-    { name: "Luca Restaurant", cuisine: "Italian", rating: 4.5, price: "high-end", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", detailsLink: "/public/views/luca-restaurant.html" },
-    { name: "Graze Steakhouse", cuisine: "Steakhouse", rating: 4.5, price: "high-end", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", detailsLink: "/public/views/graze-steakhouse.html" },
-    { name: "Seven seafood and grill", cuisine: "Seafood", rating: 4.6, price: "high-end", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", detailsLink: "/public/views/seven-seafood-and-grill.html" },
-    { name: "Hero Restaurant", cuisine: "Asian", rating: 4.3, price: "mid-range", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", detailsLink: "/public/views/hero-restaurant.html" },
-    { name: "Urban Eatery", cuisine: "International", rating: 4.3, price: "mid-range", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", detailsLink: "/public/views/urban-eatery.html" },
-    { name: "Mama Nilishe", cuisine: "African", rating: 4.1, price: "budget", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", detailsLink: "/public/views/mama-nilishe.html" }
-];
+console.log('recommendations.js loaded');
 
-// Function to get restaurant recommendations
-function getRecommendations(cuisine, price) {
-    let filteredRestaurants = restaurants;
-
-    if (cuisine) {
-        filteredRestaurants = filteredRestaurants.filter(restaurant => restaurant.cuisine === cuisine);
-    }
-
-    if (price) {
-        filteredRestaurants = filteredRestaurants.filter(restaurant => restaurant.price === price);
-    }
-
-    // Sort by rating (highest to lowest)
-    filteredRestaurants.sort((a, b) => b.rating - a.rating);
-
-    return filteredRestaurants;
+// Custom error handler function
+function handleError(error) {
+    console.error('Error in recommendations.js:', error);
 }
 
-function createRestaurantCard(restaurant) {
-    return `
-        <div class="restaurant-card" tabindex="0" role="button" aria-label="View details for ${restaurant.name}">
-            <img src="${restaurant.image}" alt="${restaurant.name}" loading="lazy">
-            <div class="card-content">
-                <h3>${restaurant.name}</h3>
-                <p>${restaurant.cuisine.charAt(0).toUpperCase() + restaurant.cuisine.slice(1)}</p>
-                <div class="rating">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="star-icon" viewBox="0 0 24 24" fill="#FFD700" width="24" height="24">
-                        <path d="M12 .587l3.668 10.825H24L15.832 16.5l3.668 10.825L12 20.675l-7.5 6.65L8.168 16.5 0 11.412h8.332z"/>
-                    </svg>
-                    <span>${restaurant.rating.toFixed(1)}</span>
+// Wrap all code in try-catch
+try {
+    // Restaurant data
+    const restaurants = [
+        // High-end restaurants
+        { name: "INTI", cuisine: "Japanese", price: "high-end", rating: 4.5, location:"Westlands", image: "/assets/images/INTI3.jpg", link: "/public/views/inti.html" },
+        { name: "Kahani Restaurant", cuisine: "indian", price: "high-end", rating: 4.3, image: "/assets/images/kahani.jpg", link: "/public/views/Kahani-Restaurant" },
+        { name: "Jiko Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.4, image: "/assets/images/jiko.jpg", link: "/public/views/Jiko-Restaurant" },
+        { name: "Lucca Restaurant", cuisine: "italian", price: "high-end", rating: 4.6, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Lucca-Restaurant" },
+        { name: "Fogo Gaucho", cuisine: "steakhouse", price: "high-end", rating: 4.2, image: "/assets/images/fogogaucho.jpg", link: "/public/views/Fogo-Gaucho" },
+        { name: "Harvest Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.1, image: "/assets/images/harvest.jpg", link: "/public/views/Harvest-Restaurant" },
+        { name: "Chophouse Nairobi", cuisine: "steakhouse", price: "high-end", rating: 4.4, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Chophouse-Nairobi" },
+        { name: "Le Terrazza Italian Restaurant", cuisine: "italian", price: "high-end", rating: 4.3, image: "/assets/images/laterazza.jpg", link: "/public/views/Le-Terrazza-Italian-Restaurant" },
+        { name: "Tatu Restaurant", cuisine: "steakhouse", price: "high-end", rating: 4.5, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Tatu-Restaurant" },
+        { name: "Upepo Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.2, image: "/assets/images/upepo2.jpg", link: "/public/views/Upepo-Restaurant" },
+        { name: "Mawimbi Seafood", cuisine: "seafood", price: "high-end", rating: 4.6, image: "/assets/images/mawimbi2.jpg", link: "/public/views/Mawimbi-Seafood" },
+        { name: "Copper the Urban Grill", cuisine: "steakhouse", price: "high-end", rating: 4.3, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Copper-the-Urban-Grill" },
+        { name: "The Larder Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.1, image: "/placeholder.svg?height=200&width=300", link: "/public/views/The-Larder-Restaurant" },
+        { name: "Tamborone Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.0, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Tamborone-Restaurant" },
+        { name: "Luca Restaurant", cuisine: "italian", price: "high-end", rating: 4.4, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Luca-Restaurant" },
+        { name: "Talisman Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.5, image: "/assets/images/talisman.jpg", link: "/public/views/Talisman-Restaurant" },
+        { name: "Inca Restaurant", cuisine: "japanese", price: "high-end", rating: 4.2, image: "/assets/images/inca.jpg", link: "/public/views/Inca-Restaurant" },
+        { name: "Graze Steakhouse", cuisine: "steakhouse", price: "high-end", rating: 4.3, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Graze-Steakhouse" },
+        { name: "Seven seafood and grill", cuisine: "seafood", price: "high-end", rating: 4.4, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Seven-seafood-and-grill" },
+        { name: "Hero Restaurant", cuisine: "kenyan", price: "high-end", rating: 4.1, image: "/placeholder.svg?height=200&width=300", link: "/public/views/Hero-Restaurant" },
+
+        // Mid-range restaurants
+        { name: "Botanica - Kitchen and Gin Bar", cuisine: "International", rating: 4.4, price: "mid-range", location: "Nairobi", image: "/assets/images/Botanica.jpg", link: "/public/views/botanica" },
+        { name: "Bambino", cuisine: "Italian", rating: 4.2, price: "mid-range", location: "Nairobi", image: "/assets/images/bambino.jpg", link: "/public/views/bambino" },
+        { name: "Canopy Cafe", cuisine: "Cafe", rating: 4.0, price: "mid-range", location: "Nairobi", image: "/assets/images/canopy.jpg", link: "/public/views/canopy-cafe" },
+        { name: "Cafe Cassia", cuisine: "Cafe", rating: 4.0, price: "mid-range", location: "Nairobi", image: "/assets/images/cafecassia.jpg", link: "/public/views/cafecassia" },
+        { name: "Artisan Blend", cuisine: "Cafe", rating: 4.2, price: "mid-range", location: "Nairobi", image: "/assets/images/artisanblend.jpg", link: "/public/views/artisan-blend-cafe" },
+        { name: "Mercado - Mexican Kitchen and Gin Bar", cuisine: "Mexican", rating: 4.5, price: "high-end", location: "Nairobi", image: "/assets/images/mercado.jpg", link: "/public/views/mercado-mexican-kitchen-and-gin-bar" },
+        { name: "Pili Restaurant", cuisine: "African", rating: 4.3, price: "mid-range", location: "Nairobi", image: "/assets/images/pili.jpg", link: "/public/views/pili-restaurant" },
+        { name: "Crave Restaurant", cuisine: "International", rating: 3.9, price: "mid-range", location: "Nairobi", image: "/assets/images/crave.jpg", link: "/public/views/crave-restaurant" },
+        { name: "Spring Noshery", cuisine: "International", rating: 4.0, price: "mid-range", location: "Nairobi", image: "/assets/images/springnoshery2.jpg", link: "/public/views/spring-noshery" },
+        { name: "Yunion - Brunch and cafe", cuisine: "Cafe", rating: 4.3, price: "mid-range", location: "Nairobi", image: "/assets/images/yunion.jpg", link: "/public/views/yunion-brunch-and-cafe" },
+        { name: "Slate - Kitchen and Bar", cuisine: "International", rating: 4.1, price: "mid-range", location: "Nairobi", image: "/assets/images/slate.jpg", link: "/public/views/slate-kitchen-and-bar" },
+        { name: "Brew Bistro - Fortis", cuisine: "International", rating: 4.2, price: "mid-range", location: "Nairobi", image: "/assets/images/brewbistro.jpg", link: "/public/views/brew-bistro-fortis" },
+        { name: "270° Restaurant", cuisine: "International", rating: 4.2, price: "high-end", location: "Nairobi", image: "/assets/images/270°2.jpg", link: "/public/views/270-restaurant" },
+        { name: "Meko Restaurant", cuisine: "International", rating: 4.1, price: "mid-range", location: "Nairobi", image: "/assets/images/meko.jpg", link: "/public/views/meko-restaurant" },
+        { name: "Karel T-Lounge", cuisine: "Cafe", rating: 4.2, price: "mid-range", location: "Nairobi", image: "/assets/images/kareltlounge4.jpg", link: "/public/views/karel-t-lounge" },
+        { name: "Ezo Restaurant", cuisine: "Japanese", rating: 4.4, price: "high-end", location: "Nairobi", image: "/assets/images/ezo2.jpg", link: "/public/views/ezo-restaurant" },
+        { name: "Nairobi street kitchen", cuisine: "International", rating: 4.1, price: "mid-range", location: "Nairobi", image: "/assets/images/nsk.jpg", link: "/public/views/nairobi-street-kitchen" },
+        { name: "Urban Eatery", cuisine: "International", rating: 4.3, price: "mid-range", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", link: "/public/views/urban-eatery" },
+        { name: "Mama Nilishe", cuisine: "African", rating: 4.1, price: "budget", location: "Nairobi", image: "/placeholder.svg?height=200&width=300", link: "/public/views/mama-nilishe" }
+    ];
+
+    /**
+     * Creates HTML for a restaurant card with embedded SVG icons
+     * @param {Object} restaurant - Restaurant data object
+     * @returns {string} - HTML string for the restaurant card
+     */
+    function createRestaurantCard(restaurant) {
+        try {
+            console.log('Creating card for restaurant:', restaurant.name);
+            const starSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+            const locationSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
+            
+            return `
+                <div class="restaurant-card" onclick="window.location.href='${restaurant.link}'">
+                    <img src="${restaurant.image}" alt="${restaurant.name}" onerror="this.src='/placeholder.svg?height=200&width=300'">
+                    <div class="card-content">
+                        <h3>${restaurant.name}</h3>
+                        <p>${restaurant.cuisine.charAt(0).toUpperCase() + restaurant.cuisine.slice(1)}</p>
+                        <div class="rating">
+                            ${starSvg}
+                            <span>${restaurant.rating.toFixed(1)}</span>
+                        </div>
+                        <p>Price: ${getPriceRange(restaurant.price)}</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="location">
+                            ${locationSvg}
+                            ${restaurant.location || 'Nairobi'}
+                        </div>
+                    </div>
                 </div>
-                <p>Price: ${getPriceRange(restaurant.price)}</p>
-            </div>
-            <a href="${restaurant.link}" class="card-link" aria-hidden="true"></a>
-        </div>
-    `;
-}
-
-// Helper function to get price range symbols
-function getPriceRange(range) {
-    switch (range) {
-        case 'budget':
-            return '$';
-        case 'mid-range':
-            return '$$';
-        case 'high-end':
-            return '$$$';
-        default:
-            return '';
-    }
-}
-
-// Function to get URL parameters
-function getUrlParams() {
-    const params = new URLSearchParams(window.location.search);
-    return {
-        cuisine: params.get('cuisine'),
-        price: params.get('price')
-    };
-}
-
-// Function to display recommendations
-function displayRecommendations() {
-    const { cuisine, price } = getUrlParams();
-    const recommendations = getRecommendations(cuisine, price);
-    const recommendedRestaurants = document.getElementById('recommended-restaurants');
-    const recommendationsInfo = document.getElementById('recommendations-info');
-
-    // Update the recommendations info
-    const resultCount = recommendations.length;
-    const cuisineText = cuisine ? `${cuisine.charAt(0).toUpperCase() + cuisine.slice(1)} ` : '';
-    const priceText = price ? `${price.charAt(0).toUpperCase() + price.slice(1)} ` : '';
-    recommendationsInfo.textContent = `${resultCount} ${cuisineText}${priceText}restaurant${resultCount !== 1 ? 's' : ''} found`;
-
-    if (recommendations.length > 0) {
-        recommendedRestaurants.innerHTML = recommendations.map(createRestaurantCard).join('');
-        
-        // Add click event listeners to the restaurant cards
-        document.querySelectorAll('.restaurant-card').forEach(card => {
-            card.style.cursor = 'pointer';
-            card.addEventListener('click', function(event) {
-                if (event.target.tagName.toLowerCase() !== 'a') {
-                    const link = this.querySelector('.card-link');
-                    if (link) {
-                        link.click();
-                    }
-                }
-            });
-        });
-    } else {
-        recommendedRestaurants.innerHTML = '<p class="no-results-message">No restaurants found matching your criteria. Please try different options.</p>';
+            `;
+        } catch (error) {
+            handleError(error);
+            return ''; // Return empty string if card creation fails
+        }
     }
 
-    // Refresh Lucide icons
-    lucide.createIcons();
-}
-
-// Function to initialize the page
-function initializePage() {
-    // Check if we're on the recommendations page
-    if (window.location.pathname.includes('/public/views/recommendations.html')) {
-        // We're on the recommendations page, so display the recommendations
-        displayRecommendations();
+    /**
+     * Converts price range to a symbol representation
+     * @param {string} range - Price range (budget, mid-range, high-end)
+     * @returns {string} - Symbol representation of the price range
+     */
+    function getPriceRange(range) {
+        switch (range) {
+            case 'budget':
+                return '$';
+            case 'mid-range':
+                return '$$';
+            case 'high-end':
+                return '$$$';
+            default:
+                return '';
+        }
     }
 
-    // Initialize Lucide icons
-    lucide.createIcons();
-}
+    /**
+     * Filters and sorts restaurants based on cuisine and price
+     * @param {string} cuisine - The type of cuisine to filter by
+     * @param {string} price - The price range to filter by
+     * @returns {Array} - Filtered and sorted array of restaurants
+     */
+    function getRecommendations(cuisine, price) {
+        try {
+            console.log('getRecommendations called with:', { cuisine, price });
+            let filteredRestaurants = restaurants;
 
-// Initialize the page when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', initializePage);
+            if (cuisine) {
+                filteredRestaurants = filteredRestaurants.filter(restaurant => 
+                    restaurant.cuisine.toLowerCase() === cuisine.toLowerCase()
+                );
+            }
+
+            if (price) {
+                filteredRestaurants = filteredRestaurants.filter(restaurant => 
+                    restaurant.price === price
+                );
+            }
+
+            return filteredRestaurants.sort((a, b) => b.rating - a.rating);
+        } catch (error) {
+            handleError(error);
+            return []; // Return empty array if filtering fails
+        }
+    }
+
+    /**
+     * Displays restaurant recommendations
+     */
+    function displayRecommendations() {
+        try {
+            console.log('displayRecommendations called');
+            const recommendedRestaurants = document.getElementById('recommended-restaurants');
+            const recommendationsInfo = document.getElementById('recommendations-info');
+
+            if (!recommendedRestaurants || !recommendationsInfo) {
+                throw new Error('Required DOM elements not found');
+            }
+
+            const params = new URLSearchParams(window.location.search);
+            const cuisine = params.get('cuisine');
+            const price = params.get('price');
+
+            const recommendations = getRecommendations(cuisine, price);
+            
+            // Update recommendations info
+            const cuisineText = cuisine ? `${cuisine.charAt(0).toUpperCase() + cuisine.slice(1)} ` : '';
+            const priceText = price ? `${price.charAt(0).toUpperCase() + price.slice(1)} ` : '';
+            recommendationsInfo.textContent = `${recommendations.length} ${cuisineText}${priceText}restaurant${recommendations.length !== 1 ? 's' : ''} found`;
+
+            // Display restaurants
+            if (recommendations.length > 0) {
+                recommendedRestaurants.innerHTML = recommendations
+                    .map(createRestaurantCard)
+                    .join('');
+            } else {
+                recommendedRestaurants.innerHTML = '<p class="no-results">No restaurants found matching your criteria. Please try different options.</p>';
+            }
+        } catch (error) {
+            handleError(error);
+            // Display error message to user
+            const container = document.getElementById('recommended-restaurants');
+            if (container) {
+                container.innerHTML = '<p class="error-message">Sorry, there was an error loading the recommendations. Please try again later.</p>';
+            }
+        }
+    }
+
+    // Initialize only if we're on the recommendations page
+    if (window.location.pathname.includes('/recommendations')) {
+        document.addEventListener('DOMContentLoaded', displayRecommendations);
+    }
+
+    // Expose necessary functions to global scope
+    window.displayRecommendations = displayRecommendations;
+    window.getRecommendations = getRecommendations;
+
+} catch (error) {
+    handleError(error);
+}
