@@ -11,7 +11,7 @@ function updateRestaurantOfDay() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (!window.location.pathname.includes('recommendations.html')) {
+    if (!window.location.pathname.includes('/public/views/recommendations.html')) {
         updateRestaurantOfDay();
     }
 });
