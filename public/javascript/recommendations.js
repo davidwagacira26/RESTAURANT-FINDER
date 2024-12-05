@@ -47,7 +47,7 @@ function getRecommendations(cuisine, price) {
     let filteredRestaurants = restaurants;
 
     if (cuisine) {
-        filteredRestaurants = filteredRestaurants.filter(restaurant => restaurant.cuisine === cuisine);
+        filteredRestaurants = filteredRestaurants.filter(restaurant => restaurant.cuisine.toLowerCase() === cuisine.toLowerCase());
     }
 
     if (price) {
@@ -110,52 +110,41 @@ function displayRecommendations() {
     const recommendedRestaurants = document.getElementById('recommended-restaurants');
     const recommendationsInfo = document.getElementById('recommendations-info');
 
-    // Update the recommendations info
-    const resultCount = recommendations.length;
-    const cuisineText = cuisine ? `${cuisine.charAt(0).toUpperCase() + cuisine.slice(1)} ` : '';
-    const priceText = price ? `${price.charAt(0).toUpperCase() + price.slice(1)} ` : '';
-    recommendationsInfo.textContent = `${resultCount} ${cuisineText}${priceText}restaurant${resultCount !== 1 ? 's' : ''} found`;
+    if (recommendedRestaurants && recommendationsInfo) {
+        // Update the recommendations info
+        const resultCount = recommendations.length;
+        const cuisineText = cuisine ? `${cuisine.charAt(0).toUpperCase() + cuisine.slice(1)} ` : '';
+        const priceText = price ? `${price.charAt(0).toUpperCase() + price.slice(1)} ` : '';
+        recommendationsInfo.textContent = `${resultCount} ${cuisineText}${priceText}restaurant${resultCount !== 1 ? 's' : ''} found`;
 
-    if (recommendations.length > 0) {
-        recommendedRestaurants.innerHTML = recommendations.map(createRestaurantCard).join('');
-        
-        // Add click event listeners to the restaurant cards
-        document.querySelectorAll('.restaurant-card').forEach(card => {
-            card.style.cursor = 'pointer';
-            card.addEventListener('click', function(event) {
-                if (event.target.tagName.toLowerCase() !== 'a') {
-                    const link = this.querySelector('.card-link');
-                    if (link) {
-                        link.click();
+        if (recommendations.length > 0) {
+            recommendedRestaurants.innerHTML = recommendations.map(createRestaurantCard).join('');
+            
+            // Add click event listeners to the restaurant cards
+            document.querySelectorAll('.restaurant-card').forEach(card => {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', function(event) {
+                    if (event.target.tagName.toLowerCase() !== 'a') {
+                        const link = this.querySelector('.card-link');
+                        if (link) {
+                            link.click();
+                        }
                     }
-                }
+                });
             });
-        });
-    } else {
-        recommendedRestaurants.innerHTML = '<p class="no-results-message">No restaurants found matching your criteria. Please try different options.</p>';
+        } else {
+            recommendedRestaurants.innerHTML = '<p class="no-results-message">No restaurants found matching your criteria. Please try different options.</p>';
+        }
     }
 
     // Refresh Lucide icons
-    lucide.createIcons();
-}
-
-// Function to initialize the page
-function initializePage() {
-    // Check if we're on the recommendations page
-    if (window.location.pathname.includes('/public/views/recommendations.html')) {
-        // We're on the recommendations page, so display the recommendations
-        displayRecommendations();
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+        lucide.createIcons();
     }
-
-    // Initialize Lucide icons
-    lucide.createIcons();
 }
 
-// Initialize the page when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    initializePage();
-
-    const recommendationForm = document.getElementById('recommendation-form');
+// Function to initialize the recommendation form
+function initializeRecommendationForm(form) {
     const body = document.body;
 
     // Create modal elements
@@ -175,9 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <stop offset="100%" style="stop-color:#3B82F6"/>
                         </linearGradient>
                     </defs>
-                    <!-- Large star -->
                     <path d="M60 20 L70 45 L95 55 L70 65 L60 90 L50 65 L25 55 L50 45 Z" fill="url(#aiGradient)"/>
-                    <!-- Small star -->
                     <path d="M20 40 L25 50 L35 55 L25 60 L20 70 L15 60 L5 55 L15 50 Z" fill="url(#aiGradient)"/>
                 </svg>
             </div>
@@ -192,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
     body.appendChild(modal);
 
     // Add event listener to the form
-    recommendationForm.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
         
         // Show modal
@@ -204,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'none';
 
             // Submit the form
-            recommendationForm.submit();
+            form.submit();
         }, 2000);
     });
 
@@ -260,4 +247,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
-});
+}
+
+// Function to initialize the page
+function initializePage() {
+    // First, initialize Lucide icons if available
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+        lucide.createIcons();
+    }
+
+    // Check which page we're on and initialize appropriate functionality
+    if (window.location.pathname.includes('/public/views/recommendations.html')) {
+        // We're on the recommendations results page
+        displayRecommendations();
+    } else {
+        // We're on the home page or another page with the recommendation form
+        const recommendationForm = document.getElementById('recommendation-form');
+        if (recommendationForm) {
+            initializeRecommendationForm(recommendationForm);
+        }
+    }
+}
+
+// Initialize the page when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', initializePage);
