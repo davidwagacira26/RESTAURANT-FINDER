@@ -22,27 +22,36 @@ try {
             throw new Error('Invalid restaurant data');
         }
 
-        document.getElementById('randomizer-name').textContent = randomRestaurant.name || 'Restaurant Name';
-        document.getElementById('randomizer-image').src = randomRestaurant.image || '/placeholder.svg?height=200&width=300';
-        document.getElementById('randomizer-image').alt = randomRestaurant.name || 'Restaurant Image';
+        var randomizerImage = document.getElementById('randomizer-image');
         
-        // Update to always show cuisine, with more detailed fallback
-        var cuisineText;
-        if (randomRestaurant.cuisine && typeof randomRestaurant.cuisine === 'string' && randomRestaurant.cuisine.trim() !== '') {
-            cuisineText = `Discover the authentic taste of ${randomRestaurant.cuisine} cuisine!`;
+        // Start fade-out effect
+        randomizerImage.style.opacity = '0';
+        
+        setTimeout(() => {
+            document.getElementById('randomizer-name').textContent = randomRestaurant.name || 'Restaurant Name';
+            randomizerImage.src = randomRestaurant.image || '/placeholder.svg?height=200&width=300';
+            randomizerImage.alt = randomRestaurant.name || 'Restaurant Image';
+            
+            // Update to always show cuisine, with more detailed fallback
+            var cuisineText;
+            if (randomRestaurant.cuisine && typeof randomRestaurant.cuisine === 'string' && randomRestaurant.cuisine.trim() !== '') {
+                cuisineText = `Discover the authentic taste of ${randomRestaurant.cuisine} cuisine!`;
+            } else {
+                console.warn('Missing or invalid cuisine for restaurant:', randomRestaurant.name);
+                cuisineText = 'Experience unique flavors of our specially curated cuisine!';
+            }
+            document.getElementById('randomizer-description').textContent = cuisineText;
 
-        } else {
-            console.warn('Missing or invalid cuisine for restaurant:', randomRestaurant.name);
-            cuisineText = 'Experience unique flavors of our specially curated cuisine!';
-        }
-        document.getElementById('randomizer-description').textContent = cuisineText;
+            var viewButton = document.getElementById('randomizer-link');
+            viewButton.href = randomRestaurant.link || '#';
+            viewButton.innerHTML = '<i data-lucide="eye"></i> View Restaurant';
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                lucide.createIcons(); // Recreate icons to ensure the eye icon is displayed
+            }
 
-        var viewButton = document.getElementById('randomizer-link');
-        viewButton.href = randomRestaurant.link || '#';
-        viewButton.innerHTML = '<i data-lucide="eye"></i> View Restaurant';
-        if (typeof lucide !== 'undefined' && lucide.createIcons) {
-            lucide.createIcons(); // Recreate icons to ensure the eye icon is displayed
-        }
+            // Start fade-in effect
+            randomizerImage.style.opacity = '1';
+        }, 300); // Wait for fade-out to complete before updating content
     }
 
     function showSpinningDice() {
@@ -78,7 +87,7 @@ try {
         }
     }
 
-    // Add CSS for spinning animation
+    // Add CSS for spinning animation and fade effect
     var style = document.createElement('style');
     style.textContent = `
         .spinning-dice {
@@ -87,6 +96,9 @@ try {
         @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
+        }
+        #randomizer-image {
+            transition: opacity 0.3s ease-in-out;
         }
     `;
     document.head.appendChild(style);
