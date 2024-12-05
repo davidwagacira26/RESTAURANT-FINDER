@@ -87,10 +87,9 @@ try {
      * @returns {string} - HTML string for the restaurant card
      */
     function createRestaurantCard(restaurant) {
-        console.log('Creating card for restaurant:', restaurant.name);
         return `
-            <div class="restaurant-card" tabindex="0" role="button" aria-label="View details for ${restaurant.name}">
-                <img src="${restaurant.image}" alt="${restaurant.name}" loading="lazy" onerror="this.onerror=null; this.src='/placeholder.svg?height=200&width=300';">
+            <div class="restaurant-card" tabindex="0" role="button" aria-label="View details for ${restaurant.name}" onclick="window.location.href='${restaurant.link}';" style="cursor: pointer;">
+                <img src="${restaurant.image}" alt="${restaurant.name}" loading="lazy">
                 <div class="card-content">
                     <h3>${restaurant.name}</h3>
                     <p>${restaurant.cuisine.charAt(0).toUpperCase() + restaurant.cuisine.slice(1)}</p>
@@ -102,7 +101,7 @@ try {
                     </div>
                     <p>Price: ${getPriceRange(restaurant.price)}</p>
                 </div>
-                <a href="${restaurant.link || restaurant.link}" class="card-link" aria-hidden="true"></a>
+                <a href="${restaurant.link}" class="card-link" aria-label="View details for ${restaurant.name}" style="text-decoration: none;"></a>
             </div>
         `;
     }
