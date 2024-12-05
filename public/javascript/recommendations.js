@@ -1,5 +1,3 @@
-// recommendations.js
-
 // Restaurant data
 const restaurants = [
     // High-end restaurants
@@ -8,9 +6,9 @@ const restaurants = [
     { name: "Jiko Restaurant", cuisine: "African", price: "high-end", rating: 4.5, location:"Tribe Hotel", image: "/assets/images/jiko.jpg", link: "/public/views/jiko-restaurant.html" },
     { name: "Lucca Restaurant", cuisine: "Italian", price: "high-end", rating: 4.6, location:"Chiromo Ln", image: "/assets/images/lucca.jpg", link: "/public/views/lucca-restaurant.html" },
     { name: "Fogo Gaucho", cuisine: "Brazillian", price: "high-end", rating: 4.2, location:"Viking House", image: "/assets/images/fogogaucho.jpg", link: "/public/views/fogo-gaucho.html" },
-    { name: "Harvest Restaurant", cuisine: "international", price: "high-end", rating: 4.5, location:"Village Market", image: "/assets/images/harvest.jpg", link: "/public/views/harvestrestaurant.html" },
+    { name: "Harvest Restaurant", cuisine: "International", price: "high-end", rating: 4.5, location:"Village Market", image: "/assets/images/harvest.jpg", link: "/public/views/harvestrestaurant.html" },
     { name: "Chophouse Nairobi", cuisine: "African", price: "high-end", rating: 4.5, location:"Elgon Rd", image: "/assets/images/the-chop-house.jpg", link: "/public/views/chophouse-nairobi.html" },
-    { name: "Le Terrazza Italian Restaurant", cuisine: "Italian", price: "high-end", rating: 4.7, location:"Ngong Rd", image: "/assets/images/laterazza.jpg", link: "/public/views/le-terraza-restaurant.html" },
+    { name: "Le Terrazza Italian Restaurant", cuisine: "italian", price: "high-end", rating: 4.7, location:"Ngong Rd", image: "/assets/images/laterazza.jpg", link: "/public/views/le-terraza-restaurant.html" },
     { name: "Tatu Restaurant", cuisine: "International", price: "high-end", rating: 4.6, location:"Harry Thuku Rd",image:"/assets/images/taturestaurant.jpg", link: "/public/views/tatu-restaurant.html" },
     { name: "Upepo Restaurant", cuisine: "African", price: "high-end", rating: 4.2, location:"Peponi Rd", image: "/assets/images/upepo2.jpg", link: "/public/views/upepo-restaurant.html" },
     { name: "Mawimbi Seafood Restaurant", cuisine: "International", price: "high-end", rating: 4.6, location:"Kijabe St", image: "/assets/images/mawimbi2.jpg", link: "/public/views/mawimbi-seafood.html" },
@@ -49,7 +47,7 @@ function getRecommendations(cuisine, price) {
     let filteredRestaurants = restaurants;
 
     if (cuisine) {
-        filteredRestaurants = filteredRestaurants.filter(restaurant => restaurant.cuisine.toLowerCase() === cuisine.toLowerCase());
+        filteredRestaurants = filteredRestaurants.filter(restaurant => restaurant.cuisine === cuisine);
     }
 
     if (price) {
@@ -76,7 +74,6 @@ function createRestaurantCard(restaurant) {
                     <span>${restaurant.rating.toFixed(1)}</span>
                 </div>
                 <p>Price: ${getPriceRange(restaurant.price)}</p>
-                <p class="location">${restaurant.location}</p>
             </div>
             <a href="${restaurant.link}" class="card-link" aria-hidden="true"></a>
         </div>
@@ -113,105 +110,46 @@ function displayRecommendations() {
     const recommendedRestaurants = document.getElementById('recommended-restaurants');
     const recommendationsInfo = document.getElementById('recommendations-info');
 
-    if (recommendedRestaurants && recommendationsInfo) {
-        // Update the recommendations info
-        const resultCount = recommendations.length;
-        const cuisineText = cuisine ? `${cuisine.charAt(0).toUpperCase() + cuisine.slice(1)} ` : '';
-        const priceText = price ? `${price.charAt(0).toUpperCase() + price.slice(1)} ` : '';
-        recommendationsInfo.textContent = `${resultCount} ${cuisineText}${priceText}restaurant${resultCount !== 1 ? 's' : ''} found`;
+    // Update the recommendations info
+    const resultCount = recommendations.length;
+    const cuisineText = cuisine ? `${cuisine.charAt(0).toUpperCase() + cuisine.slice(1)} ` : '';
+    const priceText = price ? `${price.charAt(0).toUpperCase() + price.slice(1)} ` : '';
+    recommendationsInfo.textContent = `${resultCount} ${cuisineText}${priceText}restaurant${resultCount !== 1 ? 's' : ''} found`;
 
-        if (recommendations.length > 0) {
-            recommendedRestaurants.innerHTML = recommendations.map(createRestaurantCard).join('');
-            
-            // Add click event listeners to the restaurant cards
-            document.querySelectorAll('.restaurant-card').forEach(card => {
-                card.style.cursor = 'pointer';
-                card.addEventListener('click', function(event) {
-                    if (event.target.tagName.toLowerCase() !== 'a') {
-                        const link = this.querySelector('.card-link');
-                        if (link) {
-                            link.click();
-                        }
+    if (recommendations.length > 0) {
+        recommendedRestaurants.innerHTML = recommendations.map(createRestaurantCard).join('');
+        
+        // Add click event listeners to the restaurant cards
+        document.querySelectorAll('.restaurant-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function(event) {
+                if (event.target.tagName.toLowerCase() !== 'a') {
+                    const link = this.querySelector('.card-link');
+                    if (link) {
+                        link.click();
                     }
-                });
+                }
             });
-        } else {
-            recommendedRestaurants.innerHTML = '<p class="no-results-message">No restaurants found matching your criteria. Please try different options.</p>';
-        }
+        });
+    } else {
+        recommendedRestaurants.innerHTML = '<p class="no-results-message">No restaurants found matching your criteria. Please try different options.</p>';
     }
 
     // Refresh Lucide icons
-    if (typeof lucide !== 'undefined' && lucide.createIcons) {
-        lucide.createIcons();
-    }
+    lucide.createIcons();
 }
 
 // Function to initialize the page
 function initializePage() {
-    console.log('Initializing page...');
-    // First, initialize Lucide icons if available
-    if (typeof lucide !== 'undefined' && lucide.createIcons) {
-        lucide.createIcons();
-    }
-
     // Check if we're on the recommendations page
     if (window.location.pathname.includes('/public/views/recommendations.html')) {
-        console.log('On recommendations page, displaying recommendations...');
+        // We're on the recommendations page, so display the recommendations
         displayRecommendations();
-    } else {
-        console.log('Not on recommendations page');
     }
+
+    // Initialize Lucide icons
+    lucide.createIcons();
 }
 
 // Initialize the page when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM fully loaded, initializing page...');
-    initializePage();
-
-    // Add event listener for mobile navigation
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav .nav-link');
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            mobileNavLinks.forEach(navLink => navLink.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
-
-    // Implement lazy loading for images
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const image = entry.target;
-                    image.src = image.dataset.src;
-                    image.classList.remove('lazy');
-                    imageObserver.unobserve(image);
-                }
-            });
-        });
-
-        const lazyImages = document.querySelectorAll('img.lazy');
-        lazyImages.forEach(img => imageObserver.observe(img));
-    }
-});
-
-// Custom error handler function
-function handleError(error) {
-    console.error('Error in recommendations.js:', error);
-    // Display error message to user
-    const container = document.getElementById('recommended-restaurants');
-    if (container) {
-        container.innerHTML = '<p class="error-message">Sorry, there was an error loading the recommendations. Please try again later.</p>';
-    }
-}
-
-// Wrap all code in try-catch
-try {
-    // All the code above goes here
-} catch (error) {
-    handleError(error);
-}
-
-// Expose necessary functions to global scope
-window.displayRecommendations = displayRecommendations;
-window.getRecommendations = getRecommendations;
+document.addEventListener('DOMContentLoaded', initializePage);
