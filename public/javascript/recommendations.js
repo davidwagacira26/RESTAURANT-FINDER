@@ -143,112 +143,6 @@ function displayRecommendations() {
     }
 }
 
-// Function to initialize the recommendation form
-function initializeRecommendationForm(form) {
-    const body = document.body;
-
-    // Create modal elements
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    modal.style.display = 'none';
-    modal.innerHTML = `
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Finding the Best Restaurants for You</h2>
-            </div>
-            <div class="ai-logo">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#9333EA"/>
-                            <stop offset="100%" style="stop-color:#3B82F6"/>
-                        </linearGradient>
-                    </defs>
-                    <path d="M60 20 L70 45 L95 55 L70 65 L60 90 L50 65 L25 55 L50 45 Z" fill="url(#aiGradient)"/>
-                    <path d="M20 40 L25 50 L35 55 L25 60 L20 70 L15 60 L5 55 L15 50 Z" fill="url(#aiGradient)"/>
-                </svg>
-            </div>
-            <div class="modal-body">
-                <div class="loader"></div>
-                <p>Please wait while we process your request...</p>
-            </div>
-        </div>
-    `;
-
-    // Append modal to body
-    body.appendChild(modal);
-
-    // Add event listener to the form
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Show modal
-        modal.style.display = 'flex';
-
-        // Simulate processing time
-        setTimeout(function() {
-            // Hide modal
-            modal.style.display = 'none';
-
-            // Submit the form
-            form.submit();
-        }, 2000);
-    });
-
-    // Add styles for the modal
-    const style = document.createElement('style');
-    style.textContent = `
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-            max-width: 80%;
-        }
-        .modal-header {
-            margin-bottom: 20px;
-        }
-        .modal-header h2 {
-            margin: 0;
-        }
-        .ai-logo {
-            width: 50px;
-            height: 50px;
-            margin: 20px auto;
-        }
-        .ai-logo svg {
-            width: 100%;
-            height: 100%;
-        }
-        .loader {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #9333EA;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    `;
-    document.head.appendChild(style);
-}
-
 // Function to initialize the page
 function initializePage() {
     // First, initialize Lucide icons if available
@@ -256,16 +150,9 @@ function initializePage() {
         lucide.createIcons();
     }
 
-    // Check which page we're on and initialize appropriate functionality
+    // Check if we're on the recommendations page
     if (window.location.pathname.includes('/public/views/recommendations.html')) {
-        // We're on the recommendations results page
         displayRecommendations();
-    } else {
-        // We're on the home page or another page with the recommendation form
-        const recommendationForm = document.getElementById('recommendation-form');
-        if (recommendationForm) {
-            initializeRecommendationForm(recommendationForm);
-        }
     }
 }
 
