@@ -242,7 +242,7 @@ try {
 
                 // Submit the form
                 form.submit();
-            }, 4000);
+            }, 2000);
         });
 
         // Add styles for the modal
