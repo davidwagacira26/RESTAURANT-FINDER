@@ -1,3 +1,5 @@
+// recommendations.js
+
 // Restaurant data
 const restaurants = [
     // High-end restaurants
@@ -74,6 +76,7 @@ function createRestaurantCard(restaurant) {
                     <span>${restaurant.rating.toFixed(1)}</span>
                 </div>
                 <p>Price: ${getPriceRange(restaurant.price)}</p>
+                <p class="location">${restaurant.location}</p>
             </div>
             <a href="${restaurant.link}" class="card-link" aria-hidden="true"></a>
         </div>
@@ -145,6 +148,7 @@ function displayRecommendations() {
 
 // Function to initialize the page
 function initializePage() {
+    console.log('Initializing page...');
     // First, initialize Lucide icons if available
     if (typeof lucide !== 'undefined' && lucide.createIcons) {
         lucide.createIcons();
@@ -152,9 +156,62 @@ function initializePage() {
 
     // Check if we're on the recommendations page
     if (window.location.pathname.includes('/public/views/recommendations.html')) {
+        console.log('On recommendations page, displaying recommendations...');
         displayRecommendations();
+    } else {
+        console.log('Not on recommendations page');
     }
 }
 
 // Initialize the page when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', initializePage);
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded, initializing page...');
+    initializePage();
+
+    // Add event listener for mobile navigation
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav .nav-link');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            mobileNavLinks.forEach(navLink => navLink.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Implement lazy loading for images
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const image = entry.target;
+                    image.src = image.dataset.src;
+                    image.classList.remove('lazy');
+                    imageObserver.unobserve(image);
+                }
+            });
+        });
+
+        const lazyImages = document.querySelectorAll('img.lazy');
+        lazyImages.forEach(img => imageObserver.observe(img));
+    }
+});
+
+// Custom error handler function
+function handleError(error) {
+    console.error('Error in recommendations.js:', error);
+    // Display error message to user
+    const container = document.getElementById('recommended-restaurants');
+    if (container) {
+        container.innerHTML = '<p class="error-message">Sorry, there was an error loading the recommendations. Please try again later.</p>';
+    }
+}
+
+// Wrap all code in try-catch
+try {
+    // All the code above goes here
+} catch (error) {
+    handleError(error);
+}
+
+// Expose necessary functions to global scope
+window.displayRecommendations = displayRecommendations;
+window.getRecommendations = getRecommendations;
