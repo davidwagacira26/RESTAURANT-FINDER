@@ -88,21 +88,20 @@ try {
      */
     function createRestaurantCard(restaurant) {
         return `
-            <div class="restaurant-card">
-                <a href="${restaurant.link}" class="card-link">
-                    <img src="${restaurant.image}" alt="${restaurant.name}" loading="lazy">
-                    <div class="card-content">
-                        <h3>${restaurant.name}</h3>
-                        <p>${restaurant.cuisine.charAt(0).toUpperCase() + restaurant.cuisine.slice(1)}</p>
-                        <div class="rating">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="star-icon" viewBox="0 0 24 24" fill="#FFD700" width="24" height="24">
-                                <path d="M12 .587l3.668 10.825H24L15.832 16.5l3.668 10.825L12 20.675l-7.5 6.65L8.168 16.5 0 11.412h8.332z"/>
-                            </svg>
-                            <span>${restaurant.rating.toFixed(1)}</span>
-                        </div>
-                        <p>Price: ${getPriceRange(restaurant.price)}</p>
+            <div class="restaurant-card" tabindex="0" role="button" aria-label="View details for ${restaurant.name}">
+                <img src="${restaurant.image}" alt="${restaurant.name}" loading="lazy">
+                <div class="card-content">
+                    <h3>${restaurant.name}</h3>
+                    <p>${restaurant.cuisine.charAt(0).toUpperCase() + restaurant.cuisine.slice(1)}</p>
+                    <div class="rating">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="star-icon" viewBox="0 0 24 24" fill="#FFD700" width="24" height="24">
+                            <path d="M12 .587l3.668 10.825H24L15.832 16.5l3.668 10.825L12 20.675l-7.5 6.65L8.168 16.5 0 11.412h8.332z"/>
+                        </svg>
+                        <span>${restaurant.rating.toFixed(1)}</span>
                     </div>
-                </a>
+                    <p>Price: ${getPriceRange(restaurant.price)}</p>
+                </div>
+                <a href="${restaurant.link}" class="card-link" aria-hidden="true"></a>
             </div>
         `;
     }
