@@ -167,6 +167,7 @@ main.hero-hidden {
 }
 
 .card-content {
+    color: black;
     padding: 1rem;
 }
 
@@ -539,7 +540,6 @@ footer {
     }
 
     .card-content {
-        padding: 0.75rem;
         display: flex;
         flex-direction: column;
     }
@@ -552,7 +552,7 @@ footer {
     .rating {
         order: 1;
         margin-top: 0.5rem;
-        font-size: 0.9rem;
+        align-self: flex-start;
     }
 
     .view-all-button {
@@ -675,6 +675,15 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .card-content {
+        display: flex;
+        flex-direction: column;
+    }
+    .rating {
+        order: 1;
+        margin-top: 0.5rem;
+        align-self: flex-start;
+    }
     .restaurant-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -713,6 +722,16 @@ footer {
 }
 
 @media (max-width: 320px) {
+    .rating {
+        order: 1;
+        margin-top: 0.5rem;
+        align-self: flex-start;
+    }
+    .card-content {
+        display: flex;
+        flex-direction: column;
+    }
+    
     body {
         font-size: 14px;
     }

@@ -88,20 +88,21 @@ try {
      */
     function createRestaurantCard(restaurant) {
         return `
-            <div class="restaurant-card" tabindex="0" role="button" aria-label="View details for ${restaurant.name}">
-                <img src="${restaurant.image}" alt="${restaurant.name}" loading="lazy">
-                <div class="card-content">
-                    <h3>${restaurant.name}</h3>
-                    <p>${restaurant.cuisine.charAt(0).toUpperCase() + restaurant.cuisine.slice(1)}</p>
-                    <div class="rating">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="star-icon" viewBox="0 0 24 24" fill="#FFD700" width="24" height="24">
-                            <path d="M12 .587l3.668 10.825H24L15.832 16.5l3.668 10.825L12 20.675l-7.5 6.65L8.168 16.5 0 11.412h8.332z"/>
-                        </svg>
-                        <span>${restaurant.rating.toFixed(1)}</span>
+            <div class="restaurant-card">
+                <a href="${restaurant.link}" class="card-link" style="text-decoration: none; color: inherit;">
+                    <img src="${restaurant.image}" alt="${restaurant.name}" loading="lazy">
+                    <div class="card-content">
+                        <h3>${restaurant.name}</h3>
+                        <p>${restaurant.cuisine.charAt(0).toUpperCase() + restaurant.cuisine.slice(1)}</p>
+                        <div class="rating">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="star-icon" viewBox="0 0 24 24" fill="#FFD700" width="24" height="24">
+                                <path d="M12 .587l3.668 10.825H24L15.832 16.5l3.668 10.825L12 20.675l-7.5 6.65L8.168 16.5 0 11.412h8.332z"/>
+                            </svg>
+                            <span>${restaurant.rating.toFixed(1)}</span>
+                        </div>
+                        <p>Price: ${getPriceRange(restaurant.price)}</p>
                     </div>
-                    <p>Price: ${getPriceRange(restaurant.price)}</p>
-                </div>
-                <a href="${restaurant.link}" class="card-link" aria-hidden="true"></a>
+                </a>
             </div>
         `;
     }
@@ -172,47 +173,37 @@ try {
         }
     }
 
-    // Initialize only if we're on the recommendations page
-    if (window.location.pathname.includes('/recommendations')) {
-        document.addEventListener('DOMContentLoaded', displayRecommendations);
-    }
-
-    // Refresh Lucide icons
-    if (typeof lucide !== 'undefined' && lucide.createIcons) {
-        lucide.createIcons();
-    }
-
     // Function to initialize the recommendation form
     function initializeRecommendationForm(form) {
         const body = document.body;
 
-        // Create modal elements
-        const modal = document.createElement('div');
-        modal.className = 'modal';
-        modal.style.display = 'none';
-        modal.innerHTML = `
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Finding the Best Restaurants for You</h2>
-                </div>
-                <div class="ai-logo">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#9333EA"/>
-                                <stop offset="100%" style="stop-color:#3B82F6"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M60 20 L70 45 L95 55 L70 65 L60 90 L50 65 L25 55 L50 45 Z" fill="url(#aiGradient)"/>
-                        <path d="M20 40 L25 50 L35 55 L25 60 L20 70 L15 60 L5 55 L15 50 Z" fill="url(#aiGradient)"/>
-                    </svg>
-                </div>
-                <div class="modal-body">
-                    <div class="loader"></div>
-                    <p>Please wait while we process your request...</p>
-                </div>
-            </div>
-        `;
+       // Create modal elements
+       const modal = document.createElement('div');
+       modal.className = 'modal';
+       modal.style.display = 'none';
+       modal.innerHTML = `
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h2>Finding the Best Restaurants for You</h2>
+               </div>
+               <div class="ai-logo">
+                   <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                       <defs>
+                           <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                               <stop offset="0%" style="stop-color:#9333EA"/>
+                               <stop offset="100%" style="stop-color:#3B82F6"/>
+                           </linearGradient>
+                       </defs>
+                       <path d="M60 20 L70 45 L95 55 L70 65 L60 90 L50 65 L25 55 L50 45 Z" fill="url(#aiGradient)"/>
+                       <path d="M20 40 L25 50 L35 55 L25 60 L20 70 L15 60 L5 55 L15 50 Z" fill="url(#aiGradient)"/>
+                   </svg>
+               </div>
+               <div class="modal-body">
+                   <div class="loader"></div>
+                   <p>Please wait while we process your request...</p>
+               </div>
+           </div>
+       `;
 
         // Append modal to body
         body.appendChild(modal);
@@ -224,6 +215,18 @@ try {
             // Show modal
             modal.style.display = 'flex';
 
+            // Start blinking animation
+            const aiLogo = modal.querySelector('.ai-logo');
+            let blinkCount = 0;
+            const blinkInterval = setInterval(() => {
+                aiLogo.style.opacity = aiLogo.style.opacity === '1' ? '0.5' : '1';
+                blinkCount++;
+                if (blinkCount >= 8) { // 4 seconds (8 blinks at 0.5s intervals)
+                    clearInterval(blinkInterval);
+                    aiLogo.style.opacity = '1';
+                }
+            }, 500);
+
             // Simulate processing time
             setTimeout(function() {
                 // Hide modal
@@ -231,7 +234,7 @@ try {
 
                 // Submit the form
                 form.submit();
-            }, 2000);
+            }, 3000);
         });
 
         // Add styles for the modal
@@ -266,23 +269,11 @@ try {
                 width: 50px;
                 height: 50px;
                 margin: 20px auto;
+                transition: opacity 0.5s ease;
             }
             .ai-logo svg {
                 width: 100%;
                 height: 100%;
-            }
-            .loader {
-                border: 5px solid #f3f3f3;
-                border-top: 5px solid #9333EA;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                animation: spin 1s linear infinite;
-                margin: 20px auto;
-            }
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
             }
         `;
         document.head.appendChild(style);
@@ -314,3 +305,5 @@ try {
 } catch (error) {
     handleError(error);
 }
+
+console.log('recommendations.js finished loading');
