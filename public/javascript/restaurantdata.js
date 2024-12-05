@@ -45,7 +45,7 @@ export const restaurants = [
         rating: 4.8,
         location: "Mombasa Road",
         image: "/assets/images/artisanblend.jpg",
-        detailsLink: "/public/views/artisan-blend-cafe.html"
+        detailsLink: "/public/views/artisan-blend.html"
     },
     {
         name: "Mercado - Mexican Kitchen and Gin Bar",
@@ -61,7 +61,7 @@ export const restaurants = [
         rating: 4.8,
         location: "Westlands",
         image: "/assets/images/pili.jpg",
-        detailsLink: "/public/views/pili.html"
+        detailsLink: "/public/views/pili-restaurant.html"
     },
     {
         name: "Crave Restaurant",
@@ -85,7 +85,7 @@ export const restaurants = [
         rating: 4.0,
         location: "Westlands",
         image: "/assets/images/yunion.jpg",
-        detailsLink: "/public/views/yunion.html"
+        detailsLink: "/public/views/yunion-restaurant.html"
     },
     {
         name: "Kahani Restaurant",
@@ -93,7 +93,7 @@ export const restaurants = [
         rating: 3.9,
         location: "Limuru Road",
         image: "/assets/images/kahani.jpg",
-        detailsLink: "/public/views/kahani.html"
+        detailsLink: "/public/views/kahani-restaurant.html"
     },
     {
         name: "Slate - Kitchen and Bar",

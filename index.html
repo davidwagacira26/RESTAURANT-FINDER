@@ -58,7 +58,7 @@
             <div class="container">
                 <h2>Featured Restaurants</h2>
                 <div class="restaurant-grid">
-                    <div class="restaurant-card">
+                    <a href="/public/views/botanica.html" class="restaurant-card">
                         <img src="/assets/images/Botanica.jpg" alt="Botanica">
                         <div class="card-content">
                             <h3>Botanica</h3>
@@ -68,8 +68,8 @@
                                 <span>4.4</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="restaurant-card">
+                    </a>
+                    <a href="/public/views/bambino.html" class="restaurant-card">
                         <img src="/assets/images/bambino.jpg" alt="Bambino">
                         <div class="card-content">
                             <h3>Bambino</h3>
@@ -79,8 +79,8 @@
                                 <span>4.2</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="restaurant-card">
+                    </a>
+                    <a href="/public/views/inti.html" class="restaurant-card">
                         <img src="/assets/images/INTI.jpg" alt="INTI">
                         <div class="card-content">
                             <h3>INTI</h3>
@@ -90,8 +90,8 @@
                                 <span>4.5</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="restaurant-card">
+                    </a>
+                    <a href="/public/views/slate.html" class="restaurant-card">
                         <img src="/assets/images/slate.jpg" alt="Slate">
                         <div class="card-content">
                             <h3>Slate</h3>
@@ -101,7 +101,7 @@
                                 <span>4.3</span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <a href="/public/views/all-restaurants.html" class="view-all-button">View All Restaurants</a>
             </div>
@@ -117,14 +117,15 @@
                                 <label for="cuisine" class="form-label">Preferred Cuisine:</label>
                                 <select id="cuisine" name="cuisine" class="form-select">
                                     <option value="">Any</option>
-                                    <option value="italian">Italian</option>
-                                    <option value="japanese">Japanese</option>
-                                    <option value="kenyan">Kenyan</option>
+                                    <option value="International">International</option>
+                                    <option value="African">African</option>
+                                    <option value="Italian">Italian</option>
                                     <option value="indian">Indian</option>
                                     <option value="mexican">Mexican</option>
-                                    <option value="seafood">Seafood</option>
-                                    <option value="steakhouse">Steakhouse</option>
-                                    <option value="cafe">Cafe</option>
+                                    <option value="brazillian">Brazillian</option>
+                                    <option value="Lebanese">Lebanese</option>
+                                    <option value="Peruvian">Peruvian</option>
+                                    <option value="Mediterranean">Mediterranean</option>
                                 </select>
                                 <label for="price" class="form-label">Price Range:</label>
                                 <select id="price" name="price" class="form-select">
@@ -158,6 +159,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
     </main>
     <footer>
@@ -190,7 +192,7 @@
             </div>
         </div>
     </footer>
-    <script type="module" src="/public/javascript/restaurantdata.js"></script>
+    <script type="module" src="/public/javascript/randomize.js"></script>
     <script type="module" src="/public/javascript/restaurants.js"></script>
     <script src="/public/javascript/recommendations.js"></script>
     <script src="/public/javascript/restaurantoftheday.js"></script>

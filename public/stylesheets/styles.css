@@ -153,6 +153,7 @@ main.hero-hidden {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .restaurant-card:hover {
@@ -422,6 +423,18 @@ footer {
         gap: 2rem;
     }
 }
+/* Responsive design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .recommendation-special-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
     body {
         font-size: 16px;
@@ -436,7 +449,6 @@ footer {
         justify-content: center;
         padding: 0 15px;
     }
-
 
     .logo {
         font-size: 1.3rem;
@@ -473,7 +485,6 @@ footer {
         font-size: 1.4rem;
         margin-bottom: 4px;
     }
-
 
     .restaurants-hero {
         padding: 3rem 0;
@@ -597,13 +608,23 @@ footer {
     }
 
     .button-group {
-        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 15px;
     }
 
     .view-restaurant-button,
     .randomize-button {
-        padding: 0.75rem 1.25rem;
-        font-size: 1rem;
+        flex: 1;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .view-restaurant-button i,
+    .randomize-button i {
+        margin-right: 5px;
     }
 
     footer {
@@ -649,6 +670,17 @@ footer {
     .form-select,
     .recommendation-button {
         font-size: 0.9rem;
+    }
+
+    .view-restaurant-button,
+    .randomize-button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .view-restaurant-button i,
+    .randomize-button i {
+        margin-right: 3px;
     }
 }
 

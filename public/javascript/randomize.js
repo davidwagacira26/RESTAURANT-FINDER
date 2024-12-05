@@ -6,12 +6,17 @@ function updateRestaurantOfDay() {
     document.getElementById('randomizer-description').textContent = `Experience the unique flavors of ${restaurantOfDay.cuisine} cuisine!`;
     const viewButton = document.getElementById('randomizer-link');
     viewButton.href = restaurantOfDay.link;
-    viewButton.textContent = 'View Restaurant';
+    viewButton.innerHTML = '<i data-lucide="eye"></i> View Restaurant';
+    lucide.createIcons(); // Recreate icons to ensure the eye icon is displayed
 }
-
 
 document.addEventListener('DOMContentLoaded', function() {
     if (!window.location.pathname.includes('/public/views/recommendations.html')) {
         updateRestaurantOfDay();
+        
+        const randomizeButton = document.getElementById('randomize-button');
+        if (randomizeButton) {
+            randomizeButton.addEventListener('click', updateRestaurantOfDay);
+        }
     }
 });
