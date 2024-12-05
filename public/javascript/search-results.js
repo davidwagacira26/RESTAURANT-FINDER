@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
         card.addEventListener('click', () => {
-            window.location.href = restaurant.detailsLink;
+            window.location.href = restaurant.link;
         });
         return card;
     }

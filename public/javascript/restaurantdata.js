@@ -1,299 +1,300 @@
+// restaurantdata.js
+
 export const restaurants = [
     {
         name: "Botanica - Kitchen and Gin Bar",
-        type: "International",
+        cuisine: "International",
         rating: 4.4,
         location: "Westlands",
         image: "/assets/images/Botanica.jpg",
-        detailsLink: "/public/views/botanica.html"
+        link: "/public/views/botanica.html"
     },
     {
         name: "Bambino",
-        type: "Italian",
+        cuisine: "Italian",
         rating: 4.2,
         location: "Westlands",
         image: "/assets/images/bambino.jpg",
-        detailsLink: "/public/views/bambino.html"
+        link: "/public/views/bambino.html"
     },
     {
         name: "INTI",
-        type: "Japanese",
+        cuisine: "Japanese",
         rating: 4.5,
         location: "Westlands",
         image: "/assets/images/INTI3.jpg",
-        detailsLink: "/public/views/inti.html"
+        link: "/public/views/inti.html"
     },
     {
         name: "Canopy Cafe",
-        type: "International",
+        cuisine: "International",
         rating: 4.1,
         location: "Kilimani",
         image: "/assets/images/canopy.jpg",
-        detailsLink: "/public/views/canopy.html"
+        link: "/public/views/canopy.html"
     },
     {
         name: "Cafe Cassia",
-        type: "International",
+        cuisine: "International",
         rating: 4.7,
         location: "Karen",
         image: "/assets/images/cafecassia.jpg",
-        detailsLink: "/public/views/cafecassia.html"
+        link: "/public/views/cafecassia.html"
     },
     {
         name: "Artisan Blend Cafe",
-        type: "International",
+        cuisine: "International",
         rating: 4.8,
         location: "Mombasa Road",
         image: "/assets/images/artisanblend.jpg",
-        detailsLink: "/public/views/artisan-blend.html"
+        link: "/public/views/artisan-blend.html"
     },
     {
         name: "Mercado - Mexican Kitchen and Gin Bar",
-        type: "Mexican",
+        cuisine: "Mexican",
         rating: 4.4,
         location: "Westlands",
         image: "/assets/images/mercado.jpg",
-        detailsLink: "/public/views/mercado.html"
+        link: "/public/views/mercado.html"
     },
     {
         name: "Pili Restaurant",
-        type: "International",
+        cuisine: "International",
         rating: 4.8,
         location: "Westlands",
         image: "/assets/images/pili.jpg",
-        detailsLink: "/public/views/pili-restaurant.html"
+        link: "/public/views/pili-restaurant.html"
     },
     {
         name: "Crave Restaurant",
-        type: "International",
+        cuisine: "International",
         rating: 4.8,
         location: "Kilimani",
         image: "/assets/images/crave.jpg",
-        detailsLink: "/public/views/crave.html"
+        link: "/public/views/crave.html"
     },
     {
         name: "Spring Noshery",
-        type: "International",
+        cuisine: "International",
         rating: 4.4,
         location: "Westlands",
         image: "/assets/images/springnoshery2.jpg",
-        detailsLink: "/public/views/springnoshery.html"
+        link: "/public/views/springnoshery.html"
     },
     {
         name: "Yunion - Brunch and Cafe",
-        type: "International",
+        cuisine: "International",
         rating: 4.0,
         location: "Westlands",
         image: "/assets/images/yunion.jpg",
-        detailsLink: "/public/views/yunion-restaurant.html"
+        link: "/public/views/yunion-restaurant.html"
     },
     {
         name: "Kahani Restaurant",
-        type: "Indian",
+        cuisine: "Indian",
         rating: 3.9,
         location: "Limuru Road",
         image: "/assets/images/kahani.jpg",
-        detailsLink: "/public/views/kahani-restaurant.html"
+        link: "/public/views/kahani-restaurant.html"
     },
     {
         name: "Slate - Kitchen and Bar",
-        type: "International",
+        cuisine: "International",
         rating: 4.4,
         location: "Mkungu Cl",
         image: "/assets/images/slate.jpg",
-        detailsLink: "/public/views/slate.html"
+        link: "/public/views/slate.html"
     },
     {
         name: "Brew Bistro - Fortis",
-        type: "International",
+        cuisine: "International",
         rating: 4.8,
         location: "Westlands",
         image: "/assets/images/brewbistro.jpg",
-        detailsLink: "/public/views/brewbistro.html"
+        link: "/public/views/brewbistro.html"
     },
     {
         name: "270° Restaurant",
-        type: "International",
+        cuisine: "International",
         rating: 4.3,
         location: "Westlands",
         image: "/assets/images/270°2.jpg",
-        detailsLink: "/public/views/270°-restaurant.html"
+        link: "/public/views/270°-restaurant.html"
     },
     {
         name: "Harvest Restaurant",
-        type: "International",
+        cuisine: "International",
         rating: 4.5,
         location: "Village Market",
         image: "/assets/images/harvest.jpg",
-        detailsLink: "/public/views/harvestrestaurant.html"
+        link: "/public/views/harvestrestaurant.html"
     },
     {
         name: "Meko Restaurant",
-        type: "International",
+        cuisine: "International",
         rating: 3.9,
         location: "Peponi Rd",
         image: "/assets/images/meko.jpg",
-        detailsLink: "/public/views/meko-restaurant.html"
+        link: "/public/views/meko-restaurant.html"
     },
     {
         name: "Jiko Restaurant",
-        type: "African",
+        cuisine: "African",
         rating: 4.5,
         location: "Tribe Hotel",
         image: "/assets/images/jiko.jpg",
-        detailsLink: "/public/views/jiko-restaurant.html"
+        link: "/public/views/jiko-restaurant.html"
     },
     {
         name: "Talisman Restaurant",
-        type: "International",
+        cuisine: "International",
         rating: 4.6,
         location: "Ngong Rd",
         image: "/assets/images/talisman.jpg",
-        detailsLink: "/public/views/talisman-restaurant.html"
+        link: "/public/views/talisman-restaurant.html"
     },
     {
         name: "Inca Restaurant",
-        type: "Peruvian",
+        cuisine: "Peruvian",
         rating: 4.4,
         location: "The Social House",
         image: "/assets/images/inca.jpg",
-        detailsLink: "/public/views/inca-restaurant.html"
+        link: "/public/views/inca-restaurant.html"
     },
     {
         name: "Karel T-Lounge",
-        type: "Mediterranean",
+        cuisine: "Mediterranean",
         rating: 4.4,
         location: "Village Market",
         image: "/assets/images/kareltlounge4.jpg",
-        detailsLink: "/public/views/karel-t-lounge.html"
+        link: "/public/views/karel-t-lounge.html"
     },
     {
         name: "Ezo Restaurant",
-        type: "Japanese",
+        cuisine: "Japanese",
         rating: 4.4,
         location: "42 Muthithi Rd",
         image: "/assets/images/ezo2.jpg",
-        detailsLink: "/public/views/ezo-restaurant.html"
+        link: "/public/views/ezo-restaurant.html"
     },
     {
         name: "Nairobi Street Kitchen",
-        type: "International",
+        cuisine: "International",
         rating: 4.5,
         location: "Mpaka Rd",
         image: "/assets/images/nsk.jpg",
-        detailsLink: "/public/views/nairobi-street-kitchen.html"
+        link: "/public/views/nairobi-street-kitchen.html"
     },
     {
         name: "Fogo Gaucho",
-        type: "Brazillian",
+        cuisine: "Brazillian",
         rating: 4.6,
         location: "Viking House",
         image: "/assets/images/fogogaucho.jpg",
-        detailsLink: "/public/views/fogo-gaucho.html"
+        link: "/public/views/fogo-gaucho.html"
     },
     {
         name: "Le Terrazza Italian Restaurant",
-        type: "Italian",
+        cuisine: "Italian",
         rating: 4.7,
         location: "Nairobi",
         image: "/assets/images/laterazza.jpg",
-        detailsLink: "/public/views/le-terrazza-italian-restaurant.html"
+        link: "/public/views/le-terrazza-italian-restaurant.html"
     },
     {
         name: "Upepo Restaurant",
-        type: "African",
+        cuisine: "African",
         rating: 4.2,
         location: "Peponi Rd",
         image: "/assets/images/upepo2.jpg",
-        detailsLink: "/public/views/upepo-restaurant.html"
+        link: "/public/views/upepo-restaurant.html"
     },
     {
         name: "Mawimbi Seafood Restaurant",
-        type: "International",
+        cuisine: "International",
         rating: 4.6,
         location: "Kijabe St",
         image: "/assets/images/mawimbi2.jpg",
-        detailsLink: "/public/views/mawimbi-seafood.html"
+        link: "/public/views/mawimbi-seafood.html"
     },
     {
         name: "Lucca Restaurant",
-        type: "Italian",
+        cuisine: "Italian",
         rating: 4.6,
         location: "Chiromo Ln",
         image: "/assets/images/lucca.jpg",
-        detailsLink: "/public/views/lucca-restaurant.html"
+        link: "/public/views/lucca-restaurant.html"
     },
     {
         name: "Chophouse Nairobi",
-        type: "African",
+        cuisine: "African",
         rating: 4.5,
         location: "Elgon Rd",
         image: "/assets/images/the-chop-house.jpg",
-        detailsLink: "/public/views/chophouse-nairobi.html"
+        link: "/public/views/chophouse-nairobi.html"
     },
     {
         name: "Tatu Restaurant",
-        type: "International",
+        cuisine: "International",
         rating: 4.6,
         location: "Harry Thuku Rd",
         image: "/assets/images/taturestaurant.jpg",
-        detailsLink: "/public/views/tatu-restaurant.html"
+        link: "/public/views/tatu-restaurant.html"
     },
     {
         name: "Copper the Urban Grill",
-        type: "International",
+        cuisine: "International",
         rating: 4.4,
         location: "154 James Gichuru Rd",
         image: "/assets/images/coppertheurbangrill2.jpg",
-        detailsLink: "/public/views/copper-the-urban-grill.html"
+        link: "/public/views/copper-the-urban-grill.html"
     },
     {
         name: "The Larder Restaurant",
-        type: "International",
+        cuisine: "International",
         rating: 3.9,
         location: "Elgon Rd",
         image: "/assets/images/thelarder.jpg",
-        detailsLink: "/public/views/the-larder-restaurant.html"
+        link: "/public/views/the-larder-restaurant.html"
     },
     {
         name: "Tambourin Restaurant",
-        type: "Lebanese",
+        cuisine: "Lebanese",
         rating: 4.4,
         location: "Chiromo Ln",
         image: "/assets/images/tambourin.jpg",
-        detailsLink: "/public/views/tambourin-restaurant.html"
+        link: "/public/views/tambourin-restaurant.html"
     },
     {
         name: "Graze Steakhouse",
-        type: "American",
+        cuisine: "American",
         rating: 4.5,
         location: "Woodvale Grove",
         image: "/assets/images/grazesteakhouse.jpg",
-        detailsLink: "/public/views/graze-steakhouse.html"
+        link: "/public/views/graze-steakhouse.html"
     },
     {
         name: "Seven Seafood & Grill",
-        type: "Seafood",
+        cuisine: "Seafood",
         rating: 4.5,
         location: "Waiyaki Wy",
         image: "/assets/images/sevenseafoodandgrill.jpg",
-        detailsLink: "/public/views/seven-seafood-and-grill.html"
+        link: "/public/views/seven-seafood-and-grill.html"
     },
     {
         name: "Hero Restaurant",
-        type: "Asian",
+        cuisine: "Asian",
         rating: 4.6,
         location: "Limuru Rd",
         image: "/assets/images/herorestaurant.jpg",
-        detailsLink: "/public/views/hero-restaurant.html"
+        link: "/public/views/hero-restaurant.html"
     },
     {
         name: "Urban Eatery",
-        type: "International",
+        cuisine: "International",
         rating: 4.4,
         location: "Chiromo Rd",
         image: "/assets/images/urbaneatery.jpg",
-        detailsLink: "/public/views/urban-eatery.html"
+        link: "/public/views/urban-eatery.html"
     },
 ];
-

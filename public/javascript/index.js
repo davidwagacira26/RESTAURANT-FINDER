@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('click', function(e) {
             // Prevent click on "View Details" button from triggering card click
             if (!e.target.classList.contains('view-details')) {
-                const detailsLink = this.querySelector('.view-details');
-                if (detailsLink) {
-                    window.location.href = detailsLink.href;
+                const link = this.querySelector('.view-details');
+                if (link) {
+                    window.location.href = link.href;
                 }
             }
         });

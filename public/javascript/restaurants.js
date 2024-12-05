@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', () => {
             sessionStorage.setItem('lastSortCriteria', currentSortCriteria);
             sessionStorage.setItem('lastPage', currentPage);
-            window.location.href = restaurant.detailsLink;
+            window.location.href = restaurant.link;
         });
         return card;
     }

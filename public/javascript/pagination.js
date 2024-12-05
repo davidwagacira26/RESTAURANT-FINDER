@@ -94,7 +94,7 @@ function addRestaurant(restaurantData) {
                 <i data-lucide="map-pin"></i>
                 ${restaurantData.location}
             </div>
-            <a href="${restaurantData.detailsLink}" class="view-details">View Details</a>
+            <a href="${restaurantData.link}" class="view-details">View Details</a>
         </div>
     `;
     
