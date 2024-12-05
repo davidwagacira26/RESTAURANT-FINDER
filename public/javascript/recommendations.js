@@ -89,7 +89,7 @@ try {
     function createRestaurantCard(restaurant) {
         return `
             <div class="restaurant-card">
-                <a href="${restaurant.link}" class="card-link" style="text-decoration: none; color: inherit;">
+                <a href="${restaurant.link}" class="card-link">
                     <img src="${restaurant.image}" alt="${restaurant.name}" loading="lazy">
                     <div class="card-content">
                         <h3>${restaurant.name}</h3>
