@@ -585,7 +585,7 @@ footer {
     }
 
     body {
-        padding-bottom: calc(50px + max(10px, env(safe-area-inset-bottom)));
+        padding-bottom: calc(60px + max(10px, env(safe-area-inset-bottom)));
     }
 }
 
