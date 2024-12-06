@@ -13,7 +13,7 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: black;
-    background: linear-gradient(to bottom, #f0f0f0, #ffffff);
+    background: linear-gradient;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -430,7 +430,7 @@ footer {
     }
 
     .logo {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
     .desktop-nav {
@@ -457,11 +457,11 @@ footer {
         padding: 5px;
         color: white;
         text-decoration: none;
-        font-size: 0.875rem;
+        font-size: 0.7rem;
     }
 
     .mobile-nav .nav-link i {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         margin-bottom: 2px;
     }
 
@@ -470,15 +470,16 @@ footer {
     }
 
     .hero h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
     }
 
     .hero p {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     h2 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
     .restaurant-info {
@@ -488,7 +489,7 @@ footer {
     }
 
     .info-item {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .gallery-grid {
@@ -505,11 +506,11 @@ footer {
     }
 
     .menu-item h3 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .menu-item p {
-        font-size: 1rem;
+        font-size: 0.85rem;
     }
 
     .review-grid {
@@ -526,7 +527,7 @@ footer {
 
     .btn-primary, .btn-secondary {
         padding: 0.6rem 1.2rem;
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     footer {
@@ -536,19 +537,19 @@ footer {
 
 @media (max-width: 480px) {
     body {
-        font-size: 16px;
+        font-size: 13px;
     }
 
     .hero h1 {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
 
     .hero p {
-        font-size: 1rem;
+        font-size: 0.85rem;
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .gallery-grid {
@@ -560,11 +561,11 @@ footer {
     }
 
     .menu-item h3 {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .menu-item p {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .cta h2 {
@@ -573,25 +574,25 @@ footer {
 
     .btn-primary, .btn-secondary {
         padding: 0.5rem 1rem;
-        font-size: 1rem;
+        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 375px) {
     body {
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .hero h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .hero p {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     h2 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
     .gallery-grid {
@@ -603,11 +604,11 @@ footer {
     }
 
     .menu-item h3 {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
     }
 
     .menu-item p {
-        font-size: 1rem;
+        font-size: 0.75rem;
     }
 
     .cta h2 {
@@ -616,25 +617,25 @@ footer {
 
     .btn-primary, .btn-secondary {
         padding: 0.45rem 0.9rem;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 320px) {
     body {
-        font-size: 16px;
+        font-size: 11px;
     }
 
     .hero h1 {
-        font-size: 1.4rem;
+        font-size: 1.1rem;
     }
 
     .hero p {
-        font-size: 1rem;
+        font-size: 0.75rem;
     }
 
     h2 {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
     .gallery-grid {
@@ -646,11 +647,11 @@ footer {
     }
 
     .menu-item h3 {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
     }
 
     .menu-item p {
-        font-size: 1rem;
+        font-size: 0.7rem;
     }
 
     .cta h2 {
@@ -659,7 +660,7 @@ footer {
 
     .btn-primary, .btn-secondary {
         padding: 0.4rem 0.8rem;
-        font-size: 1rem;
+        font-size: 0.75rem;
     }
 }
 
