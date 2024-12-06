@@ -508,25 +508,15 @@ footer {
     .card-footer {
         padding: 0.4rem;
         font-size: 0.75rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: nowrap;
     }
 
     .location {
         font-size: 0.7rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 60%;
     }
 
     .view-details {
-        padding: 0.4rem 0.8rem;
-        font-size: 12px;
-        min-width: 60px;
-        white-space: nowrap;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
     }
 
     .pagination {
@@ -566,19 +556,13 @@ footer {
         font-size: 0.8rem;
     }
 
-    .rating, .card-footer {
+    .rating, .card-footer, .location {
         font-size: 0.7rem;
     }
 
-    .location {
-        font-size: 0.65rem;
-        max-width: 55%;
-    }
-
     .view-details {
-        padding: 0.3rem 0.6rem;
-        font-size: 11px;
-        min-width: 50px;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.65rem;
     }
 }
 
@@ -625,18 +609,12 @@ footer {
         font-size: 0.75rem;
     }
 
-    .rating, .card-footer {
+    .rating, .card-footer, .location {
         font-size: 0.65rem;
     }
 
-    .location {
-        font-size: 0.6rem;
-        max-width: 50%;
-    }
-
     .view-details {
-        padding: 0.25rem 0.5rem;
-        font-size: 10px;
-        min-width: 40px;
+        padding: 0.2rem 0.4rem;
+        font-size: 0.6rem;
     }
 }
