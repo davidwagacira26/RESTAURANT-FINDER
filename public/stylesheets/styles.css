@@ -325,9 +325,8 @@ main.hero-hidden {
 
 .view-restaurant-button,
 .randomize-button {
-    display: inline-flex;
+    display:flex;
     align-items: center;
-    gap: 0.5rem;
     background-color: #003B95;
     color: white;
     border: none;
@@ -456,6 +455,15 @@ footer {
         justify-content: center;
         padding: 0 15px;
     }
+
+    h2.recommendation-title {
+        font-size: 1.5rem;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+    
 
     .logo {
         font-size: 1.2rem;
