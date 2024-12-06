@@ -21,27 +21,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Pagination variables
     let currentPage = 1;
-    const itemsPerPage = 9;
+    let itemsPerPage = getItemsPerPage();
     let totalPages = 1;
 
     // Store the current sort criteria
     let currentSortCriteria = 'default';
 
+    function getItemsPerPage() {
+        return window.innerWidth <= 768 ? 10 : 9;
+    }
+
     function createRestaurantCard(restaurant) {
         const card = document.createElement('div');
         card.className = 'restaurant-card';
         card.style.cursor = 'pointer';
+        card.style.display = 'flex';
+        card.style.flexDirection = 'column';
+        card.style.height = '100%';
         card.innerHTML = `
-            <img src="${restaurant.image}" alt="${restaurant.name}">
-            <div class="card-content">
+            <img src="${restaurant.image}" alt="${restaurant.name}" style="width: 100%; height: 200px; object-fit: cover;">
+            <div class="card-content" style="flex-grow: 1; display: flex; flex-direction: column;">
                 <h3>${restaurant.name}</h3>
-                <p>${restaurant.cuisine}</p>
-                <div class="rating">
+                <p style="flex-grow: 1; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${restaurant.cuisine}</p>
+                <div class="rating" style="margin-top: auto;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     <span>${restaurant.rating}</span>
                 </div>
             </div>
-            <div class="card-footer">
+            <div class="card-footer" style="margin-top: auto;">
                 <div class="location">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="map-pin-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     ${restaurant.location}
@@ -78,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let restaurantCards = Array.from(restaurantGrid.children);
         restaurantCards = restaurantCards.filter(card => !card.classList.contains('hidden'));
         
+        itemsPerPage = getItemsPerPage(); // Update itemsPerPage before calculating pagination
         totalPages = Math.ceil(restaurantCards.length / itemsPerPage);
         currentPage = Math.max(1, Math.min(currentPage, totalPages));
         
@@ -91,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         restaurantCards.forEach((card, index) => {
             if (index >= startIndex && index < endIndex) {
-                card.style.display = 'block';
+                card.style.display = 'flex';
             } else {
                 card.style.display = 'none';
             }
@@ -121,10 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 sortedRestaurants.sort((a, b) => b.rating - a.rating);
                 break;
             case 'cuisines-asc':
-                sortedRestaurants.sort((a, b) => a.type.localeCompare(b.type));
+                sortedRestaurants.sort((a, b) => a.cuisine.localeCompare(b.cuisine));
                 break;
             case 'cuisines-desc':
-                sortedRestaurants.sort((a, b) => b.type.localeCompare(a.type));
+                sortedRestaurants.sort((a, b) => b.cuisine.localeCompare(a.cuisine));
                 break;
         }
         return sortedRestaurants;
@@ -305,7 +313,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     updateSearchButtonState();
 
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        const newItemsPerPage = getItemsPerPage();
+        if (newItemsPerPage !== itemsPerPage) {
+            itemsPerPage = newItemsPerPage;
+            updatePagination();
+        }
+    });
+
     // Expose necessary functions to the global scope
     window.updatePaginationAfterFilter = updatePaginationAfterFilter;
     window.performSearch = performSearch;
+
+    // Add CSS to hide "View Details" button on mobile
+    const style = document.createElement('style');
+    style.textContent = `
+        @media (max-width: 768px) {
+            .view-details {
+                display: none !important;
+            }
+        }
+    `;
+    document.head.appendChild(style);
 });

@@ -106,10 +106,32 @@
                 <a href="/public/views/all-restaurants.html" class="view-all-button">View All Restaurants</a>
             </div>
         </section>
-        <section id="recommendation" class="recommendation-special">
+     
             <div class="container">
-                <div class="recommendation-special-grid">
+                <div class="container-grid">
+                    <div id="randomizer" class="randomizer-container">
+                        <h2 class="recommendation-title"><strong>Restaurant Randomizer</strong></h2>
+                        <p class="randomizer-subtitle">Feeling adventurous? Let fate decide your next culinary experience!</p>
+                        <div class="randomizer-card">
+                            <img id="randomizer-image">
+                            <div class="randomizer-content">
+                                <h3 id="randomizer-name">Today's Featured Restaurant</h3>
+                                <p id="randomizer-description">Experience the unique flavors of our daily featured restaurant!</p>
+                                <div class="button-group">
+                                    <a id="randomizer-link" href="#" class="view-restaurant-button">
+                                        <i data-lucide="eye"></i>
+                                        View Restaurant
+                                    </a>
+                                    <button id="randomize-button" class="randomize-button">
+                                        <i data-lucide="dice-3"></i>
+                                        Randomize
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="recommendation-container">
+                       
                         <h2 class="recommendation-title"><strong>Get a Restaurant Recommendation</strong></h2>
                         <p class="recommendation-subtitle">Not sure where to eat? Let us suggest a restaurant for you!</p>
                         <form id="recommendation-form" action="/public/views/recommendations.html" method="get">
@@ -137,26 +159,6 @@
                                 <button type="submit" class="recommendation-button">Get Recommendation</button>
                             </div>
                         </form>
-                    </div>
-                    <div id="randomizer" class="randomizer-container">
-                        <h2 class="recommendation-title"><strong>Restaurant Randomizer</strong></h2>
-                        <div class="randomizer-card">
-                            <img id="randomizer-image"
-                            <div class="randomizer-content">
-                                <h3 id="randomizer-name">Today's Featured Restaurant</h3>
-                                <p id="randomizer-description">Experience the unique flavors of our daily featured restaurant!</p>
-                                <div class="button-group">
-                                    <a id="randomizer-link" href="#" class="view-restaurant-button">
-                                        <i data-lucide="eye"></i>
-                                        View Restaurant
-                                    </a>
-                                    <button id="randomize-button" class="randomize-button">
-                                        <i data-lucide="dice-3"></i>
-                                        Randomize
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

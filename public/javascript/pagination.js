@@ -1,6 +1,6 @@
 // Pagination variables
 let currentPage = 1;
-const itemsPerPage = 9;
+let itemsPerPage = getItemsPerPage();
 let totalPages = 1;
 
 // Pagination elements
@@ -10,27 +10,39 @@ const pageInfo = document.getElementById('page-info');
 const restaurantGrid = document.getElementById('restaurant-grid');
 const restaurantsSection = document.querySelector('.restaurants-list');
 
+function getItemsPerPage() {
+    // Force return 10 for mobile devices
+    if (window.innerWidth <= 768) {
+        return 10;
+    }
+    return 9;
+}
+
 function updatePagination() {
-    // Get all restaurant cards
+    // Force update itemsPerPage at the start of pagination
+    itemsPerPage = getItemsPerPage();
+    
+    // Get all restaurant cards and ensure they're visible
     let restaurantCards = Array.from(restaurantGrid.children);
+    restaurantCards.forEach(card => card.style.display = ''); // Reset display
     
     // Filter out any hidden restaurants
     restaurantCards = restaurantCards.filter(card => !card.classList.contains('hidden'));
     
+    // Calculate total pages based on current itemsPerPage
     totalPages = Math.ceil(restaurantCards.length / itemsPerPage);
-    
-    // Ensure currentPage is within valid range
     currentPage = Math.max(1, Math.min(currentPage, totalPages));
     
+    // Update pagination controls
     prevButton.disabled = currentPage === 1;
     nextButton.disabled = currentPage === totalPages;
-    
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
     
+    // Calculate start and end indices
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
+    const endIndex = Math.min(startIndex + itemsPerPage, restaurantCards.length);
     
-    // Show/hide cards based on their position
+    // Show/hide cards based on current page
     restaurantCards.forEach((card, index) => {
         if (index >= startIndex && index < endIndex) {
             card.style.display = 'block';
@@ -39,14 +51,18 @@ function updatePagination() {
         }
     });
 
-    console.log(`Displaying restaurants ${startIndex + 1} to ${Math.min(endIndex, restaurantCards.length)} of ${restaurantCards.length}`);
+    console.log(`Mobile: ${window.innerWidth <= 768}, Items per page: ${itemsPerPage}, Showing ${startIndex + 1} to ${endIndex}`);
 }
 
 function scrollToRestaurants() {
     const restaurantsTop = restaurantsSection.getBoundingClientRect().top + window.pageYOffset;
-    window.scrollTo(0, restaurantsTop);
+    window.scrollTo({
+        top: restaurantsTop,
+        behavior: 'smooth'
+    });
 }
 
+// Event Listeners
 prevButton.addEventListener('click', () => {
     if (currentPage > 1) {
         currentPage--;
@@ -63,15 +79,29 @@ nextButton.addEventListener('click', () => {
     }
 });
 
-// Initial pagination
+// Initialize pagination on load
 document.addEventListener('DOMContentLoaded', () => {
+    // Force initial itemsPerPage calculation
+    itemsPerPage = getItemsPerPage();
     updatePagination();
-    console.log('Initial pagination complete');
+    console.log('Initialization complete - Items per page:', itemsPerPage);
 });
 
-// Update pagination after search or sort
+// Handle window resize with immediate update
+window.addEventListener('resize', () => {
+    const newItemsPerPage = getItemsPerPage();
+    if (newItemsPerPage !== itemsPerPage) {
+        itemsPerPage = newItemsPerPage;
+        currentPage = 1; // Reset to first page on resize
+        updatePagination();
+        console.log('Resize - New items per page:', itemsPerPage);
+    }
+});
+
+// Function to update pagination after filter
 function updatePaginationAfterFilter() {
     currentPage = 1;
+    itemsPerPage = getItemsPerPage(); // Force recalculation
     updatePagination();
 }
 
@@ -98,22 +128,15 @@ function addRestaurant(restaurantData) {
         </div>
     `;
     
-    // Append the new card to the end of the restaurant grid
     restaurantGrid.appendChild(newCard);
-    
-    // Update pagination
-    updatePagination();
-    
-    // Navigate to the last page where the new restaurant was added
-    currentPage = totalPages;
+    itemsPerPage = getItemsPerPage(); // Force recalculation
     updatePagination();
     
     if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
         lucide.createIcons();
     }
-    console.log(`Added new restaurant: ${restaurantData.name} on page ${totalPages}`);
 }
 
-// Expose functions globally
+// Expose necessary functions globally
 window.updatePaginationAfterFilter = updatePaginationAfterFilter;
 window.addRestaurant = addRestaurant;
