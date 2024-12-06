@@ -4,9 +4,544 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bambino - Nairobi Feast</title>
-    <link rel="stylesheet" href="/public/stylesheets/restaurants.css">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: black;
+            background: linear-gradient(to bottom, #f4f4f4, #ffffff);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #003B95;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .desktop-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav {
+            display: none;
+        }
+
+        /* Main content styles */
+        main {
+            padding-top: 60px;
+            flex: 1 0 auto;
+        }
+
+        /* Hero styles */
+        .hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        /* Section styles */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Restaurant info styles */
+        .restaurant-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Section icons styles */
+        #section-icons {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .icon {
+            text-align: center;
+            cursor: pointer;
+            padding: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .icon:hover {
+            background-color: #f4f4f4;
+        }
+
+        .icon i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Content section styles */
+        .content-section {
+            display: none;
+            margin-top: 2rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Gallery styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Menu styles */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-item h3 {
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem;
+            padding: 0 1rem;
+        }
+
+        .menu-item p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            padding: 0 1rem;
+        }
+
+        .price {
+            display: block;
+            font-weight: bold;
+            color: #e44d26;
+            margin-bottom: 1rem;
+            padding: 0 1rem;
+        }
+
+        .view-full-menu {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Reviews styles */
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .reviewer-info h3 {
+            margin-bottom: 0.25rem;
+        }
+
+        .rating {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .star-icon {
+            color: #ffd700;
+        }
+
+        /* Location styles */
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* TikTok embed styles */
+        .tiktok-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .tiktok-embed {
+            max-width: 605px;
+            margin: 0 auto;
+        }
+
+        /* CTA section styles */
+        .cta {
+            background-color: #e44d26;
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+            border-radius: 8px;
+        }
+
+        .cta h2 {
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn-primary, .btn-secondary {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: #e44d26;
+            border: 2px solid #f60d0d;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: red;
+            color: #eeeeee;
+            border: 2px solid #f40505;
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: red;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h3, .footer-section h4 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+                padding-bottom: calc(80px + env(safe-area-inset-bottom));
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+
+            header .container {
+                justify-content: center;
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: #003B95;
+                justify-content: space-around;
+                padding: 10px 0;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            .mobile-nav .nav-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 5px;
+                color: white;
+                text-decoration: none;
+                font-size: 0.7rem;
+            }
+
+            .mobile-nav .nav-link i {
+                font-size: 1.2rem;
+                margin-bottom: 2px;
+            }
+
+            .hero {
+                height: 40vh;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .gallery-image {
+                height: 150px;
+            }
+
+            #section-icons {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 1rem;
+            }
+
+            .icon {
+                flex: 0 0 auto;
+                margin-right: 1rem;
+            }
+
+            .icon i {
+                font-size: 1.5rem;
+            }
+
+            footer {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-image {
+                height: 200px;
+            }
+        }
+
+        @supports (padding: max(0px)) {
+            .mobile-nav {
+                padding-bottom: max(5px, env(safe-area-inset-bottom));
+            }
+
+            body {
+                padding-bottom: calc(80px + max(10px, env(safe-area-inset-bottom)));
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,24 +555,7 @@
             </nav>
         </div>
     </header>
-    <nav class="mobile-nav">
-        <a href="/index.html" class="nav-link">
-            <i data-lucide="home"></i>
-            <span>Home</span>
-        </a>
-        <a href="/restaurants.html" class="nav-link">
-            <i data-lucide="info"></i>
-            <span>About</span>
-        </a>
-        <a href="/search.html" class="nav-link">
-            <i data-lucide="utensils"></i>
-            <span>Restaurants</span>
-        </a>
-        <a href="/public/" class="nav-link">
-            <i data-lucide="phone"></i>
-            <span>Contact</span>
-        </a>
-    </nav>
+
     <main>
         <div class="hero">
             <img src="/assets/images/bambinofood5.jpg" alt="Bambino Restaurant Ambiance" class="hero-image">
@@ -67,111 +585,148 @@
                 </div>
             </section>
 
-            <section class="about">
-                <h2>About Bambino</h2>
-                <p>Bambino Restaurant in Nairobi is a delightful culinary haven that brings family and friends together over exceptional food and warm hospitality. Specializing in Italian-inspired cuisine with a modern twist, Bambino offers a menu that caters to every palate, from handcrafted pizzas and pastas to flavorful grills and fresh salads.</p>
-                <p>The restaurant's inviting atmosphere, characterized by its stylish interiors and cozy seating, sets the stage for memorable dining experiences, whether it's a casual lunch, an intimate dinner, or a special celebration. With its impeccable service and passion for quality, Bambino Restaurant promises to leave you with a taste of Italy right in the heart of Nairobi.</p>
-            </section>
-
-            <section class="gallery">
-                <h2>Gallery</h2>
-                <div class="gallery-grid">
-                    <img src="/assets/images/bambinointerior.jpg" alt="Bambino Interior" class="gallery-image">
-                    <img src="/assets/images/bambinoart.jpg" alt="Bambino Art" class="gallery-image">
-                    <img src="/assets/images/bambinofood.jpg" alt="Bambino Food" class="gallery-image">
-                    <img src="/assets/images/bambinolunch.jpg" alt="Bambino Lunch" class="gallery-image">
+            <section id="section-icons">
+                <div class="icon" data-target="about">
+                    <i data-lucide="info" style="color: #4CAF50;"></i>
+                    <span>About</span>
+                </div>
+                <div class="icon" data-target="gallery">
+                    <i data-lucide="image" style="color: #2196F3;"></i>
+                    <span>Gallery</span>
+                </div>
+                <div class="icon" data-target="menu">
+                    <i data-lucide="utensils" style="color: #FFC107;"></i>
+                    <span>Menu</span>
+                </div>
+                <div class="icon" data-target="reviews">
+                    <i data-lucide="message-circle" style="color: #9C27B0;"></i>
+                    <span>Reviews</span>
+                </div>
+                <div class="icon" data-target="location">
+                    <i data-lucide="map-pin" style="color: #F44336;"></i>
+                    <span>Location</span>
+                </div>
+                <div class="icon" data-target="tiktok">
+                    <i data-lucide="video" style="color: #E91E63;"></i>
+                    <span>TikTok</span>
                 </div>
             </section>
 
-            <section class="menu">
-                <h2>Featured Menu Items</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <img src="/assets/images/bambinofood2.jpg" alt="Crispy Mushroom Arancini Balls" class="menu-image">
-                        <h3>Crispy Mushroom Arancini Balls</h3>
-                        <p>Mushroom ragout, mozzarella cheese, mushroom sauce</p>
-                        <span class="price">KES 1400</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/bambinofood3.jpg" alt="Zaffrano Fish" class="menu-image">
-                        <h3>Zaffrano Fish</h3>
-                        <p>White fish with saffron and coconut sauce served with coriander rice</p>
-                        <span class="price">KES 1350</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/bambinofood4.jpg" alt="Beef Tenderloin Carpaccio" class="menu-image">
-                        <h3>Beef Tenderloin Carpaccio</h3>
-                        <p>Rucola pesto, Grano padano, lemon dressing, stracciatella and wild rocket</p>
-                        <span class="price">KES 1300</span>
-                    </div>
+            <section id="content-sections">
+                <div id="about" class="content-section">
+                    <h2>About Bambino</h2>
+                    <p>Bambino Restaurant in Nairobi is a delightful culinary haven that brings family and friends together over exceptional food and warm hospitality. Specializing in Italian-inspired cuisine with a modern twist, Bambino offers a menu that caters to every palate, from handcrafted pizzas and pastas to flavorful grills and fresh salads.</p>
+                    <p>The restaurant's inviting atmosphere, characterized by its stylish interiors and cozy seating, sets the stage for memorable dining experiences, whether it's a casual lunch, an intimate dinner, or a special celebration. With its impeccable service and passion for quality, Bambino Restaurant promises to leave you with a taste of Italy right in the heart of Nairobi.</p>
                 </div>
-                <div class="view-full-menu">
-                    <a href="https://www.thefoodlibrary.co.ke/bambino-latin-italian-kitchen/bambino-food-menu-new/" target="_blank" class="btn-secondary">View Full Menu</a>
-                </div>
-            </section>
 
-            <section class="reviews">
-                <h2>What Our Guests Say</h2>
-                <div class="review-grid">
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/bambinoreviewer1.png" alt="Symo Us" class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Symo Us</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
+                <div id="gallery" class="content-section">
+                    <h2>Gallery</h2>
+                    <div class="gallery-grid">
+                        <img src="/assets/images/bambinointerior.jpg" alt="Bambino Interior" class="gallery-image">
+                        <img src="/assets/images/bambinoart.jpg" alt="Bambino Art" class="gallery-image">
+                        <img src="/assets/images/bambinofood.jpg" alt="Bambino Food" class="gallery-image">
+                        <img src="/assets/images/bambinolunch.jpg" alt="Bambino Lunch" class="gallery-image">
+                    </div>
+                </div>
+
+                <div id="menu" class="content-section">
+                    <h2>Featured Menu Items</h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <img src="/assets/images/bambinofood2.jpg" alt="Crispy Mushroom Arancini Balls" class="menu-image">
+                            <h3>Crispy Mushroom Arancini Balls</h3>
+                            <p>Mushroom ragout, mozzarella cheese, mushroom sauce</p>
+                            <span class="price">KES 1400</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/bambinofood3.jpg" alt="Zaffrano Fish" class="menu-image">
+                            <h3>Zaffrano Fish</h3>
+                            <p>White fish with saffron and coconut sauce served with coriander rice</p>
+                            <span class="price">KES 1350</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/bambinofood4.jpg" alt="Beef Tenderloin Carpaccio" class="menu-image">
+                            <h3>Beef Tenderloin Carpaccio</h3>
+                            <p>Rucola pesto, Grano padano, lemon dressing, stracciatella and wild rocket</p>
+                            <span class="price">KES 1300</span>
+                        </div>
+                    </div>
+                    <div class="view-full-menu">
+                        <a href="https://www.thefoodlibrary.co.ke/bambino-latin-italian-kitchen/bambino-food-menu-new/" target="_blank" class="btn-secondary">View Full Menu</a>
+                    </div>
+                </div>
+
+                <div id="reviews" class="content-section">
+                    <h2>What Our Guests Say</h2>
+                    <div class="review-grid">
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/bambinoreviewer1.png" alt="Symo Us" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Symo Us</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
                                 </div>
                             </div>
+                            <p>"Came in for their four cheese white sauce pizza, super impressed with the atmosphere, service and music. Pretty much got a morale booster for a Monday evening, unprecedented for any other restaurant in Nairobi. Happy to have found a place that serves fresh salads and uses quality ingredients for their meals. Highly recommended!!!❤️❤️❤️"</p>
                         </div>
-                        <p>"Came in for their four cheese white sauce pizza, super impressed with the atmosphere, service and music. Pretty much got a morale booster for a Monday evening, unprecedented for any other restaurant in Nairobi. Happy to have found a place that serves fresh salads and uses quality ingredients for their meals. Highly recommended!!!❤️❤️❤️"</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/bambinoreviewer2.png" alt="Eve Kisuva" class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Eve Kisuva</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/bambinoreviewer2.png" alt="Eve Kisuva" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Eve Kisuva</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
                                 </div>
                             </div>
+                            <p>"A great spot for fine dining or even having some drinks with friends. The ambience is 10/10. Food was great and presentation was 👌. Staff are warm and welcoming. I highly recommend this restaurant and I'll definitely be back."</p>
                         </div>
-                        <p>"A great spot for fine dining or even having some drinks with friends. The ambience is 10/10. Food was great and presentation was 👌. Staff are warm and welcoming. I highly recommend this restaurant and I'll definitely be back."</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/bambinoreviewer3.png" alt="Dorcas Mbugua" class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Dorcas Mbugua</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/bambinoreviewer3.png" alt="Dorcas Mbugua" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Dorcas Mbugua</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
                                 </div>
                             </div>
+                            <p>"When a restaurant is a triple threat: great service, incredible food and amazing ambience, it creates an experience like no other. That's what I experienced at Bambino. The service was swift and efficient-our server Donna was very helpful and lovely. The food was delicious and I would highly recommend over and over again. If you're a dessert lover, you will also not be disappointed."</p>
                         </div>
-                        <p>"When a restaurant is a triple threat: great service, incredible food and amazing ambience, it creates an experience like no other. That's what I experienced at Bambino. The service was swift and efficient-our server Donna was very helpful and lovely. The food was delicious and I would highly recommend over and over again. If you're a dessert lover, you will also not be disappointed."</p>
+                    </div>
+                    <div class="google-attribution">
+                        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
+                        <span>Reviews from Google</span>
                     </div>
                 </div>
-                <div class="google-attribution">
-                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
-                    <span>Reviews from Google</span>
-                </div>
-            </section>
 
-            <section class="location">
-                <h2>Location</h2>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8511648429826!2d36.80137197440975!3d-1.2615892987263937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f17be40258f77%3A0xf29aae08024682e!2sBambino%20-%20Kitchen%20%26%20Bar!5e0!3m2!1sen!2ske!4v1732868492347!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div id="location" class="content-section">
+                    <h2>Location</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8511648429826!2d36.80137197440975!3d-1.2615892987263937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f17be40258f77%3A0xf29aae08024682e!2sBambino%20-%20Kitchen%20%26%20Bar!5e0!3m2!1sen!2ske!4v1732868492347!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div id="tiktok" class="content-section">
+                    <h2>TikTok</h2>
+                    <div class="tiktok-grid">
+                        <!-- Add your TikTok embed code here -->
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@bambinokitchenandbar" data-video-id="your-video-id-here" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@bambinokitchenandbar" href="https://www.tiktok.com/@bambinokitchenandbar">@bambinokitchenandbar</a> <p>Check out our latest dishes!</p> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                    </div>
                 </div>
             </section>
 
@@ -216,8 +771,46 @@
         </div>
     </footer>
 
+    <nav class="mobile-nav">
+        <a href="/index.html" class="nav-link">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </a>
+        <a href="/restaurants.html" class="nav-link">
+            <i data-lucide="info"></i>
+            <span>About</span>
+        </a>
+        <a href="/search.html" class="nav-link">
+            <i data-lucide="utensils"></i>
+            <span>Restaurants</span>
+        </a>
+        <a href="/public/" class="nav-link">
+            <i data-lucide="phone"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
     <script>
         lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const icons = document.querySelectorAll('.icon');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            icons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    
+                    contentSections.forEach(section => {
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
     </script>
 </body>
 </html>
