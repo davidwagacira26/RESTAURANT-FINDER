@@ -117,7 +117,7 @@ export const restaurants = [
         name: "270° Restaurant",
         cuisine: "International",
         rating: 4.3,
-        location: "Westlands",
+        location: "Lavington",
         image: "/assets/images/270°2.jpg",
         link: "/public/views/270°-restaurant.html"
     },

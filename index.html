@@ -9,6 +9,13 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+    <button class="menu-toggle" id="menuToggle">
+        <i data-lucide="menu"></i>
+    </button>
+    <div class="side-menu" id="sideMenu">
+        <a href="/public/views/termsofservice.html">Terms of Service</a>
+        <a href="/public/views/privacypolicy.html">Privacy Policy</a>
+    </div>
     <header>
         <div class="container">
             <a href="/index.html" class="logo">Nairobi Feast</a>
@@ -199,6 +206,29 @@
     <script src="/public/javascript/recommendations.js"></script>
     <script>
         lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const sideMenu = document.getElementById('sideMenu');
+            let isMenuOpen = false;
+
+            menuToggle.addEventListener('click', function(event) {
+                event.stopPropagation();
+                isMenuOpen = !isMenuOpen;
+                sideMenu.style.left = isMenuOpen ? '0' : '-250px';
+            });
+
+            document.addEventListener('click', function(event) {
+                if (isMenuOpen && !sideMenu.contains(event.target) && event.target !== menuToggle) {
+                    isMenuOpen = false;
+                    sideMenu.style.left = '-250px';
+                }
+            });
+
+            sideMenu.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        });
     </script>
 </body>
 </html>

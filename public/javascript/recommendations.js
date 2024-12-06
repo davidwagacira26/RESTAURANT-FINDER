@@ -44,7 +44,7 @@ try {
         { name: "Yunion - Brunch and cafe", cuisine: "International", rating: 4.0, price: "mid-range", location: "Westlands", image: "/assets/images/yunion.jpg", link: "/public/views/yunion-restaurant.html" },
         { name: "Slate - Kitchen and Bar", cuisine: "International", rating: 4.4, price: "mid-range", location: "Mkungu Cl", image: "/assets/images/slate.jpg", link: "/public/views/slate-restaurant.html" },
         { name: "Brew Bistro - Fortis", cuisine: "International", rating: 4.8, price: "mid-range", location: "Westlands", image: "/assets/images/brewbistro.jpg", link: "/public/views/brewbistro.html" },
-        { name: "270° Restaurant", cuisine: "International", rating: 4.3, price: "mid-range", location: "Westlands", image: "/assets/images/270°2.jpg", link: "/public/views/270°-restaurant.html" },
+        { name: "270° Restaurant", cuisine: "International", rating: 4.3, price: "mid-range", location: "Lavington", image: "/assets/images/270°2.jpg", link: "/public/views/270°-restaurant.html" },
         { name: "Meko Restaurant", cuisine: "International", rating: 3.9, price: "mid-range", location: "Peponi Rd", image: "/assets/images/meko.jpg", link: "/public/views/meko-restaurant.html" },
         { name: "Karel T-Lounge", cuisine: "Mediterranean", rating: 4.4, price: "mid-range", location: "Village Market", image: "/assets/images/kareltlounge4.jpg", link: "/public/views/karel-t-lounge.html" },
         { name: "Nairobi street kitchen", cuisine: "International", rating: 4.5, price: "mid-range", location: "Mpaka Rd", image: "/assets/images/nsk.jpg", link: "/public/views/nairobi-street-kitchen.html" },
