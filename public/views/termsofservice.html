@@ -5,135 +5,468 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - Nairobi Feast</title>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
-            margin: 0;
-            padding: 0;
             background-color: #f4f4f4;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
+
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 20px;
         }
+
+        /* Header styles */
         header {
-            background: #003B95;
-            color: #ffffff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #e8491d 3px solid;
+            background-color: #003B95;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            right: 0;
         }
-        header a {
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        header .logo {
+
+        .logo {
             font-family: 'Permanent Marker', cursive;
-            float: left;
-            font-size: 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
         }
+
+        .desktop-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main content styles */
         main {
-            padding: 20px 0;
+            padding-top: 80px;
+            flex: 1 0 auto;
         }
-        h1, h2 {
+
+        /* Terms of Service styles */
+        .terms-of-service {
+            padding: 2rem 0;
+        }
+
+        .terms-of-service h1 {
+            font-size: 2.5rem;
             color: #003B95;
+            margin-bottom: 1rem;
         }
+
+        .terms-of-service h2 {
+            font-size: 1.5rem;
+            color: #003B95;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .terms-of-service p {
+            margin-bottom: 1rem;
+        }
+
+        .terms-of-service ul {
+            list-style-type: disc;
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
         .back-link {
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background: #003B95;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .back-link:hover {
-            background: #002a6e;
-        }
-        footer {
-            padding: 20px;
-            margin-top: 20px;
-            color: #ffffff;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
             background-color: #003B95;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h3, .footer-section h4 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .copyright {
+            margin-top: 2rem;
             text-align: center;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        /* Mobile nav styles */
+        .mobile-nav {
+            display: none;
+        }
+
+        /* Menu toggle styles */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1002;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #003B95;
+            z-index: 1001;
+            transition: left 0.3s ease-in-out;
+            padding: 60px 20px 20px;
+            box-sizing: border-box;
+        }
+
+        .side-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+                padding-bottom: calc(60px + env(safe-area-inset-bottom));
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            header .container {
+                justify-content: center;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .mobile-nav {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: #003B95;
+                justify-content: space-around;
+                padding: 5px 0;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            .mobile-nav .nav-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 5px;
+                color: white;
+                text-decoration: none;
+                font-size: 0.7rem;
+            }
+
+            .mobile-nav .nav-link i {
+                font-size: 1.2rem;
+                margin-bottom: 2px;
+            }
+
+            .terms-of-service h1 {
+                font-size: 2rem;
+            }
+
+            .terms-of-service h2 {
+                font-size: 1.25rem;
+            }
+
+            footer {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .terms-of-service h1 {
+                font-size: 1.75rem;
+            }
+
+            .terms-of-service h2 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @supports (padding: max(0px)) {
+            .mobile-nav {
+                padding-bottom: max(5px, env(safe-area-inset-bottom));
+            }
+
+            body {
+                padding-bottom: calc(60px + max(10px, env(safe-area-inset-bottom)));
+            }
         }
     </style>
 </head>
 <body>
+    <button class="menu-toggle" id="menuToggle">
+        <i data-lucide="menu"></i>
+    </button>
+    <div class="side-menu" id="sideMenu">
+        <a href="/public/views/termsofservice.html">Terms of Service</a>
+        <a href="/public/views/privacypolicy.html">Privacy Policy</a>
+    </div>
     <header>
         <div class="container">
             <a href="/index.html" class="logo">Nairobi Feast</a>
+            <nav class="desktop-nav">
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="/public/views/browse.html" class="nav-link">Browse</a>
+                <a href="/public/views/about.html" class="nav-link">About</a>
+                <a href="/public/views/contact.html" class="nav-link">Contact</a>
+            </nav>
         </div>
     </header>
 
+    <nav class="mobile-nav">
+        <a href="/index.html" class="nav-link">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </a>
+        <a href="/public/views/browse.html" class="nav-link">
+            <i data-lucide="utensils"></i>
+            <span>Browse</span>
+        </a>
+        <a href="/public/views/about.html" class="nav-link">
+            <i data-lucide="info"></i>
+            <span>About</span>
+        </a>
+        <a href="/public/views/contact.html" class="nav-link">
+            <i data-lucide="mail"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
     <main>
-        <div class="container">
-            <h1>Terms of Service</h1>
-            <p>Last updated: 01/12/2024</p>
-            <p>Please read these Terms of Service carefully before using the Nairobi Feast website for restaurant discovery.</p>
-            
-            <h2>1. Acceptance of Terms</h2>
-            <p>By accessing or using our website, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website.</p>
-            
-            <h2>2. Use of the Service</h2>
-            <p>You agree to use our service only for discovering restaurants in accordance with these Terms and any applicable laws and regulations. Nairobi Feast is a platform that facilitates connections between users and restaurants.</p>
-            
-            <h2>3. Restaurant Listings and Information</h2>
-            <p>While we strive to provide accurate and up-to-date information about restaurants, we cannot guarantee the accuracy, completeness, or reliability of any restaurant listings or information on our platform. Nairobi Feast acts solely as an intermediary for information.</p>
-            
-            <h2>4. External Links</h2>
-            <p>Our website may contain links to external restaurant websites or booking platforms. We are not responsible for the content or functionality of these external sites. These links are provided for your convenience to facilitate direct connections with the restaurants.</p>
-            
-            <h2>5. Prohibited Conduct</h2>
-            <p>You agree not to:</p>
-            <ul>
-                <li>Use the service for any illegal purpose</li>
-                <li>Attempt to gain unauthorized access to any part of the service</li>
-                <li>Use any automated means to access or collect data from the website</li>
-                <li>Reproduce, duplicate, copy, sell, resell or exploit any portion of the Service without express written permission from Nairobi Feast</li>
-            </ul>
-            
-            <h2>6. Intellectual Property</h2>
-            <p>The original content on our website, including text, graphics, logos, and software, is the property of Nairobi Feast. However, all restaurant information, images, and other content related to specific restaurants are the property of their respective owners. Nairobi Feast does not claim ownership or license any third-party content and is merely facilitating connections between users and restaurants.</p>
-            
-            <h2>7. Image Usage and Copyright</h2>
-            <p>Many of the images displayed on Nairobi Feast have been carefully researched and may have been downloaded from various sources. We acknowledge that all rights to these images belong to their respective owners. These images are used for informational purposes only, with the intent of facilitating restaurant discovery.</p>
-            <p>We make every effort to respect copyright laws and the rights of content creators. If you are the rightful owner of any image used on our website and wish for it to be removed or credited differently, please contact us immediately at <a href="mailto:copyright@nairobifeast.com">copyright@nairobifeast.com</a>. We will promptly address your concerns and take appropriate action.</p>
-            <p>Nairobi Feast does not claim ownership of these images and acknowledges that they are the property of their respective copyright holders. Our use of these images is intended to fall under fair use for the purpose of restaurant discovery and information sharing.</p>
-            
-            <h2>8. Disclaimer of Warranties</h2>
-            <p>Our website and services are provided "as is" without any warranties. We do not guarantee the accuracy of restaurant information or the availability of featured establishments.</p>
-            
-            <h2>9. Limitation of Liability</h2>
-            <p>Nairobi Feast shall not be liable for any indirect, incidental, special, consequential or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses.</p>
-            
-            <h2>10. Changes to Terms</h2>
-            <p>We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect.</p>
-            
-            <h2>11. Governing Law</h2>
-            <p>These Terms shall be governed and construed in accordance with the laws of Kenya, without regard to its conflict of law provisions.</p>
-            
-            <h2>Contact Us</h2>
-            <p>If you have any questions about these Terms, please contact us at:</p>
-            <p>Email: terms@nairobifeast.com</p>
-            <p>Phone: +254 703100790</p>
-            
-            <a href="/index.html" class="back-link">Back to Home</a>
-        </div>
+        <section class="terms-of-service">
+            <div class="container">
+                <h1>Terms of Service</h1>
+                <p>Last updated: 01/12/2024</p>
+                <p>Please read these Terms of Service carefully before using the Nairobi Feast website for restaurant discovery.</p>
+                
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing or using our website, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website.</p>
+                
+                <h2>2. Use of the Service</h2>
+                <p>You agree to use our service only for discovering restaurants in accordance with these Terms and any applicable laws and regulations. Nairobi Feast is a platform that facilitates connections between users and restaurants.</p>
+                
+                <h2>3. Restaurant Listings and Information</h2>
+                <p>While we strive to provide accurate and up-to-date information about restaurants, we cannot guarantee the accuracy, completeness, or reliability of any restaurant listings or information on our platform. Nairobi Feast acts solely as an intermediary for information.</p>
+                
+                <h2>4. External Links</h2>
+                <p>Our website may contain links to external restaurant websites or booking platforms. We are not responsible for the content or functionality of these external sites. These links are provided for your convenience to facilitate direct connections with the restaurants.</p>
+                
+                <h2>5. Prohibited Conduct</h2>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Use the service for any illegal purpose</li>
+                    <li>Attempt to gain unauthorized access to any part of the service</li>
+                    <li>Use any automated means to access or collect data from the website</li>
+                    <li>Reproduce, duplicate, copy, sell, resell or exploit any portion of the Service without express written permission from Nairobi Feast</li>
+                </ul>
+                
+                <h2>6. Intellectual Property</h2>
+                <p>The original content on our website, including text, graphics, logos, and software, is the property of Nairobi Feast. However, all restaurant information, images, and other content related to specific restaurants are the property of their respective owners. Nairobi Feast does not claim ownership or license any third-party content and is merely facilitating connections between users and restaurants.</p>
+                
+                <h2>7. Image Usage and Copyright</h2>
+                <p>Many of the images displayed on Nairobi Feast have been carefully researched and may have been downloaded from various sources. We acknowledge that all rights to these images belong to their respective owners. These images are used for informational purposes only, with the intent of facilitating restaurant discovery.</p>
+                <p>We make every effort to respect copyright laws and the rights of content creators. If you are the rightful owner of any image used on our website and wish for it to be removed or credited differently, please contact us immediately at <a href="mailto:copyright@nairobifeast.com">copyright@nairobifeast.com</a>. We will promptly address your concerns and take appropriate action.</p>
+                <p>Nairobi Feast does not claim ownership of these images and acknowledges that they are the property of their respective copyright holders. Our use of these images is intended to fall under fair use for the purpose of restaurant discovery and information sharing.</p>
+                
+                <h2>8. Disclaimer of Warranties</h2>
+                <p>Our website and services are provided "as is" without any warranties. We do not guarantee the accuracy of restaurant information or the availability of featured establishments.</p>
+                
+                <h2>9. Limitation of Liability</h2>
+                <p>Nairobi Feast shall not be liable for any indirect, incidental, special, consequential or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses.</p>
+                
+                <h2>10. Changes to Terms</h2>
+                <p>We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect.</p>
+                
+                <h2>11. Governing Law</h2>
+                <p>These Terms shall be governed and construed in accordance with the laws of Kenya, without regard to its conflict of law provisions.</p>
+                
+                <h2>Contact Us</h2>
+                <p>If you have any questions about these Terms, please contact us at:</p>
+                <p>Email: terms@nairobifeast.com</p>
+                <p>Phone: +254 703100790</p>
+                
+                <a href="/index.html" class="back-link">Back to Home</a>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Nairobi Feast</h3>
+                    <p>Discover the best dining experiences in Nairobi.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/public/views/about.html">About Us</a></li>
+                        <li><a href="/public/views/contact.html">Contact</a></li>
+                        <li><a href="/public/views/privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="/public/views/termsofservice.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                    </div>
+                </div>
+            </div>
             <div class="copyright">
                 © 2024 Nairobi Feast. All rights reserved.
             </div>
         </div>
     </footer>
+
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const sideMenu = document.getElementById('sideMenu');
+            let isMenuOpen = false;
+
+            menuToggle.addEventListener('click', function(event) {
+                event.stopPropagation();
+                isMenuOpen = !isMenuOpen;
+                sideMenu.style.left = isMenuOpen ? '0' : '-250px';
+            });
+
+            document.addEventListener('click', function(event) {
+                if (isMenuOpen && !sideMenu.contains(event.target) && event.target !== menuToggle) {
+                    isMenuOpen = false;
+                    sideMenu.style.left = '-250px';
+                }
+            });
+
+            sideMenu.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        });
+    </script>
 </body>
 </html>
