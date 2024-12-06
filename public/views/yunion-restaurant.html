@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yunion Restaurant - Nairobi Feast</title>
-    <link rel="stylesheet" href="/public/stylesheets/restaurants.css">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Yunion - Brunch Cafe & Bar - Nairobi Feast</title>
+    <link rel="stylesheet" href="/public/stylesheets/restaurantspage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -14,33 +14,16 @@
             <a href="/index.html" class="logo">Nairobi Feast</a>
             <nav class="desktop-nav">
                 <a href="/index.html" class="nav-link">Home</a>
+                <a href="/public/views/browse.html" class="nav-link">Browse</a>
                 <a href="/public/views/about.html" class="nav-link">About</a>
-                <a href="/public/views/restaurants.html" class="nav-link">Restaurants</a>
                 <a href="/public/views/contact.html" class="nav-link">Contact</a>
             </nav>
         </div>
     </header>
-    <nav class="mobile-nav">
-        <a href="/index.html" class="nav-link">
-            <i data-lucide="home"></i>
-            <span>Home</span>
-        </a>
-        <a href="/restaurants.html" class="nav-link">
-            <i data-lucide="info"></i>
-            <span>About</span>
-        </a>
-        <a href="/search.html" class="nav-link">
-            <i data-lucide="utensils"></i>
-            <span>Restaurants</span>
-        </a>
-        <a href="/public/" class="nav-link">
-            <i data-lucide="phone"></i>
-            <span>Contact</span>
-        </a>
-    </nav>
+
     <main>
         <div class="hero">
-            <img src="/assets/images/yunionfood1.jpg" alt="Carnivore Restaurant Ambiance" class="hero-image">
+            <img src="/assets/images/yunionfood1.jpg" alt="Yunion Restaurant Ambiance" class="hero-image">
             <div class="hero-content">
                 <h1>Yunion - Brunch Cafe & Bar</h1>
                 <p>We welcome you to a collaborative workspace, a hub for artists and innovators and a place to socialise.</p>
@@ -67,115 +50,151 @@
                 </div>
             </section>
 
-            <section class="about">
-                <h2>About Yunion</h2>
-                <p>Yunion Restaurant, situated in the prestigious GTC Mall in Nairobi, redefines fine dining with its fusion of contemporary Asian flavors and modern elegance. Known for its innovative menu, Yunion offers a culinary journey that seamlessly blends tradition and creativity, with dishes ranging from expertly crafted dim sum to bold wok specialties and signature sushi.</p>
-                <p>The restaurant’s sleek and sophisticated design, complemented by panoramic views of Nairobi's skyline, creates an ambiance of luxury and refinement. Perfect for intimate dinners, business meetings, or celebratory occasions, Yunion Restaurant delivers a dining experience that is as stylish as it is memorable.</p>
-            </section>
-            <section class="gallery">
-                <h2>Gallery</h2>
-                <div class="gallery-grid">
-                    <img src="/assets/images/yunionfood4.jpg" alt="Carnivore Interior" class="gallery-image">
-                    <img src="/assets/images/yunionfood1.jpg" alt="Meat Selection" class="gallery-image">
-                    <img src="/assets/images/yunionfood2.jpg" alt="Outdoor Seating" class="gallery-image">
-                    <img src="/assets/images/yunionfood3.jpg" alt="Grilling Station" class="gallery-image">
+            <section id="section-icons">
+                <div class="icon active" data-target="about">
+                    <i data-lucide="info" style="color: #4CAF50;"></i>
+                    <span>About</span>
+                </div>
+                <div class="icon" data-target="gallery">
+                    <i data-lucide="image" style="color: #2196F3;"></i>
+                    <span>Gallery</span>
+                </div>
+                <div class="icon" data-target="menu">
+                    <i data-lucide="utensils" style="color: #FFC107;"></i>
+                    <span>Menu</span>
+                </div>
+                <div class="icon" data-target="reviews">
+                    <i data-lucide="message-circle" style="color: #9C27B0;"></i>
+                    <span>Reviews</span>
+                </div>
+                <div class="icon" data-target="location">
+                    <i data-lucide="map-pin" style="color: #F44336;"></i>
+                    <span>Location</span>
+                </div>
+                <div class="icon" data-target="tiktok">
+                    <i data-lucide="video" style="color: #E91E63;"></i>
+                    <span>TikTok</span>
                 </div>
             </section>
 
-            <section class="menu">
-                <h2>Featured Menu Items</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <img src="/assets/images/artisanblendfood4.jpg" alt="Meat Platter" class="menu-image">
-                        <h3>Salmon Teriyaki</h3>
-                        <p>Grilled corn ribs, lime drizzle, smoked paprika dust, grated cheese topping, and fresh parsley garnish.</p>
-                        <span class="price">KES 800</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/artisanblendfood5.jpg" alt="Crocodile Steak" class="menu-image">
-                        <h3>Creamy Fusilli Arrabiata</h3>
-                        <p>Perfectly cooked pasta tossed in a rich tomato sauce, blended with a touch of cream</p>
-                        <span class="price">KES 1250</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/artisanblendrink.jpg" alt="Ostrich Meatballs" class="menu-image">
-                        <h3>Mixed Berries Smoothie</h3>
-                        <p>Busting with fresh strawberries, blueberries and raspberries</p>
-                        <span class="price">KES 1100</span>
-                    </div>
+            <section id="content-sections">
+                <div id="about" class="content-section active">
+                    <h2>About Yunion</h2>
+                    <p>Yunion Restaurant, situated in the prestigious GTC Mall in Nairobi, redefines fine dining with its fusion of contemporary Asian flavors and modern elegance. Known for its innovative menu, Yunion offers a culinary journey that seamlessly blends tradition and creativity, with dishes ranging from expertly crafted dim sum to bold wok specialties and signature sushi.</p>
+                    <p>The restaurant's sleek and sophisticated design, complemented by panoramic views of Nairobi's skyline, creates an ambiance of luxury and refinement. Perfect for intimate dinners, business meetings, or celebratory occasions, Yunion Restaurant delivers a dining experience that is as stylish as it is memorable.</p>
                 </div>
-                <div class="view-full-menu">
-                    <a href="https://ugc.production.linktr.ee/847c5d60-c6ba-4bc3-a709-ba0f12806dd8_yunion-menu-Main-Menu-final-export-2.pdf" target="_blank" class="btn-secondary">View Full Menu</a>
-                </div>
-            </section>
 
-            <section class="reviews">
-                <h2>What Guests Say</h2>
-                <div class="review-grid">
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/artisanblendreviewer1.png" alt="S.K. Hill" class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>S.K. Hill</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"During my first visit to Nairobi, I stayed near this wonderful restaurant, Yunion, which os located inside of the GTC. I discovered it while walking in Westlands. I decided to visit the restaurant and I fell in love with the place. I love the setting, especially the portion is that outdoors. The view of the surrounding skyline was awe-inspiring. The staff and their service were outstanding. They seemed like the nicest people in the world. The food and drinks were absolutely mouth-watering good. The honey salmon platter and the wings were my favorite. I love the “big head” drink and the mimosas. I visited Yunion six times during my eleven day stay. When I return to Nairobi, I will visit this place again and again. Asante, Yunion!"</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/yunionreviewer2.png" alt="Magdaline Njeri" class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Magdaline Njeri</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"There are so many things to say about the place. The ambience is amazing, the staff are also friendly. I enjoyed the mutton curry, it was delicious; you can have it with rice or naan bread."</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/yunionreviewer3.png" alt="Sarah Cannings" class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Sarah Cannings</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"Just had a great brunch! Can recommend the scrambled eggs and truffle oil, fried chicken and waffles! They’ve set us up for the day ahead! The service is prompt and the staff are welcoming and friendly! Thank you!"</p>
-                        
+                <div id="gallery" class="content-section">
+                    <h2>Gallery</h2>
+                    <div class="gallery-grid">
+                        <img src="/assets/images/yunionfood4.jpg" alt="Yunion Interior" class="gallery-image">
+                        <img src="/assets/images/yunionfood1.jpg" alt="Yunion Food Selection" class="gallery-image">
+                        <img src="/assets/images/yunionfood2.jpg" alt="Yunion Outdoor Seating" class="gallery-image">
+                        <img src="/assets/images/yunionfood3.jpg" alt="Yunion Dish Presentation" class="gallery-image">
                     </div>
                 </div>
-                <div class="google-attribution">
-                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
-                    <span>Reviews from Google</span>
-                </div>
-            </section>
 
-            <section class="tiktok-embeds">
-                <h2>Yunion on TikTok</h2>
-                <div class="tiktok-grid">
-                    <div class="tiktok-embed">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@traciebrenda/video/7344343944928513285" data-video-id="7344343944928513285" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@traciebrenda" href="https://www.tiktok.com/@traciebrenda?refer=embed">@traciebrenda</a> Yunion Brunch Cafe located at the 2nd floor of GTC Mall <a title="brunch" target="_blank" href="https://www.tiktok.com/tag/brunch?refer=embed">#brunch</a> <a title="cafe" target="_blank" href="https://www.tiktok.com/tag/cafe?refer=embed">#cafe</a> <a title="restaurant" target="_blank" href="https://www.tiktok.com/tag/restaurant?refer=embed">#restaurant</a> <a title="foodie" target="_blank" href="https://www.tiktok.com/tag/foodie?refer=embed">#foodie</a> <a title="vibes" target="_blank" href="https://www.tiktok.com/tag/vibes?refer=embed">#vibes</a> <a title="fyppppppppppppppppppppppp" target="_blank" href="https://www.tiktok.com/tag/fyppppppppppppppppppppppp?refer=embed">#fyppppppppppppppppppppppp</a> <a target="_blank" title="♬ Kissing Strangers - USHER" href="https://www.tiktok.com/music/Kissing-Strangers-7335326982206408706?refer=embed">♬ Kissing Strangers - USHER</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                <div id="menu" class="content-section">
+                    <h2>Featured Menu Items</h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <img src="/assets/images/yunionfood1.jpg" alt="Salmon Teriyaki" class="menu-image">
+                            <h3>Salmon Teriyaki</h3>
+                            <p>Grilled salmon fillet glazed with our signature teriyaki sauce, served with steamed rice and seasonal vegetables.</p>
+                            <span class="price">KES 1500</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/yunionfood2.jpg" alt="Creamy Fusilli Arrabiata" class="menu-image">
+                            <h3>Creamy Fusilli Arrabiata</h3>
+                            <p>Perfectly cooked pasta tossed in a rich tomato sauce, blended with a touch of cream and a hint of spice.</p>
+                            <span class="price">KES 1250</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/yunionfood3.jpg" alt="Mixed Berries Smoothie" class="menu-image">
+                            <h3>Mixed Berries Smoothie</h3>
+                            <p>Bursting with fresh strawberries, blueberries, and raspberries, blended with yogurt and a touch of honey.</p>
+                            <span class="price">KES 650</span>
+                        </div>
                     </div>
-                    <div class="tiktok-embed">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@sheilawakio/video/7320128207972355334" data-video-id="7320128207972355334" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@sheilawakio" href="https://www.tiktok.com/@sheilawakio?refer=embed">@sheilawakio</a> New Restaurant Alert🚨 Save this for later 📌 📍 @yunionke is a new restaurant located at GTC Mall 2nd floor. They have an amazing selection of menu which is very budget friendly and the food was just amazing🤩 Yooh, the cocktails were just as amazing . They range from 900&#47;= to the most expensive being 1100&#47;= They have a dj as well so it’s vibes on vibes not forgetting the amazing views👌🏾 Try it out and let me know 😎 <a title="newrestaurant" target="_blank" href="https://www.tiktok.com/tag/newrestaurant?refer=embed">#newrestaurant</a> <a title="nairobirestaurants" target="_blank" href="https://www.tiktok.com/tag/nairobirestaurants?refer=embed">#nairobirestaurants</a> <a title="reels" target="_blank" href="https://www.tiktok.com/tag/reels?refer=embed">#reels</a><a title="viralreels" target="_blank" href="https://www.tiktok.com/tag/viralreels?refer=embed">#viralreels</a> <a target="_blank" title="♬ original sound - Sheila Wakio" href="https://www.tiktok.com/music/original-sound-7320128214354512646?refer=embed">♬ original sound - Sheila Wakio</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                    <div class="view-full-menu">
+                        <a href="https://ugc.production.linktr.ee/847c5d60-c6ba-4bc3-a709-ba0f12806dd8_yunion-menu-Main-Menu-final-export-2.pdf" target="_blank" class="btn-secondary">View Full Menu</a>
+                    </div>
+                </div>
+
+                <div id="reviews" class="content-section">
+                    <h2>What Guests Say</h2>
+                    <div class="review-grid">
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/artisanblendreviewer1.png" alt="S.K. Hill" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>S.K. Hill</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"During my first visit to Nairobi, I stayed near this wonderful restaurant, Yunion, which is located inside of the GTC. I discovered it while walking in Westlands. I decided to visit the restaurant and I fell in love with the place. I love the setting, especially the portion that is outdoors. The view of the surrounding skyline was awe-inspiring. The staff and their service were outstanding. They seemed like the nicest people in the world. The food and drinks were absolutely mouth-watering good. The honey salmon platter and the wings were my favorite. I love the "big head" drink and the mimosas. I visited Yunion six times during my eleven day stay. When I return to Nairobi, I will visit this place again and again. Asante, Yunion!"</p>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/yunionreviewer2.png" alt="Magdaline Njeri" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Magdaline Njeri</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"There are so many things to say about the place. The ambience is amazing, the staff are also friendly. I enjoyed the mutton curry, it was delicious; you can have it with rice or naan bread."</p>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/yunionreviewer3.png" alt="Sarah Cannings" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Sarah Cannings</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"Just had a great brunch! Can recommend the scrambled eggs and truffle oil, fried chicken and waffles! They've set us up for the day ahead! The service is prompt and the staff are welcoming and friendly! Thank you!"</p>
+                        </div>
+                    </div>
+                    <div class="google-attribution">
+                        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
+                        <span>Reviews from Google</span>
+                    </div>
+                </div>
+
+                <div id="location" class="content-section">
+                    <h2>Location</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8166863183745!2d36.80680731475454!3d-1.2636159990669208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f17fd1a1c1d0f%3A0x1e9f7e7a3c4a3f1a!2sYunion%20-%20Brunch%20Cafe%20%26%20Bar!5e0!3m2!1sen!2sus!4v1623456789012!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div id="tiktok" class="content-section">
+                    <h2>Yunion on TikTok</h2>
+                    <div class="tiktok-grid">
+                        <div class="tiktok-embed">
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@traciebrenda/video/7344343944928513285" data-video-id="7344343944928513285" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@traciebrenda" href="https://www.tiktok.com/@traciebrenda?refer=embed">@traciebrenda</a> Yunion Brunch Cafe located at the 2nd floor of GTC Mall <a title="brunch" target="_blank" href="https://www.tiktok.com/tag/brunch?refer=embed">#brunch</a> <a title="cafe" target="_blank" href="https://www.tiktok.com/tag/cafe?refer=embed">#cafe</a> <a title="restaurant" target="_blank" href="https://www.tiktok.com/tag/restaurant?refer=embed">#restaurant</a> <a title="foodie" target="_blank" href="https://www.tiktok.com/tag/foodie?refer=embed">#foodie</a> <a title="vibes" target="_blank" href="https://www.tiktok.com/tag/vibes?refer=embed">#vibes</a> <a title="fyppppppppppppppppppppppp" target="_blank" href="https://www.tiktok.com/tag/fyppppppppppppppppppppppp?refer=embed">#fyppppppppppppppppppppppp</a> <a target="_blank" title="♬ Kissing Strangers - USHER" href="https://www.tiktok.com/music/Kissing-Strangers-7335326982206408706?refer=embed">♬ Kissing Strangers - USHER</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
+                        <div class="tiktok-embed">
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@sheilawakio/video/7320128207972355334" data-video-id="7320128207972355334" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@sheilawakio" href="https://www.tiktok.com/@sheilawakio?refer=embed">@sheilawakio</a> New Restaurant Alert🚨 Save this for later 📌 📍 @yunionke is a new restaurant located at GTC Mall 2nd floor. They have an amazing selection of menu which is very budget friendly and the food was just amazing🤩 Yooh, the cocktails were just as amazing . They range from 900/= to the most expensive being 1100/= They have a dj as well so it's vibes on vibes not forgetting the amazing views👌🏾 Try it out and let me know 😎 <a title="newrestaurant" target="_blank" href="https://www.tiktok.com/tag/newrestaurant?refer=embed">#newrestaurant</a> <a title="nairobirestaurants" target="_blank" href="https://www.tiktok.com/tag/nairobirestaurants?refer=embed">#nairobirestaurants</a> <a title="reels" target="_blank" href="https://www.tiktok.com/tag/reels?refer=embed">#reels</a><a title="viralreels" target="_blank" href="https://www.tiktok.com/tag/viralreels?refer=embed">#viralreels</a> <a target="_blank" title="♬ original sound - Sheila Wakio" href="https://www.tiktok.com/music/original-sound-7320128214354512646?refer=embed">♬ original sound - Sheila Wakio</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -184,7 +203,7 @@
                 <h2>Ready to Experience Yunion?</h2>
                 <div class="cta-buttons">
                     <a href="/public/views/yunionreservation.html" class="btn-primary">Make a Reservation</a>
-                    <a href="https://artisan-blend.tappi.ke/" target="_blank" class="btn-primary">View Full Menu</a>
+                    <a href="https://ugc.production.linktr.ee/847c5d60-c6ba-4bc3-a709-ba0f12806dd8_yunion-menu-Main-Menu-final-export-2.pdf" target="_blank" class="btn-primary">View Full Menu</a>
                 </div>
             </section>
         </div>
@@ -221,8 +240,49 @@
         </div>
     </footer>
 
+    <nav class="mobile-nav">
+        <a href="/index.html" class="nav-link">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </a>
+        <a href="/public/views/about.html" class="nav-link">
+            <i data-lucide="info"></i>
+            <span>About</span>
+        </a>
+        <a href="/public/views/restaurants.html" class="nav-link">
+            <i data-lucide="utensils"></i>
+            <span>Restaurants</span>
+        </a>
+        <a href="/public/views/contact.html" class="nav-link">
+            <i data-lucide="phone"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
     <script>
         lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const icons = document.querySelectorAll('.icon');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            icons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    
+                    icons.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    contentSections.forEach(section => {
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
     </script>
 </body>
 </html>

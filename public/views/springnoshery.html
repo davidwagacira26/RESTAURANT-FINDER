@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spring Noshery - Nairobi Feast</title>
-    <link rel="stylesheet" href="/public/stylesheets/restaurants.css">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/stylesheets/restaurantspage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -14,37 +14,18 @@
             <a href="/index.html" class="logo">Nairobi Feast</a>
             <nav class="desktop-nav">
                 <a href="/index.html" class="nav-link">Home</a>
+                <a href="/public/views/browse.html" class="nav-link">Browse</a>
                 <a href="/public/views/about.html" class="nav-link">About</a>
-                <a href="/public/views/restaurants.html" class="nav-link">Restaurants</a>
                 <a href="/public/views/contact.html" class="nav-link">Contact</a>
             </nav>
         </div>
     </header>
 
-    <nav class="mobile-nav">
-        <a href="/index.html" class="nav-link">
-            <i data-lucide="home"></i>
-            <span>Home</span>
-        </a>
-        <a href="/restaurants.html" class="nav-link">
-            <i data-lucide="info"></i>
-            <span>About</span>
-        </a>
-        <a href="/search.html" class="nav-link">
-            <i data-lucide="utensils"></i>
-            <span>Restaurants</span>
-        </a>
-        <a href="/public/" class="nav-link">
-            <i data-lucide="phone"></i>
-            <span>Contact</span>
-        </a>
-    </nav>
-
     <main>
         <div class="hero">
-            <img src="/assets/images/springnosheryfood2.jpg" alt="Pili Food" class="hero-image">
+            <img src="/assets/images/springnosheryfood2.jpg" alt="Spring Noshery Food" class="hero-image">
             <div class="hero-content">
-                <h1>Spring Noshery Restaurant</h1>
+                <h1>Spring Noshery</h1>
                 <p>Halal Luxurious Restaurant</p>
             </div>
         </div>
@@ -69,122 +50,149 @@
                 </div>
             </section>
 
-            <section class="about">
-                <h2>About Spring Noshery</h2>
-                <p>Spring Noshery, nestled in the bustling Sarit Centre, offers a delightful escape for food enthusiasts seeking fresh and wholesome cuisine. Known for its creative fusion dishes and vibrant menu, Spring Noshery serves a variety of options, from nourishing salads and hearty mains to artisanal desserts and specialty beverages, all made with the finest ingredients.</p>
-                <p>The restaurant’s modern and airy design, paired with a warm and relaxed ambiance, makes it a perfect spot for a casual meal, a business lunch, or a family outing. Whether you’re stopping by for a quick bite or a leisurely dining experience, Spring Noshery delivers flavors that celebrate the joy of good food and great company.</p>
-            </section>
-
-            <section class="gallery">
-                <h2>Gallery</h2>
-                <div class="gallery-grid">
-                    <img src="/assets/images/springnoshery1.jpg" alt="Pili Interior" class="gallery-image">
-                    <img src="/assets/images/springnosheryfood6.jpg" alt="Pili Food" class="gallery-image">
-                    <img src="/assets/images/springnosheryfood5.jpg" alt="Pili Food 2" class="gallery-image">
-                    <img src="/assets/images/springnosheryfood4.jpg" alt="Pili Food 3" class="gallery-image">
+            <section id="section-icons">
+                <div class="icon active" data-target="about">
+                    <i data-lucide="info" style="color: #4CAF50;"></i>
+                    <span>About</span>
+                </div>
+                <div class="icon" data-target="gallery">
+                    <i data-lucide="image" style="color: #2196F3;"></i>
+                    <span>Gallery</span>
+                </div>
+                <div class="icon" data-target="menu">
+                    <i data-lucide="utensils" style="color: #FFC107;"></i>
+                    <span>Menu</span>
+                </div>
+                <div class="icon" data-target="reviews">
+                    <i data-lucide="message-circle" style="color: #9C27B0;"></i>
+                    <span>Reviews</span>
+                </div>
+                <div class="icon" data-target="location">
+                    <i data-lucide="map-pin" style="color: #F44336;"></i>
+                    <span>Location</span>
+                </div>
+                <div class="icon" data-target="tiktok">
+                    <i data-lucide="video" style="color: #E91E63;"></i>
+                    <span>TikTok</span>
                 </div>
             </section>
 
-            <section class="menu">
-                <h2>Featured Menu Items</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <img src="/assets/images/springchicken.jpg" alt="Crispy Chicken Burger" class="menu-image">
-                        <h3>Chicken Alfredo</h3>
-                        <p>Rich and creamy chicken alfredo with teneder grilled chicken and fresh parsely</p>
-                        <span class="price">KES 1150</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/springnosheryfood2.jpg" alt="Honey Glazed Wings" class="menu-image">
-                        <h3>Berry Blissful Chicken Salad</h3>
-                        <p>A garden-fresh fusion of baby spinach and mixed letuce base and a grilled chicken breast</p>
-                        <span class="price">KES 950</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/springloadedfries.jpg" alt="Parmesan Chicken" class="menu-image">
-                        <h3>Spring Loaded Fries</h3>
-                        <p>Fries topped with grilled chicken, melted cheese and a flavoured sauce served alongside garden salad</p>
-                        <span class="price">KES 950</span>
-                    </div>
+            <section id="content-sections">
+                <div id="about" class="content-section active">
+                    <h2>About Spring Noshery</h2>
+                    <p>Spring Noshery, nestled in the bustling Sarit Centre, offers a delightful escape for food enthusiasts seeking fresh and wholesome cuisine. Known for its creative fusion dishes and vibrant menu, Spring Noshery serves a variety of options, from nourishing salads and hearty mains to artisanal desserts and specialty beverages, all made with the finest ingredients.</p>
+                    <p>The restaurant's modern and airy design, paired with a warm and relaxed ambiance, makes it a perfect spot for a casual meal, a business lunch, or a family outing. Whether you're stopping by for a quick bite or a leisurely dining experience, Spring Noshery delivers flavors that celebrate the joy of good food and great company.</p>
                 </div>
-                <div class="view-full-menu">
-                    <a href="https://rb.gy/h4vre" target="_blank" class="btn-secondary">View Full Menu</a>
-                </div>
-            </section>
 
-            <section class="reviews">
-                <h2>What Guests Say</h2>
-                <div class="review-grid">
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/pilireviewer1.png" alt="Gabrielle Andia" class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Gabrielle Andia</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"I needed a place to eat and work at Village Market and I decided to try it out cause I’d passed it a few times and never had the time to. Immediately I walked in I was greeted by the sweetest waitress and she led me to a table with an accessible socket. I ordered a Vanilla Milkshake and the Chicken Tandoori Sandwich. The milkshake was rich and definitely had my tastebuds dancing and the sandwich was really good, the chicken curry they used had the most beautiful mix of flavor. The sandwich came with a salad which I hadn’t expected, and I was so in love with the dressing ( sweet and sour ). I recommend this spot for a cafe vibe where you can enjoy good quality food and service, plus they have an all day breakfast menu ✨"</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/mercadoreviewer2.png" alt="Edel Denise" class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Taurus Michel</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"Had brunch. I say brunch because it was breakfast food around 1pm.  Started with a salad followed by poached eggs with veggies.
-                            Very good. Light, healthy, tasty and filling. Nothing overly salty. Eggs were creamy. Salad was crisp and fresh.
-                            Had a hibiscus tea.
-                            Order came out within 15 minutes.
-                            The service was prompt, courteous."</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/springreviewer3.png" alt="Miriam Riunge" class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Miriam Riunge</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"We loved the service by waiter Jamal,the ambience was extremely awesome, not forgetting the yummy food."</p>
+                <div id="gallery" class="content-section">
+                    <h2>Gallery</h2>
+                    <div class="gallery-grid">
+                        <img src="/assets/images/springnoshery1.jpg" alt="Spring Noshery Interior" class="gallery-image">
+                        <img src="/assets/images/springnosheryfood6.jpg" alt="Spring Noshery Food" class="gallery-image">
+                        <img src="/assets/images/springnosheryfood5.jpg" alt="Spring Noshery Food 2" class="gallery-image">
+                        <img src="/assets/images/springnosheryfood4.jpg" alt="Spring Noshery Food 3" class="gallery-image">
                     </div>
                 </div>
-                <div class="google-attribution">
-                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
-                    <span>Reviews from Google</span>
-                </div>
-            </section>
-            <section class="location">
-                <h2>Location</h2>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.851822155245!2d36.79940277440971!3d-1.261160498726835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1798d60600c3%3A0xfbc079fb9a190ff8!2sTHE%20SPRING%20NOSHERY!5e0!3m2!1sen!2ske!4v1733061362460!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </section>
-            <section class="tiktok-embeds">
-                <h2>Spring Noshery on TikTok</h2>
-                <div class="tiktok-grid">
-                    <div class="tiktok-embed">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@keshie_muchai/video/7222209274087247109" data-video-id="7222209274087247109" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@keshie_muchai" href="https://www.tiktok.com/@keshie_muchai?refer=embed">@keshie_muchai</a> 📍The Spring Noshery, Sarit 😍 had the spring loaded fries which I would recommend 💯 <a title="springnoshery" target="_blank" href="https://www.tiktok.com/tag/springnoshery?refer=embed">#springnoshery</a> <a title="nairobirestaurants" target="_blank" href="https://www.tiktok.com/tag/nairobirestaurants?refer=embed">#nairobirestaurants</a> <a title="restaurantnairobi" target="_blank" href="https://www.tiktok.com/tag/restaurantnairobi?refer=embed">#restaurantnairobi</a> <a title="nairobirestaurantscene" target="_blank" href="https://www.tiktok.com/tag/nairobirestaurantscene?refer=embed">#nairobirestaurantscene</a> <a title="nairobirestaurantreview" target="_blank" href="https://www.tiktok.com/tag/nairobirestaurantreview?refer=embed">#nairobirestaurantreview</a> <a title="nairobirestaurant" target="_blank" href="https://www.tiktok.com/tag/nairobirestaurant?refer=embed">#nairobirestaurant</a> <a target="_blank" title="♬ Ruger ASIWAJU Speed up - DJ EXPERIENCE" href="https://www.tiktok.com/music/Ruger-ASIWAJU-Speed-up-7174709041037380357?refer=embed">♬ Ruger ASIWAJU Speed up - DJ EXPERIENCE</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+
+                <div id="menu" class="content-section">
+                    <h2>Featured Menu Items</h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <img src="/assets/images/springchicken.jpg" alt="Chicken Alfredo" class="menu-image">
+                            <h3>Chicken Alfredo</h3>
+                            <p>Rich and creamy chicken alfredo with tender grilled chicken and fresh parsley</p>
+                            <span class="price">KES 1150</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/springnosheryfood2.jpg" alt="Berry Blissful Chicken Salad" class="menu-image">
+                            <h3>Berry Blissful Chicken Salad</h3>
+                            <p>A garden-fresh fusion of baby spinach and mixed lettuce base with a grilled chicken breast</p>
+                            <span class="price">KES 950</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/springloadedfries.jpg" alt="Spring Loaded Fries" class="menu-image">
+                            <h3>Spring Loaded Fries</h3>
+                            <p>Fries topped with grilled chicken, melted cheese and a flavored sauce served alongside garden salad</p>
+                            <span class="price">KES 950</span>
+                        </div>
                     </div>
-                    <div class="tiktok-embed">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@nairobidisclosure/video/7288951795664096517" data-video-id="7288951795664096517" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@nairobidisclosure" href="https://www.tiktok.com/@nairobidisclosure?refer=embed">@nairobidisclosure</a> Spring Noshery, Village Market <a title="nairobi" target="_blank" href="https://www.tiktok.com/tag/nairobi?refer=embed">#nairobi</a> <a title="kenya" target="_blank" href="https://www.tiktok.com/tag/kenya?refer=embed">#kenya</a> <a title="nairobidisclosure" target="_blank" href="https://www.tiktok.com/tag/nairobidisclosure?refer=embed">#nairobidisclosure</a> <a target="_blank" title="♬ original sound - Nairobi Disclosure" href="https://www.tiktok.com/music/original-sound-7288951843810593542?refer=embed">♬ original sound - Nairobi Disclosure</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                    <div class="view-full-menu">
+                        <a href="https://rb.gy/h4vre" target="_blank" class="btn-secondary">View Full Menu</a>
+                    </div>
+                </div>
+
+                <div id="reviews" class="content-section">
+                    <h2>What Guests Say</h2>
+                    <div class="review-grid">
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/pilireviewer1.png" alt="Gabrielle Andia" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Gabrielle Andia</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"I needed a place to eat and work at Village Market and I decided to try it out cause I'd passed it a few times and never had the time to. Immediately I walked in I was greeted by the sweetest waitress and she led me to a table with an accessible socket. I ordered a Vanilla Milkshake and the Chicken Tandoori Sandwich. The milkshake was rich and definitely had my tastebuds dancing and the sandwich was really good, the chicken curry they used had the most beautiful mix of flavor. The sandwich came with a salad which I hadn't expected, and I was so in love with the dressing ( sweet and sour ). I recommend this spot for a cafe vibe where you can enjoy good quality food and service, plus they have an all day breakfast menu ✨"</p>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/mercadoreviewer2.png" alt="Taurus Michel" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Taurus Michel</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"Had brunch. I say brunch because it was breakfast food around 1pm. Started with a salad followed by poached eggs with veggies. Very good. Light, healthy, tasty and filling. Nothing overly salty. Eggs were creamy. Salad was crisp and fresh. Had a hibiscus tea. Order came out within 15 minutes. The service was prompt, courteous."</p>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/springreviewer3.png" alt="Miriam Riunge" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Miriam Riunge</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"We loved the service by waiter Jamal, the ambience was extremely awesome, not forgetting the yummy food."</p>
+                        </div>
+                    </div>
+                    <div class="google-attribution">
+                        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
+                        <span>Reviews from Google</span>
+                    </div>
+                </div>
+
+                <div id="location" class="content-section">
+                    <h2>Location</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.851822155245!2d36.79940277440971!3d-1.261160498726835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1798d60600c3%3A0xfbc079fb9a190ff8!2sTHE%20SPRING%20NOSHERY!5e0!3m2!1sen!2ske!4v1733061362460!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div id="tiktok" class="content-section">
+                    <h2>Spring Noshery on TikTok</h2>
+                    <div class="tiktok-grid">
+                        <div class="tiktok-embed">
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@keshie_muchai/video/7222209274087247109" data-video-id="7222209274087247109" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@keshie_muchai" href="https://www.tiktok.com/@keshie_muchai?refer=embed">@keshie_muchai</a> 📍The Spring Noshery, Sarit 😍 had the spring loaded fries which I would recommend 💯 <a title="springnoshery" target="_blank" href="https://www.tiktok.com/tag/springnoshery?refer=embed">#springnoshery</a> <a title="nairobirestaurants" target="_blank" href="https://www.tiktok.com/tag/nairobirestaurants?refer=embed">#nairobirestaurants</a> <a title="restaurantnairobi" target="_blank" href="https://www.tiktok.com/tag/restaurantnairobi?refer=embed">#restaurantnairobi</a> <a title="nairobirestaurantscene" target="_blank" href="https://www.tiktok.com/tag/nairobirestaurantscene?refer=embed">#nairobirestaurantscene</a> <a title="nairobirestaurantreview" target="_blank" href="https://www.tiktok.com/tag/nairobirestaurantreview?refer=embed">#nairobirestaurantreview</a> <a title="nairobirestaurant" target="_blank" href="https://www.tiktok.com/tag/nairobirestaurant?refer=embed">#nairobirestaurant</a> <a target="_blank" title="♬ Ruger ASIWAJU Speed up - DJ EXPERIENCE" href="https://www.tiktok.com/music/Ruger-ASIWAJU-Speed-up-7174709041037380357?refer=embed">♬ Ruger ASIWAJU Speed up - DJ EXPERIENCE</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
+                        <div class="tiktok-embed">
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@nairobidisclosure/video/7288951795664096517" data-video-id="7288951795664096517" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@nairobidisclosure" href="https://www.tiktok.com/@nairobidisclosure?refer=embed">@nairobidisclosure</a> Spring Noshery, Village Market <a title="nairobi" target="_blank" href="https://www.tiktok.com/tag/nairobi?refer=embed">#nairobi</a> <a title="kenya" target="_blank" href="https://www.tiktok.com/tag/kenya?refer=embed">#kenya</a> <a title="nairobidisclosure" target="_blank" href="https://www.tiktok.com/tag/nairobidisclosure?refer=embed">#nairobidisclosure</a> <a target="_blank" title="♬ original sound - Nairobi Disclosure" href="https://www.tiktok.com/music/original-sound-7288951843810593542?refer=embed">♬ original sound - Nairobi Disclosure</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -230,8 +238,49 @@
         </div>
     </footer>
 
+    <nav class="mobile-nav">
+        <a href="/index.html" class="nav-link">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </a>
+        <a href="/public/views/about.html" class="nav-link">
+            <i data-lucide="info"></i>
+            <span>About</span>
+        </a>
+        <a href="/public/views/restaurants.html" class="nav-link">
+            <i data-lucide="utensils"></i>
+            <span>Restaurants</span>
+        </a>
+        <a href="/public/views/contact.html" class="nav-link">
+            <i data-lucide="phone"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
     <script>
         lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const icons = document.querySelectorAll('.icon');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            icons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    
+                    icons.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    contentSections.forEach(section => {
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
     </script>
 </body>
 </html>

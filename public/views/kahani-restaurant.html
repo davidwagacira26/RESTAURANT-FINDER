@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kahani - Nairobi Feast</title>
-    <link rel="stylesheet" href="/public/stylesheets/restaurants.css">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Kahani - Modern Indian Kitchen & Bar - Nairobi Feast</title>
+    <link rel="stylesheet" href="/public/stylesheets/restaurantspage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -14,36 +14,19 @@
             <a href="/index.html" class="logo">Nairobi Feast</a>
             <nav class="desktop-nav">
                 <a href="/index.html" class="nav-link">Home</a>
+                <a href="/public/views/browse.html" class="nav-link">Browse</a>
                 <a href="/public/views/about.html" class="nav-link">About</a>
-                <a href="/public/views/restaurants.html" class="nav-link">Restaurants</a>
                 <a href="/public/views/contact.html" class="nav-link">Contact</a>
             </nav>
         </div>
     </header>
-    <nav class="mobile-nav">
-        <a href="/index.html" class="nav-link">
-            <i data-lucide="home"></i>
-            <span>Home</span>
-        </a>
-        <a href="/restaurants.html" class="nav-link">
-            <i data-lucide="info"></i>
-            <span>About</span>
-        </a>
-        <a href="/search.html" class="nav-link">
-            <i data-lucide="utensils"></i>
-            <span>Restaurants</span>
-        </a>
-        <a href="/public/" class="nav-link">
-            <i data-lucide="phone"></i>
-            <span>Contact</span>
-        </a>
-    </nav>
+
     <main>
         <div class="hero">
-            <img src="/assets/images/kahani.jpg" alt="Carnivore Restaurant Ambiance" class="hero-image">
+            <img src="/assets/images/kahani.jpg" alt="Kahani Restaurant Ambiance" class="hero-image">
             <div class="hero-content">
-                <h1>Kahani Modern Indian Kitchen & Bar</h1>
-                <p>We're more than just a cafe A hub of warmth, creativity, and exceptional flavors</p>
+                <h1>Kahani - Modern Indian Kitchen & Bar</h1>
+                <p>We're more than just a restaurant - a hub of warmth, creativity, and exceptional flavors</p>
             </div>
         </div>
 
@@ -51,7 +34,7 @@
             <section class="restaurant-info">
                 <div class="info-item">
                     <i data-lucide="map-pin"></i>
-                    <span>Limuru Road</span>
+                    <span>Limuru Road, Gigiri, Nairobi</span>
                 </div>
                 <div class="info-item">
                     <i data-lucide="phone"></i>
@@ -59,7 +42,7 @@
                 </div>
                 <div class="info-item">
                     <i data-lucide="clock"></i>
-                    <span>12:30 PM - 03:00 PM</span>
+                    <span>12:30 PM - 11:00 PM</span>
                 </div>
                 <div class="info-item">
                     <i data-lucide="star"></i>
@@ -67,117 +50,151 @@
                 </div>
             </section>
 
-            <section class="about">
-                <h2>About Kahani</h2>
-                <p>Kahani Restaurant in Nairobi is a culinary gem that brings the rich, vibrant flavors of Indian cuisine to life in a contemporary setting. Known for its masterfully crafted dishes, from aromatic curries and flavorful biryanis to sizzling tandoori delights, Kahani offers an unforgettable dining experience that caters to lovers of authentic Indian fare.</p>
-                <p>The restaurant’s elegant decor, inspired by a blend of modern and traditional Indian aesthetics, creates a warm and inviting atmosphere, perfect for intimate dinners, family gatherings, or special occasions. With impeccable service and a passion for excellence, Kahani Restaurant promises a feast of flavors that transports you to the heart of India, right in Nairobi.</p>
-            </section>
-            <section class="gallery">
-                <h2>Gallery</h2>
-                <div class="gallery-grid">
-                    <img src="/assets/images/kahanifood1.jpg" alt="Carnivore Interior" class="gallery-image">
-                    <img src="/assets/images/kahanifood2.jpg" alt="Meat Selection" class="gallery-image">
-                    <img src="/assets/images/kahanifood3.jpg" alt="Outdoor Seating" class="gallery-image">
-                    <img src="/assets/images/yunionfood3.jpg" alt="Grilling Station" class="gallery-image">
+            <section id="section-icons">
+                <div class="icon active" data-target="about">
+                    <i data-lucide="info" style="color: #4CAF50;"></i>
+                    <span>About</span>
+                </div>
+                <div class="icon" data-target="gallery">
+                    <i data-lucide="image" style="color: #2196F3;"></i>
+                    <span>Gallery</span>
+                </div>
+                <div class="icon" data-target="menu">
+                    <i data-lucide="utensils" style="color: #FFC107;"></i>
+                    <span>Menu</span>
+                </div>
+                <div class="icon" data-target="reviews">
+                    <i data-lucide="message-circle" style="color: #9C27B0;"></i>
+                    <span>Reviews</span>
+                </div>
+                <div class="icon" data-target="location">
+                    <i data-lucide="map-pin" style="color: #F44336;"></i>
+                    <span>Location</span>
+                </div>
+                <div class="icon" data-target="tiktok">
+                    <i data-lucide="video" style="color: #E91E63;"></i>
+                    <span>TikTok</span>
                 </div>
             </section>
 
-            <section class="menu">
-                <h2>Featured Menu Items</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <img src="/assets/images/artisanblendfood4.jpg" alt="Meat Platter" class="menu-image">
-                        <h3>Salmon Teriyaki</h3>
-                        <p>Grilled corn ribs, lime drizzle, smoked paprika dust, grated cheese topping, and fresh parsley garnish.</p>
-                        <span class="price">KES 800</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/artisanblendfood5.jpg" alt="Crocodile Steak" class="menu-image">
-                        <h3>Creamy Fusilli Arrabiata</h3>
-                        <p>Perfectly cooked pasta tossed in a rich tomato sauce, blended with a touch of cream</p>
-                        <span class="price">KES 1250</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/artisanblendrink.jpg" alt="Ostrich Meatballs" class="menu-image">
-                        <h3>Mixed Berries Smoothie</h3>
-                        <p>Busting with fresh strawberries, blueberries and raspberries</p>
-                        <span class="price">KES 1100</span>
-                    </div>
+            <section id="content-sections">
+                <div id="about" class="content-section active">
+                    <h2>About Kahani</h2>
+                    <p>Kahani Restaurant in Nairobi is a culinary gem that brings the rich, vibrant flavors of Indian cuisine to life in a contemporary setting. Known for its masterfully crafted dishes, from aromatic curries and flavorful biryanis to sizzling tandoori delights, Kahani offers an unforgettable dining experience that caters to lovers of authentic Indian fare.</p>
+                    <p>The restaurant's elegant decor, inspired by a blend of modern and traditional Indian aesthetics, creates a warm and inviting atmosphere, perfect for intimate dinners, family gatherings, or special occasions. With impeccable service and a passion for excellence, Kahani Restaurant promises a feast of flavors that transports you to the heart of India, right in Nairobi.</p>
                 </div>
-                <div class="view-full-menu">
-                    <a href="https://www.cafecassia.com/#menu" target="_blank" class="btn-secondary">View Full Menu</a>
-                </div>
-            </section>
 
-            <section class="reviews">
-                <h2>What Guests Say</h2>
-                <div class="review-grid">
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/artisanblendreviewer1.png" alt="John K." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Rachel Osewe</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"Such an aesthetically pleasing location! I loved it! Easily accessible. You might want to make a reservation if you are a large group especially.
-                            I enjoyed the food, though it arrived warm and not hot, it tasted great.
-                            The service was fantastic, our waiter was amazing! The staff in general were very helpful and nice."</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/botanicareviewer1.png" alt="Sarah M." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Wendy Achieng</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"Went there during Father’s Day and was there for most of my day. It wasn’t too crowded and quite chill. They use fresh fruits  thus the drinks were really yummy. If you are a sweet tooth, I’d highly recommend the blueberry mojito. The chicken curry was also fantastic, it gives a blend between sweet and tangy which was very interesting. Our wait on staff for the day, Immanuela was good, responsive and swift. Be prepared for some of the staff to ask you how you are doing; it’s a very nice initiative but if done so many times it can be a bit overwhelming."</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/artisanblendreviewer3.png" alt="David O." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Hafsa Jamaa</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"Aesthetic and welcoming ambiance and the service was amazing, our waitress was beautiful Anne, the food & the drinks were good, loved their milk cake, I would definitely recommend. The owner was so sweet and friendly, coming back for sure :)"</p>
-                        
+                <div id="gallery" class="content-section">
+                    <h2>Gallery</h2>
+                    <div class="gallery-grid">
+                        <img src="/assets/images/kahanifood1.jpg" alt="Kahani Interior" class="gallery-image">
+                        <img src="/assets/images/kahanifood2.jpg" alt="Kahani Dish Presentation" class="gallery-image">
+                        <img src="/assets/images/kahanifood3.jpg" alt="Kahani Dining Area" class="gallery-image">
+                        <img src="/assets/images/kahanifood4.jpg" alt="Kahani Signature Dish" class="gallery-image">
                     </div>
                 </div>
-                <div class="google-attribution">
-                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
-                    <span>Reviews from Google</span>
-                </div>
-            </section>
 
-            <section class="tiktok-embeds">
-                <h2>Kahani on TikTok</h2>
-                <div class="tiktok-grid">
-                    <div class="tiktok-embed">
-                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@b_shirleyy/video/7399548201025490181" data-video-id="7399548201025490181" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@b_shirleyy" href="https://www.tiktok.com/@b_shirleyy?refer=embed">@b_shirleyy</a> Kahani restaurant 📍Gem Forest Mgallery Nairobi  <a title="solodate" target="_blank" href="https://www.tiktok.com/tag/solodate?refer=embed">#solodate</a> <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> <a title="kenyanrestaurants" target="_blank" href="https://www.tiktok.com/tag/kenyanrestaurants?refer=embed">#kenyanrestaurants</a> <a title="foryou" target="_blank" href="https://www.tiktok.com/tag/foryou?refer=embed">#foryou</a> <a title="selflovejourney" target="_blank" href="https://www.tiktok.com/tag/selflovejourney?refer=embed">#selflovejourney</a> <a title="mgallery" target="_blank" href="https://www.tiktok.com/tag/mgallery?refer=embed">#mgallery</a> <a title="blowthisup" target="_blank" href="https://www.tiktok.com/tag/blowthisup?refer=embed">#blowthisup</a> <a title="datenightdeas" target="_blank" href="https://www.tiktok.com/tag/datenightdeas?refer=embed">#datenightdeas</a> <a title="foodtiktok" target="_blank" href="https://www.tiktok.com/tag/foodtiktok?refer=embed">#foodtiktok</a> <a title="restaurant" target="_blank" href="https://www.tiktok.com/tag/restaurant?refer=embed">#restaurant</a> <a title="softera" target="_blank" href="https://www.tiktok.com/tag/softera?refer=embed">#softera</a> <a title="solodateideas" target="_blank" href="https://www.tiktok.com/tag/solodateideas?refer=embed">#solodateideas</a> <a title="newrestaurantalert" target="_blank" href="https://www.tiktok.com/tag/newrestaurantalert?refer=embed">#newrestaurantalert</a> <a target="_blank" title="♬ Insane - Tink" href="https://www.tiktok.com/music/Insane-7387450974451533840?refer=embed">♬ Insane - Tink</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                <div id="menu" class="content-section">
+                    <h2>Featured Menu Items</h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <img src="/assets/images/kahanifood1.jpg" alt="Butter Chicken" class="menu-image">
+                            <h3>Butter Chicken</h3>
+                            <p>Tender chicken pieces in a rich, creamy tomato sauce, flavored with aromatic spices.</p>
+                            <span class="price">KES 1500</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/kahanifood2.jpg" alt="Vegetable Biryani" class="menu-image">
+                            <h3>Vegetable Biryani</h3>
+                            <p>Fragrant basmati rice cooked with mixed vegetables and aromatic spices.</p>
+                            <span class="price">KES 1200</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/kahanifood3.jpg" alt="Mango Lassi" class="menu-image">
+                            <h3>Mango Lassi</h3>
+                            <p>A refreshing yogurt-based drink blended with sweet mangoes and a hint of cardamom.</p>
+                            <span class="price">KES 500</span>
+                        </div>
                     </div>
-                    <div class="tiktok-embed">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@tara.njeri/video/7390368986141150470" data-video-id="7390368986141150470" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@tara.njeri" href="https://www.tiktok.com/@tara.njeri?refer=embed">@tara.njeri</a> <p>📍Kahani restaurant, located at Gem Forest hotel. Gigiri The Nairobi restaurant scene is the host that keeps on giving! Recently got to try out the newly opened M-gallery restaurant at Gem Forest and we were impressed. The space is absolutely stunning with ample seating space. They serve Indian inspired food but with a twist and we thoroughly enjoyed it. The food was delicious and the portions were quite filling I would highly recommend this spot for vegetarians as most items on the menu were veg-friendly meals. The staff was friendly and had cast knowledge of the menu items which helped in selecting dishes. The only downside was that we didn&#39;t get to try some of the items on the menu that we wanted as they weren&#39;t available. Reason being that it was a soft lunch. Nonetheless we enjoyed our experience! Also ensure to make a reservation before going to avoid any inconvenience.  Food in frame: Starters Kerala fried chicken | Ksh 1500 | Grilled prawns | ksh 3500| Mains Mustard curry Chicken | Ksh 1900 | Coconut rice | Ksh 500 | Malabar parantha | Ksh 400 | Drinks in frame: Kantin chai | Ksh 1200 | French 75 | Ksh 1400 | Old fashion | ksh 1000 |</p> <a target="_blank" title="♬ original sound - tara.njeri" href="https://www.tiktok.com/music/original-sound-7390368996234414854?refer=embed">♬ original sound - tara.njeri</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                    <div class="view-full-menu">
+                        <a href="https://www.thefoodlibrary.co.ke/wp-content/uploads/2024/10/KAHANI-Food-Menu.pdf" target="_blank" class="btn-secondary">View Full Menu</a>
+                    </div>
+                </div>
+
+                <div id="reviews" class="content-section">
+                    <h2>What Guests Say</h2>
+                    <div class="review-grid">
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/artisanblendreviewer1.png" alt="Rachel Osewe" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Rachel Osewe</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"Such an aesthetically pleasing location! I loved it! Easily accessible. You might want to make a reservation if you are a large group especially. I enjoyed the food, though it arrived warm and not hot, it tasted great. The service was fantastic, our waiter was amazing! The staff in general were very helpful and nice."</p>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/botanicareviewer1.png" alt="Wendy Achieng" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Wendy Achieng</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"Went there during Father's Day and was there for most of my day. It wasn't too crowded and quite chill. They use fresh fruits thus the drinks were really yummy. If you are a sweet tooth, I'd highly recommend the blueberry mojito. The chicken curry was also fantastic, it gives a blend between sweet and tangy which was very interesting. Our wait on staff for the day, Immanuela was good, responsive and swift. Be prepared for some of the staff to ask you how you are doing; it's a very nice initiative but if done so many times it can be a bit overwhelming."</p>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/artisanblendreviewer3.png" alt="Hafsa Jamaa" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Hafsa Jamaa</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"Aesthetic and welcoming ambiance and the service was amazing, our waitress was beautiful Anne, the food & the drinks were good, loved their milk cake, I would definitely recommend. The owner was so sweet and friendly, coming back for sure :)"</p>
+                        </div>
+                    </div>
+                    <div class="google-attribution">
+                        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
+                        <span>Reviews from Google</span>
+                    </div>
+                </div>
+
+                <div id="location" class="content-section">
+                    <h2>Location</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7891058754584!2d36.80291731475457!3d-1.2307329990674047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f17fd1a1c1d0f%3A0x1e9f7e7a3c4a3f1a!2sKahani%20-%20Modern%20Indian%20Kitchen%20%26%20Bar!5e0!3m2!1sen!2sus!4v1623456789012!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div id="tiktok" class="content-section">
+                    <h2>Kahani on TikTok</h2>
+                    <div class="tiktok-grid">
+                        <div class="tiktok-embed">
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@b_shirleyy/video/7399548201025490181" data-video-id="7399548201025490181" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@b_shirleyy" href="https://www.tiktok.com/@b_shirleyy?refer=embed">@b_shirleyy</a> Kahani restaurant 📍Gem Forest Mgallery Nairobi  <a title="solodate" target="_blank" href="https://www.tiktok.com/tag/solodate?refer=embed">#solodate</a> <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> <a title="kenyanrestaurants" target="_blank" href="https://www.tiktok.com/tag/kenyanrestaurants?refer=embed">#kenyanrestaurants</a> <a title="foryou" target="_blank" href="https://www.tiktok.com/tag/foryou?refer=embed">#foryou</a> <a title="selflovejourney" target="_blank" href="https://www.tiktok.com/tag/selflovejourney?refer=embed">#selflovejourney</a> <a title="mgallery" target="_blank" href="https://www.tiktok.com/tag/mgallery?refer=embed">#mgallery</a> <a title="blowthisup" target="_blank" href="https://www.tiktok.com/tag/blowthisup?refer=embed">#blowthisup</a> <a title="datenightdeas" target="_blank" href="https://www.tiktok.com/tag/datenightdeas?refer=embed">#datenightdeas</a> <a title="foodtiktok" target="_blank" href="https://www.tiktok.com/tag/foodtiktok?refer=embed">#foodtiktok</a> <a title="restaurant" target="_blank" href="https://www.tiktok.com/tag/restaurant?refer=embed">#restaurant</a> <a title="softera" target="_blank" href="https://www.tiktok.com/tag/softera?refer=embed">>#softera</a> <a title="solodateideas" target="_blank" href="https://www.tiktok.com/tag/solodateideas?refer=embed">#solodateideas</a> <a title="newrestaurantalert" target="_blank" href="https://www.tiktok.com/tag/newrestaurantalert?refer=embed">#newrestaurantalert</a> <a target="_blank" title="♬ Insane - Tink" href="https://www.tiktok.com/music/Insane-7387450974451533840?refer=embed">♬ Insane - Tink</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
+                        <div class="tiktok-embed">
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@tara.njeri/video/7390368986141150470" data-video-id="7390368986141150470" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@tara.njeri" href="https://www.tiktok.com/@tara.njeri?refer=embed">@tara.njeri</a> <p>📍Kahani restaurant, located at Gem Forest hotel. Gigiri The Nairobi restaurant scene is the host that keeps on giving! Recently got to try out the newly opened M-gallery restaurant at Gem Forest and we were impressed. The space is absolutely stunning with ample seating space. They serve Indian inspired food but with a twist and we thoroughly enjoyed it. The food was delicious and the portions were quite filling I would highly recommend this spot for vegetarians as most items on the menu were veg-friendly meals. The staff was friendly and had vast knowledge of the menu items which helped in selecting dishes. The only downside was that we didn't get to try some of the items on the menu that we wanted as they weren't available. Reason being that it was a soft launch. Nonetheless we enjoyed our experience! Also ensure to make a reservation before going to avoid any inconvenience.  Food in frame: Starters Kerala fried chicken | Ksh 1500 | Grilled prawns | ksh 3500| Mains Mustard curry Chicken | Ksh 1900 | Coconut rice | Ksh 500 | Malabar parantha | Ksh 400 | Drinks in frame: Kantin chai | Ksh 1200 | French 75 | Ksh 1400 | Old fashion | ksh 1000 |</p> <a target="_blank" title="♬ original sound - tara.njeri" href="https://www.tiktok.com/music/original-sound-7390368996234414854?refer=embed">♬ original sound - tara.njeri</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -202,29 +219,70 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="/public/views/about.html">About Us</a></li>
+                        <li><a href="/public/views/contact.html">Contact</a></li>
+                        <li><a href="/public/views/privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="/public/views/termsofservice.html">Terms of Service</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Connect With Us</h4>
                     <div class="social-links">
-                        <a href="#"><i data-lucide="facebook"></i></a>
-                        <a href="#"><i data-lucide="twitter"></i></a>
-                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="https://facebook.com"><i data-lucide="facebook"></i></a>
+                        <a href="https://twitter.com/nairobidining"><i data-lucide="twitter"></i></a>
+                        <a href="https://instagram.com/nairobidining"><i data-lucide="instagram"></i></a>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                © 2025 Nairobi Eats. All rights reserved.
+                © 2024 Nairobi Feast. All rights reserved.
             </div>
         </div>
     </footer>
 
+    <nav class="mobile-nav">
+        <a href="/index.html" class="nav-link">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </a>
+        <a href="/public/views/about.html" class="nav-link">
+            <i data-lucide="info"></i>
+            <span>About</span>
+        </a>
+        <a href="/public/views/restaurants.html" class="nav-link">
+            <i data-lucide="utensils"></i>
+            <span>Restaurants</span>
+        </a>
+        <a href="/public/views/contact.html" class="nav-link">
+            <i data-lucide="phone"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
     <script>
         lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const icons = document.querySelectorAll('.icon');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            icons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    
+                    icons.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    contentSections.forEach(section => {
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
     </script>
 </body>
 </html>

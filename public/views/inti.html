@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INTI - Nairobi Feast</title>
-    <link rel="stylesheet" href="/public/stylesheets/restaurants.css">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>INTI - A Nikkei Experience - Nairobi Feast</title>
+    <link rel="stylesheet" href="/public/stylesheets/restaurantspage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -14,33 +14,16 @@
             <a href="/index.html" class="logo">Nairobi Feast</a>
             <nav class="desktop-nav">
                 <a href="/index.html" class="nav-link">Home</a>
+                <a href="/public/views/browse.html" class="nav-link">Browse</a>
                 <a href="/public/views/about.html" class="nav-link">About</a>
-                <a href="/public/views/restaurants.html" class="nav-link">Restaurants</a>
                 <a href="/public/views/contact.html" class="nav-link">Contact</a>
             </nav>
         </div>
     </header>
-    <nav class="mobile-nav">
-        <a href="/index.html" class="nav-link">
-            <i data-lucide="home"></i>
-            <span>Home</span>
-        </a>
-        <a href="/public/views/about.html" class="nav-link">
-            <i data-lucide="info"></i>
-            <span>About</span>
-        </a>
-        <a href="/public/views/restaurants.html" class="nav-link">
-            <i data-lucide="utensils"></i>
-            <span>Restaurants</span>
-        </a>
-        <a href="/public/views/contact.html" class="nav-link">
-            <i data-lucide="phone"></i>
-            <span>Contact</span>
-        </a>
-    </nav>
+
     <main>
         <div class="hero">
-            <img src="/assets/images/INTIfood1.jpg" alt="Carnivore Restaurant Ambiance" class="hero-image">
+            <img src="/assets/images/INTIfood1.jpg" alt="INTI Restaurant Ambiance" class="hero-image">
             <div class="hero-content">
                 <h1>INTI - A Nikkei Experience</h1>
                 <p>Finest Nikkei cuisine which celebrates the marriage of Japanese & Peruvian fare</p>
@@ -67,133 +50,151 @@
                 </div>
             </section>
 
-            <section class="about">
-                <h2>About INTI</h2>
-                <p>INTI, located in the heart of Nairobi, is a sophisticated dining destination that masterfully blends Peruvian and Japanese cuisines into an unforgettable Nikkei experience. Known for its innovative menu and artistic presentation, INTI offers a culinary adventure featuring bold flavors, fresh ingredients, and dishes that are as visually stunning as they are delicious.</p>
-                <p>Perched with a stunning view of the city skyline, INTI's sleek and modern decor creates an ambiance of refined elegance, perfect for romantic dinners, business lunches, or special celebrations. Whether indulging in expertly crafted sushi, ceviche, or signature cocktails, INTI promises an elevated dining journey that captivates all the senses.</p>
-            </section>
-
-            <section class="gallery">
-                <h2>Gallery</h2>
-                <div class="gallery-grid">
-                    <img src="/assets/images/INTI3.jpg" alt="Carnivore Interior" class="gallery-image">
-                    <img src="/assets/images/INTI5.jpg" alt="Meat Selection" class="gallery-image">
-                    <img src="/assets/images/intidrink.jpg" alt="Outdoor Seating" class="gallery-image">
-                    <img src="/assets/images/intifood2.jpg" alt="Grilling Station" class="gallery-image">
+            <section id="section-icons">
+                <div class="icon active" data-target="about">
+                    <i data-lucide="info" style="color: #4CAF50;"></i>
+                    <span>About</span>
+                </div>
+                <div class="icon" data-target="gallery">
+                    <i data-lucide="image" style="color: #2196F3;"></i>
+                    <span>Gallery</span>
+                </div>
+                <div class="icon" data-target="menu">
+                    <i data-lucide="utensils" style="color: #FFC107;"></i>
+                    <span>Menu</span>
+                </div>
+                <div class="icon" data-target="reviews">
+                    <i data-lucide="message-circle" style="color: #9C27B0;"></i>
+                    <span>Reviews</span>
+                </div>
+                <div class="icon" data-target="location">
+                    <i data-lucide="map-pin" style="color: #F44336;"></i>
+                    <span>Location</span>
+                </div>
+                <div class="icon" data-target="tiktok">
+                    <i data-lucide="video" style="color: #E91E63;"></i>
+                    <span>TikTok</span>
                 </div>
             </section>
 
-            <section class="menu">
-                <h2>Featured Menu Items</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <img src="/assets/images/intifood3.jpg" alt="Meat Platter" class="menu-image">
-                        <h3>Wagyu Tiradito</h3>
-                        <p>Wagyu slices, ponzu yuzu sauce, truffle puree, crispy sweet potatoes</p>
-                        <span class="price">KES 1400</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/intifood2.jpg" alt="Crocodile Steak" class="menu-image">
-                        <h3>Nikkei Veg Risotto</h3>
-                        <p>Crispy Tofu, creamy nikkei risotto</p>
-                        <span class="price">KES 1350</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/intifood6.jpg" alt="Ostrich Meatballs" class="menu-image">
-                        <h3>Nikkei Style Perking Duck</h3>
-                        <p>Duck confit, Peruvian tortillas, homemade kimchi, radish pickles, mixed seeds</p>
-                        <span class="price">KES 1300</span>
-                    </div>
+            <section id="content-sections">
+                <div id="about" class="content-section active">
+                    <h2>About INTI</h2>
+                    <p>INTI, located in the heart of Nairobi, is a sophisticated dining destination that masterfully blends Peruvian and Japanese cuisines into an unforgettable Nikkei experience. Known for its innovative menu and artistic presentation, INTI offers a culinary adventure featuring bold flavors, fresh ingredients, and dishes that are as visually stunning as they are delicious.</p>
+                    <p>Perched with a stunning view of the city skyline, INTI's sleek and modern decor creates an ambiance of refined elegance, perfect for romantic dinners, business lunches, or special celebrations. Whether indulging in expertly crafted sushi, ceviche, or signature cocktails, INTI promises an elevated dining journey that captivates all the senses.</p>
                 </div>
-                <div class="view-full-menu">
-                    <a href="https://www.thefoodlibrary.co.ke/inti-food-menu/" target="_blank" class="btn-secondary">View Full Menu</a>
-                </div>
-            </section>
 
-            <section class="reviews">
-                <h2>What Guests Say</h2>
-                <div class="review-grid">
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/intireviewer1.png" alt="John K." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Elie Najem</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    
+                <div id="gallery" class="content-section">
+                    <h2>Gallery</h2>
+                    <div class="gallery-grid">
+                        <img src="/assets/images/INTI3.jpg" alt="INTI Interior" class="gallery-image">
+                        <img src="/assets/images/INTI5.jpg" alt="Food Selection" class="gallery-image">
+                        <img src="/assets/images/intidrink.jpg" alt="Signature Cocktail" class="gallery-image">
+                        <img src="/assets/images/intifood2.jpg" alt="Nikkei Dish" class="gallery-image">
+                    </div>
+                </div>
+
+                <div id="menu" class="content-section">
+                    <h2>Featured Menu Items</h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <img src="/assets/images/intifood3.jpg" alt="Wagyu Tiradito" class="menu-image">
+                            <h3>Wagyu Tiradito</h3>
+                            <p>Wagyu slices, ponzu yuzu sauce, truffle puree, crispy sweet potatoes</p>
+                            <span class="price">KES 1400</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/intifood2.jpg" alt="Nikkei Veg Risotto" class="menu-image">
+                            <h3>Nikkei Veg Risotto</h3>
+                            <p>Crispy Tofu, creamy nikkei risotto</p>
+                            <span class="price">KES 1350</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/intifood6.jpg" alt="Nikkei Style Peking Duck" class="menu-image">
+                            <h3>Nikkei Style Peking Duck</h3>
+                            <p>Duck confit, Peruvian tortillas, homemade kimchi, radish pickles, mixed seeds</p>
+                            <span class="price">KES 1300</span>
+                        </div>
+                    </div>
+                    <div class="view-full-menu">
+                        <a href="https://www.thefoodlibrary.co.ke/inti-food-menu/" target="_blank" class="btn-secondary">View Full Menu</a>
+                    </div>
+                </div>
+
+                <div id="reviews" class="content-section">
+                    <h2>What Guests Say</h2>
+                    <div class="review-grid">
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/intireviewer1.png" alt="Elie Najem" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Elie Najem</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
                                 </div>
                             </div>
+                            <p>"BEAUTIFUL experience at Inti Nikkei. The food was remarkably delicious, fresh, and well presented, especially the Sushi was one of the best I have ever tasted in my life. The atmosphere is super cosy especially at night with the dim lights and red colors on the bamboo. The staff very friendly and helpful serving all your needs. I have waited a long time to have an octopus and they didn't fail to deliver the best fresh octopus. The dessert was amazing too especially the Lava cake. Truly a masterclass experience"</p>
                         </div>
-                        <p>"BEAUTIFUL experience at Inti Nikkei.
-                            The food was remarkably delicious it was fresh it was well presented especially the Sushi was one of the best i have ever tasted in my life.
-                            The atmosphere is super cosy especially at night with the dim lights and red colors on the bamboo.
-                            The staff very friendly and helpful serving all your needs.
-                            I have waited a long time to have an octipus and they didnt faily to deliver the best fresh octipus.
-                            The desert was amazing too especially the Lava cake.
-                            Truly a masterclass experience"</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/intireviewer2.png" alt="Sarah M." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Kati Arneson</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/intireviewer2.png" alt="Kati Arneson" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Kati Arneson</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
                                 </div>
                             </div>
+                            <p>"It's so amazing and the food was great. We were there for lunch and the staff were so friendly. I liked that they had a good selection of mocktails."</p>
                         </div>
-                        <p>"It's so amazing and the food was great we were there for lunch and the staff were so friendly, I liked that they had a good selection of mocktails"</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/intireviewer3.png" alt="David O." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Essie</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/intireviewer3.png" alt="Essie" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Essie</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
                                 </div>
                             </div>
+                            <p>"Loved the meals we ordered, as a vegetarian absolutely raving about the Hongos Ceviche and Pisco Punch that we had. The meals were so fresh and yum! Service was okay, we had a very stern waiter who made me pretty scared of asking for anything. The vibes were great and we had an early dinner however we found the tables a bit too cramped together - some more spacing would be nice to have private conversations. Dietary restrictions: There's quite the creative selection of vegetarian options to choose from :)"</p>
                         </div>
-                        <p>Loved the meals we ordered, as a vegetarian absolutely raving about the Hongos Ceviche and Pisco Punch that we had. The meals were so fresh and yum!
-                            service was okay, we had a very stern waiter who made me pretty scared of asking for anything.
-                            the vibes were great and we had an early dinner however we found the tables a bit too cramped together - some more spacing would be nice to have private conversations.
-                            
-                            Dietary restrictions: There's quite the creative selection of vegetarian options to choose from :) </p>
+                    </div>
+                    <div class="google-attribution">
+                        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
+                        <span>Reviews from Google</span>
                     </div>
                 </div>
-                <div class="google-attribution">
-                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
-                    <span>Reviews from Google</span>
-                </div>
-            </section>
 
-            <section class="location">
-                <h2>Location</h2>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31857.481015615973!2d39.5025871!3d-3.5447325!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f17e486a3b469%3A0x10243b9fcbb671d8!2sINTI%20-%20A%20Nikkei%20Experience!5e0!3m2!1sen!2ske!4v1733020441090!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </section>
-
-            <section class="tiktok-embeds">
-                <h2>INTI on TikTok</h2>
-                <div class="tiktok-grid">
-                    <div class="tiktok-embed">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@kenyanfoodiex/video/7247534668059331846" data-video-id="7247534668059331846" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@kenyanfoodiex" href="https://www.tiktok.com/@kenyanfoodiex?refer=embed">@kenyanfoodiex</a> 📍INTI Nikkei, One Africa Place, Waiyaki Way. <a title="tiktokkenya" target="_blank" href="https://www.tiktok.com/tag/tiktokkenya?refer=embed">#tiktokkenya</a> <a target="_blank" title="♬ original sound - Tulan Jnr" href="https://www.tiktok.com/music/original-sound-7233353951864998657?refer=embed">♬ original sound - Tulan Jnr</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                <div id="location" class="content-section">
+                    <h2>Location</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31857.481015615973!2d39.5025871!3d-3.5447325!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f17e486a3b469%3A0x10243b9fcbb671d8!2sINTI%20-%20A%20Nikkei%20Experience!5e0!3m2!1sen!2ske!4v1733020441090!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                    <div class="tiktok-embed">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@eatoutkenya/video/7083900453599186182" data-video-id="7083900453599186182" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@eatoutkenya" href="https://www.tiktok.com/@eatoutkenya?refer=embed">@eatoutkenya</a> Who&#39;s craving some Japanese Food? This is INTI Restaurant - A Nikkei Experience. 📍Located in One Africa Place, Westlands. Follow us for this and more.  <a title="restaurants" target="_blank" href="https://www.tiktok.com/tag/restaurants?refer=embed">#restaurants</a> <a title="discover" target="_blank" href="https://www.tiktok.com/tag/discover?refer=embed">#discover</a> <a title="explore" target="_blank" href="https://www.tiktok.com/tag/explore?refer=embed">#explore</a> <a title="experience" target="_blank" href="https://www.tiktok.com/tag/experience?refer=embed">#experience</a> <a title="food" target="_blank" href="https://www.tiktok.com/tag/food?refer=embed">#food</a> <a title="drinks" target="_blank" href="https://www.tiktok.com/tag/drinks?refer=embed">#drinks</a> <a target="_blank" title="♬ original sound - EatOut" href="https://www.tiktok.com/music/original-sound-7083900514093517574?refer=embed">♬ original sound - EatOut</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+
+                <div id="tiktok" class="content-section">
+                    <h2>INTI on TikTok</h2>
+                    <div class="tiktok-grid">
+                        <div class="tiktok-embed">
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@kenyanfoodiex/video/7247534668059331846" data-video-id="7247534668059331846" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@kenyanfoodiex" href="https://www.tiktok.com/@kenyanfoodiex?refer=embed">@kenyanfoodiex</a> 📍INTI Nikkei, One Africa Place, Waiyaki Way. <a title="tiktokkenya" target="_blank" href="https://www.tiktok.com/tag/tiktokkenya?refer=embed">#tiktokkenya</a> <a target="_blank" title="♬ original sound - Tulan Jnr" href="https://www.tiktok.com/music/original-sound-7233353951864998657?refer=embed">♬ original sound - Tulan Jnr</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
+                        <div class="tiktok-embed">
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@eatoutkenya/video/7083900453599186182" data-video-id="7083900453599186182" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@eatoutkenya" href="https://www.tiktok.com/@eatoutkenya?refer=embed">@eatoutkenya</a> Who's craving some Japanese Food? This is INTI Restaurant - A Nikkei Experience. 📍Located in One Africa Place, Westlands. Follow us for this and more.  <a title="restaurants" target="_blank" href="https://www.tiktok.com/tag/restaurants?refer=embed">#restaurants</a> <a title="discover" target="_blank" href="https://www.tiktok.com/tag/discover?refer=embed">#discover</a> <a title="explore" target="_blank" href="https://www.tiktok.com/tag/explore?refer=embed">#explore</a> <a title="experience" target="_blank" href="https://www.tiktok.com/tag/experience?refer=embed">#experience</a> <a title="food" target="_blank" href="https://www.tiktok.com/tag/food?refer=embed">#food</a> <a title="drinks" target="_blank" href="https://www.tiktok.com/tag/drinks?refer=embed">#drinks</a> <a target="_blank" title="♬ original sound - EatOut" href="https://www.tiktok.com/music/original-sound-7083900514093517574?refer=embed">♬ original sound - EatOut</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -207,6 +208,7 @@
             </section>
         </div>
     </main>
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -238,8 +240,49 @@
         </div>
     </footer>
 
+    <nav class="mobile-nav">
+        <a href="/index.html" class="nav-link">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </a>
+        <a href="/public/views/about.html" class="nav-link">
+            <i data-lucide="info"></i>
+            <span>About</span>
+        </a>
+        <a href="/public/views/restaurants.html" class="nav-link">
+            <i data-lucide="utensils"></i>
+            <span>Restaurants</span>
+        </a>
+        <a href="/public/views/contact.html" class="nav-link">
+            <i data-lucide="phone"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
     <script>
         lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const icons = document.querySelectorAll('.icon');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            icons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    
+                    icons.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    contentSections.forEach(section => {
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
     </script>
 </body>
 </html>

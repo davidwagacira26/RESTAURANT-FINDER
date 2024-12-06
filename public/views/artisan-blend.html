@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artisan Blend - Nairobi Feast</title>
-    <link rel="stylesheet" href="/public/stylesheets/restaurants.css">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/stylesheets/restaurantspage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -20,27 +20,10 @@
             </nav>
         </div>
     </header>
-    <nav class="mobile-nav">
-        <a href="/index.html" class="nav-link">
-            <i data-lucide="home"></i>
-            <span>Home</span>
-        </a>
-        <a href="/restaurants.html" class="nav-link">
-            <i data-lucide="info"></i>
-            <span>About</span>
-        </a>
-        <a href="/search.html" class="nav-link">
-            <i data-lucide="utensils"></i>
-            <span>Restaurants</span>
-        </a>
-        <a href="/public/" class="nav-link">
-            <i data-lucide="phone"></i>
-            <span>Contact</span>
-        </a>
-    </nav>
+
     <main>
         <div class="hero">
-            <img src="/assets/images/artisanblendfood4.jpg" alt="Carnivore Restaurant Ambiance" class="hero-image">
+            <img src="/assets/images/artisanblendfood4.jpg" alt="Artisan Blend Ambiance" class="hero-image">
             <div class="hero-content">
                 <h1>Artisan Blend</h1>
                 <p>We're more than just a cafe A hub of warmth, creativity, and exceptional flavors</p>
@@ -67,123 +50,152 @@
                 </div>
             </section>
 
-            <section class="about">
-                <h2>About Artisan Blend</h2>
-                <p>Artisan Blend, located along Mombasa Road, is a contemporary café and bistro that celebrates the art of exceptional coffee and flavorful cuisine. Known for its expertly brewed specialty coffee and thoughtfully crafted menu, this spot is a favorite among those seeking quality and creativity in every bite and sip.</p>
-                <p>With its sleek, modern interiors and a cozy atmosphere, Artisan Blend offers the perfect setting for casual meetups, business lunches, or a relaxing break from the day's hustle. Whether you're savoring their freshly baked pastries, indulging in hearty meals, or enjoying a perfectly balanced cup of coffee, Artisan Blend promises a delightful culinary experience tailored for Nairobi's discerning food and coffee lovers.                </p>
-            </section>
-
-            <section class="gallery">
-                <h2>Gallery</h2>
-                <div class="gallery-grid">
-                    <img src="/assets/images/artisanblend2.jpg" alt="Carnivore Interior" class="gallery-image">
-                    <img src="/assets/images/artisanblendfood1.jpg" alt="Meat Selection" class="gallery-image">
-                    <img src="/assets/images/artisanblendfood2.jpg" alt="Outdoor Seating" class="gallery-image">
-                    <img src="/assets/images/artisanblendfood3.jpg" alt="Grilling Station" class="gallery-image">
+            <section id="section-icons">
+                <div class="icon active" data-target="about">
+                    <i data-lucide="info" style="color: #4CAF50;"></i>
+                    <span>About</span>
+                </div>
+                <div class="icon" data-target="gallery">
+                    <i data-lucide="image" style="color: #2196F3;"></i>
+                    <span>Gallery</span>
+                </div>
+                <div class="icon" data-target="menu">
+                    <i data-lucide="utensils" style="color: #FFC107;"></i>
+                    <span>Menu</span>
+                </div>
+                <div class="icon" data-target="reviews">
+                    <i data-lucide="message-circle" style="color: #9C27B0;"></i>
+                    <span>Reviews</span>
+                </div>
+                <div class="icon" data-target="location">
+                    <i data-lucide="map-pin" style="color: #F44336;"></i>
+                    <span>Location</span>
+                </div>
+                <div class="icon" data-target="tiktok">
+                    <i data-lucide="video" style="color: #E91E63;"></i>
+                    <span>TikTok</span>
                 </div>
             </section>
 
-            <section class="menu">
-                <h2>Featured Menu Items</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <img src="/assets/images/artisanblendfood4.jpg" alt="Meat Platter" class="menu-image">
-                        <h3>Salmon Teriyaki</h3>
-                        <p>Grilled corn ribs, lime drizzle, smoked paprika dust, grated cheese topping, and fresh parsley garnish.</p>
-                        <span class="price">KES 800</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/artisanblendfood5.jpg" alt="Crocodile Steak" class="menu-image">
-                        <h3>Creamy Fusilli Arrabiata</h3>
-                        <p>Perfectly cooked pasta tossed in a rich tomato sauce, blended with a touch of cream</p>
-                        <span class="price">KES 1250</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/artisanblendrink.jpg" alt="Ostrich Meatballs" class="menu-image">
-                        <h3>Mixed Berries Smoothie</h3>
-                        <p>Busting with fresh strawberries, blueberries and raspberries</p>
-                        <span class="price">KES 1100</span>
-                    </div>
+            <section id="content-sections">
+                <div id="about" class="content-section active">
+                    <h2>About Artisan Blend</h2>
+                    <p>Artisan Blend, located along Mombasa Road, is a contemporary café and bistro that celebrates the art of exceptional coffee and flavorful cuisine. Known for its expertly brewed specialty coffee and thoughtfully crafted menu, this spot is a favorite among those seeking quality and creativity in every bite and sip.</p>
+                    <p>With its sleek, modern interiors and a cozy atmosphere, Artisan Blend offers the perfect setting for casual meetups, business lunches, or a relaxing break from the day's hustle. Whether you're savoring their freshly baked pastries, indulging in hearty meals, or enjoying a perfectly balanced cup of coffee, Artisan Blend promises a delightful culinary experience tailored for Nairobi's discerning food and coffee lovers.</p>
                 </div>
-                <div class="view-full-menu">
-                    <a href="https://artisan-blend.tappi.ke/products" target="_blank" class="btn-secondary">View Full Menu</a>
-                </div>
-            </section>
 
-            <section class="reviews">
-                <h2>What Guests Say</h2>
-                <div class="review-grid">
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/artisanblendreviewer1.png" alt="John K." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Rachel Osewe</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"Such an aesthetically pleasing location! I loved it! Easily accessible. You might want to make a reservation if you are a large group especially.
-                            I enjoyed the food, though it arrived warm and not hot, it tasted great.
-                            The service was fantastic, our waiter was amazing! The staff in general were very helpful and nice."</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/botanicareviewer1.png" alt="Sarah M." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Wendy Achieng</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"Went there during Father’s Day and was there for most of my day. It wasn’t too crowded and quite chill. They use fresh fruits  thus the drinks were really yummy. If you are a sweet tooth, I’d highly recommend the blueberry mojito. The chicken curry was also fantastic, it gives a blend between sweet and tangy which was very interesting. Our wait on staff for the day, Immanuela was good, responsive and swift. Be prepared for some of the staff to ask you how you are doing; it’s a very nice initiative but if done so many times it can be a bit overwhelming."</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/artisanblendreviewer3.png" alt="David O." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Hafsa Jamaa</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"Aesthetic and welcoming ambiance and the service was amazing, our waitress was beautiful Anne, the food & the drinks were good, loved their milk cake, I would definitely recommend. The owner was so sweet and friendly, coming back for sure :)"</p>
-                        
+                <div id="gallery" class="content-section">
+                    <h2>Gallery</h2>
+                    <div class="gallery-grid">
+                        <img src="/assets/images/artisanblend2.jpg" alt="Artisan Blend Interior" class="gallery-image">
+                        <img src="/assets/images/artisanblendfood1.jpg" alt="Food Selection" class="gallery-image">
+                        <img src="/assets/images/artisanblendfood2.jpg" alt="Outdoor Seating" class="gallery-image">
+                        <img src="/assets/images/artisanblendfood3.jpg" alt="Coffee Station" class="gallery-image">
                     </div>
                 </div>
-                <div class="google-attribution">
-                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
-                    <span>Reviews from Google</span>
-                </div>
-            </section>
-            <section class="location">
-                <h2>Location</h2>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8125807680854!2d36.78705307440974!3d-1.2865093987012595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f110069a0a583%3A0x5a6a2901b4497556!2sArtisan%20Blend%20-%20Kilimani!5e0!3m2!1sen!2ske!4v1733020939359!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </section>
-            <section class="tiktok-embeds">
-                <h2>Artisan Blend on TikTok</h2>
-                <div class="tiktok-grid">
-                    <div class="tiktok-embed">
-                       <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@artisanblend/video/7439457403860471096" data-video-id="7439457403860471096" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@artisanblend" href="https://www.tiktok.com/@artisanblend?refer=embed">@artisanblend</a> Have you tried our Crispy Ranch Burger? This mouthwatering burger features a perfectly crispy chicken patty with our signature ranch sauce and fresh, crunchy lettuce.  Each bite is bursting with flavor! It’s a must-try for any burger lover. Don’t miss out,try it today and elevate your meal! <a title="restaurant" target="_blank" href="https://www.tiktok.com/tag/restaurant?refer=embed">#restaurant</a> <a title="reviews" target="_blank" href="https://www.tiktok.com/tag/reviews?refer=embed">#reviews</a> <a title="brunchtime" target="_blank" href="https://www.tiktok.com/tag/brunchtime?refer=embed">#brunchtime</a> <a title="halal" target="_blank" href="https://www.tiktok.com/tag/halal?refer=embed">#halal</a> <a title="events" target="_blank" href="https://www.tiktok.com/tag/events?refer=embed">#events</a> <a title="burgersandfries" target="_blank" href="https://www.tiktok.com/tag/burgersandfries?refer=embed">#burgersandfries</a> <a title="burgers" target="_blank" href="https://www.tiktok.com/tag/burgers?refer=embed">#burgers</a> <a title="burgersofinstagram" target="_blank" href="https://www.tiktok.com/tag/burgersofinstagram?refer=embed">#burgersofinstagram</a> <a title="ranchsauce" target="_blank" href="https://www.tiktok.com/tag/ranchsauce?refer=embed">#ranchsauce</a><a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> <a title="somalitiktok" target="_blank" href="https://www.tiktok.com/tag/somalitiktok?refer=embed">#somalitiktok</a> <a target="_blank" title="♬ original sound - Artisan Blend Cafe" href="https://www.tiktok.com/music/original-sound-7439457425911745335?refer=embed">♬ original sound - Artisan Blend Cafe</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+
+                <div id="menu" class="content-section">
+                    <h2>Featured Menu Items</h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <img src="/assets/images/artisanblendfood4.jpg" alt="Salmon Teriyaki" class="menu-image">
+                            <h3>Salmon Teriyaki</h3>
+                            <p>Grilled corn ribs, lime drizzle, smoked paprika dust, grated cheese topping, and fresh parsley garnish.</p>
+                            <span class="price">KES 800</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/artisanblendfood5.jpg" alt="Creamy Fusilli Arrabiata" class="menu-image">
+                            <h3>Creamy Fusilli Arrabiata</h3>
+                            <p>Perfectly cooked pasta tossed in a rich tomato sauce, blended with a touch of cream</p>
+                            <span class="price">KES 1250</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/artisanblendrink.jpg" alt="Mixed Berries Smoothie" class="menu-image">
+                            <h3>Mixed Berries Smoothie</h3>
+                            <p>Busting with fresh strawberries, blueberries and raspberries</p>
+                            <span class="price">KES 1100</span>
+                        </div>
                     </div>
-                    <div class="tiktok-embed">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@justine_jk/video/7322491124516523269" data-video-id="7322491124516523269" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@justine_jk" href="https://www.tiktok.com/@justine_jk?refer=embed">@justine_jk</a> <a title="tiktokkenya" target="_blank" href="https://www.tiktok.com/tag/tiktokkenya?refer=embed">#tiktokkenya</a> <a title="restaurant" target="_blank" href="https://www.tiktok.com/tag/restaurant?refer=embed">#restaurant</a> <a title="cafe" target="_blank" href="https://www.tiktok.com/tag/cafe?refer=embed">#cafe</a> <a title="artisanblend" target="_blank" href="https://www.tiktok.com/tag/artisanblend?refer=embed">#artisanblend</a> <a title="nairobi" target="_blank" href="https://www.tiktok.com/tag/nairobi?refer=embed">#nairobi</a> <a title="eat" target="_blank" href="https://www.tiktok.com/tag/eat?refer=embed">#eat</a> <a title="mombasaroad" target="_blank" href="https://www.tiktok.com/tag/mombasaroad?refer=embed">#mombasaroad</a> <a title="drinks" target="_blank" href="https://www.tiktok.com/tag/drinks?refer=embed">#drinks</a> <a title="food" target="_blank" href="https://www.tiktok.com/tag/food?refer=embed">#food</a> <a title="restaurantnairobi" target="_blank" href="https://www.tiktok.com/tag/restaurantnairobi?refer=embed">#restaurantnairobi</a> <a title="kenya" target="_blank" href="https://www.tiktok.com/tag/kenya?refer=embed">#kenya</a> <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> <a target="_blank" title="♬ Sunshine - WIRA" href="https://www.tiktok.com/music/Sunshine-7087902657213384705?refer=embed">♬ Sunshine - WIRA</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                    <div class="view-full-menu">
+                        <a href="https://artisan-blend.tappi.ke/products" target="_blank" class="btn-secondary">View Full Menu</a>
+                    </div>
+                </div>
+
+                <div id="reviews" class="content-section">
+                    <h2>What Guests Say</h2>
+                    <div class="review-grid">
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/artisanblendreviewer1.png" alt="Rachel Osewe" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Rachel Osewe</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"Such an aesthetically pleasing location! I loved it! Easily accessible. You might want to make a reservation if you are a large group especially. I enjoyed the food, though it arrived warm and not hot, it tasted great. The service was fantastic, our waiter was amazing! The staff in general were very helpful and nice."</p>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/botanicareviewer1.png" alt="Wendy Achieng" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Wendy Achieng</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"Went there during Father's Day and was there for most of my day. It wasn't too crowded and quite chill. They use fresh fruits thus the drinks were really yummy. If you are a sweet tooth, I'd highly recommend the blueberry mojito. The chicken curry was also fantastic, it gives a blend between sweet and tangy which was very interesting. Our wait on staff for the day, Immanuela was good, responsive and swift. Be prepared for some of the staff to ask you how you are doing; it's a very nice initiative but if done so many times it can be a bit overwhelming."</p>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/artisanblendreviewer3.png" alt="Hafsa Jamaa" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Hafsa Jamaa</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"Aesthetic and welcoming ambiance and the service was amazing, our waitress was beautiful Anne, the food & the drinks were good, loved their milk cake, I would definitely recommend. The owner was so sweet and friendly, coming back for sure :)"</p>
+                        </div>
+                    </div>
+                    <div class="google-attribution">
+                        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
+                        <span>Reviews from Google</span>
+                    </div>
+                </div>
+
+                <div id="location" class="content-section">
+                    <h2>Location</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8125807680854!2d36.78705307440974!3d-1.2865093987012595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f110069a0a583%3A0x5a6a2901b4497556!2sArtisan%20Blend%20-%20Kilimani!5e0!3m2!1sen!2ske!4v1733020939359!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div id="tiktok" class="content-section">
+                    <h2>Artisan Blend on TikTok</h2>
+                    <div
+ class="tiktok-grid">
+                        <div class="tiktok-embed">
+                           <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@artisanblend/video/7439457403860471096" data-video-id="7439457403860471096" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@artisanblend" href="https://www.tiktok.com/@artisanblend?refer=embed">@artisanblend</a> Have you tried our Crispy Ranch Burger? This mouthwatering burger features a perfectly crispy chicken patty with our signature ranch sauce and fresh, crunchy lettuce.  Each bite is bursting with flavor! It's a must-try for any burger lover. Don't miss out,try it today and elevate your meal! <a title="restaurant" target="_blank" href="https://www.tiktok.com/tag/restaurant?refer=embed">#restaurant</a> <a title="reviews" target="_blank" href="https://www.tiktok.com/tag/reviews?refer=embed">#reviews</a> <a title="brunchtime" target="_blank" href="https://www.tiktok.com/tag/brunchtime?refer=embed">#brunchtime</a> <a title="halal" target="_blank" href="https://www.tiktok.com/tag/halal?refer=embed">#halal</a> <a title="events" target="_blank" href="https://www.tiktok.com/tag/events?refer=embed">#events</a> <a title="burgersandfries" target="_blank" href="https://www.tiktok.com/tag/burgersandfries?refer=embed">#burgersandfries</a> <a title="burgers" target="_blank" href="https://www.tiktok.com/tag/burgers?refer=embed">#burgers</a> <a title="burgersofinstagram" target="_blank" href="https://www.tiktok.com/tag/burgersofinstagram?refer=embed">#burgersofinstagram</a> <a title="ranchsauce" target="_blank" href="https://www.tiktok.com/tag/ranchsauce?refer=embed">#ranchsauce</a><a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> <a title="somalitiktok" target="_blank" href="https://www.tiktok.com/tag/somalitiktok?refer=embed">#somalitiktok</a> <a target="_blank" title="♬ original sound - Artisan Blend Cafe" href="https://www.tiktok.com/music/original-sound-7439457425911745335?refer=embed">♬ original sound - Artisan Blend Cafe</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
+                        <div class="tiktok-embed">
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@justine_jk/video/7322491124516523269" data-video-id="7322491124516523269" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@justine_jk" href="https://www.tiktok.com/@justine_jk?refer=embed">@justine_jk</a> <a title="tiktokkenya" target="_blank" href="https://www.tiktok.com/tag/tiktokkenya?refer=embed">#tiktokkenya</a> <a title="restaurant" target="_blank" href="https://www.tiktok.com/tag/restaurant?refer=embed">#restaurant</a> <a title="cafe" target="_blank" href="https://www.tiktok.com/tag/cafe?refer=embed">#cafe</a> <a title="artisanblend" target="_blank" href="https://www.tiktok.com/tag/artisanblend?refer=embed">#artisanblend</a> <a title="nairobi" target="_blank" href="https://www.tiktok.com/tag/nairobi?refer=embed">#nairobi</a> <a title="eat" target="_blank" href="https://www.tiktok.com/tag/eat?refer=embed">#eat</a> <a title="mombasaroad" target="_blank" href="https://www.tiktok.com/tag/mombasaroad?refer=embed">#mombasaroad</a> <a title="drinks" target="_blank" href="https://www.tiktok.com/tag/drinks?refer=embed">#drinks</a> <a title="food" target="_blank" href="https://www.tiktok.com/tag/food?refer=embed">#food</a> <a title="restaurantnairobi" target="_blank" href="https://www.tiktok.com/tag/restaurantnairobi?refer=embed">#restaurantnairobi</a> <a title="kenya" target="_blank" href="https://www.tiktok.com/tag/kenya?refer=embed">#kenya</a> <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> <a target="_blank" title="♬ Sunshine - WIRA" href="https://www.tiktok.com/music/Sunshine-7087902657213384705?refer=embed">♬ Sunshine - WIRA</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -229,8 +241,49 @@
         </div>
     </footer>
 
+    <nav class="mobile-nav">
+        <a href="/index.html" class="nav-link">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </a>
+        <a href="/restaurants.html" class="nav-link">
+            <i data-lucide="info"></i>
+            <span>About</span>
+        </a>
+        <a href="/search.html" class="nav-link">
+            <i data-lucide="utensils"></i>
+            <span>Restaurants</span>
+        </a>
+        <a href="/public/" class="nav-link">
+            <i data-lucide="phone"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
     <script>
         lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const icons = document.querySelectorAll('.icon');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            icons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    
+                    icons.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    contentSections.forEach(section => {
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
     </script>
 </body>
 </html>

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafe Cassia - Nairobi Feast</title>
-    <link rel="stylesheet" href="/public/stylesheets/restaurants.css">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/public/stylesheets/restaurantspage.css">
 </head>
 <body>
     <header>
@@ -14,33 +14,16 @@
             <a href="/index.html" class="logo">Nairobi Feast</a>
             <nav class="desktop-nav">
                 <a href="/index.html" class="nav-link">Home</a>
+                <a href="/public/views/browse.html" class="nav-link">Browse</a>
                 <a href="/public/views/about.html" class="nav-link">About</a>
-                <a href="/public/views/restaurants.html" class="nav-link">Restaurants</a>
                 <a href="/public/views/contact.html" class="nav-link">Contact</a>
             </nav>
         </div>
     </header>
-    <nav class="mobile-nav">
-        <a href="/index.html" class="nav-link">
-            <i data-lucide="home"></i>
-            <span>Home</span>
-        </a>
-        <a href="/restaurants.html" class="nav-link">
-            <i data-lucide="info"></i>
-            <span>About</span>
-        </a>
-        <a href="/search.html" class="nav-link">
-            <i data-lucide="utensils"></i>
-            <span>Restaurants</span>
-        </a>
-        <a href="/public/" class="nav-link">
-            <i data-lucide="phone"></i>
-            <span>Contact</span>
-        </a>
-    </nav>
+
     <main>
         <div class="hero">
-            <img src="/assets/images/cafecassiafood2.jpg" alt="Carnivore Restaurant Ambiance" class="hero-image">
+            <img src="/assets/images/cafecassiafood2.jpg" alt="Cafe Cassia Ambiance" class="hero-image">
             <div class="hero-content">
                 <h1>Cafe Cassia</h1>
                 <p>A voyage into the heart of fine dining where the freshest ingredients meet the artistry of culinary excellence</p>
@@ -67,127 +50,151 @@
                 </div>
             </section>
 
-            <section class="about">
-                <h2>About Cafe Cassia</h2>
-                <p>Café Cassia, nestled in the serene neighborhood of Karen, Nairobi, is a charming haven offering a perfect blend of tranquility and exceptional cuisine. Known for its farm-to-table philosophy, the café serves a delightful menu of fresh, locally sourced dishes, from hearty breakfasts and vibrant salads to indulgent desserts and aromatic coffee.</p>
-                <p>The café’s idyllic setting, surrounded by lush greenery and elegant decor, provides a relaxing escape from the hustle and bustle of the city. Whether you’re enjoying a leisurely brunch, a quiet coffee date, or a family gathering, Café Cassia offers a warm and inviting atmosphere that celebrates the beauty of nature and the joy of good food.</p>
-            </section>
-
-            <section class="gallery">
-                <h2>Gallery</h2>
-                <div class="gallery-grid">
-                    <img src="/assets/images/cafecassia2.jpg" alt="Carnivore Interior" class="gallery-image">
-                    <img src="/assets/images/cafecassiafood2.jpg" alt="Meat Selection" class="gallery-image">
-                    <img src="/assets/images/cafecassiadrink3.jpg" alt="Outdoor Seating" class="gallery-image">
-                    <img src="/assets/images/cafecassiafood4.jpg" alt="Grilling Station" class="gallery-image">
+            <section id="section-icons">
+                <div class="icon active" data-target="about">
+                    <i data-lucide="info" style="color: #4CAF50;"></i>
+                    <span>About</span>
+                </div>
+                <div class="icon" data-target="gallery">
+                    <i data-lucide="image" style="color: #2196F3;"></i>
+                    <span>Gallery</span>
+                </div>
+                <div class="icon" data-target="menu">
+                    <i data-lucide="utensils" style="color: #FFC107;"></i>
+                    <span>Menu</span>
+                </div>
+                <div class="icon" data-target="reviews">
+                    <i data-lucide="message-circle" style="color: #9C27B0;"></i>
+                    <span>Reviews</span>
+                </div>
+                <div class="icon" data-target="location">
+                    <i data-lucide="map-pin" style="color: #F44336;"></i>
+                    <span>Location</span>
+                </div>
+                <div class="icon" data-target="tiktok">
+                    <i data-lucide="video" style="color: #E91E63;"></i>
+                    <span>TikTok</span>
                 </div>
             </section>
 
-            <section class="menu">
-                <h2>Featured Menu Items</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <img src="/assets/images/cafecassiafood5.jpg" alt="Meat Platter" class="menu-image">
-                        <h3>Corn Ribs</h3>
-                        <p>Grilled corn ribs, lime drizzle, smoked paprika dust, grated cheese topping, and fresh parsley garnish.</p>
-                        <span class="price">KES 800</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/cafecassiafood6.jpg" alt="Crocodile Steak" class="menu-image">
-                        <h3>Chicken and Waffles</h3>
-                        <p>Crispy fried chicken, golden buttermilk waffle, slaw topping, maple syrup drizzle, and fresh herb garnish</p>
-                        <span class="price">KES 1250</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/cafecassiafood7.jpg" alt="Ostrich Meatballs" class="menu-image">
-                        <h3>Chicken penne pesto</h3>
-                        <p>Rich and creamy homemade pesto sauce, tender chicken and perfectly cooked penne</p>
-                        <span class="price">KES 1100</span>
-                    </div>
+            <section id="content-sections">
+                <div id="about" class="content-section active">
+                    <h2>About Cafe Cassia</h2>
+                    <p>Café Cassia, nestled in the serene neighborhood of Karen, Nairobi, is a charming haven offering a perfect blend of tranquility and exceptional cuisine. Known for its farm-to-table philosophy, the café serves a delightful menu of fresh, locally sourced dishes, from hearty breakfasts and vibrant salads to indulgent desserts and aromatic coffee.</p>
+                    <p>The café's idyllic setting, surrounded by lush greenery and elegant decor, provides a relaxing escape from the hustle and bustle of the city. Whether you're enjoying a leisurely brunch, a quiet coffee date, or a family gathering, Café Cassia offers a warm and inviting atmosphere that celebrates the beauty of nature and the joy of good food.</p>
                 </div>
-                <div class="view-full-menu">
-                    <a href="https://www.cafecassia.com/#menu" target="_blank" class="btn-secondary">View Full Menu</a>
-                </div>
-            </section>
 
-            <section class="reviews">
-                <h2>What Guests Say</h2>
-                <div class="review-grid">
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/cafecassiareviewer1.png" alt="John K." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Frida Kyalo</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"We went for lunch and the place was amazing....the staff was friendly...the service  was fast ....for drinks we ordered peach lemonade, strawberry  lemonade and oreo milkshake
-                            For the food we ordered  from the small plates section. We ordered prawns and  mango tacos,chicken dumplings, and  chicken  tacos
-                            The meals were amazing, and the ambience  too
-                            The menu is budget  friendly, and the restaurant  is on the rooftop... you'll  enjoy nice views and fresh air.......has indoor and outdoor sitting  areas"</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/botanicareviewer1.png" alt="Sarah M." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Beryl Oloo</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"Loved everything!!! Went with brunch with my sis. The French toast was the best I ever had. The food was awesome. I recommended the place to my parent for their wedding anniversary and they enjoyed the food as well."</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/cafecassiareviewer3.png" alt="David O." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Michelle</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"Here I had the best burger I ever eaten abroad.
-                            I'm european, and visited various countries, but their burger was amazing: perfect soft bun, meat medium cooked, fresh cheese and great sauce.
-                            Also the remaining food was great and mocktails and smoothie were also good.
-                            The place was also nice and relaxing, and service was always attentive.
-                            Thank you!"</p>
-                        
+                <div id="gallery" class="content-section">
+                    <h2>Gallery</h2>
+                    <div class="gallery-grid">
+                        <img src="/assets/images/cafecassia2.jpg" alt="Cafe Cassia Interior" class="gallery-image">
+                        <img src="/assets/images/cafecassiafood2.jpg" alt="Food Selection" class="gallery-image">
+                        <img src="/assets/images/cafecassiadrink3.jpg" alt="Drinks" class="gallery-image">
+                        <img src="/assets/images/cafecassiafood4.jpg" alt="Plated Dish" class="gallery-image">
                     </div>
                 </div>
-                <div class="google-attribution">
-                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
-                    <span>Reviews from Google</span>
-                </div>
-            </section>
-            <section class="location">
-                <h2>Location</h2>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.728528262417!2d36.731739675017366!3d-1.3391917951623704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1b002b951535%3A0x94a2ec1b2fc85121!2sCafe%20Cassia!5e0!3m2!1sen!2ske!4v1733020717172!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </section>
-            <section class="tiktok-embeds">
-                <h2>Cafe Cassia on TikTok</h2>
-                <div class="tiktok-grid">
-                    <div class="tiktok-embed">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@sharlynenafula/video/7403673406379396357" data-video-id="7403673406379396357" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@sharlynenafula" href="https://www.tiktok.com/@sharlynenafula?refer=embed">@sharlynenafula</a> 📍 Cafe Cassia is located at Binna Complex, Karen. Food In Frame ____________ Chicken Penne Pesto Chicken Katsu Drinks in Frame ____________ Mixed Berries Kiwi <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> <a title="foodtiktok" target="_blank" href="https://www.tiktok.com/tag/foodtiktok?refer=embed">#foodtiktok</a> <a title="cafecassia" target="_blank" href="https://www.tiktok.com/tag/cafecassia?refer=embed">#cafecassia</a> <a title="sharlynenafula" target="_blank" href="https://www.tiktok.com/tag/sharlynenafula?refer=embed">#sharlynenafula</a> <a title="nairobirestaurants" target="_blank" href="https://www.tiktok.com/tag/nairobirestaurants?refer=embed">#nairobirestaurants</a> <a title="hiddengems" target="_blank" href="https://www.tiktok.com/tag/hiddengems?refer=embed">#hiddengems</a> <a target="_blank" title="♬ Set It ) - Dyana Cods" href="https://www.tiktok.com/music/Set-It-7394598827989207056?refer=embed">♬ Set It ) - Dyana Cods</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+
+                <div id="menu" class="content-section">
+                    <h2>Featured Menu Items</h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <img src="/assets/images/cafecassiafood5.jpg" alt="Corn Ribs" class="menu-image">
+                            <h3>Corn Ribs</h3>
+                            <p>Grilled corn ribs, lime drizzle, smoked paprika dust, grated cheese topping, and fresh parsley garnish.</p>
+                            <span class="price">KES 800</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/cafecassiafood6.jpg" alt="Chicken and Waffles" class="menu-image">
+                            <h3>Chicken and Waffles</h3>
+                            <p>Crispy fried chicken, golden buttermilk waffle, slaw topping, maple syrup drizzle, and fresh herb garnish</p>
+                            <span class="price">KES 1250</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/cafecassiafood7.jpg" alt="Chicken Penne Pesto" class="menu-image">
+                            <h3>Chicken Penne Pesto</h3>
+                            <p>Rich and creamy homemade pesto sauce, tender chicken and perfectly cooked penne</p>
+                            <span class="price">KES 1100</span>
+                        </div>
                     </div>
-                    <div class="tiktok-embed">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@__thindiu/video/7407492205402803462" data-video-id="7407492205402803462" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@__thindiu" href="https://www.tiktok.com/@__thindiu?refer=embed">@__thindiu</a> Sundays are for brunch 🤎 @cafe cassia  <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a>  <a title="tiktoke" target="_blank" href="https://www.tiktok.com/tag/tiktoke?refer=embed">#tiktoke</a> <a target="_blank" title="♬ Being a Girl - Jonica" href="https://www.tiktok.com/music/Being-a-Girl-7346137389485688833?refer=embed">♬ Being a Girl - Jonica</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                    <div class="view-full-menu">
+                        <a href="https://www.cafecassia.com/#menu" target="_blank" class="btn-secondary">View Full Menu</a>
+                    </div>
+                </div>
+
+                <div id="reviews" class="content-section">
+                    <h2>What Guests Say</h2>
+                    <div class="review-grid">
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/cafecassiareviewer1.png" alt="Frida Kyalo" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Frida Kyalo</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"We went for lunch and the place was amazing....the staff was friendly...the service was fast ....for drinks we ordered peach lemonade, strawberry lemonade and oreo milkshake. For the food we ordered from the small plates section. We ordered prawns and mango tacos, chicken dumplings, and chicken tacos. The meals were amazing, and the ambience too. The menu is budget friendly, and the restaurant is on the rooftop... you'll enjoy nice views and fresh air.......has indoor and outdoor sitting areas"</p>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/botanicareviewer1.png" alt="Beryl Oloo" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Beryl Oloo</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"Loved everything!!! Went with brunch with my sis. The French toast was the best I ever had. The food was awesome. I recommended the place to my parent for their wedding anniversary and they enjoyed the food as well."</p>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/cafecassiareviewer3.png" alt="Michelle" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Michelle</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"Here I had the best burger I ever eaten abroad. I'm european, and visited various countries, but their burger was amazing: perfect soft bun, meat medium cooked, fresh cheese and great sauce. Also the remaining food was great and mocktails and smoothie were also good. The place was also nice and relaxing, and service was always attentive. Thank you!"</p>
+                        </div>
+                    </div>
+                    <div class="google-attribution">
+                        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
+                        <span>Reviews from Google</span>
+                    </div>
+                </div>
+
+                <div id="location" class="content-section">
+                    <h2>Location</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.728528262417!2d36.731739675017366!3d-1.3391917951623704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1b002b951535%3A0x94a2ec1b2fc85121!2sCafe%20Cassia!5e0!3m2!1sen!2ske!4v1733020717172!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div id="tiktok" class="content-section">
+                    <h2>Cafe Cassia on TikTok</h2>
+                    <div class="tiktok-grid">
+                        <div class="tiktok-embed">
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@sharlynenafula/video/7403673406379396357" data-video-id="7403673406379396357" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@sharlynenafula" href="https://www.tiktok.com/@sharlynenafula?refer=embed">@sharlynenafula</a> 📍 Cafe Cassia is located at Binna Complex, Karen. Food In Frame ____________ Chicken Penne Pesto Chicken Katsu Drinks in Frame ____________ Mixed Berries Kiwi <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> <a title="foodtiktok" target="_blank" href="https://www.tiktok.com/tag/foodtiktok?refer=embed">#foodtiktok</a> <a title="cafecassia" target="_blank" href="https://www.tiktok.com/tag/cafecassia?refer=embed">#cafecassia</a> <a title="sharlynenafula" target="_blank" href="https://www.tiktok.com/tag/sharlynenafula?refer=embed">#sharlynenafula</a> <a title="nairobirestaurants" target="_blank" href="https://www.tiktok.com/tag/nairobirestaurants?refer=embed">#nairobirestaurants</a> <a title="hiddengems" target="_blank" href="https://www.tiktok.com/tag/hiddengems?refer=embed">#hiddengems</a> <a target="_blank" title="♬ Set It ) - Dyana Cods" href="https://www.tiktok.com/music/Set-It-7394598827989207056?refer=embed">♬ Set It ) - Dyana Cods</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
+                        <div class="tiktok-embed">
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@__thindiu/video/7407492205402803462" data-video-id="7407492205402803462" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@__thindiu" href="https://www.tiktok.com/@__thindiu?refer=embed">@__thindiu</a> Sundays are for brunch 🤎 @cafe cassia  <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a>  <a title="tiktoke" target="_blank" href="https://www.tiktok.com/tag/tiktoke?refer=embed">#tiktoke</a> <a target="_blank" title="♬ Being a Girl - Jonica" href="https://www.tiktok.com/music/Being-a-Girl-7346137389485688833?refer=embed">♬ Being a Girl - Jonica</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -233,8 +240,49 @@
         </div>
     </footer>
 
+    <nav class="mobile-nav">
+        <a href="/index.html" class="nav-link">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </a>
+        <a href="/public/views/about.html" class="nav-link">
+            <i data-lucide="info"></i>
+            <span>About</span>
+        </a>
+        <a href="/public/views/restaurants.html" class="nav-link">
+            <i data-lucide="utensils"></i>
+            <span>Restaurants</span>
+        </a>
+        <a href="/public/views/contact.html" class="nav-link">
+            <i data-lucide="phone"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
     <script>
         lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const icons = document.querySelectorAll('.icon');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            icons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    
+                    icons.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    contentSections.forEach(section => {
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
     </script>
 </body>
 </html>

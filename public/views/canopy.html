@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canopy Cafe - Nairobi Feast</title>
-    <link rel="stylesheet" href="/public/stylesheets/restaurants.css">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/public/stylesheets/restaurantspage.css">
 </head>
 <body>
     <header>
@@ -14,33 +14,16 @@
             <a href="/index.html" class="logo">Nairobi Feast</a>
             <nav class="desktop-nav">
                 <a href="/index.html" class="nav-link">Home</a>
+                <a href="/public/views/browse.html" class="nav-link">Browse</a>
                 <a href="/public/views/about.html" class="nav-link">About</a>
-                <a href="/public/views/restaurants.html" class="nav-link">Restaurants</a>
                 <a href="/public/views/contact.html" class="nav-link">Contact</a>
             </nav>
         </div>
     </header>
-    <nav class="mobile-nav">
-        <a href="/index.html" class="nav-link">
-            <i data-lucide="home"></i>
-            <span>Home</span>
-        </a>
-        <a href="/restaurants.html" class="nav-link">
-            <i data-lucide="info"></i>
-            <span>About</span>
-        </a>
-        <a href="/search.html" class="nav-link">
-            <i data-lucide="utensils"></i>
-            <span>Restaurants</span>
-        </a>
-        <a href="/public/" class="nav-link">
-            <i data-lucide="phone"></i>
-            <span>Contact</span>
-        </a>
-    </nav>
+
     <main>
         <div class="hero">
-            <img src="/assets/images/canopyfood5.jpg" alt="Carnivore Restaurant Ambiance" class="hero-image">
+            <img src="/assets/images/canopyfood5.jpg" alt="Canopy Cafe Ambiance" class="hero-image">
             <div class="hero-content">
                 <h1>Canopy Cafe</h1>
                 <p>Savor our delicious main course meals</p>
@@ -67,120 +50,149 @@
                 </div>
             </section>
 
-            <section class="about">
-                <h2>About Canopy</h2>
-                <p>Canopy Café, located in the vibrant neighborhood of Kilimani, Nairobi, offers a cozy and welcoming escape for coffee lovers and food enthusiasts alike. Renowned for its artisanal coffee and fresh, wholesome menu, this café is the perfect spot for everything from leisurely brunches to productive work sessions.
-                <p>The café's charming ambiance, with its open-air seating, natural light, and leafy decor, creates a tranquil environment that feels like a serene oasis in the city. Whether you're savoring their signature lattes, enjoying their delicious baked treats, or catching up with friends over hearty meals, Canopy Café delivers a delightful experience in the heart of Kilimani.</p>
-            </section>
-
-            <section class="gallery">
-                <h2>Gallery</h2>
-                <div class="gallery-grid">
-                    <img src="/assets/images/canopyinterior.jpg" alt="Carnivore Interior" class="gallery-image">
-                    <img src="/assets/images/canopyfood1.jpg" alt="Meat Selection" class="gallery-image">
-                    <img src="/assets/images/canopyfood3.png" alt="Outdoor Seating" class="gallery-image">
-                    <img src="/assets/images/canopyfood2.jpg" alt="Grilling Station" class="gallery-image">
+            <section id="section-icons">
+                <div class="icon active" data-target="about">
+                    <i data-lucide="info" style="color: #4CAF50;"></i>
+                    <span>About</span>
+                </div>
+                <div class="icon" data-target="gallery">
+                    <i data-lucide="image" style="color: #2196F3;"></i>
+                    <span>Gallery</span>
+                </div>
+                <div class="icon" data-target="menu">
+                    <i data-lucide="utensils" style="color: #FFC107;"></i>
+                    <span>Menu</span>
+                </div>
+                <div class="icon" data-target="reviews">
+                    <i data-lucide="message-circle" style="color: #9C27B0;"></i>
+                    <span>Reviews</span>
+                </div>
+                <div class="icon" data-target="location">
+                    <i data-lucide="map-pin" style="color: #F44336;"></i>
+                    <span>Location</span>
+                </div>
+                <div class="icon" data-target="tiktok">
+                    <i data-lucide="video" style="color: #E91E63;"></i>
+                    <span>TikTok</span>
                 </div>
             </section>
 
-            <section class="menu">
-                <h2>Featured Menu Items</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <img src="/assets/images/canopyfood3.jpg" alt="Meat Platter" class="menu-image">
-                        <h3>Chicken and Waffles</h3>
-                        <p>With sesame, crispy chicken and coconut scriracha honey butter</p>
-                        <span class="price">KES 1400</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/canopyfood1.jpg" alt="Crocodile Steak" class="menu-image">
-                        <h3>Chicken and Halloumi Panini</h3>
-                        <p>With sour cream and balsamic glaze</p>
-                        <span class="price">KES 1350</span>
-                    </div>
-                    <div class="menu-item">
-                        <img src="/assets/images/canopyfood4.jpg" alt="Ostrich Meatballs" class="menu-image">
-                        <h3>Tiramisu French Toast</h3>
-                        <p>With espresso caramel sauce, whipped mascarpone and maple syrup</p>
-                        <span class="price">KES 1300</span>
-                    </div>
+            <section id="content-sections">
+                <div id="about" class="content-section active">
+                    <h2>About Canopy</h2>
+                    <p>Canopy Café, located in the vibrant neighborhood of Kilimani, Nairobi, offers a cozy and welcoming escape for coffee lovers and food enthusiasts alike. Renowned for its artisanal coffee and fresh, wholesome menu, this café is the perfect spot for everything from leisurely brunches to productive work sessions.</p>
+                    <p>The café's charming ambiance, with its open-air seating, natural light, and leafy decor, creates a tranquil environment that feels like a serene oasis in the city. Whether you're savoring their signature lattes, enjoying their delicious baked treats, or catching up with friends over hearty meals, Canopy Café delivers a delightful experience in the heart of Kilimani.</p>
                 </div>
-                <div class="view-full-menu">
-                    <a href="https://drive.google.com/file/d/1WKCWOF6w-O-_vkODkbz18gaJInp_YXs7/view?usp=sharing" target="_blank" class="btn-secondary">View Full Menu</a>
-                </div>
-            </section>
 
-            <section class="reviews">
-                <h2>What Guests Say</h2>
-                <div class="review-grid">
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/canopyreviewer1.png" alt="John K." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Ann Kay</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <p>"I love French toast and I was excited to see it all over their menu. I like that it’s served all day. The staff were friendly and I enjoyed my French toast. Wasn’t a fan of the coffee. But overall it’s a great space for brunch, solo dates, large groups etc. Also come with your appetite, their portions are large!!!!!!"</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/canopyreviewer2.png" alt="Sarah M." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Hiba T</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"My first time visiting this restaurant. Noticed it was very spacey and had a simple pattern of design, just an easy look. The food was way better than i expected, enjoyed the sweet chicken burger with the blueberry nohito. Service was also great, will visit again"</p>
-                    </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <img src="/assets/images/canopyreviewer3.png" alt="David O." class="reviewer-image">
-                            <div class="reviewer-info">
-                                <h3>Celine Gathoni</h3>
-                                <div class="rating">
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                    <i data-lucide="star" class="star-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"Canopy offers a cozy ambiance with exceptional service. The food was outstanding – loaded fries was fresh, and the chicken̈ tacos were rich and flavorful. The peach lemonade was the star of the show, it was the best. Prices are very fair.
-                            Not forgetting the aesthetic, it was breathtaking.A great spot for a special meal!"</p>
-                        
+                <div id="gallery" class="content-section">
+                    <h2>Gallery</h2>
+                    <div class="gallery-grid">
+                        <img src="/assets/images/canopyinterior.jpg" alt="Canopy Interior" class="gallery-image">
+                        <img src="/assets/images/canopyfood1.jpg" alt="Food Selection" class="gallery-image">
+                        <img src="/assets/images/canopyfood3.png" alt="Outdoor Seating" class="gallery-image">
+                        <img src="/assets/images/canopyfood2.jpg" alt="Coffee Station" class="gallery-image">
                     </div>
                 </div>
-                <div class="google-attribution">
-                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
-                    <span>Reviews from Google</span>
-                </div>
-            </section>
-            <section class="location">
-                <h2>Location</h2>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7963862916226!2d36.7838396744099!3d-1.2968261986908436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f112f72634337%3A0xbd3f5e099db58d03!2sCanopy!5e0!3m2!1sen!2ske!4v1733020617806!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </section>
-            <section class="tiktok-embeds">
-                <h2>Canopy on TikTok</h2>
-                <div class="tiktok-grid">
-                    <div class="tiktok-embed">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@canopycafe/video/7441236032151964983" data-video-id="7441236032151964983" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@canopycafe" href="https://www.tiktok.com/@canopycafe?refer=embed">@canopycafe</a> 5 days left on our brunch offer! Don&#39;t be left out, get brunch + Selected drinks at 1500 ksh.  📍Canopy Gigiri, UN Crescent  📍Canopy Kilimani, Wood Avenue  Nairobi Café  <a title="coffeeinnairobi" target="_blank" href="https://www.tiktok.com/tag/coffeeinnairobi?refer=embed">#coffeeinnairobi</a> <a title="canopycafekilimani" target="_blank" href="https://www.tiktok.com/tag/canopycafekilimani?refer=embed">#canopycafekilimani</a> <a title="canopygigiri" target="_blank" href="https://www.tiktok.com/tag/canopygigiri?refer=embed">#canopygigiri</a> <a title="brunchinnairobi" target="_blank" href="https://www.tiktok.com/tag/brunchinnairobi?refer=embed">#brunchinnairobi</a> <a title="canopycafe" target="_blank" href="https://www.tiktok.com/tag/canopycafe?refer=embed">#canopycafe</a> <a target="_blank" title="♬ original sound - MYRON R&#38;B MUSIC 🎶 🎵" href="https://www.tiktok.com/music/original-sound-7428788535388883717?refer=embed">♬ original sound - MYRON R&#38;B MUSIC 🎶 🎵</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+
+                <div id="menu" class="content-section">
+                    <h2>Featured Menu Items</h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <img src="/assets/images/canopyfood3.jpg" alt="Chicken and Waffles" class="menu-image">
+                            <h3>Chicken and Waffles</h3>
+                            <p>With sesame, crispy chicken and coconut scriracha honey butter</p>
+                            <span class="price">KES 1400</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/canopyfood1.jpg" alt="Chicken and Halloumi Panini" class="menu-image">
+                            <h3>Chicken and Halloumi Panini</h3>
+                            <p>With sour cream and balsamic glaze</p>
+                            <span class="price">KES 1350</span>
+                        </div>
+                        <div class="menu-item">
+                            <img src="/assets/images/canopyfood4.jpg" alt="Tiramisu French Toast" class="menu-image">
+                            <h3>Tiramisu French Toast</h3>
+                            <p>With espresso caramel sauce, whipped mascarpone and maple syrup</p>
+                            <span class="price">KES 1300</span>
+                        </div>
                     </div>
-                    <div class="tiktok-embed">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@canopycafe/video/7440456171162488120" data-video-id="7440456171162488120" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@canopycafe" href="https://www.tiktok.com/@canopycafe?refer=embed">@canopycafe</a> 😂😂😂😂  Join us today at any of our branches, our brunch offer is still on for the rest of November!!   📍Canopy Kilimani, Wood Avenue  📍Canopy Gigiri, UN Crescent  Cafe in Nairobi  Best Hangout spot in Nairobi  <a title="canopykenya" target="_blank" href="https://www.tiktok.com/tag/canopykenya?refer=embed">#canopykenya</a> <a title="canopycafekilimani" target="_blank" href="https://www.tiktok.com/tag/canopycafekilimani?refer=embed">#canopycafekilimani</a> <a title="canopygigiri" target="_blank" href="https://www.tiktok.com/tag/canopygigiri?refer=embed">#canopygigiri</a> <a title="halalnairobi" target="_blank" href="https://www.tiktok.com/tag/halalnairobi?refer=embed">#halalnairobi</a> <a title="brunchspotsnairobi" target="_blank" href="https://www.tiktok.com/tag/brunchspotsnairobi?refer=embed">#brunchspotsnairobi</a> <a title="coffeeinnairobi" target="_blank" href="https://www.tiktok.com/tag/coffeeinnairobi?refer=embed">#coffeeinnairobi</a> <a title="nairobikenya" target="_blank" href="https://www.tiktok.com/tag/nairobikenya?refer=embed">#nairobikenya</a> <a target="_blank" title="♬ original sound - Canopy Cafe | Nairobi, Kenya" href="https://www.tiktok.com/music/original-sound-7440456185966594872?refer=embed">♬ original sound - Canopy Cafe | Nairobi, Kenya</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                    <div class="view-full-menu">
+                        <a href="https://drive.google.com/file/d/1WKCWOF6w-O-_vkODkbz18gaJInp_YXs7/view?usp=sharing" target="_blank" class="btn-secondary">View Full Menu</a>
+                    </div>
+                </div>
+
+                <div id="reviews" class="content-section">
+                    <h2>What Guests Say</h2>
+                    <div class="review-grid">
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/canopyreviewer1.png" alt="Ann Kay" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Ann Kay</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"I love French toast and I was excited to see it all over their menu. I like that it's served all day. The staff were friendly and I enjoyed my French toast. Wasn't a fan of the coffee. But overall it's a great space for brunch, solo dates, large groups etc. Also come with your appetite, their portions are large!!!!!!"</p>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/canopyreviewer2.png" alt="Hiba T" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Hiba T</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"My first time visiting this restaurant. Noticed it was very spacey and had a simple pattern of design, just an easy look. The food was way better than i expected, enjoyed the sweet chicken burger with the blueberry nohito. Service was also great, will visit again"</p>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/assets/images/canopyreviewer3.png" alt="Celine Gathoni" class="reviewer-image">
+                                <div class="reviewer-info">
+                                    <h3>Celine Gathoni</h3>
+                                    <div class="rating">
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                        <i data-lucide="star" class="star-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>"Canopy offers a cozy ambiance with exceptional service. The food was outstanding – loaded fries was fresh, and the chicken̈ tacos were rich and flavorful. The peach lemonade was the star of the show, it was the best. Prices are very fair. Not forgetting the aesthetic, it was breathtaking. A great spot for a special meal!"</p>
+                        </div>
+                    </div>
+                    <div class="google-attribution">
+                        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
+                        <span>Reviews from Google</span>
+                    </div>
+                </div>
+
+                <div id="location" class="content-section">
+                    <h2>Location</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7963862916226!2d36.7838396744099!3d-1.2968261986908436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f112f72634337%3A0xbd3f5e099db58d03!2sCanopy!5e0!3m2!1sen!2ske!4v1733020617806!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div id="tiktok" class="content-section">
+                    <h2>Canopy on TikTok</h2>
+                    <div class="tiktok-grid">
+                        <div class="tiktok-embed">
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@canopycafe/video/7441236032151964983" data-video-id="7441236032151964983" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@canopycafe" href="https://www.tiktok.com/@canopycafe?refer=embed">@canopycafe</a> 5 days left on our brunch offer! Don&#39;t be left out, get brunch + Selected drinks at 1500 ksh.  📍Canopy Gigiri, UN Crescent  📍Canopy Kilimani, Wood Avenue  Nairobi Café  <a title="coffeeinnairobi" target="_blank" href="https://www.tiktok.com/tag/coffeeinnairobi?refer=embed">#coffeeinnairobi</a> <a title="canopycafekilimani" target="_blank" href="https://www.tiktok.com/tag/canopycafekilimani?refer=embed">#canopycafekilimani</a> <a title="canopygigiri" target="_blank" href="https://www.tiktok.com/tag/canopygigiri?refer=embed">#canopygigiri</a> <a title="brunchinnairobi" target="_blank" href="https://www.tiktok.com/tag/brunchinnairobi?refer=embed">#brunchinnairobi</a> <a title="canopycafe" target="_blank" href="https://www.tiktok.com/tag/canopycafe?refer=embed">#canopycafe</a> <a target="_blank" title="♬ original sound - MYRON R&#38;B MUSIC 🎶 🎵" href="https://www.tiktok.com/music/original-sound-7428788535388883717?refer=embed">♬ original sound - MYRON R&#38;B MUSIC 🎶 🎵</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
+                        <div class="tiktok-embed">
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@canopycafe/video/7440456171162488120" data-video-id="7440456171162488120" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@canopycafe" href="https://www.tiktok.com/@canopycafe?refer=embed">@canopycafe</a> 😂😂😂😂  Join us today at any of our branches, our brunch offer is still on for the rest of November!!   📍brunch offer is still on for the rest of November!!   📍Canopy Kilimani, Wood Avenue  📍Canopy Gigiri, UN Crescent  Cafe in Nairobi  Best Hangout spot in Nairobi  <a title="canopykenya" target="_blank" href="https://www.tiktok.com/tag/canopykenya?refer=embed">#canopykenya</a> <a title="canopycafekilimani" target="_blank" href="https://www.tiktok.com/tag/canopycafekilimani?refer=embed">#canopycafekilimani</a> <a title="canopygigiri" target="_blank" href="https://www.tiktok.com/tag/canopygigiri?refer=embed">#canopygigiri</a> <a title="halalnairobi" target="_blank" href="https://www.tiktok.com/tag/halalnairobi?refer=embed">#halalnairobi</a> <a title="brunchspotsnairobi" target="_blank" href="https://www.tiktok.com/tag/brunchspotsnairobi?refer=embed">#brunchspotsnairobi</a> <a title="coffeeinnairobi" target="_blank" href="https://www.tiktok.com/tag/coffeeinnairobi?refer=embed">#coffeeinnairobi</a> <a title="nairobikenya" target="_blank" href="https://www.tiktok.com/tag/nairobikenya?refer=embed">#nairobikenya</a> <a target="_blank" title="♬ original sound - Canopy Cafe | Nairobi, Kenya" href="https://www.tiktok.com/music/original-sound-7440456185966594872?refer=embed">♬ original sound - Canopy Cafe | Nairobi, Kenya</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -194,6 +206,7 @@
             </section>
         </div>
     </main>
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -225,8 +238,49 @@
         </div>
     </footer>
 
+    <nav class="mobile-nav">
+        <a href="/index.html" class="nav-link">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </a>
+        <a href="/public/views/about.html" class="nav-link">
+            <i data-lucide="info"></i>
+            <span>About</span>
+        </a>
+        <a href="/public/views/restaurants.html" class="nav-link">
+            <i data-lucide="utensils"></i>
+            <span>Restaurants</span>
+        </a>
+        <a href="/public/views/contact.html" class="nav-link">
+            <i data-lucide="phone"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
     <script>
         lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const icons = document.querySelectorAll('.icon');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            icons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    
+                    icons.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    contentSections.forEach(section => {
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
     </script>
 </body>
 </html>
