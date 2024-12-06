@@ -672,6 +672,18 @@ footer {
         margin-top: 1rem;
         margin-bottom: 80px;
     }
+
+    /* Make preferred cuisine and price range containers appear the same on all devices */
+    .form-select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 0.5rem;
+        width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
