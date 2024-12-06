@@ -569,16 +569,18 @@ footer {
     }
 
     .menu-item p {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .cta h2 {
         font-size: 1.4rem;
     }
 
+   
+
     .btn-primary, .btn-secondary {
         padding: 0.5rem 1rem;
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 }
 
