@@ -416,7 +416,7 @@ footer {
 
 @media (max-width: 768px) {
     body {
-        font-size: 14px;
+        font-size: 16px;
         padding-bottom: calc(60px + env(safe-area-inset-bottom));
     }
 
