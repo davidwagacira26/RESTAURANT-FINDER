@@ -4,84 +4,495 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Nairobi Feast</title>
-    <link rel="stylesheet" href="/public/stylesheets/privacypolicy.css">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #003B95;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .desktop-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main content styles */
+        main {
+            padding-top: 80px;
+            padding-bottom: 80px;
+            flex: 1 0 auto;
+        }
+
+        /* Privacy Policy styles */
+        .privacy-policy {
+            padding: 2rem 0;
+        }
+
+        .privacy-policy h1 {
+            font-size: 2.5rem;
+            color: #003B95;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-policy h2 {
+            font-size: 1.5rem;
+            color: #003B95;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-policy p {
+            margin-bottom: 1rem;
+        }
+
+        .privacy-policy ul {
+            list-style-type: disc;
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #003B95;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h3, .footer-section h4 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        /* Mobile nav styles */
+        .mobile-nav {
+            display: none;
+        }
+
+        /* Menu toggle styles */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1002;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #003B95;
+            z-index: 1001;
+            transition: left 0.3s ease-in-out;
+            padding: 60px 20px 20px;
+            box-sizing: border-box;
+        }
+
+        .side-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+                padding-bottom: calc(60px + env(safe-area-inset-bottom));
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            header .container {
+                justify-content: center;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .mobile-nav {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: #003B95;
+                justify-content: space-around;
+                padding: 5px 0;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            .mobile-nav .nav-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 5px;
+                color: white;
+                text-decoration: none;
+                font-size: 0.7rem;
+            }
+
+            .mobile-nav .nav-link i {
+                font-size: 1.2rem;
+                margin-bottom: 2px;
+            }
+
+            .privacy-policy h1 {
+                font-size: 2rem;
+            }
+
+            .privacy-policy h2 {
+                font-size: 1.25rem;
+            }
+
+            footer {
+                display: none;
+            }
+
+            main {
+                padding-bottom: 100px;
+            }
+
+            .back-link {
+                position: fixed;
+                bottom: 70px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 999;
+                width: calc(100% - 40px);
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .privacy-policy h1 {
+                font-size: 1.75rem;
+            }
+
+            .privacy-policy h2 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @supports (padding: max(0px)) {
+            .mobile-nav {
+                padding-bottom: max(5px, env(safe-area-inset-bottom));
+            }
+
+            body {
+                padding-bottom: calc(60px + max(10px, env(safe-area-inset-bottom)));
+            }
+        }
+    </style>
 </head>
 <body>
+    <button class="menu-toggle" id="menuToggle">
+        <i data-lucide="menu"></i>
+    </button>
+    <div class="side-menu" id="sideMenu">
+        <a href="/public/views/termsofservice.html">Terms of Service</a>
+        <a href="/public/views/privacypolicy.html">Privacy Policy</a>
+    </div>
     <header>
         <div class="container">
             <a href="/index.html" class="logo">Nairobi Feast</a>
+            <nav class="desktop-nav">
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="/public/views/browse.html" class="nav-link">Browse</a>
+                <a href="/public/views/about.html" class="nav-link">About</a>
+                <a href="/public/views/contact.html" class="nav-link">Contact</a>
+            </nav>
         </div>
     </header>
 
+    <nav class="mobile-nav">
+        <a href="/index.html" class="nav-link">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </a>
+        <a href="/public/views/browse.html" class="nav-link">
+            <i data-lucide="utensils"></i>
+            <span>Browse</span>
+        </a>
+        <a href="/public/views/about.html" class="nav-link">
+            <i data-lucide="info"></i>
+            <span>About</span>
+        </a>
+        <a href="/public/views/contact.html" class="nav-link">
+            <i data-lucide="mail"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
     <main>
+        <section class="privacy-policy">
+            <div class="container">
+                <h1>Privacy Policy</h1>
+                <p>Last updated: 01/12/2024</p>
+                <p>At Nairobi Feast, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website to discover fine restaurants in Nairobi.</p>
+                
+                <h2>1. Information We Collect</h2>
+                <p>We may collect the following types of information:</p>
+                <ul>
+                    <li>Usage data (e.g., IP address, browser type, pages visited) through cookies and similar technologies</li>
+                    <li>Location data if you choose to share it with us to find nearby restaurants</li>
+                    <li>Any information you voluntarily provide when using our contact form or leaving reviews</li>
+                </ul>
+                
+                <h2>2. How We Use Your Information</h2>
+                <p>We use the collected information for various purposes, including:</p>
+                <ul>
+                    <li>Providing and improving our restaurant discovery service</li>
+                    <li>Analyzing usage patterns to enhance user experience</li>
+                    <li>Responding to your inquiries or feedback</li>
+                    <li>Complying with legal obligations</li>
+                </ul>
+                
+                <h2>3. Information Sharing and Disclosure</h2>
+                <p>We do not sell or rent your personal information to third parties. We may share your information with:</p>
+                <ul>
+                    <li>Service providers who assist us in operating our website and services</li>
+                    <li>Law enforcement or other government agencies when required by law</li>
+                    <li>Restaurant partners, but only with your explicit consent</li>
+                </ul>
+                
+                <h2>4. Data Security</h2>
+                <p>We implement appropriate technical and organizational measures to protect your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+                
+                <h2>5. Your Rights and Choices</h2>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Request access to the personal information we hold about you</li>
+                    <li>Ask us to update or correct any inaccurate information</li>
+                    <li>Object to or restrict the processing of your data</li>
+                    <li>Request deletion of your personal information, where applicable</li>
+                </ul>
+                
+                <h2>6. Cookies and Similar Technologies</h2>
+                <p>We use cookies and similar tracking technologies to collect and store certain information. You can set your browser to refuse all or some browser cookies, or to alert you when websites set or access cookies.</p>
+                
+                <h2>7. Changes to This Privacy Policy</h2>
+                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
+                
+                <h2>8. Third-Party Links</h2>
+                <p>Our website may contain links to third-party websites, including those of featured restaurants. We are not responsible for the privacy practices or content of these websites. We encourage you to review the privacy policies of any third-party sites you visit.</p>
+                
+                <h2>9. Children's Privacy</h2>
+                <p>Our services are not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we may have collected information about a child, please contact us.</p>
+                
+                <h2>10. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
+                <p>Email: privacy@nairobifeast.com</p>
+                <p>Phone: +254 703100790</p>
+            </div>
+        </section>
         <div class="container">
-            <h1>Privacy Policy</h1>
-            <p>Last updated: 01/12/2024</p>
-            <p>Welcome to Nairobi Feast. We are committed to protecting your personal information and your right to privacy as you discover restaurants and make reservations through our platform.</p>
-            
-            <h2>Information We Collect</h2>
-            <p>We collect personal information that you provide to us, such as:</p>
-            <ul>
-                <li>Name</li>
-                <li>Email address</li>
-                <li>Phone number</li>
-                <li>Location data</li>
-                <li>Dining preferences</li>
-                <li>Reservation details</li>
-                <li>User-generated content (reviews, ratings, photos)</li>
-            </ul>
-            
-            <h2>How We Use Your Information</h2>
-            <p>We use your personal information to:</p>
-            <ul>
-                <li>Facilitate restaurant reservations</li>
-                <li>Provide personalized restaurant recommendations</li>
-                <li>Communicate reservation confirmations and reminders</li>
-                <li>Improve our restaurant discovery and reservation services</li>
-                <li>Analyze user behavior to enhance our platform</li>
-                <li>Respond to your inquiries and provide customer support</li>
-            </ul>
-            
-            <h2>How We Share Your Information</h2>
-            <p>We may share your information with:</p>
-            <ul>
-                <li>Restaurants to fulfill your reservations</li>
-                <li>Service providers who assist us in operating our website and services</li>
-                <li>Other users when you post public reviews or ratings</li>
-                <li>Law enforcement or other governmental agencies, in compliance with the law</li>
-            </ul>
-            
-            <h2>Your Rights</h2>
-            <p>You have the right to:</p>
-            <ul>
-                <li>Access and update your personal information</li>
-                <li>Delete your account and associated data</li>
-                <li>Opt-out of marketing communications</li>
-                <li>Request a copy of your data</li>
-            </ul>
-            
-            <h2>Data Security</h2>
-            <p>We implement appropriate technical and organizational measures to protect your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure.</p>
-            
-            <h2>Changes to This Privacy Policy</h2>
-            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
-            
-            <h2>Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
-            <p>Email: privacy@nairobidining.com</p>
-            <p>Phone: +254 703100790</p>
-            
             <a href="/index.html" class="back-link">Back to Home</a>
         </div>
     </main>
 
     <footer>
         <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Nairobi Feast</h3>
+                    <p>Discover the best dining experiences in Nairobi.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/public/views/about.html">About Us</a></li>
+                        <li><a href="/public/views/contact.html">Contact</a></li>
+                        <li><a href="/public/views/privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="/public/views/termsofservice.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                    </div>
+                </div>
+            </div>
             <div class="copyright">
                 © 2024 Nairobi Feast. All rights reserved.
             </div>
         </div>
     </footer>
+
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const sideMenu = document.getElementById('sideMenu');
+            let isMenuOpen = false;
+
+            menuToggle.addEventListener('click', function(event) {
+                event.stopPropagation();
+                isMenuOpen = !isMenuOpen;
+                sideMenu.style.left = isMenuOpen ? '0' : '-250px';
+            });
+
+            document.addEventListener('click', function(event) {
+                if (isMenuOpen && !sideMenu.contains(event.target) && event.target !== menuToggle) {
+                    isMenuOpen = false;
+                    sideMenu.style.left = '-250px';
+                }
+            });
+
+            sideMenu.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        });
+    </script>
 </body>
 </html>

@@ -82,6 +82,7 @@
         /* Main content styles */
         main {
             padding-top: 80px;
+            padding-bottom: 80px;
             flex: 1 0 auto;
         }
 
@@ -116,6 +117,7 @@
         .back-link {
             display: inline-block;
             margin-top: 2rem;
+            margin-bottom: 2rem;
             padding: 0.75rem 1.5rem;
             background-color: #003B95;
             color: white;
@@ -291,6 +293,21 @@
             footer {
                 display: none;
             }
+
+            main {
+                padding-bottom: 100px;
+            }
+
+            .back-link {
+                position: fixed;
+                bottom: 70px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 999;
+                width: calc(100% - 40px);
+                max-width: 300px;
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -405,10 +422,11 @@
                 <p>If you have any questions about these Terms, please contact us at:</p>
                 <p>Email: terms@nairobifeast.com</p>
                 <p>Phone: +254 703100790</p>
-                
-                <a href="/index.html" class="back-link">Back to Home</a>
             </div>
         </section>
+        <div class="container">
+            <a href="/index.html" class="back-link">Back to Home</a>
+        </div>
     </main>
 
     <footer>
