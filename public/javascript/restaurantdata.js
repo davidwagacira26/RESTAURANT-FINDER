@@ -199,7 +199,7 @@ export const restaurants = [
         rating: 4.7,
         location: "Nairobi",
         image: "/assets/images/laterazza.jpg",
-        link: "/public/views/le-terrazza-italian-restaurant.html"
+        link: "/public/views/le-terrazza-Italian-restaurant.html"
     },
     {
         name: "Upepo Restaurant",

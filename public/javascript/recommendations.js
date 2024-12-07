@@ -15,7 +15,7 @@ try {
         { name: "Jiko Restaurant", cuisine: "African", price: "high-end", rating: 4.5, location:"Tribe Hotel", image: "/assets/images/jiko.jpg", link: "/public/views/jiko-restaurant.html" },
         { name: "Lucca Restaurant", cuisine: "Italian", price: "high-end", rating: 4.6, location:"Chiromo Ln", image: "/assets/images/lucca.jpg", link: "/public/views/lucca-restaurant.html" },
         { name: "Fogo Gaucho", cuisine: "Brazillian", price: "high-end", rating: 4.2, location:"Viking House", image: "/assets/images/fogogaucho.jpg", link: "/public/views/fogo-gaucho.html" },
-        { name: "Harvest Restaurant", cuisine: "international", price: "high-end", rating: 4.5, location:"Village Market", image: "/assets/images/harvest.jpg", link: "/public/views/harvestrestaurant.html" },
+        { name: "Harvest Restaurant", cuisine: "International", price: "high-end", rating: 4.5, location:"Village Market", image: "/assets/images/harvest.jpg", link: "/public/views/harvestrestaurant.html" },
         { name: "Chophouse Nairobi", cuisine: "African", price: "high-end", rating: 4.5, location:"Elgon Rd", image: "/assets/images/the-chop-house.jpg", link: "/public/views/chophouse-nairobi.html" },
         { name: "Le Terrazza Italian Restaurant", cuisine: "Italian", price: "high-end", rating: 4.7, location:"Ngong Rd", image: "/assets/images/laterazza.jpg", link: "/public/views/le-terraza-restaurant.html" },
         { name: "Tatu Restaurant", cuisine: "International", price: "high-end", rating: 4.6, location:"Harry Thuku Rd",image:"/assets/images/taturestaurant.jpg", link: "/public/views/tatu-restaurant.html" },
