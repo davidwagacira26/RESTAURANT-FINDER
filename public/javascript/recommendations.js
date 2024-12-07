@@ -172,41 +172,51 @@ try {
         }
     }
 
+    // Initialize only if we're on the recommendations page
+    if (window.location.pathname.includes('/recommendations')) {
+        document.addEventListener('DOMContentLoaded', displayRecommendations);
+    }
+
+    // Refresh Lucide icons
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+        lucide.createIcons();
+    }
+
     // Function to initialize the recommendation form
     function initializeRecommendationForm(form) {
         const body = document.body;
 
-        // Create modal elements
-        const modal = document.createElement('div');
-        modal.className = 'modal';
-        modal.style.display = 'none';
-        modal.innerHTML = `
-           <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Finding the Best Restaurants for You</h2>
-                </div>
-                <div class="loader-container">
-                    <div class="loader">
-                        <svg viewBox="0 0 80 80">
-                            <circle id="test" cx="40" cy="40" r="32"></circle>
-                        </svg>
-                    </div>
-                    <div class="loader triangle">
-                        <svg viewBox="0 0 86 80">
-                            <polygon points="43 8 79 72 7 72"></polygon>
-                        </svg>
-                    </div>
-                    <div class="loader">
-                        <svg viewBox="0 0 80 80">
-                            <rect x="8" y="8" width="64" height="64"></rect>
-                        </svg>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <p>Please wait while we process your request...</p>
-                </div>
-            </div>
-        `;
+         // Create modal elements
+         const modal = document.createElement('div');
+         modal.className = 'modal';
+         modal.style.display = 'none';
+         modal.innerHTML = `
+            <div class="modal-content">
+                 <div class="modal-header">
+                     <h2>Finding the Best Restaurants for You</h2>
+                 </div>
+                 <div class="loader-container">
+                     <div class="loader">
+                         <svg viewBox="0 0 80 80">
+                             <circle id="test" cx="40" cy="40" r="32"></circle>
+                         </svg>
+                     </div>
+                     <div class="loader triangle">
+                         <svg viewBox="0 0 86 80">
+                             <polygon points="43 8 79 72 7 72"></polygon>
+                         </svg>
+                     </div>
+                     <div class="loader">
+                         <svg viewBox="0 0 80 80">
+                             <rect x="8" y="8" width="64" height="64"></rect>
+                         </svg>
+                     </div>
+                 </div>
+                 <div class="modal-body">
+                     <p>Please wait while we process your request...</p>
+                 </div>
+             </div>
+         `;
 
         // Append modal to body
         body.appendChild(modal);
@@ -225,171 +235,176 @@ try {
 
                 // Submit the form
                 form.submit();
-            }, 3000); // Changed to 3 seconds to match the loader animation duration
+            }, 3000);
         });
 
-        // Add styles for the modal and loader
-        const style = document.createElement('style');
-        style.textContent = `
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 1000;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0,0,0,0.5);
-                justify-content: center;
-                align-items: center;
-            }
-            .modal-content {
-                background-color: #fff;
-                padding: 20px;
-                border-radius: 5px;
-                text-align: center;
-                max-width: 80%;
-            }
-            .modal-header {
-                margin-bottom: 20px;
-            }
-            .modal-header h2 {
-                margin: 0;
-            }
-            .loader-container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 20px 0;
-            }
-            .loader {
-                --path: #2F3545;
-                --dot: #5628EE;
-                --duration: 3s;
-                width: 44px;
-                height: 44px;
-                position: relative;
-            }
-            .loader:before {
-                content: '';
-                width: 6px;
-                height: 6px;
-                border-radius: 50%;
-                position: absolute;
-                display: block;
-                background: var(--dot);
-                top: 37px;
-                left: 19px;
-                transform: translate(-18px, -18px);
-                animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-            }
-            .loader svg {
-                display: block;
-                width: 100%;
-                height: 100%;
-            }
-            .loader svg rect,
-            .loader svg polygon,
-            .loader svg circle {
-                fill: none;
-                stroke: var(--path);
-                stroke-width: 10px;
-                stroke-linejoin: round;
-                stroke-linecap: round;
-            }
-            .loader svg polygon {
-                stroke-dasharray: 145 221;
-                stroke-dashoffset: 0;
-                animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-            }
-            .loader svg rect {
-                stroke-dasharray: 192 64 192 64;
-                stroke-dashoffset: 0;
-                animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-            }
-            .loader svg circle {
-                stroke-dasharray: 150 50 150 50;
-                stroke-dashoffset: 75;
-                animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-            }
-            .loader.triangle {
-                width: 48px;
-            }
-            .loader.triangle:before {
-                left: 21px;
-                transform: translate(-10px, -18px);
-                animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-            }
-            @keyframes pathTriangle {
-                33% {
-                    stroke-dashoffset: 74;
-                }
-                66% {
-                    stroke-dashoffset: 147;
-                }
-                100% {
-                    stroke-dashoffset: 221;
-                }
-            }
-            @keyframes dotTriangle {
-                33% {
-                    transform: translate(0, 0);
-                }
-                66% {
-                    transform: translate(10px, -18px);
-                }
-                100% {
-                    transform: translate(-10px, -18px);
-                }
-            }
-            @keyframes pathRect {
-                25% {
-                    stroke-dashoffset: 64;
-                }
-                50% {
-                    stroke-dashoffset: 128;
-                }
-                75% {
-                    stroke-dashoffset: 192;
-                }
-                100% {
-                    stroke-dashoffset: 256;
-                }
-            }
-            @keyframes dotRect {
-                25% {
-                    transform: translate(0, 0);
-                }
-                50% {
-                    transform: translate(18px, -18px);
-                }
-                75% {
-                    transform: translate(0, -36px);
-                }
-                100% {
-                    transform: translate(-18px, -18px);
-                }
-            }
-            @keyframes pathCircle {
-                25% {
-                    stroke-dashoffset: 125;
-                }
-                50% {
-                    stroke-dashoffset: 175;
-                }
-                75% {
-                    stroke-dashoffset: 225;
-                }
-                100% {
-                    stroke-dashoffset: 275;
-                }
-            }
-        `;
+       // Add styles for the modal and loader
+       const style = document.createElement('style');
+       style.textContent = `
+           .modal {
+               display: none;
+               position: fixed;
+               z-index: 1000;
+               left: 0;
+               top: 0;
+               width: 100%;
+               height: 100%;
+               background-color: rgba(0,0,0,0.5);
+               justify-content: center;
+               align-items: center;
+           }
+           .modal-content {
+               background-color: #fff;
+               padding: 20px;
+               border-radius: 5px;
+               text-align: center;
+               max-width: 80%;
+           }
+           .modal-header {
+               margin-bottom: 20px;
+           }
+           .modal-header h2 {
+               margin: 0;
+           }
+           .loader-container {
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               margin: 20px 0;
+           }
+           .loader {
+               --path: #2F3545;
+               --dot: #5628EE;
+               --duration: 3s;
+               width: 44px;
+               height: 44px;
+               position: relative;
+           }
+           .loader:before {
+               content: '';
+               width: 6px;
+               height: 6px;
+               border-radius: 50%;
+               position: absolute;
+               display: block;
+               background: var(--dot);
+               top: 37px;
+               left: 19px;
+               transform: translate(-18px, -18px);
+               animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+           }
+           .loader svg {
+               display: block;
+               width: 100%;
+               height: 100%;
+           }
+           .loader svg rect,
+           .loader svg polygon,
+           .loader svg circle {
+               fill: none;
+               stroke: var(--path);
+               stroke-width: 10px;
+               stroke-linejoin: round;
+               stroke-linecap: round;
+           }
+           .loader svg polygon {
+               stroke-dasharray: 145 221;
+               stroke-dashoffset: 0;
+               animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+           }
+           .loader svg rect {
+               stroke-dasharray: 192 64 192 64;
+               stroke-dashoffset: 0;
+               animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+           }
+           .loader svg circle {
+               stroke-dasharray: 150 50 150 50;
+               stroke-dashoffset: 75;
+               animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+           }
+           .loader.triangle {
+               width: 48px;
+           }
+           .loader.triangle:before {
+               left: 21px;
+               transform: translate(-10px, -18px);
+               animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+           }
+           @keyframes pathTriangle {
+               33% {
+                   stroke-dashoffset: 74;
+               }
+               66% {
+                   stroke-dashoffset: 147;
+               }
+               100% {
+                   stroke-dashoffset: 221;
+               }
+           }
+           @keyframes dotTriangle {
+               33% {
+                   transform: translate(0, 0);
+               }
+               66% {
+                   transform: translate(10px, -18px);
+               }
+               100% {
+                   transform: translate(-10px, -18px);
+               }
+           }
+           @keyframes pathRect {
+               25% {
+                   stroke-dashoffset: 64;
+               }
+               50% {
+                   stroke-dashoffset: 128;
+               }
+               75% {
+                   stroke-dashoffset: 192;
+               }
+               100% {
+                   stroke-dashoffset: 256;
+               }
+           }
+           @keyframes dotRect {
+               25% {
+                   transform: translate(0, 0);
+               }
+               50% {
+                   transform: translate(18px, -18px);
+               }
+               75% {
+                   transform: translate(0, -36px);
+               }
+               100% {
+                   transform: translate(-18px, -18px);
+               }
+           }
+           @keyframes pathCircle {
+               25% {
+                   stroke-dashoffset: 125;
+               }
+               50% {
+                   stroke-dashoffset: 175;
+               }
+               75% {
+                   stroke-dashoffset: 225;
+               }
+               100% {
+                   stroke-dashoffset: 275;
+               }
+           }
+       `;
         document.head.appendChild(style);
     }
 
     // Function to initialize the page
     function initializePage() {
+        // First, initialize Lucide icons if available
+        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+            lucide.createIcons();
+        }
+
         // Check which page we're on and initialize appropriate functionality
         if (window.location.pathname.includes('/public/views/recommendations.html')) {
             // We're on the recommendations results page
