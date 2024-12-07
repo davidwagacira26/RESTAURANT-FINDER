@@ -75,7 +75,7 @@ header .container {
 .menu-toggle {
     display: none;
     position: fixed;
-    top: 20px;
+    top: 19px;
     left: 10px;
     z-index: 1002;
     background: none;
