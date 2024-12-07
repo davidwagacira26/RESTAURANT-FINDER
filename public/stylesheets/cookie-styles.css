@@ -1,0 +1,100 @@
+#cookie-consent-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: none;
+}
+
+.card {
+    width: 300px;
+    height: 220px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px;
+    gap: 13px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.062);
+}
+
+#cookieSvg {
+    width: 50px;
+}
+
+#cookieSvg g path {
+    fill: rgb(97, 81, 81);
+}
+
+.cookieHeading {
+    font-size: 1.2em;
+    font-weight: 800;
+    color: rgb(26, 26, 26);
+}
+
+.cookieDescription {
+    text-align: center;
+    font-size: 0.7em;
+    font-weight: 600;
+    color: rgb(99, 99, 99);
+}
+
+.cookieDescription a {
+    color: rgb(59 130 246);
+    text-decoration: none;
+}
+
+.cookieDescription a:hover {
+    text-decoration: underline;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+}
+
+.acceptButton, .declineButton {
+    width: 80px;
+    height: 30px;
+    transition-duration: .2s;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 20px;
+    transition: all .6s ease;
+}
+
+.acceptButton {
+    background-color: #7b57ff;
+    color: rgb(241, 241, 241);
+    box-shadow: 0 4px 6px -1px #977ef3, 0 2px 4px -1px #977ef3;
+}
+
+.declineButton {
+    background-color: #dadada;
+    color: rgb(46, 46, 46);
+    box-shadow: 0 4px 6px -1px #bebdbd, 0 2px 4px -1px #bebdbd;
+}
+
+.declineButton:hover {
+    background-color: #ebebeb;
+    box-shadow: 0 10px 15px -3px #bebdbd, 0 4px 6px -2px #bebdbd;
+}
+
+.acceptButton:hover {
+    background-color: #9173ff;
+    box-shadow: 0 10px 15px -3px #977ef3, 0 4px 6px -2px #977ef3;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+        max-width: 300px;
+    }
+}
