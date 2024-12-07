@@ -16,6 +16,7 @@ body {
     background: linear-gradient;
     min-height: 100vh;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .container {
@@ -25,8 +26,8 @@ body {
     padding: 0 20px;
 }
 
-  /* Header styles */
-  header {
+/* Header styles */
+header {
     background-color: #003B95;
     color: white;
     padding: 1rem 0;
@@ -77,49 +78,15 @@ header .container {
     display: none;
 }
 
-.menu-toggle {
-    display: none;
-    position: fixed;
-    top: 19px;
-    left: 10px;
-    z-index: 1002;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.side-menu {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #003B95;
-    z-index: 1001;
-    transition: left 0.3s ease-in-out;
-    padding: 60px 20px 20px; /* Add top padding to account for header */
-    box-sizing: border-box;
-}
-
-.side-menu a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 10px;
-}
-
-
 /* Main content styles */
 main {
-    padding-top: 60px; /* To account for the fixed header */
+    padding-top: 60px;
     flex: 1 0 auto;
     transition: padding-top 0.3s ease;
 }
 
 main.hero-hidden {
-    padding-top: 120px; /* Increase padding when hero is hidden */
+    padding-top: 120px;
 }
 
 /* Restaurants hero section styles */
@@ -148,14 +115,18 @@ main.hero-hidden {
     display: flex;
     max-width: 600px;
     margin: 2rem auto 0;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .search-bar input {
     flex-grow: 1;
     padding: 0.75rem;
-    font-size: 1rem;
-    border: none;
+    font-size: 16px;
+    border: 1px solid #ddd;
     border-radius: 4px 0 0 4px;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .search-button {
@@ -163,12 +134,14 @@ main.hero-hidden {
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 0 4px 4px 0;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .search-button:hover {
@@ -216,7 +189,7 @@ main.hero-hidden {
 
 .star-icon {
     color: #FFD700;
-    fill:  #FFD700;
+    fill: #FFD700;
 }
 
 .view-all-button {
@@ -289,6 +262,25 @@ main.hero-hidden {
     background-color: white;
     cursor: pointer;
     margin-bottom: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.select-wrapper::after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #333;
+    font-size: 0.8rem;
 }
 
 .form-select:focus {
@@ -362,7 +354,7 @@ main.hero-hidden {
 
 .view-restaurant-button,
 .randomize-button {
-    display:flex;
+    display: flex;
     align-items: center;
     background-color: #003B95;
     color: white;
@@ -454,6 +446,40 @@ footer {
     font-size: 1.2rem;
     color: #666;
 }
+
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 19px;
+    left: 10px;
+    z-index: 1002;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #003B95;
+    z-index: 1001;
+    transition: left 0.3s ease-in-out;
+    padding: 60px 20px 20px;
+    box-sizing: border-box;
+}
+
+.side-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
 /* Responsive design */
 @media (max-width: 1024px) {
     .container {
@@ -488,7 +514,6 @@ footer {
     strong {
         font-weight: bold;
     }
-    
 
     .logo {
         font-size: 1.2rem;
@@ -549,18 +574,21 @@ footer {
         margin: 1rem auto 0;
     }
 
+    .search-bar input,
+    .search-button {
+        font-size: 16px;
+        padding: 0.5rem;
+        height: 44px;
+    }
+
     .search-bar input {
         flex-grow: 1;
         border-radius: 4px 0 0 4px;
-        font-size: 0.9rem;
-        padding: 0.5rem;
     }
 
     .search-button {
         width: auto;
         border-radius: 0 4px 4px 0;
-        font-size: 0.9rem;
-        padding: 0.5rem 1rem;
     }
 
     .restaurants-header {
@@ -710,7 +738,6 @@ footer {
         margin-bottom: 80px;
     }
 
-    /* Make preferred cuisine and price range containers appear the same on all devices */
     .form-select {
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -718,8 +745,18 @@ footer {
         background-color: #fff;
         border: 1px solid #ddd;
         border-radius: 4px;
-        padding: 0.5rem;
+        padding: 0.5rem 2rem 0.5rem 0.5rem;
         width: 100%;
+        font-size: 16px;
+    }
+
+    .select-wrapper::after {
+        font-size: 0.8rem;
+        right: 10px;
+    }
+
+    .randomizer-card img {
+        max-height: none;
     }
 }
 
@@ -759,6 +796,10 @@ footer {
         font-size: 11px;
         min-width: 50px;
     }
+
+    .form-select {
+        padding: 0.4rem 1.5rem 0.4rem 0.4rem;
+    }
 }
 
 @supports (padding: max(0px)) {
@@ -775,7 +816,7 @@ footer {
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 350px) {
     body {
         font-size: 12px;
     }
@@ -832,5 +873,52 @@ footer {
     .recommendation-button {
         font-size: 0.9rem;
         padding: 0.75rem;
+    }
+
+    .form-select {
+        font-size: 14px;
+        padding: 0.3rem 1.5rem 0.3rem 0.3rem;
+    }
+
+    .select-wrapper::after {
+        right: 8px;
+        font-size: 0.7rem;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    .form-select {
+        background-color: #fff;
+    }
+}
+
+@supports (-moz-appearance: none) {
+    .form-select {
+        text-indent: 0.01px;
+        text-overflow: '';
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .search-button,
+    .view-restaurant-button,
+    .randomize-button,
+    .recommendation-button,
+    .nav-link {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    .search-bar input,
+    .search-button,
+    .form-select {
+        font-size: 16px;
+    }
+
+    .search-bar {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
     }
 }
