@@ -9,6 +9,13 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+    <button class="menu-toggle" id="menuToggle">
+        <i data-lucide="menu"></i>
+    </button>
+    <div class="side-menu" id="sideMenu">
+        <a href="/public/views/termsofservice.html">Terms of Service</a>
+        <a href="/public/views/privacypolicy.html">Privacy Policy</a>
+    </div>
     <header>
         <div class="container">
             <a href="/index.html" class="logo">Nairobi Feast</a>
@@ -258,31 +265,7 @@
             <span>Contact</span>
         </a>
     </nav>
-
-    <script>
-        lucide.createIcons();
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const icons = document.querySelectorAll('.icon');
-            const contentSections = document.querySelectorAll('.content-section');
-
-            icons.forEach(icon => {
-                icon.addEventListener('click', function() {
-                    const target = this.getAttribute('data-target');
-                    
-                    icons.forEach(i => i.classList.remove('active'));
-                    this.classList.add('active');
-
-                    contentSections.forEach(section => {
-                        if (section.id === target) {
-                            section.classList.add('active');
-                        } else {
-                            section.classList.remove('active');
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+    <script src="/public/javascript/menu.js"></script>
+    <script src="/public/javascript/icons.js"></script>
 </body>
 </html>

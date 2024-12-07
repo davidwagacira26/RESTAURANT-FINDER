@@ -9,6 +9,13 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+    <button class="menu-toggle" id="menuToggle">
+        <i data-lucide="menu"></i>
+    </button>
+    <div class="side-menu" id="sideMenu">
+        <a href="/public/views/termsofservice.html">Terms of Service</a>
+        <a href="/public/views/privacypolicy.html">Privacy Policy</a>
+    </div>
     <header>
         <div class="container">
             <a href="/index.html" class="logo">Nairobi Feast</a>
@@ -113,9 +120,7 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        lucide.createIcons();
-    </script>
+    <script src="/public/javascript/menu.js"></script>
+    <script src="/public/javascript/icons.js"></script>
 </body>
 </html>

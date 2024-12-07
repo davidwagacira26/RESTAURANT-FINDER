@@ -72,6 +72,39 @@ header .container {
     display: none;
 }
 
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1002;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #003B95;
+    z-index: 1001;
+    transition: left 0.3s ease-in-out;
+    padding: 60px 20px 20px; /* Add top padding to account for header */
+    box-sizing: border-box;
+}
+
+.side-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
 /* Main content styles */
 main {
     padding-top: 60px; /* To account for the fixed header */
@@ -269,6 +302,10 @@ footer .social-links a {
 
     .desktop-nav {
         display: none;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 
     .logo {
