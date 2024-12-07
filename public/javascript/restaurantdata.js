@@ -103,7 +103,7 @@ export const restaurants = [
         rating: 4.4,
         location: "Mkungu Cl",
         image: "/assets/images/slate.jpg",
-        link: "/public/views/slate.html"
+        link: "/public/views/slate-restaurant.html"
     },
     {
         name: "Brew Bistro - Fortis",
