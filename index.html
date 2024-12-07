@@ -114,6 +114,7 @@
             </div>
         </section>
      
+        <section class="recommendation-special">
             <div class="container">
                 <div class="container-grid">
                     <div id="randomizer" class="randomizer-container">
@@ -138,31 +139,34 @@
                         </div>
                     </div>
                     <div class="recommendation-container">
-                       
                         <h2 class="recommendation-title"><strong>Get a Restaurant Recommendation</strong></h2>
                         <p class="recommendation-subtitle">Not sure where to eat? Let us suggest a restaurant for you!</p>
                         <form id="recommendation-form" action="/public/views/recommendations.html" method="get">
                             <div class="recommendation-form">
                                 <label for="cuisine" class="form-label">Preferred Cuisine:</label>
-                                <select id="cuisine" name="cuisine" class="form-select">
-                                    <option value="">Any</option>
-                                    <option value="International">International</option>
-                                    <option value="African">African</option>
-                                    <option value="Italian">Italian</option>
-                                    <option value="indian">Indian</option>
-                                    <option value="mexican">Mexican</option>
-                                    <option value="brazillian">Brazillian</option>
-                                    <option value="Lebanese">Lebanese</option>
-                                    <option value="Peruvian">Peruvian</option>
-                                    <option value="Mediterranean">Mediterranean</option>
-                                </select>
+                                <div class="select-wrapper">
+                                    <select id="cuisine" name="cuisine" class="form-select">
+                                        <option value="">Any</option>
+                                        <option value="International">International</option>
+                                        <option value="African">African</option>
+                                        <option value="Italian">Italian</option>
+                                        <option value="indian">Indian</option>
+                                        <option value="mexican">Mexican</option>
+                                        <option value="brazillian">Brazilian</option>
+                                        <option value="Lebanese">Lebanese</option>
+                                        <option value="Peruvian">Peruvian</option>
+                                        <option value="Mediterranean">Mediterranean</option>
+                                    </select>
+                                </div>
                                 <label for="price" class="form-label">Price Range:</label>
-                                <select id="price" name="price" class="form-select">
-                                    <option value="">Any</option>
-                                    <option value="budget">Budget</option>
-                                    <option value="mid-range">Mid-range</option>
-                                    <option value="high-end">High-end</option>
-                                </select>
+                                <div class="select-wrapper">
+                                    <select id="price" name="price" class="form-select">
+                                        <option value="">Any</option>
+                                        <option value="budget">Budget</option>
+                                        <option value="mid-range">Mid-range</option>
+                                        <option value="high-end">High-end</option>
+                                    </select>
+                                </div>
                                 <button type="submit" class="recommendation-button">Get Recommendation</button>
                             </div>
                         </form>
