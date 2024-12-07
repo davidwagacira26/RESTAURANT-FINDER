@@ -13,11 +13,12 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: black;
-    background: linear-gradient;
+    background: linear-gradient(to bottom, #f0f0f0, #ffffff);
     min-height: 100vh;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    -webkit-overflow-scrolling: touch;
 }
 
 .container {
@@ -35,6 +36,9 @@ header {
     position: fixed;
     width: 100%;
     z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 header .container {
@@ -72,48 +76,15 @@ header .container {
     display: none;
 }
 
-.menu-toggle {
-    display: none;
-    position: fixed;
-    top: 19px;
-    left: 10px;
-    z-index: 1002;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.side-menu {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #003B95;
-    z-index: 1001;
-    transition: left 0.3s ease-in-out;
-    padding: 60px 20px 20px; /* Add top padding to account for header */
-    box-sizing: border-box;
-}
-
-.side-menu a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 10px;
-}
-
 /* Main content styles */
 main {
-    padding-top: 60px; /* To account for the fixed header */
+    padding-top: 60px;
     flex: 1 0 auto;
     transition: padding-top 0.3s ease;
 }
 
 main.hero-hidden {
-    padding-top: 120px; /* Increase padding when hero is hidden */
+    padding-top: 120px;
 }
 
 /* Restaurants hero section styles */
@@ -142,14 +113,18 @@ main.hero-hidden {
     display: flex;
     max-width: 600px;
     margin: 2rem auto 0;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .search-bar input {
     flex-grow: 1;
     padding: 0.75rem;
-    font-size: 1rem;
-    border: none;
+    font-size: 16px;
+    border: 1px solid #ddd;
     border-radius: 4px 0 0 4px;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .search-button {
@@ -157,12 +132,14 @@ main.hero-hidden {
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 0 4px 4px 0;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .search-button:hover {
@@ -394,7 +371,47 @@ footer {
     font-size: 1.2rem;
     color: #666;
 }
+
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 19px;
+    left: 10px;
+    z-index: 1002;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #003B95;
+    z-index: 1001;
+    transition: left 0.3s ease-in-out;
+    padding: 60px 20px 20px;
+    box-sizing: border-box;
+}
+
+.side-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
 /* Responsive design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+}
+
 @media (max-width: 768px) {
     body {
         font-size: 14px;
@@ -469,18 +486,21 @@ footer {
         margin: 1rem auto 0;
     }
 
+    .search-bar input,
+    .search-button {
+        font-size: 16px;
+        padding: 0.5rem;
+        height: 44px;
+    }
+
     .search-bar input {
         flex-grow: 1;
         border-radius: 4px 0 0 4px;
-        font-size: 0.9rem;
-        padding: 0.5rem;
     }
 
     .search-button {
         width: auto;
         border-radius: 0 4px 4px 0;
-        font-size: 0.9rem;
-        padding: 0.5rem 1rem;
     }
 
     .restaurants-header {
@@ -604,18 +624,16 @@ footer {
     }
 }
 
-/* iPhone X and newer specific styles */
 @supports (padding: max(0px)) {
     .mobile-nav {
         padding-bottom: max(5px, env(safe-area-inset-bottom));
     }
 
     body {
-        padding-bottom: calc(50px + max(10px, env(safe-area-inset-bottom)));
+        padding-bottom: calc(60px + max(10px, env(safe-area-inset-bottom)));
     }
 }
 
-/* Additional adjustments for very small screens */
 @media (max-width: 320px) {
     body {
         font-size: 12px;
@@ -654,5 +672,29 @@ footer {
     .view-details {
         padding: 0.2rem 0.4rem;
         font-size: 0.6rem;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .search-button,
+    .view-restaurant-button,
+    .randomize-button,
+    .recommendation-button,
+    .nav-link {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    .search-bar input,
+    .search-button,
+    .form-select {
+        font-size: 16px;
+    }
+
+    .search-bar {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
     }
 }
