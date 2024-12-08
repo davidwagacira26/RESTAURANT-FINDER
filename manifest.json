@@ -9,33 +9,41 @@
     "theme_color": "#003B95",
     "icons": [
       {
-        "src": "https://cdn.glitch.global/9d066a26-dbcb-4aa3-b1af-3cd59e251b0c/placeholder-192.png",
+        "src": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/safari.svg",
+        "sizes": "144x144",
+        "type": "image/svg+xml",
+        "purpose": "any"
+      },
+      {
+        "src": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/safari.svg",
         "sizes": "192x192",
-        "type": "image/png"
+        "type": "image/svg+xml",
+        "purpose": "any"
       },
       {
-        "src": "https://cdn.glitch.global/9d066a26-dbcb-4aa3-b1af-3cd59e251b0c/placeholder-512.png",
+        "src": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/safari.svg",
         "sizes": "512x512",
-        "type": "image/png"
+        "type": "image/svg+xml",
+        "purpose": "any"
       },
       {
-        "src": "https://cdn.glitch.global/9d066a26-dbcb-4aa3-b1af-3cd59e251b0c/maskable-icon.png",
+        "src": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/safari.svg",
         "sizes": "512x512",
-        "type": "image/png",
+        "type": "image/svg+xml",
         "purpose": "maskable"
       }
     ],
     "screenshots": [
       {
-        "src": "https://cdn.glitch.global/9d066a26-dbcb-4aa3-b1af-3cd59e251b0c/desktop-screenshot.png",
+        "src": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
         "sizes": "1920x1080",
-        "type": "image/png",
+        "type": "image/jpeg",
         "form_factor": "wide"
       },
       {
-        "src": "https://cdn.glitch.global/9d066a26-dbcb-4aa3-b1af-3cd59e251b0c/mobile-screenshot.png",
+        "src": "https://images.unsplash.com/photo-1552566626-52f8b828add9",
         "sizes": "1080x1920",
-        "type": "image/png",
+        "type": "image/jpeg",
         "form_factor": "narrow"
       }
     ]
