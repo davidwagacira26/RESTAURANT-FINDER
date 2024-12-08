@@ -1,7 +1,7 @@
 const CACHE_NAME = 'nairobi-feast-v1';
 const urlsToCache = [
   '/',
-  '/index.html',
+
   '/public/stylesheets/styles.css',
   '/public/javascript/cookie-consent.js',
   '/images/icon-192x192.png',
