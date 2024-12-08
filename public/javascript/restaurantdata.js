@@ -74,6 +74,14 @@ export const restaurants = [
         link: "/public/views/crave.html"
     },
     {
+        name: "Bao Box",
+        cuisine: "International",
+        rating: 4.5,
+        location: "General Mathenge",
+        image: "/assets/images/baobox.jpg",
+        link: "/public/views/bao-box.html"
+    },
+    {
         name: "Spring Noshery",
         cuisine: "International",
         rating: 4.4,
@@ -114,12 +122,12 @@ export const restaurants = [
         link: "/public/views/brewbistro.html"
     },
     {
-        name: "270° Restaurant",
+        name: "Nairobi Street Kitchen",
         cuisine: "International",
-        rating: 4.3,
-        location: "Lavington",
-        image: "/assets/images/270°2.jpg",
-        link: "/public/views/270°-restaurant.html"
+        rating: 4.5,
+        location: "Mpaka Rd",
+        image: "/assets/images/nsk.jpg",
+        link: "/public/views/nairobi-street-kitchen.html"
     },
     {
         name: "Harvest Restaurant",
@@ -162,44 +170,20 @@ export const restaurants = [
         link: "/public/views/inca-restaurant.html"
     },
     {
-        name: "Karel T-Lounge",
-        cuisine: "Mediterranean",
-        rating: 4.4,
-        location: "Village Market",
-        image: "/assets/images/kareltlounge4.jpg",
-        link: "/public/views/karel-t-lounge.html"
-    },
-    {
-        name: "Ezo Restaurant",
-        cuisine: "Japanese",
-        rating: 4.4,
-        location: "42 Muthithi Rd",
-        image: "/assets/images/ezo2.jpg",
-        link: "/public/views/ezo-restaurant.html"
-    },
-    {
-        name: "Nairobi Street Kitchen",
+        name: "270° Restaurant",
         cuisine: "International",
-        rating: 4.5,
-        location: "Mpaka Rd",
-        image: "/assets/images/nsk.jpg",
-        link: "/public/views/nairobi-street-kitchen.html"
+        rating: 4.3,
+        location: "Lavington",
+        image: "/assets/images/270°2.jpg",
+        link: "/public/views/270°-restaurant.html"
     },
     {
-        name: "Fogo Gaucho",
-        cuisine: "Brazillian",
-        rating: 4.6,
-        location: "Viking House",
-        image: "/assets/images/fogogaucho.jpg",
-        link: "/public/views/fogo-gaucho.html"
-    },
-    {
-        name: "Le Terrazza Italian Restaurant",
+        name: "La Terrazza Italian Restaurant",
         cuisine: "Italian",
         rating: 4.7,
         location: "Nairobi",
         image: "/assets/images/laterazza.jpg",
-        link: "/public/views/le-terrazza-Italian-restaurant.html"
+        link: "/public/views/la-terrazza-restaurant.html"
     },
     {
         name: "Upepo Restaurant",
@@ -210,15 +194,7 @@ export const restaurants = [
         link: "/public/views/upepo-restaurant.html"
     },
     {
-        name: "Mawimbi Seafood Restaurant",
-        cuisine: "International",
-        rating: 4.6,
-        location: "Kijabe St",
-        image: "/assets/images/mawimbi2.jpg",
-        link: "/public/views/mawimbi-seafood.html"
-    },
-    {
-        name: "Lucca Restaurant",
+        name: "LUCCA Restaurant",
         cuisine: "Italian",
         rating: 4.6,
         location: "Chiromo Ln",
@@ -234,20 +210,28 @@ export const restaurants = [
         link: "/public/views/chophouse-nairobi.html"
     },
     {
-        name: "Tatu Restaurant",
-        cuisine: "International",
-        rating: 4.6,
-        location: "Harry Thuku Rd",
-        image: "/assets/images/taturestaurant.jpg",
-        link: "/public/views/tatu-restaurant.html"
+        name: "Karel T-Lounge",
+        cuisine: "Mediterranean",
+        rating: 4.4,
+        location: "Village Market",
+        image: "/assets/images/kareltlounge4.jpg",
+        link: "/public/views/karel-t-lounge.html"
     },
     {
-        name: "Copper the Urban Grill",
+        name: "Mawimbi Seafood Restaurant",
         cuisine: "International",
-        rating: 4.4,
-        location: "154 James Gichuru Rd",
-        image: "/assets/images/coppertheurbangrill2.jpg",
-        link: "/public/views/copper-the-urban-grill.html"
+        rating: 4.6,
+        location: "Kijabe St",
+        image: "/assets/images/mawimbi2.jpg",
+        link: "/public/views/mawimbi-seafood.html"
+    },
+    {
+        name: "Fogo Gaucho",
+        cuisine: "Brazillian",
+        rating: 4.6,
+        location: "Viking House",
+        image: "/assets/images/fogogaucho.jpg",
+        link: "/public/views/fogo-gaucho.html"
     },
     {
         name: "The Larder Restaurant",
@@ -257,6 +241,24 @@ export const restaurants = [
         image: "/assets/images/thelarder.jpg",
         link: "/public/views/the-larder-restaurant.html"
     },
+    {
+        name: "Ezo Restaurant",
+        cuisine: "Japanese",
+        rating: 4.4,
+        location: "42 Muthithi Rd",
+        image: "/assets/images/ezo2.jpg",
+        link: "/public/views/ezo-restaurant.html"
+    },
+   
+    {
+        name: "Copper the Urban Grill",
+        cuisine: "International",
+        rating: 4.4,
+        location: "154 James Gichuru Rd",
+        image: "/assets/images/coppertheurbangrill2.jpg",
+        link: "/public/views/copper-the-urban-grill.html"
+    },
+   
     {
         name: "Tambourin Restaurant",
         cuisine: "Lebanese",
