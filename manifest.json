@@ -9,17 +9,17 @@
     "theme_color": "#003B95",
     "icons": [
       {
-        "src": "/images/icon-192x192.png",
+        "src": "https://cdn.glitch.global/9d066a26-dbcb-4aa3-b1af-3cd59e251b0c/placeholder-192.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "/images/icon-512x512.png",
+        "src": "https://cdn.glitch.global/9d066a26-dbcb-4aa3-b1af-3cd59e251b0c/placeholder-512.png",
         "sizes": "512x512",
         "type": "image/png"
       },
       {
-        "src": "/images/maskable-icon.png",
+        "src": "https://cdn.glitch.global/9d066a26-dbcb-4aa3-b1af-3cd59e251b0c/maskable-icon.png",
         "sizes": "512x512",
         "type": "image/png",
         "purpose": "maskable"
@@ -27,13 +27,13 @@
     ],
     "screenshots": [
       {
-        "src": "/assets/images/desktopscreenshot.png",
+        "src": "https://cdn.glitch.global/9d066a26-dbcb-4aa3-b1af-3cd59e251b0c/desktop-screenshot.png",
         "sizes": "1920x1080",
         "type": "image/png",
         "form_factor": "wide"
       },
       {
-        "src": "/assets/images/mobilescreenshot.png",
+        "src": "https://cdn.glitch.global/9d066a26-dbcb-4aa3-b1af-3cd59e251b0c/mobile-screenshot.png",
         "sizes": "1080x1920",
         "type": "image/png",
         "form_factor": "narrow"
