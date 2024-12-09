@@ -14,17 +14,54 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <style>
-        #installOverlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: none;
-            z-index: 9998;
-        }
         #installBanner {
+            position: fixed;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            background-color: #003B95;
+            color: #fff;
+            padding: 12px;
+            text-align: center;
+            z-index: 9999;
+            transition: bottom 0.3s ease-in-out;
+        }
+        #installBanner.show {
+            bottom: 0;
+        }
+        .install-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .install-text {
+            text-align: left;
+            margin-right: 20px;
+        }
+        .install-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .install-button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        #installApp {
+            background-color: #ffffff;
+            color: #003B95;
+        }
+        #cancelInstall {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+        #cookie-consent {
             position: fixed;
             top: 50%;
             left: 50%;
@@ -39,26 +76,26 @@
             display: none;
             z-index: 9999;
         }
-        .install-content {
+        .cookie-content {
             text-align: left;
         }
-        .install-content h2 {
+        .cookie-content h2 {
             color: #fff;
             font-size: 24px;
             margin: 0 0 12px 0;
             font-weight: 500;
         }
-        .install-content p {
+        .cookie-content p {
             color: rgba(255, 255, 255, 0.8);
             font-size: 14px;
             line-height: 1.5;
             margin: 0 0 24px 0;
         }
-        .install-buttons {
+        .cookie-buttons {
             display: flex;
             gap: 12px;
         }
-        .install-button {
+        .cookie-button {
             flex: 1;
             padding: 12px 24px;
             border: none;
@@ -68,75 +105,44 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        #cancelInstall {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #fff;
-        }
-        #cancelInstall:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-        #installApp {
+        #accept-cookies {
             background-color: #003B95;
             color: #ffffff;
         }
-        #installApp:hover {
-            background-color: #003d82;
+        #reject-cookies {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
         }
-        #cookie-consent {
+        #cookie-overlay {
             position: fixed;
-            bottom: -100px;
+            top: 0;
             left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            z-index: 9999;
-            transition: bottom 0.3s ease-in-out;
-        }
-        #cookie-consent.show {
-            bottom: 0;
-        }
-        .cookie-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .cookie-text {
-            text-align: left;
-            margin-right: 20px;
-        }
-        .cookie-buttons {
-            display: flex;
-            gap: 10px;
-        }
-        .cookie-button {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.2s;
-        }
-        .cookie-button.accept {
-            background-color: #003B95;
-            color: #fff;
-        }
-        .cookie-button.reject {
-            background-color: transparent;
-            color: #fff;
-            border: 1px solid #fff;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 9998;
         }
     </style>
 </head>
 <body>
-    <div id="installOverlay"></div>
+    <div id="cookie-overlay"></div>
+    <div id="cookie-consent">
+        <div class="cookie-content">
+            <h2>Cookie Settings</h2>
+            <p>We use cookies to enhance your experience, analyze site traffic and deliver personalized content. Read our <a href="/public/views/cookie-policy.html" class="cookie-policy-link">Cookie Policy</a>.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="cookie-button">Accept</button>
+                <button id="reject-cookies" class="cookie-button">Reject</button>
+            </div>
+        </div>
+    </div>
+
     <div id="installBanner">
         <div class="install-content">
-            <h2>Install Nairobi Feast</h2>
-            <p>WELCOME TO NAIROBI FEAST. YOU CAN NOW INSTALL AS A SITE</p>
+            <div class="install-text">
+                <p>Welcome to Nairobi Feast. You can now install as a site!</p>
+            </div>
             <div class="install-buttons">
                 <button id="installApp" class="install-button">Install Now</button>
                 <button id="cancelInstall" class="install-button">Maybe Later</button>
@@ -341,22 +347,11 @@
         </div>
     </footer>
 
-    <div id="cookie-consent">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
-            </div>
-            <div class="cookie-buttons">
-                <button id="accept-cookies" class="cookie-button accept">Accept</button>
-                <button id="reject-cookies" class="cookie-button reject">Reject</button>
-            </div>
-        </div>
-    </div>
-
     <script type="module" src="/public/javascript/randomize.js"></script>
     <script type="module" src="/public/javascript/restaurants.js"></script>
     <script src="/public/javascript/recommendations.js"></script>
     <script src="/public/javascript/menu.js"></script>
+    <script src="/public/javascript/cookie-consent.js"></script>
     <script>
         lucide.createIcons();
     </script>
@@ -375,7 +370,6 @@
     </script>
     <script>
         let deferredPrompt;
-        const installOverlay = document.getElementById('installOverlay');
         const installBanner = document.getElementById('installBanner');
         const installApp = document.getElementById('installApp');
         const cancelInstall = document.getElementById('cancelInstall');
@@ -383,8 +377,7 @@
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            installOverlay.style.display = 'block';
-            installBanner.style.display = 'block';
+            installBanner.classList.add('show');
         });
 
         installApp.addEventListener('click', async () => {
@@ -394,42 +387,16 @@
                 console.log(`User response to the install prompt: ${outcome}`);
                 deferredPrompt = null;
             }
-            installOverlay.style.display = 'none';
-            installBanner.style.display = 'none';
+            installBanner.classList.remove('show');
         });
 
         cancelInstall.addEventListener('click', () => {
-            installOverlay.style.display = 'none';
-            installBanner.style.display = 'none';
+            installBanner.classList.remove('show');
         });
 
         window.addEventListener('appinstalled', () => {
             console.log('PWA was installed');
-            installOverlay.style.display = 'none';
-            installBanner.style.display = 'none';
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const cookieConsent = document.getElementById('cookie-consent');
-            const acceptCookies = document.getElementById('accept-cookies');
-            const rejectCookies = document.getElementById('reject-cookies');
-
-            if (!localStorage.getItem('cookieConsent')) {
-                setTimeout(() => {
-                    cookieConsent.classList.add('show');
-                }, 2000);
-            }
-
-            acceptCookies.addEventListener('click', () => {
-                localStorage.setItem('cookieConsent', 'accepted');
-                cookieConsent.classList.remove('show');
-            });
-
-            rejectCookies.addEventListener('click', () => {
-                localStorage.setItem('cookieConsent', 'rejected');
-                cookieConsent.classList.remove('show');
-            });
+            installBanner.classList.remove('show');
         });
     </script>
 </body>
