@@ -14,67 +14,86 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <style>
-        #installBanner {
-            display: none;
+        #installOverlay {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            background-color: #FFD700;
-            color: #000;
-            text-align: center;
-            padding: 10px;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            animation: slideDown 0.5s ease-out;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 9998;
         }
-        #installBanner .banner-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+        #installBanner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.95);
+            color: #fff;
+            padding: 24px;
+            border-radius: 14px;
+            width: 90%;
+            max-width: 420px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+            display: none;
+            z-index: 9999;
         }
-        #installBanner p {
-            margin: 0;
-            font-size: 16px;
-            font-weight: bold;
+        .install-content {
+            text-align: left;
         }
-        #installBanner button {
-            margin-left: 20px;
-            padding: 8px 16px;
+        .install-content h2 {
+            color: #fff;
+            font-size: 24px;
+            margin: 0 0 12px 0;
+            font-weight: 500;
+        }
+        .install-content p {
+            color: rgba(255, 255, 255, 0.8);
             font-size: 14px;
-            cursor: pointer;
+            line-height: 1.5;
+            margin: 0 0 24px 0;
+        }
+        .install-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        .install-button {
+            flex: 1;
+            padding: 12px 24px;
             border: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-        #installApp {
-            background-color: #4CAF50;
-            color: white;
-        }
-        #installApp:hover {
-            background-color: #45a049;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
         #cancelInstall {
-            background-color: #f44336;
-            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
         }
         #cancelInstall:hover {
-            background-color: #da190b;
+            background-color: rgba(255, 255, 255, 0.15);
         }
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
+        #installApp {
+            background-color: #003B95;
+            color: #ffffff;
+        }
+        #installApp:hover {
+            background-color: #003d82;
         }
     </style>
 </head>
 <body>
+    <div id="installOverlay"></div>
     <div id="installBanner">
-        <div class="banner-content">
-            <p>📱 WELCOME TO NAIROBI FEAST! Install our app for a better experience</p>
-            <button id="installApp">Install Now</button>
-            <button id="cancelInstall">Maybe Later</button>
+        <div class="install-content">
+            <h2>Install Nairobi Feast</h2>
+            <p>WELCOME TO NAIROBI FEAST. YOU CAN NOW INSTALL AS A SITE</p>
+            <div class="install-buttons">
+                <button id="installApp" class="install-button">Install Now</button>
+                <button id="cancelInstall" class="install-button">Maybe Later</button>
+            </div>
         </div>
     </div>
 
@@ -309,6 +328,7 @@
     </script>
     <script>
         let deferredPrompt;
+        const installOverlay = document.getElementById('installOverlay');
         const installBanner = document.getElementById('installBanner');
         const installApp = document.getElementById('installApp');
         const cancelInstall = document.getElementById('cancelInstall');
@@ -316,6 +336,7 @@
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
+            installOverlay.style.display = 'block';
             installBanner.style.display = 'block';
         });
 
@@ -326,15 +347,18 @@
                 console.log(`User response to the install prompt: ${outcome}`);
                 deferredPrompt = null;
             }
+            installOverlay.style.display = 'none';
             installBanner.style.display = 'none';
         });
 
         cancelInstall.addEventListener('click', () => {
+            installOverlay.style.display = 'none';
             installBanner.style.display = 'none';
         });
 
         window.addEventListener('appinstalled', () => {
             console.log('PWA was installed');
+            installOverlay.style.display = 'none';
             installBanner.style.display = 'none';
         });
     </script>
