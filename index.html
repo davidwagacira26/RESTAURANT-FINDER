@@ -13,6 +13,22 @@
     <link rel="apple-touch-icon" href="/images/icon-192x192.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+        #installButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #003B95;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 1000;
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <button class="menu-toggle" id="menuToggle">
@@ -224,6 +240,7 @@
             </div>
         </div>
     </div>
+    <button id="installButton">Install App</button>
     <script type="module" src="/public/javascript/randomize.js"></script>
     <script type="module" src="/public/javascript/restaurants.js"></script>
     <script src="/public/javascript/recommendations.js"></script>
@@ -244,6 +261,31 @@
                     });
             });
         }
+    </script>
+    <script>
+        let deferredPrompt;
+        const installButton = document.getElementById('installButton');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.style.display = 'block';
+        });
+
+        installButton.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User response to the install prompt: ${outcome}`);
+                deferredPrompt = null;
+            }
+            installButton.style.display = 'none';
+        });
+
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA was installed');
+            installButton.style.display = 'none';
+        });
     </script>
 </body>
 </html>
