@@ -82,6 +82,53 @@
         #installApp:hover {
             background-color: #003d82;
         }
+        #cookie-consent {
+            position: fixed;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            z-index: 9999;
+            transition: bottom 0.3s ease-in-out;
+        }
+        #cookie-consent.show {
+            bottom: 0;
+        }
+        .cookie-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .cookie-text {
+            text-align: left;
+            margin-right: 20px;
+        }
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .cookie-button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        .cookie-button.accept {
+            background-color: #003B95;
+            color: #fff;
+        }
+        .cookie-button.reject {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+        }
     </style>
 </head>
 <body>
@@ -294,22 +341,22 @@
         </div>
     </footer>
 
-    <div id="cookie-overlay" class="cookie-overlay"></div>
-    <div id="cookie-consent" class="cookie-consent">
+    <div id="cookie-consent">
         <div class="cookie-content">
-            <h2>Cookie Settings</h2>
-            <p>We use cookies to enhance your experience, analyze site traffic and deliver personalized content. Read our <a href="/public/views/cookie-policy.html" class="cookie-policy-link">Cookie Policy</a>.</p>
+            <div class="cookie-text">
+                <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
+            </div>
             <div class="cookie-buttons">
                 <button id="accept-cookies" class="cookie-button accept">Accept</button>
                 <button id="reject-cookies" class="cookie-button reject">Reject</button>
             </div>
         </div>
     </div>
+
     <script type="module" src="/public/javascript/randomize.js"></script>
     <script type="module" src="/public/javascript/restaurants.js"></script>
     <script src="/public/javascript/recommendations.js"></script>
     <script src="/public/javascript/menu.js"></script>
-    <script src="/public/javascript/cookie-consent.js"></script>
     <script>
         lucide.createIcons();
     </script>
@@ -360,6 +407,29 @@
             console.log('PWA was installed');
             installOverlay.style.display = 'none';
             installBanner.style.display = 'none';
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cookieConsent = document.getElementById('cookie-consent');
+            const acceptCookies = document.getElementById('accept-cookies');
+            const rejectCookies = document.getElementById('reject-cookies');
+
+            if (!localStorage.getItem('cookieConsent')) {
+                setTimeout(() => {
+                    cookieConsent.classList.add('show');
+                }, 2000);
+            }
+
+            acceptCookies.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieConsent.classList.remove('show');
+            });
+
+            rejectCookies.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieConsent.classList.remove('show');
+            });
         });
     </script>
 </body>
