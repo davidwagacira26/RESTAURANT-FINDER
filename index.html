@@ -14,23 +14,37 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <style>
-        #installButton {
+        #installBanner {
+            display: none;
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            top: 0;
+            left: 0;
+            right: 0;
             background-color: #003B95;
             color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
+            text-align: center;
+            padding: 10px;
             z-index: 1000;
-            display: none;
+        }
+        #installBanner p {
+            margin: 0;
+            font-size: 16px;
+        }
+        #installBanner button {
+            margin: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
+    <div id="installBanner">
+        <p>WELCOME TO NAIROBI FEAST. YOU CAN NOW INSTALL THIS SITE AS AN APP</p>
+        <button id="installApp">Install</button>
+        <button id="cancelInstall">Cancel</button>
+    </div>
+
     <button class="menu-toggle" id="menuToggle">
         <i data-lucide="menu"></i>
     </button>
@@ -236,11 +250,9 @@
             <div class="cookie-buttons">
                 <button id="accept-cookies" class="cookie-button accept">Accept</button>
                 <button id="reject-cookies" class="cookie-button reject">Reject</button>
-                
             </div>
         </div>
     </div>
-    <button id="installButton">Install App</button>
     <script type="module" src="/public/javascript/randomize.js"></script>
     <script type="module" src="/public/javascript/restaurants.js"></script>
     <script src="/public/javascript/recommendations.js"></script>
@@ -264,27 +276,33 @@
     </script>
     <script>
         let deferredPrompt;
-        const installButton = document.getElementById('installButton');
+        const installBanner = document.getElementById('installBanner');
+        const installApp = document.getElementById('installApp');
+        const cancelInstall = document.getElementById('cancelInstall');
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            installButton.style.display = 'block';
+            installBanner.style.display = 'block';
         });
 
-        installButton.addEventListener('click', async () => {
+        installApp.addEventListener('click', async () => {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 const { outcome } = await deferredPrompt.userChoice;
                 console.log(`User response to the install prompt: ${outcome}`);
                 deferredPrompt = null;
             }
-            installButton.style.display = 'none';
+            installBanner.style.display = 'none';
+        });
+
+        cancelInstall.addEventListener('click', () => {
+            installBanner.style.display = 'none';
         });
 
         window.addEventListener('appinstalled', () => {
             console.log('PWA was installed');
-            installButton.style.display = 'none';
+            installBanner.style.display = 'none';
         });
     </script>
 </body>
