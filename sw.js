@@ -12,6 +12,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => cache.addAll(urlsToCache))
+      .catch(error => console.error('Cache addAll failed:', error))
   );
 });
 
@@ -29,8 +30,10 @@ self.addEventListener('fetch', (event) => {
 
         caches.open(CACHE_NAME)
           .then(cache => {
-            cache.put(event.request, responseToCache);
-          });
+            cache.put(event.request, responseToCache)
+              .catch(error => console.error('Cache put failed:', error));
+          })
+          .catch(error => console.error('Cache open failed:', error));
 
         return response;
       })

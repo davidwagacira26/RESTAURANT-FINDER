@@ -430,6 +430,7 @@
         }
 
         function checkCookieConsent() {
+            console.log("Checking cookie consent");
             if (getCookie('cookieConsent') === null) {
                 showCookieConsent();
             } else {
@@ -438,26 +439,32 @@
         }
 
         function checkInstallBanner() {
+            console.log("Checking install banner");
             if (deferredPrompt) {
+                console.log("Install prompt available, showing banner");
                 installBanner.classList.add('show');
+            } else {
+                console.log("Install prompt not available");
             }
         }
 
         acceptCookies.addEventListener('click', () => {
             setCookie('cookieConsent', 'accepted', 365);
             hideCookieConsent();
-            setTimeout(checkInstallBanner, 4000);
+            checkInstallBanner();
         });
 
         rejectCookies.addEventListener('click', () => {
             setCookie('cookieConsent', 'rejected', 365);
             hideCookieConsent();
-            setTimeout(checkInstallBanner, 4000);
+            checkInstallBanner();
         });
 
         window.addEventListener('beforeinstallprompt', (e) => {
+            console.log("Before install prompt event fired");
             e.preventDefault();
             deferredPrompt = e;
+            checkInstallBanner();
         });
 
         installApp.addEventListener('click', async () => {
@@ -480,7 +487,10 @@
         });
 
         // Initialize
-        document.addEventListener('DOMContentLoaded', checkCookieConsent);
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("DOM fully loaded");
+            checkCookieConsent();
+        });
     </script>
 </body>
 </html>
