@@ -15,23 +15,21 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <style>
         #installBanner {
-            display: none;
             position: fixed;
             bottom: -100px;
             left: 0;
             right: 0;
             background-color: #003B95;
             color: #fff;
+            padding: 12px;
             text-align: center;
-            padding: 16px;
-            z-index: 1000;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            transition: bottom 0.5s ease-out;
+            z-index: 9999;
+            transition: bottom 0.3s ease-in-out;
         }
         #installBanner.show {
             bottom: 0;
         }
-        #installBanner .banner-content {
+        .install-content {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -39,47 +37,29 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        #installBanner .logo-text {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .install-text {
             margin-bottom: 10px;
         }
-        #installBanner .logo {
-            width: 40px;
-            height: 40px;
-        }
-        #installBanner p {
-            margin: 0;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        #installBanner .buttons {
+        .install-buttons {
             display: flex;
-            gap: 12px;
+            gap: 10px;
         }
-        #installBanner button {
+        .install-button {
             padding: 8px 16px;
-            font-size: 14px;
-            cursor: pointer;
             border: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+            width: 120px;
         }
         #installApp {
             background-color: #ffffff;
             color: #003B95;
         }
-        #installApp:hover {
-            background-color: #f0f0f0;
-        }
         #cancelInstall {
             background-color: transparent;
-            color: #ffffff;
-            border: 1px solid #ffffff;
-        }
-        #cancelInstall:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid #fff;
         }
         #cookie-consent {
             position: fixed;
@@ -159,14 +139,13 @@
     </div>
 
     <div id="installBanner">
-        <div class="banner-content">
-            <div class="logo-text">
-                <img src="/assets/images/nairobifeastlogo(144).png" alt="Nairobi Feast Logo" class="logo">
+        <div class="install-content">
+            <div class="install-text">
                 <p>Welcome to Nairobi Feast. You can now install as a site!</p>
             </div>
-            <div class="buttons">
-                <button id="installApp">Install Now</button>
-                <button id="cancelInstall">Maybe Later</button>
+            <div class="install-buttons">
+                <button id="installApp" class="install-button">Install Now</button>
+                <button id="cancelInstall" class="install-button">Maybe Later</button>
             </div>
         </div>
     </div>
@@ -433,39 +412,32 @@
         function checkCookieConsent() {
             if (getCookie('cookieConsent') === null) {
                 showCookieConsent();
+            } else {
+                setTimeout(checkInstallBanner, 4000);
             }
         }
 
         function checkInstallBanner() {
-            if (deferredPrompt && getCookie('cookieConsent') !== null) {
-                let scrolled = false;
-                window.addEventListener('scroll', () => {
-                    if (!scrolled) {
-                        scrolled = true;
-                        setTimeout(() => {
-                            installBanner.classList.add('show');
-                        }, 4000);
-                    }
-                }, { once: true });
+            if (deferredPrompt) {
+                installBanner.classList.add('show');
             }
         }
 
         acceptCookies.addEventListener('click', () => {
             setCookie('cookieConsent', 'accepted', 365);
             hideCookieConsent();
-            checkInstallBanner();
+            setTimeout(checkInstallBanner, 4000);
         });
 
         rejectCookies.addEventListener('click', () => {
             setCookie('cookieConsent', 'rejected', 365);
             hideCookieConsent();
-            checkInstallBanner();
+            setTimeout(checkInstallBanner, 4000);
         });
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            checkInstallBanner();
         });
 
         installApp.addEventListener('click', async () => {
