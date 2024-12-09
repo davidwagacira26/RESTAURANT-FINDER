@@ -373,11 +373,71 @@
         const installBanner = document.getElementById('installBanner');
         const installApp = document.getElementById('installApp');
         const cancelInstall = document.getElementById('cancelInstall');
+        const cookieConsent = document.getElementById('cookie-consent');
+        const acceptCookies = document.getElementById('accept-cookies');
+        const rejectCookies = document.getElementById('reject-cookies');
+        const cookieOverlay = document.getElementById('cookie-overlay');
+
+        function showCookieConsent() {
+            cookieConsent.style.display = 'block';
+            cookieOverlay.style.display = 'block';
+        }
+
+        function hideCookieConsent() {
+            cookieConsent.style.display = 'none';
+            cookieOverlay.style.display = 'none';
+        }
+
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            let nameEQ = name + "=";
+            let ca = document.cookie.split(';');
+            for(let i=0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function checkCookieConsent() {
+            if (getCookie('cookieConsent') === null) {
+                showCookieConsent();
+            } else {
+                setTimeout(checkInstallBanner, 4000);
+            }
+        }
+
+        function checkInstallBanner() {
+            if (deferredPrompt) {
+                installBanner.classList.add('show');
+            }
+        }
+
+        acceptCookies.addEventListener('click', () => {
+            setCookie('cookieConsent', 'accepted', 365);
+            hideCookieConsent();
+            setTimeout(checkInstallBanner, 4000);
+        });
+
+        rejectCookies.addEventListener('click', () => {
+            setCookie('cookieConsent', 'rejected', 365);
+            hideCookieConsent();
+            setTimeout(checkInstallBanner, 4000);
+        });
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            installBanner.classList.add('show');
         });
 
         installApp.addEventListener('click', async () => {
@@ -398,6 +458,9 @@
             console.log('PWA was installed');
             installBanner.classList.remove('show');
         });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', checkCookieConsent);
     </script>
 </body>
 </html>
